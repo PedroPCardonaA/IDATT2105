@@ -5,7 +5,9 @@ import lombok.Setter;
 
 @Getter @Setter
 public class Item {
-    private int itemId;
+    private long itemId;
     private long ownerId;
     private String description;
+
+    private String sourcePath;
 }
