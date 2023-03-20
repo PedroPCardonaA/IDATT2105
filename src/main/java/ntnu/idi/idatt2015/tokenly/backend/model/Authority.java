@@ -4,9 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-public class Chat {
-    private long chatId;
-    private String sellerName;
-    private String buyerName;
+public class Authority {
+    private String username;
+    private String authority;
 
 }

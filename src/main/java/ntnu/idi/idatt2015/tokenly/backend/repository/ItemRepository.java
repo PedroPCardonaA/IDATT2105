@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface ItemRepository {
     void save(Item item);
     Optional<Item> getItemById(long id);
-    Optional<List<Item>> getAllItemsByOwnerId(long ownerId);
+    Optional<List<Item>> getAllItemsByOwnerName(String ownerName);
 
     Optional<List<Item>> getAll();
 }

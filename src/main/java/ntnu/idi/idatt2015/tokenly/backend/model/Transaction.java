@@ -8,8 +8,8 @@ import java.sql.Time;
 
 @Getter @Setter
 public class Transaction {
-    private long sellerId;
-    private long buyerId;
+    private String sellerName;
+    private String buyerName;
     private double transactionPrice;
     private Time transactionTime;
     private Date transactionDate;

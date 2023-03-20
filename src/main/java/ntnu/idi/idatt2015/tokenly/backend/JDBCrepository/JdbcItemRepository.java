@@ -45,10 +45,10 @@ public class JdbcItemRepository implements ItemRepository {
     }
 
     @Override
-    public Optional<List<Item>> getAllItemsByOwnerId(long ownerId) {
-        String sql = "SELECT * FROM ITEMS WHERE OWNER_ID = :ownerId";
+    public Optional<List<Item>> getAllItemsByOwnerName(String ownerName) {
+        String sql = "SELECT * FROM ITEMS WHERE OWNER_NAME = :ownerName";
         Map<String, Object> params = new HashMap<>();
-        params.put("ownerId", ownerId);
+        params.put("ownerId", ownerName);
         try {
             List<Item> items =
                     namedParameterJdbcTemplate.query(sql, params, new BeanPropertyRowMapper<>(Item.class));
