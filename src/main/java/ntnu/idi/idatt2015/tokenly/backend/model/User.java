@@ -12,7 +12,9 @@ public class User {
     private String lastname;
     private String email;
     private String password;
-    private double balance;
     private Timestamp creationTime;
+    private double balance;
+    private int avatarNumber;
+
 }
 
