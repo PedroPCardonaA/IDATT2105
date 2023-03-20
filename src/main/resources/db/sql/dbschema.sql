@@ -18,8 +18,8 @@ CREATE TABLE profiles (
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL UNIQUE,
-    birthdate DATE NOT NULL
-    CONSTRAINT fk_authorities_users FOREIGN KEY (username) REFERENCES users (username)
+    birthdate DATE NOT NULL,
+    CONSTRAINT fk_profile_user FOREIGN KEY (username) REFERENCES users (username)
 );
 
 CREATE UNIQUE INDEX ix_profiles_username ON profiles (username, id);

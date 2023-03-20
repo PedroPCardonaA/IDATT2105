@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface WishListInterface {
     void saveWish( long userId, long itemId);
-    List<User> getAllUserThatWantTheItem(long itemId);
+    //List<User> getAllUserThatWantTheItem(long itemId);
     List<Item> getAllTheItemsWantedByUser(long userId);
 }
