@@ -1,10 +1,10 @@
 INSERT INTO users (username, password, enabled)
 VALUES 
-	('john', 'password123', true),
-	('jane', 'password456', true),
-	('bob', 'password789', true),
-	('alice', 'password111', true),
-	('tom', 'password222', true);
+	('john', '{noop}password123', true),
+	('jane', '{noop}password456', true),
+	('bob', '{noop}password789', true),
+	('alice', '{noop}password111', true),
+	('tom', '{noop}password222', true);
 
 INSERT INTO authorities (username, authority)
 VALUES 
