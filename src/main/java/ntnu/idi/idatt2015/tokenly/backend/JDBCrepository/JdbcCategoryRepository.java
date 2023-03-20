@@ -1,7 +1,6 @@
 package ntnu.idi.idatt2015.tokenly.backend.JDBCrepository;
 
 import ntnu.idi.idatt2015.tokenly.backend.model.Category;
-import ntnu.idi.idatt2015.tokenly.backend.model.User;
 import ntnu.idi.idatt2015.tokenly.backend.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
