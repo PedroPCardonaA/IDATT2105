@@ -2,7 +2,6 @@ package ntnu.idi.idatt2015.tokenly.backend.JDBCrepository;
 
 import ntnu.idi.idatt2015.tokenly.backend.model.User;
 import ntnu.idi.idatt2015.tokenly.backend.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -12,11 +11,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-public class JDBCUserRepository implements UserRepository {
+public class JdbcUserRepository implements UserRepository {
+
 
     final private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
-    public JDBCUserRepository (JdbcTemplate jdbcTemplate){
+    public JdbcUserRepository(JdbcTemplate jdbcTemplate){
         this.namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
     }
 

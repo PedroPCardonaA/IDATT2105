@@ -15,4 +15,5 @@ public class Listing {
     private Time publicationTime;
     private Date publicationDate;
     private boolean isClosed;
+    private int visits;
 }
