@@ -3,20 +3,25 @@ package ntnu.idi.idatt2015.tokenly.backend.JDBCrepository;
 import ntnu.idi.idatt2015.tokenly.backend.model.Category;
 import ntnu.idi.idatt2015.tokenly.backend.model.User;
 import ntnu.idi.idatt2015.tokenly.backend.repository.CategoryRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+@Repository
 public class JdbcCategoryRepository implements CategoryRepository {
+
 
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
+    @Autowired
     public JdbcCategoryRepository(JdbcTemplate jdbcTemplate) {
         this.namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
     }
@@ -24,7 +29,11 @@ public class JdbcCategoryRepository implements CategoryRepository {
 
     @Override
     public void save(Category category) {
-
+        String sql = "INSERT INTO CATEGORIES (CATEGORY_NAME, DESCRIPTION) VALUES (:name, :description)";
+        Map<String, Object> params = new HashMap<>();
+        params.put("name", category.getName());
+        params.put("description", category.getDescription());
+        this.namedParameterJdbcTemplate.update(sql,params);
     }
 
     @Override
