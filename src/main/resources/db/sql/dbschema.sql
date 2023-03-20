@@ -67,12 +67,14 @@ CREATE TABLE listings (
 
 CREATE TABLE messages (
     message_id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    senderName VARCHAR(50) NOT NULL,
     chat_id BIGINT NOT NULL,
     message VARCHAR(255) NOT NULL,
     message_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     is_deleted BOOLEAN NOT NULL DEFAULT FALSE,
     seen BOOLEAN NOT NULL DEFAULT FALSE,
-    FOREIGN KEY (chat_id) REFERENCES chats (chat_id)
+    FOREIGN KEY (chat_id) REFERENCES chats (chat_id),
+    FOREIGN KEY (senderName) REFERENCES users (username)
 );
 
 CREATE TABLE transactions (
