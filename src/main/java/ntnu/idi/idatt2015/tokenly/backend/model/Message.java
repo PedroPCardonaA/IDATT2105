@@ -3,8 +3,7 @@ package ntnu.idi.idatt2015.tokenly.backend.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.sql.Date;
-import java.sql.Time;
+import java.sql.Timestamp;
 
 @Getter @Setter
 public class Message {
@@ -12,9 +11,7 @@ public class Message {
     private long chatId;
     private String message;
 
-    /* TIME and DATE are from the library JAVA.SQL*/
-    private Time messageTime;
+    private Timestamp messageTime;
 
-    private Date messageDate;
     private boolean isDeleted;
 }

@@ -12,6 +12,18 @@ CREATE TABLE authorities (
 
 CREATE UNIQUE INDEX ix_auth_username ON authorities (username, authority);
 
+CREATE TABLE profiles (
+    id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL UNIQUE,
+    birthdate DATE NOT NULL,
+    CONSTRAINT fk_profile_user FOREIGN KEY (username) REFERENCES users (username)
+);
+
+CREATE UNIQUE INDEX ix_profiles_username ON profiles (username, id);
+
 CREATE TABLE categories (
     category_id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     category_name VARCHAR(20) NOT NULL UNIQUE,

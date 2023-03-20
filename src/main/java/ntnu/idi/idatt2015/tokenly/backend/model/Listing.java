@@ -3,8 +3,7 @@ package ntnu.idi.idatt2015.tokenly.backend.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.sql.Date;
-import java.sql.Time;
+import java.sql.Timestamp;
 
 @Getter @Setter
 public class Listing {
@@ -12,7 +11,7 @@ public class Listing {
     private long itemId;
     private Double minPrice;
     private Double maxPrice;
-    private Time publicationTime;
-    private Date publicationDate;
+    private Timestamp publicationTime;
     private boolean isClosed;
+    private int visits;
 }
