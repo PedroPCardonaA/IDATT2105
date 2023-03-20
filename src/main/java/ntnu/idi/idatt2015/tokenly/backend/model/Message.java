@@ -10,8 +10,7 @@ public class Message {
     private long messageId;
     private long chatId;
     private String message;
-
     private Timestamp messageTime;
-
     private boolean isDeleted;
+    private boolean seen;
 }

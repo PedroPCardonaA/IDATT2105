@@ -71,6 +71,7 @@ CREATE TABLE messages (
     message VARCHAR(255) NOT NULL,
     message_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     is_deleted BOOLEAN NOT NULL DEFAULT FALSE,
+    seen BOOLEAN NOT NULL DEFAULT FALSE,
     FOREIGN KEY (chat_id) REFERENCES chats (chat_id)
 );
 
