@@ -48,7 +48,7 @@ public class JdbcItemRepository implements ItemRepository {
     public Optional<List<Item>> getAllItemsByOwnerName(String ownerName) {
         String sql = "SELECT * FROM ITEMS WHERE OWNER_NAME = :ownerName";
         Map<String, Object> params = new HashMap<>();
-        params.put("ownerId", ownerName);
+        params.put("ownerName", ownerName);
         try {
             List<Item> items =
                     namedParameterJdbcTemplate.query(sql, params, new BeanPropertyRowMapper<>(Item.class));
