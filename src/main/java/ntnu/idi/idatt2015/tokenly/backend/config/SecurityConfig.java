@@ -24,21 +24,24 @@ import javax.sql.DataSource;
 import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
-@EnableWebSecurity
 public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .securityMatchers((matchers) -> matchers
+                /*.securityMatchers((matchers) -> matchers
                         .requestMatchers("/h2-console/**", "/"))
                 .csrf((csrf) -> csrf.ignoringRequestMatchers("/h2-console/**"))
-                .headers((headers) -> headers.frameOptions().sameOrigin())
+                .headers((headers) -> headers.frameOptions().sameOrigin())*/
                 .authorizeHttpRequests((authorize) -> authorize
+                        .requestMatchers("/h2-console/").permitAll()
                         .anyRequest().authenticated())
+                .csrf((csrf) -> csrf.disable())
+                .headers((headers) -> headers.frameOptions().sameOrigin())
                 /*.formLogin((form) -> form
                         .loginPage("/login")
                         .permitAll())*/
+                .formLogin(withDefaults())
                 .httpBasic();
          return http.build();
     }
