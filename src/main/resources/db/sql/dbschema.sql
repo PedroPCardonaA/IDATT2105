@@ -19,6 +19,7 @@ CREATE TABLE profiles (
     last_name VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL UNIQUE,
     birthdate DATE NOT NULL,
+    creation_time TIMESTAMP NOT NULL DEFAULT current_timestamp,
     CONSTRAINT fk_profile_user FOREIGN KEY (username) REFERENCES users (username)
 );
 
