@@ -1,9 +1,8 @@
 package ntnu.idi.idatt2015.tokenly.backend.config;
 
-import com.nimbusds.jose.jwk.JWK;
+import com.nimbusds.jose.JOSEException;
 import com.nimbusds.jose.jwk.JWKSet;
 import com.nimbusds.jose.jwk.RSAKey;
-import com.nimbusds.jose.jwk.source.ImmutableJWKSet;
 import com.nimbusds.jose.jwk.source.JWKSource;
 import com.nimbusds.jose.proc.SecurityContext;
 import org.springframework.context.annotation.Bean;
@@ -15,6 +14,7 @@ import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.annotation.web.configurers.oauth2.server.resource.OAuth2ResourceServerConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.User;
@@ -33,21 +33,16 @@ import javax.sql.DataSource;
 
 @Configuration
 public class SecurityConfig {
-    private final RsaKeyProperties jwtConfigProperties;
 
-    public SecurityConfig(RsaKeyProperties jwtConfigProperties) {
-        this.jwtConfigProperties = jwtConfigProperties;
+    private RSAKey rsaKey;
+
+    @Bean
+    public JwtDecoder jwtDecoder() throws JOSEException {
+        return NimbusJwtDecoder.withPublicKey(rsaKey.toRSAPublicKey()).build();
     }
 
     @Bean
-    public JwtDecoder jwtDecoder() {
-        return NimbusJwtDecoder.withPublicKey(jwtConfigProperties.publicKey()).build();
-    }
-
-    @Bean
-    public JwtEncoder jwtEncoder() {
-        JWK jwk = new RSAKey.Builder(jwtConfigProperties.publicKey()).privateKey(jwtConfigProperties.privateKey()).build();
-        JWKSource<SecurityContext> jwks = new ImmutableJWKSet<>(new JWKSet(jwk));
+    public JwtEncoder jwtEncoder(JWKSource<SecurityContext> jwks) {
         return new NimbusJwtEncoder(jwks);
     }
 
@@ -61,22 +56,29 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
-                .csrf(csrf -> csrf.disable())
+                .csrf(AbstractHttpConfigurer::disable)
                 .headers(header -> header.frameOptions().sameOrigin())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/h2-console/").permitAll()
+                        .requestMatchers("/h2-console", "/h2-console/", "/token").permitAll()
                         .anyRequest().authenticated()
                 )
-                .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .httpBasic(Customizer.withDefaults())
+                .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)     
                 .build();
+    }
+
+    @Bean
+    public JWKSource<SecurityContext> jwkSource() {
+        rsaKey = Jwks.generateRsa();
+        JWKSet jwkSet = new JWKSet(rsaKey);
+        return ((jwkSelector, securityContext) -> jwkSelector.select(jwkSet));
     }
 
     @Bean
     public PasswordEncoder encoder() {
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
+
     @Bean
     public DataSource dataSource() {
         return new EmbeddedDatabaseBuilder()
@@ -89,20 +91,6 @@ public class SecurityConfig {
                 .addScript("db/sql/testdata.sql")
                 .build();
     }
-
-    /*@Bean
-    public JdbcUserDetailsManager users(DataSource dataSource) {
-        JdbcUserDetailsManager jdbcUserDetailsManager = new JdbcUserDetailsManager(dataSource);
-        UserDetails user = User.builder()
-                .username("admin")
-                .password(encoder().encode("pw"))
-                .roles("USER", "ADMIN")
-                .build();
-        jdbcUserDetailsManager.createUser(user);
-        return jdbcUserDetailsManager;
-    }*/
-
-
 
     @Bean
     public UserDetailsService users(DataSource dataSource) {
@@ -124,6 +112,7 @@ public class SecurityConfig {
         JdbcUserDetailsManager users = new JdbcUserDetailsManager(dataSource);
         users.createUser(user);
         users.createUser(admin);
+
         return users;
     }
 }
