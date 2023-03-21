@@ -1,4 +1,4 @@
-package ntnu.idi.idatt2015.tokenly.backend.config;
+package ntnu.idi.idatt2015.tokenly.backend.security;
 
 import org.springframework.stereotype.Component;
 
