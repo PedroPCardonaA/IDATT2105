@@ -61,13 +61,13 @@ VALUES
 	(4, 50, 100, 5),
 	(5, 20, 50, 100);
 
-INSERT INTO messages (chat_id, message, is_deleted)
+INSERT INTO messages (chat_id,senderName, message, is_deleted)
 VALUES 
-	(1, 'Hi John, is the iPhone still available?', false),
-	(2, 'Hi Alice, I am interested in the dining table.', false),
-	(3, 'Hi Tom, can you lower the price for the basketball?', false),
-	(4, 'Hi Jane, I loved The Great Gatsby, thank you for selling it!', false),
-	(5, 'Hi Bob, I am interested in the basketball, can you tell me more about it?', false);
+	(1,'jane', 'Hi John, is the iPhone still available?', false),
+	(2,'bob', 'Hi Alice, I am interested in the dining table.', false),
+	(3,'bob', 'Hi Tom, can you lower the price for the basketball?', false),
+	(4,'john', 'Hi Jane, I loved The Great Gatsby, thank you for selling it!', false),
+	(5,'alice', 'Hi Bob, I am interested in the basketball, can you tell me more about it?', false);
 
 INSERT INTO transactions (listing_id, seller_name, buyer_name, transaction_price)
 VALUES
