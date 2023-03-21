@@ -15,4 +15,5 @@ public interface ListingsRepository {
     Optional<List<Listing>> getByMinPrice(double minPrice);
     Optional<List<Listing>> getByMaxPrice(double maxPrice);
     Optional<List<Listing>> getByCategory(String category);
+    Optional<List<Listing>> getByPartialItemName(String name);
 }

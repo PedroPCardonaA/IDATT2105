@@ -1,5 +1,6 @@
 package ntnu.idi.idatt2015.tokenly.backend.JDBCrepository;
 
+import ntnu.idi.idatt2015.tokenly.backend.model.Category;
 import ntnu.idi.idatt2015.tokenly.backend.model.Listing;
 import ntnu.idi.idatt2015.tokenly.backend.repository.ListingsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -111,9 +112,9 @@ public class JdbcListingsRepository implements ListingsRepository {
 
     @Override
     public Optional<List<Listing>> getByCategory(String category) {
-        String sql = "SELECT * FROM LISTING WHERE ITEM_ID IN (SELECT ITEM_ID FROM ITEM WHERE ITEM_ID IN (SELECT ITEM_ID FROM " +
+        String sql = "SELECT * FROM LISTINGS WHERE ITEM_ID IN (SELECT ITEM_ID FROM ITEMS WHERE ITEM_ID IN (SELECT ITEM_ID FROM " +
                 "ITEMS_CATEGORIES WHERE CATEGORY_ID IN (SELECT CATEGORY_ID FROM CATEGORIES WHERE CATEGORY_NAME = :categoryName)))";
-        Map<String,Object> params = new HashMap<>();
+        Map<String, Object> params = new HashMap<>();
         params.put("categoryName",category);
         try{
             List<Listing> listings = namedParameterJdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Listing.class));
@@ -124,5 +125,17 @@ public class JdbcListingsRepository implements ListingsRepository {
     }
 
 
-
+    @Override
+    public Optional<List<Listing>> getByPartialItemName(String name) {
+        String sql = "SELECT * FROM LISTINGS WHERE ITEM_ID IN(SELECT ITEM_ID FROM ITEMS WHERE ITEM_NAME = :name )";
+        Map<String, Object> params = new HashMap<>();
+        params.put("name", "%" + name + "%");
+        try {
+            List<Listing> listings =
+                    namedParameterJdbcTemplate.query(sql, params, new BeanPropertyRowMapper<>(Listing.class));
+            return Optional.of(listings);
+        } catch (Exception e) {
+            return Optional.empty();
+        }
+    }
 }
