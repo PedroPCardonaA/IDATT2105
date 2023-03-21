@@ -15,4 +15,5 @@ public class Profile {
     private String email;
     private Date birthdate;
     private Timestamp creationTime;
+    private Double balance;
 }
