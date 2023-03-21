@@ -28,6 +28,8 @@ import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.security.oauth2.jwt.NimbusJwtEncoder;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.servlet.util.matcher.MvcRequestMatcher;
+import org.springframework.web.servlet.handler.HandlerMappingIntrospector;
 
 import javax.sql.DataSource;
 
@@ -35,6 +37,10 @@ import javax.sql.DataSource;
 public class SecurityConfig {
 
     private RSAKey rsaKey;
+
+    private static final String[] AUTH_WHITELIST = {
+            "/token",
+    };
 
     @Bean
     public JwtDecoder jwtDecoder() throws JOSEException {
@@ -54,12 +60,15 @@ public class SecurityConfig {
     }
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain filterChain(HttpSecurity http, HandlerMappingIntrospector introspector) throws Exception {
+        MvcRequestMatcher h2RequestMatcher = new MvcRequestMatcher(introspector, "/**");
+        h2RequestMatcher.setServletPath("/h2-console");
         return http
                 .csrf(AbstractHttpConfigurer::disable)
                 .headers(header -> header.frameOptions().sameOrigin())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/h2-console", "/h2-console/", "/token").permitAll()
+                        .requestMatchers(h2RequestMatcher).permitAll()
+                        .requestMatchers(AUTH_WHITELIST).permitAll()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
