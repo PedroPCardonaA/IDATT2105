@@ -36,6 +36,8 @@ CREATE TABLE chats (
     chat_id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     seller_name VARCHAR(50) NOT NULL,
     buyer_name VARCHAR(50) NOT NULL,
+    listing_id BIGINT default NULL,
+    FOREIGN KEY (listing_id) REFERENCES listings(listing_id),
     FOREIGN KEY (seller_name) REFERENCES users (username),
     FOREIGN KEY (buyer_name) REFERENCES users (username)
 );
@@ -97,4 +99,14 @@ CREATE TABLE wish_list (
     CONSTRAINT PK_wish_list PRIMARY KEY (item_id, username),
     FOREIGN KEY (item_id) REFERENCES items (item_id),
     FOREIGN KEY (username) REFERENCES users (username)
+);
+
+CREATE TABLE bid(
+  bid_id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  listing_id BIGINT NOT NULL,
+  buyer_name VARCHAR(50) NOT NULL,
+  price DOUBLE NOT NULL,
+  bid_time TIMESTAMP not null default CURRENT_TIMESTAMP,
+  FOREIGN KEY (buyer_name) REFERENCES users(username),
+  FOREIGN KEY (listing_id) REFERENCES listings(listing_id)
 );

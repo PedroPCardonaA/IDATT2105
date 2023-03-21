@@ -84,3 +84,11 @@ VALUES
 (2, 'alice'),
 (5, 'tom'),
 (3, 'john');
+
+INSERT INTO bid (listing_id, buyer_name, price)
+VALUES
+    (1, 'alice', 50.00),
+    (2, 'bob', 30.00),
+    (3, 'john', 100.00),
+    (4, 'jane', 75.00),
+    (5, 'tom', 20.00);
