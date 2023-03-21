@@ -44,6 +44,7 @@ CREATE TABLE chats (
 
 CREATE TABLE items (
     item_id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    item_name VARCHAR(255) NOT NULL,
     owner_name VARCHAR(50) NOT NULL,
     description VARCHAR(255) NOT NULL,
     source_path VARCHAR(255) NOT NULL UNIQUE,

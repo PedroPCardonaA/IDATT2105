@@ -37,15 +37,15 @@ VALUES
 	('alice', 'john'),
 	('tom', 'bob');
 
-INSERT INTO items (owner_name, description, source_path)
+INSERT INTO items (owner_name,item_name, description, source_path)
 VALUES 
-	('john', 'iPhone X', '/images/iphone.jpg'),
-	('jane', 'Leather Jacket', '/images/jacket.jpg'),
-	('bob', 'Dining Table', '/images/table.jpg'),
-	('alice', 'The Great Gatsby', '/images/book.jpg'),
-	('tom', 'Basketball', '/images/ball.jpg');
+	('john', 'iPhone X','Very good quality and almost new!', '/images/iphone.jpg'),
+	('jane', 'Leather Jacket','The best option to get some chicks!', '/images/jacket.jpg'),
+	('bob', 'Dining Table', 'Elegant 1850 dining table','/images/table.jpg'),
+	('alice', 'The Great Gatsby','A good movie' ,'/images/book.jpg'),
+	('tom', 'Basketball','A basketball used by Michael Jordan', '/images/ball.jpg');
 
-INSERT INTO items_category (item_id, category_id)
+INSERT INTO items_categories (item_id, category_id)
 VALUES 
 	(1, 1),
 	(2, 2),
