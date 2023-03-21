@@ -38,8 +38,8 @@ public class SecurityConfig {
     private RSAKey rsaKey;
 
     private static final String[] AUTH_WHITELIST = {
-            "/token",
-            "/user/register"
+            "/api/token",
+            "/api/user/register"
     };
 
     @Bean

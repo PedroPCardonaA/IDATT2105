@@ -9,9 +9,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/api/user")
 public class UserCreationController {
     private final PasswordEncoder passwordEncoder;
     private final JdbcUserDetailsManager jdbcUserDetailsManager;
@@ -21,7 +23,7 @@ public class UserCreationController {
         this.jdbcUserDetailsManager = userDetailsService;
     }
 
-    @PostMapping("/user/register")
+    @PostMapping("/register")
     public ResponseEntity<?> createUser(@RequestBody UserCreationRequest user) {
         try {
             String username = user.username();
