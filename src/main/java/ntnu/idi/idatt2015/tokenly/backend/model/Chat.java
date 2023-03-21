@@ -8,6 +8,7 @@ import java.util.List;
 @Getter @Setter
 public class Chat {
     private long chatId;
+    private long listingId;
     private String sellerName;
     private String buyerName;
     private List<Message> messages;

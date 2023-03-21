@@ -19,6 +19,7 @@ CREATE TABLE profiles (
     last_name VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL UNIQUE,
     birthdate DATE NOT NULL,
+    avatar_id INT NOT NULL DEFAULT 0,
     creation_time TIMESTAMP NOT NULL DEFAULT current_timestamp,
     balance DOUBLE NOT NULL DEFAULT 0.0,
     CONSTRAINT fk_profile_user FOREIGN KEY (username) REFERENCES users (username)
@@ -36,19 +37,21 @@ CREATE TABLE chats (
     chat_id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     seller_name VARCHAR(50) NOT NULL,
     buyer_name VARCHAR(50) NOT NULL,
+    listing_id BIGINT default NULL,
     FOREIGN KEY (seller_name) REFERENCES users (username),
     FOREIGN KEY (buyer_name) REFERENCES users (username)
 );
 
 CREATE TABLE items (
     item_id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    item_name VARCHAR(255) NOT NULL,
     owner_name VARCHAR(50) NOT NULL,
     description VARCHAR(255) NOT NULL,
     source_path VARCHAR(255) NOT NULL UNIQUE,
     FOREIGN KEY (owner_name) REFERENCES users (username)
 );
 
-CREATE TABLE items_category (
+CREATE TABLE items_categories (
     item_id BIGINT NOT NULL,
     category_id BIGINT NOT NULL,
     CONSTRAINT PK_items_category PRIMARY KEY (item_id, category_id),
@@ -97,4 +100,14 @@ CREATE TABLE wish_list (
     CONSTRAINT PK_wish_list PRIMARY KEY (item_id, username),
     FOREIGN KEY (item_id) REFERENCES items (item_id),
     FOREIGN KEY (username) REFERENCES users (username)
+);
+
+CREATE TABLE bid(
+  bid_id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  listing_id BIGINT NOT NULL,
+  buyer_name VARCHAR(50) NOT NULL,
+  price DOUBLE NOT NULL,
+  bid_time TIMESTAMP not null default CURRENT_TIMESTAMP,
+  FOREIGN KEY (buyer_name) REFERENCES users(username),
+  FOREIGN KEY (listing_id) REFERENCES listings(listing_id)
 );

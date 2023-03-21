@@ -8,6 +8,7 @@ import java.util.List;
 @Getter @Setter
 public class Item {
     private long itemId;
+    private String itemName;
     private String ownerName;
     private String description;
     private String sourcePath;
