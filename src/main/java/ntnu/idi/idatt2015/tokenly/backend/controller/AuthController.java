@@ -1,3 +1,7 @@
+/**
+ * ntnu.idi.idatt2015.tokenly.backend.controller
+ * Provides classes related to handling HTTP requests in the application.
+ */
 package ntnu.idi.idatt2015.tokenly.backend.controller;
 
 import ntnu.idi.idatt2015.tokenly.backend.model.LoginRequest;
@@ -15,6 +19,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * AuthController is a REST controller responsible for managing user authentication and token generation.
+ * It exposes an endpoint for token generation based on user credentials.
+ */
 @RestController
 @RequestMapping("/api/user")
 public class AuthController {
@@ -24,11 +32,25 @@ public class AuthController {
     private final TokenService tokenService;
     private final AuthenticationManager authenticationManager;
 
+    /**
+     * Constructs a new AuthController with the specified TokenService and AuthenticationManager.
+     * The parameters may be autowired by Spring BOOT.
+     *
+     * @param tokenService The TokenService instance responsible for generating tokens.
+     * @param authenticationManager The AuthenticationManager instance responsible for authenticating user credentials.
+     */
     public AuthController(TokenService tokenService, AuthenticationManager authenticationManager) {
         this.tokenService = tokenService;
         this.authenticationManager = authenticationManager;
     }
 
+    /**
+     * Generates a token for the given user login request if the authentication is successful.
+     *
+     * @param userLogin A LoginRequest object containing the user's username and password.
+     * @return A ResponseEntity containing the generated token or an error message.
+     * @throws AuthenticationException If an authentication error occurs.
+     */
     @PostMapping("/token")
     public ResponseEntity<?> token(@RequestBody LoginRequest userLogin) throws AuthenticationException {
         try {
