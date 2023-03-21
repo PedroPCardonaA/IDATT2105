@@ -39,6 +39,7 @@ public class SecurityConfig {
 
     private static final String[] AUTH_WHITELIST = {
             "/token",
+            "/user/register"
     };
 
     @Bean
@@ -99,28 +100,8 @@ public class SecurityConfig {
                 .addScript("db/sql/testdata.sql")
                 .build();
     }
-
     @Bean
-    public UserDetailsService users(DataSource dataSource) {
-        String userPw =  encoder().encode("userpw");
-        System.out.println(userPw);
-        UserDetails user = User.builder()
-                .username("user")
-                .password(userPw)
-                .roles("USER")
-                .build();
-        String adminPw = encoder().encode("adminpw");
-        System.out.println(adminPw);
-        UserDetails admin = User.builder()
-                .username("admin")
-                .password(adminPw)
-                .roles("USER","ADMIN")
-                .build();
-
-        JdbcUserDetailsManager users = new JdbcUserDetailsManager(dataSource);
-        users.createUser(user);
-        users.createUser(admin);
-
-        return users;
+    public JdbcUserDetailsManager userDetails(DataSource dataSource) {
+        return new JdbcUserDetailsManager(dataSource);
     }
 }
