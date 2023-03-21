@@ -59,7 +59,7 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
                 .csrf(csrf -> csrf.disable())
-                .headers(headers -> headers.frameOptions().sameOrigin())
+                .headers(header -> header.frameOptions().sameOrigin())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/h2-console/").permitAll()
                         .anyRequest().authenticated()
