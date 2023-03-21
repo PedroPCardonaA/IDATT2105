@@ -3,14 +3,16 @@ package ntnu.idi.idatt2015.tokenly.backend.repository;
 import ntnu.idi.idatt2015.tokenly.backend.model.Listing;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ListingsRepository {
     void save (Listing listing);
-    Listing getByListingId(long id);
-    List<Listing> getByItemId(long id);
-    List<Listing> getAll();
-    List<Listing> getAllOpened();
-    List<Listing> getAllClosed();
-    List<Listing> getByMinPrice(double minPrice);
-    List<Listing> getByMaxPrice(double maxPrice);
+    Optional<Listing> getByListingId(long id);
+    Optional<List<Listing>> getByItemId(long id);
+    Optional<List<Listing>> getAll();
+    Optional<List<Listing>> getAllOpened();
+    Optional<List<Listing>> getAllClosed();
+    Optional<List<Listing>> getByMinPrice(double minPrice);
+    Optional<List<Listing>> getByMaxPrice(double maxPrice);
+    Optional<List<Listing>> getByCategory(String category);
 }

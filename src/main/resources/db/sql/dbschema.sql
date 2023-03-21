@@ -19,6 +19,7 @@ CREATE TABLE profiles (
     last_name VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL UNIQUE,
     birthdate DATE NOT NULL,
+    avatar_id INT NOT NULL DEFAULT 0,
     creation_time TIMESTAMP NOT NULL DEFAULT current_timestamp,
     balance DOUBLE NOT NULL DEFAULT 0.0,
     CONSTRAINT fk_profile_user FOREIGN KEY (username) REFERENCES users (username)
@@ -37,7 +38,6 @@ CREATE TABLE chats (
     seller_name VARCHAR(50) NOT NULL,
     buyer_name VARCHAR(50) NOT NULL,
     listing_id BIGINT default NULL,
-    FOREIGN KEY (listing_id) REFERENCES listings(listing_id),
     FOREIGN KEY (seller_name) REFERENCES users (username),
     FOREIGN KEY (buyer_name) REFERENCES users (username)
 );
@@ -50,7 +50,7 @@ CREATE TABLE items (
     FOREIGN KEY (owner_name) REFERENCES users (username)
 );
 
-CREATE TABLE items_category (
+CREATE TABLE items_categories (
     item_id BIGINT NOT NULL,
     category_id BIGINT NOT NULL,
     CONSTRAINT PK_items_category PRIMARY KEY (item_id, category_id),
