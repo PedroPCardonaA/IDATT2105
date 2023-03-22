@@ -14,18 +14,34 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+/**
+ * This class implements the CategoryRepository interface using JDBC to communicate with a database.
+ *
+ * @author tokenly-team
+ * @version 1.0
+ * @since 22.03.2023
+ */
 @Repository
 public class JdbcCategoryRepository implements CategoryRepository {
 
 
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
+    /**
+     * Constructs a new JdbcCategoryRepository object with the specified JdbcTemplate.
+     *
+     * @param jdbcTemplate the JdbcTemplate to use for database communication
+     */
     @Autowired
     public JdbcCategoryRepository(JdbcTemplate jdbcTemplate) {
         this.namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
     }
 
-
+    /**
+     * Saves a Category object to the repository.
+     *
+     * @param category the Category object to save
+     */
     @Override
     public void save(Category category) {
         String sql = "INSERT INTO CATEGORIES (CATEGORY_NAME, DESCRIPTION) VALUES (:name, :description)";
@@ -35,6 +51,12 @@ public class JdbcCategoryRepository implements CategoryRepository {
         this.namedParameterJdbcTemplate.update(sql,params);
     }
 
+    /**
+     * Retrieves the Category object in the repository with the specified ID.
+     *
+     * @param id the ID of the Category object to retrieve
+     * @return an Optional containing the Category object with the specified ID, or an empty Optional if no Category object exists with the specified ID
+     */
     @Override
     public Optional<Category> getCategoryById(int id) {
         String sql = "SELECT * FROM CATEGORIES WHERE CATEGORY_ID = :categoryId";
@@ -48,6 +70,12 @@ public class JdbcCategoryRepository implements CategoryRepository {
         }
     }
 
+    /**
+     * Retrieves the Category object in the repository with the specified name.
+     *
+     * @param name the name of the Category object to retrieve
+     * @return an Optional containing the Category object with the specified name, or an empty Optional if no Category object exists with the specified name
+     */
     @Override
     public Optional<Category> getCategoryByName(String name) {
         String sql = "SELECT * FROM CATEGORIES WHERE CATEGORY_NAME = :categoryName";
@@ -61,6 +89,12 @@ public class JdbcCategoryRepository implements CategoryRepository {
         }
     }
 
+    /**
+     * Retrieves all Category objects in the repository that have a description containing the specified string.
+     *
+     * @param description the string to match against the descriptions of Category objects
+     * @return an Optional containing a List of all Category objects with descriptions containing the specified string, or an empty Optional if no Category objects match the description
+     */
     @Override
     public Optional<List<Category>> getCategoriesByDescription(String description) {
         String sql = "SELECT * FROM CATEGORIES WHERE DESCRIPTION LIKE :description";
@@ -75,6 +109,12 @@ public class JdbcCategoryRepository implements CategoryRepository {
         }
     }
 
+    /**
+     * Retrieves all Category objects in the repository that have a name containing the specified string.
+     *
+     * @param name the string to match against the names of Category objects
+     * @return an Optional containing a List of all Category objects with names containing the specified string, or an empty Optional if no Category objects match the name
+     */
     @Override
     public Optional<List<Category>> getCategoriesByPartialName(String name) {
         String sql = "SELECT * FROM CATEGORIES WHERE CATEGORY_NAME LIKE :name";
@@ -89,6 +129,11 @@ public class JdbcCategoryRepository implements CategoryRepository {
         }
     }
 
+    /**
+     * Retrieves all Category objects in the repository.
+     *
+     * @return an Optional containing a List of all Category objects in the repository, or an empty Optional if the repository is empty
+     */
     @Override
     public Optional<List<Category>> getAll() {
         String sql = "SELECT * FROM CATEGORIES";

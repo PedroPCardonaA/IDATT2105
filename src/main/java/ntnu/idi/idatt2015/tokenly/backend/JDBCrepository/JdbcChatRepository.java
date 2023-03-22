@@ -13,17 +13,42 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+/**
+ * This is the implementation of the ChatRepository interface using JDBC to communicate with a database.
+ *
+ * @author tokenly-team
+ * @version 1.0
+ * @since 22.03.2023
+ */
 @Repository
 public class JdbcChatRepository implements ChatRepository {
     NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+
+    /**
+     * Constructor to inject JdbcTemplate dependency.
+     *
+     * @param jdbcTemplate JdbcTemplate object to be injected
+     */
     @Autowired
     public JdbcChatRepository(JdbcTemplate jdbcTemplate){
         this.namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
     }
+
+    /**
+     * Saves the given chat.
+     *
+     * @param chat Chat object to be saved
+     */
     @Override
     public void save(Chat chat) {
     }
 
+
+    /**
+     * Retrieves all chats from the database.
+     *
+     * @return Optional List of Chat objects
+     */
     @Override
     public Optional<List<Chat>> getAll() {
         String sql = "SELECT * FROM CHATS";
@@ -36,6 +61,12 @@ public class JdbcChatRepository implements ChatRepository {
 
     }
 
+    /**
+     * Retrieves all chats from the database for the given seller name.
+     *
+     * @param sellerName Name of the seller
+     * @return Optional List of Chat objects
+     */
     @Override
     public Optional<List<Chat>> getAllChatBySellerName(String sellerName) {
         String sql = "SELECT * FROM CHATS WHERE SELLER_NAME = :sellerName";
@@ -49,6 +80,12 @@ public class JdbcChatRepository implements ChatRepository {
         }
     }
 
+    /**
+     * Retrieves all chats from the database for the given buyer name.
+     *
+     * @param buyerName Name of the buyer
+     * @return Optional List of Chat objects
+     */
     @Override
     public Optional<List<Chat>> getAllChatByBuyerName(String buyerName) {
         String sql = "SELECT * FROM CHATS WHERE BUYER_NAME = :buyerName";
@@ -62,6 +99,12 @@ public class JdbcChatRepository implements ChatRepository {
         }
     }
 
+    /**
+     * Retrieves the chat from the database for the given chat id.
+     *
+     * @param chatId Id of the chat
+     * @return Optional Chat object
+     */
     @Override
     public Optional<Chat> getChatById(long chatId){
         String sql = "SELECT * FROM CHATS WHERE CHAT_ID = :chatId";

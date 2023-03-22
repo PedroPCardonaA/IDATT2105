@@ -14,21 +14,44 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+/**
+ * JdbcListingsRepository is a repository class that implements ListingsRepository.
+ *
+ * @author tokenly-team
+ * @version 1.0
+ * @since 22.03.2023
+ */
 @Repository
 public class JdbcListingsRepository implements ListingsRepository {
 
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
+    /**
+     * Constructor for JdbcListingsRepository.
+     *
+     * @param jdbcTemplate the JdbcTemplate to be used by namedParameterJdbcTemplate.
+     */
     @Autowired
     public JdbcListingsRepository(JdbcTemplate jdbcTemplate) {
         this.namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
     }
 
+    /**
+     * Saves the given listing.
+     *
+     * @param listing the listing to be saved.
+     */
     @Override
     public void save(Listing listing) {
 
     }
 
+    /**
+     * Gets the listing by the given id.
+     *
+     * @param id the id of the listing to be fetched.
+     * @return Optional of the listing.
+     */
     @Override
     public Optional<Listing> getByListingId(long id) {
         String sql = "SELECT * FROM LISTINGS WHERE LISTING_ID = :listingId";
@@ -42,6 +65,12 @@ public class JdbcListingsRepository implements ListingsRepository {
         }
     }
 
+    /**
+     * Gets the list of listings by the given item id.
+     *
+     * @param id the id of the item to be fetched.
+     * @return Optional of the list of listings.
+     */
     @Override
     public Optional<List<Listing>> getByItemId(long id) {
         String sql = "SELECT * FROM LISTINGS WHERE ITEM_ID = :itemId";
@@ -55,6 +84,11 @@ public class JdbcListingsRepository implements ListingsRepository {
         }
     }
 
+    /**
+     * Retrieves all the listings from the database.
+     *
+     * @return Optional of List of Listing object containing all the listings.
+     */
     @Override
     public Optional<List<Listing>> getAll() {
         String sql = "SELECT * FROM LISTINGS";
@@ -66,6 +100,12 @@ public class JdbcListingsRepository implements ListingsRepository {
         }
     }
 
+
+    /**
+     * Retrieves all the open listings from the database.
+     *
+     * @return Optional of List of Listing object containing all the open listings.
+     */
     @Override
     public Optional<List<Listing>> getAllOpened() {
         String sql = "SELECT * FROM LISTINGS WHERE IS_CLOSED = FALSE";
@@ -77,6 +117,11 @@ public class JdbcListingsRepository implements ListingsRepository {
         }
     }
 
+    /**
+     * Retrieves all the closed listings from the database.
+     *
+     * @return Optional of List of Listing object containing all the closed listings.
+     */
     @Override
     public Optional<List<Listing>> getAllClosed() {
         String sql = "SELECT * FROM LISTINGS WHERE IS_CLOSED = TRUE";
@@ -88,6 +133,12 @@ public class JdbcListingsRepository implements ListingsRepository {
         }
     }
 
+    /**
+     * Retrieves all the listings from the database where the minimum price is greater than or equal to the given minPrice value.
+     *
+     * @param minPrice the minimum price.
+     * @return Optional of List of Listing object containing all the listings with minimum price greater than or equal to the given minPrice value.
+     */
     @Override
     public Optional<List<Listing>> getByMinPrice(double minPrice) {
         String sql = "SELECT * FROM LISTINGS WHERE MIN_PRICE >= :minPrice ";
@@ -99,6 +150,13 @@ public class JdbcListingsRepository implements ListingsRepository {
         }
     }
 
+
+    /**
+     * Retrieves all the listings from the database where the maximum price is less than or equal to the given maxPrice value.
+     *
+     * @param maxPrice the maximum price.
+     * @return Optional of List of Listing object containing all the listings with maximum price less than or equal to the given maxPrice value.
+     */
     @Override
     public Optional<List<Listing>> getByMaxPrice(double maxPrice) {
         String sql = "SELECT * FROM LISTINGS WHERE MAX_PRICE <= :maxPrice ";
