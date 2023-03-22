@@ -1,27 +1,30 @@
 package ntnu.idi.idatt2015.tokenly.backend.controller;
 
+import ntnu.idi.idatt2015.tokenly.backend.JDBCrepository.JdbcItemRepository;
 import ntnu.idi.idatt2015.tokenly.backend.config.FileStorageConfig;
+import ntnu.idi.idatt2015.tokenly.backend.model.Item;
+import ntnu.idi.idatt2015.tokenly.backend.repository.ItemRepository;
 import ntnu.idi.idatt2015.tokenly.backend.service.FileService;
 import ntnu.idi.idatt2015.tokenly.backend.service.ImageFileService;
 import org.springframework.core.io.Resource;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.nio.file.Paths;
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/api/files")
 public class FileController {
-
-    /* TODO: Endpoint mappings must connect file to item?  */
-
+    
     private final FileService fileService;
+    private final ItemRepository itemRepository;
 
-    public FileController(ImageFileService imageFileService) {
+    public FileController(ImageFileService imageFileService, JdbcItemRepository jdbcItemRepository) {
         this.fileService = imageFileService;
+        this.itemRepository = jdbcItemRepository;
     }
 
     /* TODO: Add logger */
@@ -46,19 +49,24 @@ public class FileController {
         }
     }
 
-    /* TODO: Change PathVariable to itemId instead of fileName */
-    @GetMapping("/images/{fileName")
-    public ResponseEntity<?> serveImage(@PathVariable String fileName) {
+    @GetMapping("/images/{itemId}/image")
+    public ResponseEntity<?> serveImage(@PathVariable("itemId") Long itemId) {
         try {
-            Resource fileResource = fileService.loadFileAsResource(fileName);
-            if(fileResource == null) {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                        .body("File not found.");
+            Optional<Item> optionalItem = itemRepository.getItemById(itemId);
+
+            if (optionalItem.isPresent()) {
+                String imageUrl = optionalItem.get().getSourcePath();
+                String imageFileName = Paths.get(imageUrl).getFileName().toString();
+                Resource imageFileResource = fileService.loadFileAsResource(imageFileName);
+                return ResponseEntity.ok()
+                        .contentType(MediaType.ALL)
+                        .header(HttpHeaders.CONTENT_DISPOSITION,
+                                "inline; filename=\""
+                                        + imageFileResource.getFilename() + "\"")
+                        .body(imageFileResource);
+            } else {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Item with ID " + itemId + " not found.");
             }
-            return ResponseEntity.ok()
-                    .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\""
-                            + fileResource.getFilename() + "\"")
-                    .body(fileResource);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("An error occured while serving the file: " + e.getMessage());
