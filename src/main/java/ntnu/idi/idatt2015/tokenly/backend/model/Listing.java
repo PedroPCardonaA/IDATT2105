@@ -14,4 +14,5 @@ public class Listing {
     private Timestamp publicationTime;
     private boolean isClosed;
     private int visits;
+    private int item;
 }

@@ -68,4 +68,18 @@ public class JdbcItemRepository implements ItemRepository {
             return Optional.empty();
         }
     }
+
+    @Override
+    public Optional<List<Item>> getAllByPartialName(String itemName){
+        String sql = "SELECT * FROM ITEMS WHERE ITEM_NAME LIKE :itemName";
+        Map<String,Object> params = new HashMap<>();
+        params.put("itemName","%"+itemName+"%");
+        try {
+            List<Item> items = namedParameterJdbcTemplate.query(sql,new BeanPropertyRowMapper<>(Item.class));
+            return Optional.ofNullable(items);
+        }catch (Exception e){
+            return Optional.empty();
+        }
+    }
+
 }

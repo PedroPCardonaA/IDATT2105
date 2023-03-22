@@ -9,5 +9,6 @@ public interface ItemRepository {
     void save(Item item);
     Optional<Item> getItemById(long id);
     Optional<List<Item>> getAllItemsByOwnerName(String ownerName);
+    Optional<List<Item>> getAllByPartialName(String itemName);
     Optional<List<Item>> getAll();
 }
