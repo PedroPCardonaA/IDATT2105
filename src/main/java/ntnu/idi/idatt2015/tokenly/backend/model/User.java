@@ -25,7 +25,7 @@ public class User {
     private String password;
 
     /**
-     * Whether or not the user is enabled.
+     * Whether the user is enabled.
      */
     private boolean enable;
 
