@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
  * It exposes an endpoint for user registration based on the provided user details.
  */
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/api/users")
 public class UserCreationController {
     private final PasswordEncoder passwordEncoder;
     private final JdbcUserDetailsManager jdbcUserDetailsManager;
