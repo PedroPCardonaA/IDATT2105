@@ -15,10 +15,11 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.nio.file.Paths;
 import java.util.Optional;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/files")
 public class FileController {
-    
+
     private final FileService fileService;
     private final ItemRepository itemRepository;
 
