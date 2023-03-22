@@ -1,43 +1,67 @@
 package ntnu.idi.idatt2015.tokenly.backend.controller;
 
+import ntnu.idi.idatt2015.tokenly.backend.config.FileStorageConfig;
 import ntnu.idi.idatt2015.tokenly.backend.service.FileService;
+import ntnu.idi.idatt2015.tokenly.backend.service.ImageFileService;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
-import java.util.Objects;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/file")
 public class FileController {
-    /* TODO: Add logger */
 
-    @PostMapping("/upload")
-    public ResponseEntity<?> uploadFile(@RequestParam("file") MultipartFile file) {
-        /* TODO: File validation */
+    /* TODO: Endpoint mappings must connect file to item?  */
 
-        String storagePath = "/public/images/";
-        String fileName = FileService.storeFileLocally(file, storagePath);
+    private final FileService fileService;
 
-        String imageUrl = ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path("/public/images/")
-                .path(fileName)
-                .toUriString();
-
-        /* TODO: Store image URL in database, associated with item ID */
-
-        return ResponseEntity.ok("")
+    public FileController(ImageFileService imageFileService) {
+        this.fileService = imageFileService;
     }
 
+    /* TODO: Add logger */
+
+    @PostMapping("/images/upload")
+    public ResponseEntity<?> uploadImage(@RequestParam("file") MultipartFile file) {
+        if(!fileService.isValid(file)) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body("Invalid file. Please check the file type and try again.");
+        }
+
+        try {
+            String fileName = fileService.storeFileLocally(file);
+
+            String imageUrl = fileService.generateFileUrl(fileName);
+
+            /* TODO: Store image URL in database, associated with item ID */
+
+            return ResponseEntity.ok("Image uploaded successfully: " + imageUrl);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("An error occured while uploading the file: " + e.getMessage());
+        }
+    }
+
+    @GetMapping("/images/{fileName")
+    public ResponseEntity<?> serveImage(@PathVariable String fileName) {
+        try {
+            Resource fileResource = fileService.loadFileAsResource(fileName);
+            if(fileResource == null) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                        .body("File not found.");
+            }
+            return ResponseEntity.ok()
+                    .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\""
+                            + fileResource.getFilename() + "\"")
+                    .body(fileResource);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("An error occured while serving the file: " + e.getMessage());
+        }
+    }
 }
