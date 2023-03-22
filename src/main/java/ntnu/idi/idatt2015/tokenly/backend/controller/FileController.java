@@ -13,7 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
-@RequestMapping("/api/file")
+@RequestMapping("/api/files")
 public class FileController {
 
     /* TODO: Endpoint mappings must connect file to item?  */
@@ -26,13 +26,12 @@ public class FileController {
 
     /* TODO: Add logger */
 
-    @PostMapping("/images/upload")
-    public ResponseEntity<?> uploadImage(@RequestParam("file") MultipartFile file) {
+    @PostMapping("/images/{itemId}/upload")
+    public ResponseEntity<?> uploadImage(@PathVariable("itemId") Long itemId, @RequestParam("file") MultipartFile file) {
         if(!fileService.isValid(file)) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body("Invalid file. Please check the file type and try again.");
         }
-
         try {
             String fileName = fileService.storeFileLocally(file);
 
@@ -40,13 +39,14 @@ public class FileController {
 
             /* TODO: Store image URL in database, associated with item ID */
 
-            return ResponseEntity.ok("Image uploaded successfully: " + imageUrl);
+            return ResponseEntity.ok("Image uploaded successfully for item: " + itemId);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("An error occured while uploading the file: " + e.getMessage());
         }
     }
 
+    /* TODO: Change PathVariable to itemId instead of fileName */
     @GetMapping("/images/{fileName")
     public ResponseEntity<?> serveImage(@PathVariable String fileName) {
         try {
