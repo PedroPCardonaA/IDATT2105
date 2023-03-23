@@ -2,8 +2,10 @@ package ntnu.idi.idatt2015.tokenly.backend.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Represents the items that will be sold and bought by the users.
@@ -45,4 +47,13 @@ public class Item {
      * The list of categories associated with the item.
      */
     private List<Category> categories;
+
+    private MultipartFile source;
+
+    public String generateUniquePath() {
+        UUID uuid =  UUID.randomUUID();
+        Long timestamp = System.currentTimeMillis();
+        return "src/main/resources/sources" + uuid.toString()+"-"+timestamp+source.getContentType();
+    }
+
 }
