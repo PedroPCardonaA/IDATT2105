@@ -102,6 +102,19 @@ public class JdbcItemRepository implements ItemRepository {
         }
     }
 
+    @Override
+    public Optional<String> getPathByItemId(long itemId) {
+        String sql = "SELECT SOURCE_PATH FROM ITEMS WHERE ITEM_ID = :itemId";
+        Map<String,Object> params = new HashMap<>();
+        params.put("itemId",itemId);
+        try {
+            String path = namedParameterJdbcTemplate.queryForObject(sql,params,String.class);
+            return Optional.ofNullable(path);
+        }catch (Exception e){
+            return Optional.empty();
+        }
+    }
+
 
     /**
      * Retrieves all items from the database for the given partial name.
