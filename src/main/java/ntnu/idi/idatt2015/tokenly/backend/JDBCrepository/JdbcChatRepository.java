@@ -40,9 +40,27 @@ public class JdbcChatRepository implements ChatRepository {
      * @param chat Chat object to be saved
      */
     @Override
-    public void save(Chat chat) {
-    }
+    public boolean save(Chat chat) {
+        String sql;
+        Map<String,Object> params = new HashMap<>();
+        if (chat.getListingId() != null){
+            sql = "INSERT INTO CHATS (SELLER_NAME, BUYER_NAME, LISTING_ID) VALUES (:sellerName , :buyerName , :listingId)";
+            params.put("sellerName", chat.getSellerName());
+            params.put("buyerName",chat.getBuyerName());
+            params.put("listingId",chat.getListingId());
+        }else {
+            sql = "INSERT INTO CHATS (SELLER_NAME, BUYER_NAME) VALUES (:sellerName , :buyerName)";
+            params.put("sellerName", chat.getSellerName());
+            params.put("buyerName",chat.getBuyerName());
+        }
+        try {
+            namedParameterJdbcTemplate.update(sql,params);
+            return true;
+        } catch (Exception e){
+            return false;
+        }
 
+    }
 
     /**
      * Retrieves all chats from the database.

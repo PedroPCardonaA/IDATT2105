@@ -43,12 +43,17 @@ public class JdbcCategoryRepository implements CategoryRepository {
      * @param category the Category object to save
      */
     @Override
-    public void save(Category category) {
+    public boolean save(Category category) {
         String sql = "INSERT INTO CATEGORIES (CATEGORY_NAME, DESCRIPTION) VALUES (:categoryName, :description)";
         Map<String, Object> params = new HashMap<>();
         params.put("categoryName", category.getCategoryName());
         params.put("description", category.getDescription());
-        this.namedParameterJdbcTemplate.update(sql,params);
+        try {
+            this.namedParameterJdbcTemplate.update(sql,params);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
     }
 
     /**

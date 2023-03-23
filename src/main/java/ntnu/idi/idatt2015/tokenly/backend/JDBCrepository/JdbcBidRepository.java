@@ -40,8 +40,18 @@ public class JdbcBidRepository implements BidRepository {
      * @param bid the Bid object to save
      */
     @Override
-    public void save(Bid bid) {
-
+    public boolean save(Bid bid) {
+        String sql = "INSERT INTO BID (listing_id, buyer_name, price) VALUES (:listingId , :buyer_name , :price)";
+        Map<String, Object> params = new HashMap<>();
+        params.put("listingId",bid.getListingId());
+        params.put("buyerName",bid.getBuyerName());
+        params.put("price",bid.getPrice());
+        try {
+            namedParameterJdbcTemplate.update(sql,params);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
     }
 
     /**

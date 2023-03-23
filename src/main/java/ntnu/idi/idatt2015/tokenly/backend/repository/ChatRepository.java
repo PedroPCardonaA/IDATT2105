@@ -19,7 +19,7 @@ public interface ChatRepository {
      *
      * @param chat the Chat object to save
      */
-    void save(Chat chat);
+    boolean save(Chat chat);
 
     /**
      * Retrieves a List of all Chat objects in the repository.
