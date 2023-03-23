@@ -48,12 +48,4 @@ public class Item {
      */
     private List<Category> categories;
 
-    private MultipartFile source;
-
-    public String generateUniquePath() {
-        UUID uuid =  UUID.randomUUID();
-        Long timestamp = System.currentTimeMillis();
-        return "src/main/resources/sources" + uuid.toString()+"-"+timestamp+source.getContentType();
-    }
-
 }

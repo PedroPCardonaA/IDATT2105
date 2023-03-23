@@ -51,5 +51,7 @@ public interface ItemRepository {
      * @return an Optional containing the List of all Item objects in the repository, or an empty Optional if the repository is empty
      */
     Optional<List<Item>> getAll();
+
+    Optional<String> getPathByItemId(long itemId);
 }
 

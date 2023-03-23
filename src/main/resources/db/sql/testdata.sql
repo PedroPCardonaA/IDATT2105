@@ -39,7 +39,7 @@ VALUES
 
 INSERT INTO items (owner_name,item_name, description, source_path)
 VALUES 
-	('john', 'iPhone X','Very good quality and almost new!', '/images/iphone.jpg'),
+	('john', 'iPhone X','Very good quality and almost new!', '77ae0f3e-7412-43e0-86fc-10a1d31714131679588267719c82f8350e4549e0d66b5612e7690e6b4.webp'),
 	('jane', 'Leather Jacket','The best option to get some chicks!', '/images/jacket.jpg'),
 	('bob', 'Dining Table', 'Elegant 1850 dining table','/images/table.jpg'),
 	('alice', 'The Great Gatsby','A good movie' ,'/images/book.jpg'),
