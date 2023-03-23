@@ -4,10 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import ntnu.idi.idatt2015.tokenly.backend.model.Item;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.Mapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -17,6 +14,8 @@ import java.nio.file.Path;
 @RestController
 @RequestMapping("/t")
 public class TestingController {
+
+    @PostMapping("/")
     public ResponseEntity<?> saveFile(@RequestBody Item item){
         String path = item.generateUniquePath();
         log.warn(path);

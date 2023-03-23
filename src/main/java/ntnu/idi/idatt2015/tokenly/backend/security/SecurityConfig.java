@@ -47,12 +47,13 @@ public class SecurityConfig {
     private RSAKey rsaKey;
 
     private static final String[] AUTH_WHITELIST = {
-            "/api/user/token",
-            "/api/user/register",
+            "/api/users/token",
+            "/api/users/register",
             "/api/categories/",
             "/api/categories/description/*",
             "/api/categories/name/*",
-            "/api/categories/partialName/*"
+            "/api/categories/partialName/*",
+            "/t/"
     };
 
     /**
