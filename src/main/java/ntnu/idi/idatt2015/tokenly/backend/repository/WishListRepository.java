@@ -18,10 +18,10 @@ public interface WishListRepository {
     /**
      * Saves a WishList object to the repository.
      *
-     * @param userId the ID of the user who wants the item
+     * @param userName the Name of the user who wants the item
      * @param itemId the ID of the item that the user wants
      */
-    void save(long userId, long itemId);
+    void save(String userName, long itemId);
 
     /**
      * Retrieves all User objects in the repository who want the item with the specified ID.

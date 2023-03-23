@@ -168,6 +168,12 @@ public class JdbcListingsRepository implements ListingsRepository {
         }
     }
 
+    /**
+     * Retrieves a list of {@link Listing} objects that belong to the specified category.
+     *
+     * @param category The name of the category to filter by.
+     * @return An {@link Optional} containing a list of {@link Listing} objects that belong to the specified category if the query was successful, or an empty {@link Optional} if an exception occurred.
+     */
     @Override
     public Optional<List<Listing>> getByCategory(String category) {
         String sql = "SELECT * FROM LISTINGS WHERE ITEM_ID IN (SELECT ITEM_ID FROM ITEMS WHERE ITEM_ID IN (SELECT ITEM_ID FROM " +
@@ -182,7 +188,12 @@ public class JdbcListingsRepository implements ListingsRepository {
         }
     }
 
-
+    /**
+     * Retrieves a list of {@link Listing} objects that have a partial match with the specified item name.
+     *
+     * @param name The partial item name to filter by.
+     * @return An {@link Optional} containing a list of {@link Listing} objects that have a partial match with the specified item name if the query was successful, or an empty {@link Optional} if an exception occurred.
+     */
     @Override
     public Optional<List<Listing>> getByPartialItemName(String name) {
         String sql = "SELECT * FROM LISTINGS WHERE ITEM_ID IN(SELECT ITEM_ID FROM ITEMS WHERE ITEM_NAME = :name )";

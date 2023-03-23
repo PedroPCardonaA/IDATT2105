@@ -13,19 +13,42 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+/**
+ * JdbcTransactionRepository implements TransactionRepository interface
+ *
+ * @author tokenly-team
+ * @version 1.0
+ * @since 22.03.2023
+ */
 @Repository
 public class JdbcTransactionRepository implements TransactionRepository {
 
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+
+    /**
+     * Constructor to initialize namedParameterJdbcTemplate
+     *
+     * @param jdbcTemplate JdbcTemplate object
+     */
     @Autowired
     public JdbcTransactionRepository(JdbcTemplate jdbcTemplate) {
         this.namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
     }
 
+    /**
+     * Save method to save transaction
+     *
+     * @param transaction Transaction object
+     */
     @Override
     public void save(Transaction transaction) {
     }
 
+    /**
+     * getAllTransactions method to get all transactions
+     *
+     * @return Optional object containing the list of transactions
+     */
     @Override
     public Optional<List<Transaction>> getAllTransactions() {
         String sql = "SELECT * FROM TRANSACTIONS";
@@ -37,6 +60,12 @@ public class JdbcTransactionRepository implements TransactionRepository {
         }
     }
 
+    /**
+     * getAllTransactionBySellerName method to get all transactions by seller name
+     *
+     * @param sellerName String object representing the seller name
+     * @return Optional object containing the list of transactions
+     */
     @Override
     public Optional<List<Transaction>> getAllTransactionBySellerName(String sellerName) {
         String sql = "SELECT * FROM TRANSACTIONS WHERE SELLER_NAME = :sellerName";
@@ -50,6 +79,12 @@ public class JdbcTransactionRepository implements TransactionRepository {
         }
     }
 
+    /**
+     * getAllTransactionBySellerName method to get all transactions by buyer name
+     *
+     * @param buyerName String object representing the seller name
+     * @return Optional object containing the list of transactions
+     */
     @Override
     public Optional<List<Transaction>> getAllTransactionByBuyerName(String buyerName) {
         String sql = "SELECT * FROM TRANSACTIONS WHERE BUYER_NAME = :buyerName";
