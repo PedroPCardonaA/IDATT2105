@@ -5,7 +5,10 @@ import ntnu.idi.idatt2015.tokenly.backend.repository.ChatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
@@ -40,7 +43,7 @@ public class JdbcChatRepository implements ChatRepository {
      * @param chat Chat object to be saved
      */
     @Override
-    public boolean save(Chat chat) {
+    public Chat save(Chat chat) {
         String sql;
         Map<String,Object> params = new HashMap<>();
         if (chat.getListingId() != null){
@@ -53,11 +56,13 @@ public class JdbcChatRepository implements ChatRepository {
             params.put("sellerName", chat.getSellerName());
             params.put("buyerName",chat.getBuyerName());
         }
+
+        KeyHolder keyHolder = new GeneratedKeyHolder();
         try {
-            namedParameterJdbcTemplate.update(sql,params);
-            return true;
+            namedParameterJdbcTemplate.update(sql, new MapSqlParameterSource(params), keyHolder, new String[]{"chat_id"});
+            return chat;
         } catch (Exception e){
-            return false;
+            return null;
         }
 
     }
@@ -80,42 +85,24 @@ public class JdbcChatRepository implements ChatRepository {
     }
 
     /**
-     * Retrieves all chats from the database for the given seller name.
+     * Retrieves all chats from the database for the given user name.
      *
-     * @param sellerName Name of the seller
+     * @param username Name of the user
      * @return Optional List of Chat objects
      */
     @Override
-    public Optional<List<Chat>> getAllChatBySellerName(String sellerName) {
-        String sql = "SELECT * FROM CHATS WHERE SELLER_NAME = :sellerName";
-        Map<String,Object> params = new HashMap<>();
-        params.put("sellerName",sellerName);
+    public Optional<List<Chat>> getAllChatsByUsername(String username) {
+        String sql = "SELECT * FROM CHATS WHERE SELLER_NAME = :username OR BUYER_NAME = :username";
+        Map<String, Object> params = new HashMap<>();
+        params.put("username", username);
         try {
-            List<Chat> chats = namedParameterJdbcTemplate.query(sql,params,new BeanPropertyRowMapper<>(Chat.class));
+            List<Chat> chats = namedParameterJdbcTemplate.query(sql, params, new BeanPropertyRowMapper<>(Chat.class));
             return Optional.of(chats);
-        }catch (Exception e){
+        } catch (Exception e) {
             return Optional.empty();
         }
     }
 
-    /**
-     * Retrieves all chats from the database for the given buyer name.
-     *
-     * @param buyerName Name of the buyer
-     * @return Optional List of Chat objects
-     */
-    @Override
-    public Optional<List<Chat>> getAllChatByBuyerName(String buyerName) {
-        String sql = "SELECT * FROM CHATS WHERE BUYER_NAME = :buyerName";
-        Map<String,Object> params = new HashMap<>();
-        params.put("buyerName",buyerName);
-        try {
-            List<Chat> chats = namedParameterJdbcTemplate.query(sql,params,new BeanPropertyRowMapper<>(Chat.class));
-            return Optional.of(chats);
-        }catch (Exception e){
-            return Optional.empty();
-        }
-    }
 
     /**
      * Retrieves the chat from the database for the given chat id.
