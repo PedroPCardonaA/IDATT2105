@@ -44,9 +44,9 @@ public class JdbcCategoryRepository implements CategoryRepository {
      */
     @Override
     public void save(Category category) {
-        String sql = "INSERT INTO CATEGORIES (CATEGORY_NAME, DESCRIPTION) VALUES (:name, :description)";
+        String sql = "INSERT INTO CATEGORIES (CATEGORY_NAME, DESCRIPTION) VALUES (:categoryName, :description)";
         Map<String, Object> params = new HashMap<>();
-        params.put("name", category.getName());
+        params.put("categoryName", category.getCategoryName());
         params.put("description", category.getDescription());
         this.namedParameterJdbcTemplate.update(sql,params);
     }
@@ -73,14 +73,14 @@ public class JdbcCategoryRepository implements CategoryRepository {
     /**
      * Retrieves the Category object in the repository with the specified name.
      *
-     * @param name the name of the Category object to retrieve
+     * @param categoryName the name of the Category object to retrieve
      * @return an Optional containing the Category object with the specified name, or an empty Optional if no Category object exists with the specified name
      */
     @Override
-    public Optional<Category> getCategoryByName(String name) {
+    public Optional<Category> getCategoryByName(String categoryName) {
         String sql = "SELECT * FROM CATEGORIES WHERE CATEGORY_NAME = :categoryName";
         Map<String,Object> params = new HashMap<>();
-        params.put("categoryName",name);
+        params.put("categoryName",categoryName);
         try{
             Category category = namedParameterJdbcTemplate.queryForObject(sql,params, BeanPropertyRowMapper.newInstance(Category.class));
             return  Optional.ofNullable(category);
@@ -112,14 +112,14 @@ public class JdbcCategoryRepository implements CategoryRepository {
     /**
      * Retrieves all Category objects in the repository that have a name containing the specified string.
      *
-     * @param name the string to match against the names of Category objects
+     * @param categoryName the string to match against the names of Category objects
      * @return an Optional containing a List of all Category objects with names containing the specified string, or an empty Optional if no Category objects match the name
      */
     @Override
-    public Optional<List<Category>> getCategoriesByPartialName(String name) {
-        String sql = "SELECT * FROM CATEGORIES WHERE CATEGORY_NAME LIKE :name";
+    public Optional<List<Category>> getCategoriesByPartialName(String categoryName) {
+        String sql = "SELECT * FROM CATEGORIES WHERE CATEGORY_NAME LIKE :categoryName";
         Map<String, Object> params = new HashMap<>();
-        params.put("name", "%" + name + "%");
+        params.put("categoryName", "%" + categoryName + "%");
         try {
             List<Category> categories =
                     namedParameterJdbcTemplate.query(sql, params, new BeanPropertyRowMapper<>(Category.class));

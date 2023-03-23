@@ -21,7 +21,7 @@ public class Category {
     /**
      * The name of the category.
      */
-    private String name;
+    private String categoryName;
 
     /**
      * The description of the category.
