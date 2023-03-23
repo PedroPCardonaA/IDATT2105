@@ -1,7 +1,6 @@
 package ntnu.idi.idatt2015.tokenly.backend.JDBCrepository;
 
 import ntnu.idi.idatt2015.tokenly.backend.model.Profile;
-import ntnu.idi.idatt2015.tokenly.backend.repository.ProfileRepository;
 
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -14,7 +13,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @Repository
-public class JdbcProfileRepository implements ProfileRepository {
+public class JdbcProfileRepository implements ntnu.idi.idatt2015.tokenly.backend.repository.ProfileRepository {
 
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
