@@ -53,8 +53,11 @@ public class UserCreationController {
      */
     @PostMapping("/user")
     public ResponseEntity<?> createUser(@RequestBody UserCreationRequest user) {
+
+        /* TODO: Handle the case where user creation succeeds but profile creation fails.
+        *        Transactions are recommended. */
+
         try {
-            System.out.println(user.firstname());
             String username = user.username();
             String encodedPassword = passwordEncoder.encode(user.password());
 
@@ -85,8 +88,6 @@ public class UserCreationController {
                     .body(response);
 
         } catch (Exception e) {
-            System.out.println(e.getMessage());
-            e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
