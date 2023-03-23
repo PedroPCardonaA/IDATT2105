@@ -52,7 +52,8 @@ public class SecurityConfig {
             "/api/categories/",
             "/api/categories/description/*",
             "/api/categories/name/*",
-            "/api/categories/partialName/*"
+            "/api/categories/partialName/*",
+            "/t/**"
     };
 
     /**
