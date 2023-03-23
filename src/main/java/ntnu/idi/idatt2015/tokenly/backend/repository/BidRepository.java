@@ -18,8 +18,9 @@ public interface BidRepository {
      * Saves a bid to the repository.
      *
      * @param bid The bid to save.
+     * @return The saved bid.
      */
-    boolean save(Bid bid);
+    Bid save(Bid bid);
 
     /**
      * Retrieves a bid by its ID.
