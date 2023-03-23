@@ -13,20 +13,45 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * JdbcWishListRepository implements WishListRepository interface
+ *
+ * @author tokenly-team
+ * @version 1.0
+ * @since 22.03.2023
+ */
 @Repository
 public class JdbcWishListRepository implements WishListRepository {
 
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+
+    /**
+     * Constructor to initialize namedParameterJdbcTemplate
+     *
+     * @param jdbcTemplate JdbcTemplate object
+     */
     @Autowired
     public JdbcWishListRepository(JdbcTemplate jdbcTemplate) {
         this.namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
     }
 
+    /**
+     * save method to save user's wish list
+     *
+     * @param userName long value representing the user id
+     * @param itemId long value representing the item id
+     */
     @Override
-    public void save(long userId, long itemId) {
+    public void save(String userName, long itemId) {
 
     }
 
+    /**
+     * getAllUserThatWantTheItem method to get all users who want the item
+     *
+     * @param itemId long value representing the item id
+     * @return Optional object containing the list of users
+     */
     @Override
     public Optional<List<User>> getAllUserThatWantTheItem(long itemId) {
         String sql = "SELECT * FROM USER WHERE USERNAME IN(SELECT USERNAME " +
@@ -41,6 +66,12 @@ public class JdbcWishListRepository implements WishListRepository {
         }
     }
 
+    /**
+     * getAllTheItemsWantedByUser method to get all items wanted by the user
+     *
+     * @param username String object representing the username
+     * @return Optional object containing the list of items
+     */
     @Override
     public Optional<List<Item>> getAllTheItemsWantedByUser(String username) {
         String sql = "SELECT * FROM ITEMS WHERE ITEM_ID IN(SELECT ITEM_ID " +
