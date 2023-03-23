@@ -18,8 +18,9 @@ public interface ChatRepository {
      * Saves a Chat object to the repository.
      *
      * @param chat the Chat object to save
+     * @return the saved Chat object
      */
-    boolean save(Chat chat);
+    Chat save(Chat chat);
 
     /**
      * Retrieves a List of all Chat objects in the repository.
@@ -28,21 +29,14 @@ public interface ChatRepository {
      */
     Optional<List<Chat>> getAll();
 
-    /**
+/**
      * Retrieves a List of all Chat objects in the repository that involve a seller with the specified name.
      *
-     * @param sellerName the name of the seller to match against
+     * @param username the name of the seller to match against
      * @return an Optional containing the List of matching Chat objects, or an empty Optional if no Chat objects match the specified seller name
      */
-    Optional<List<Chat>> getAllChatBySellerName (String sellerName);
 
-    /**
-     * Retrieves a List of all Chat objects in the repository that involve a buyer with the specified name.
-     *
-     * @param buyerName the name of the buyer to match against
-     * @return an Optional containing the List of matching Chat objects, or an empty Optional if no Chat objects match the specified buyer name
-     */
-    Optional<List<Chat>> getAllChatByBuyerName (String buyerName);
+    Optional<List<Chat>> getAllChatsByUsername(String username);
 
     /**
      * Retrieves a Chat object from the repository by ID.
