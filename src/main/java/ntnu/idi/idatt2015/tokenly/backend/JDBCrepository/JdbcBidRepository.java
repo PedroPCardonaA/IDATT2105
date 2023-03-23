@@ -5,13 +5,13 @@ import ntnu.idi.idatt2015.tokenly.backend.repository.BidRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 /**
  * This class implements the BidRepository interface using JDBC to communicate with a database.
@@ -40,17 +40,21 @@ public class JdbcBidRepository implements BidRepository {
      * @param bid the Bid object to save
      */
     @Override
-    public boolean save(Bid bid) {
-        String sql = "INSERT INTO BID (listing_id, buyer_name, price) VALUES (:listingId , :buyer_name , :price)";
+    public Bid save(Bid bid) {
+        String sql = "INSERT INTO BID (listing_id, buyer_name, price) VALUES (:listingId , :buyerName , :price)";
+
         Map<String, Object> params = new HashMap<>();
         params.put("listingId",bid.getListingId());
         params.put("buyerName",bid.getBuyerName());
         params.put("price",bid.getPrice());
+
+        KeyHolder keyHolder = new GeneratedKeyHolder();
         try {
-            namedParameterJdbcTemplate.update(sql,params);
-            return true;
+            namedParameterJdbcTemplate.update(sql, new MapSqlParameterSource(params), keyHolder, new String[]{"bid_id"});
+            bid.setBidId(Objects.requireNonNull(keyHolder.getKey()).longValue());
+            return bid;
         }catch (Exception e){
-            return false;
+            return null;
         }
     }
 
