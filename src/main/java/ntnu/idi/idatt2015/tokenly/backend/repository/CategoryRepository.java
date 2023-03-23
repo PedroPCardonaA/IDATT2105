@@ -19,7 +19,7 @@ public interface CategoryRepository {
      *
      * @param category the Category object to save
      */
-    void save (Category category);
+    boolean save (Category category);
 
     /**
      * Retrieves a Category object from the repository by ID.

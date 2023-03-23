@@ -20,8 +20,7 @@ public class CategoryController {
     @PostMapping("/")
     public ResponseEntity<?> saveCategory(@RequestBody Category category){
         try {
-            if(categoryRepository.getCategoryByName(category.getCategoryName()).isEmpty()){
-                categoryRepository.save(category);
+            if(categoryRepository.save(category)){
                 return new ResponseEntity<>(HttpStatus.OK);
             }
             return new ResponseEntity<>(HttpStatus.CONFLICT);

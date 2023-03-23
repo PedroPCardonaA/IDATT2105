@@ -19,7 +19,7 @@ public interface BidRepository {
      *
      * @param bid The bid to save.
      */
-    void save(Bid bid);
+    boolean save(Bid bid);
 
     /**
      * Retrieves a bid by its ID.

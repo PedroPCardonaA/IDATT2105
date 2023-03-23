@@ -23,7 +23,7 @@ public class Chat {
     /**
      * The ID of the listing associated with the chat.
      */
-    private long listingId;
+    private Long listingId;
 
     /**
      * The name of the seller.
