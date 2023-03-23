@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
  * It exposes an endpoint for token generation based on user credentials.
  */
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/api/users")
 public class AuthController {
 
     private static final Logger LOG = LoggerFactory.getLogger(AuthController.class);
