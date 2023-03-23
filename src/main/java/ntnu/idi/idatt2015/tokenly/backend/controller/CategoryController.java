@@ -19,7 +19,7 @@ public class CategoryController {
 
     @Autowired
     CategoryRepository categoryRepository;
-    @GetMapping("")
+    @GetMapping("/")
     public ResponseEntity<List<Category>> getAllCategories(){
         try {
             Optional<List<Category>> categories = categoryRepository.getAll();

@@ -21,7 +21,7 @@ public class ItemController {
     @Autowired
     ItemRepository itemRepository;
 
-    @GetMapping("")
+    @GetMapping("/")
     public ResponseEntity<List<Item>> getAllItems(){
         try{
             List<Item> items = itemRepository.getAll().get();
