@@ -17,6 +17,13 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+/**
+ * The SourceController class provides REST endpoints for managing source files.
+ *
+ * @author tokenly-team
+ * @version 1.0
+ * @since 22.03.2023
+ */
 @Slf4j
 @CrossOrigin("*")
 @RequestMapping("/api/source")
@@ -26,6 +33,12 @@ public class SourceController {
     @Autowired
     ItemRepository itemRepository;
 
+    /**
+     * Handles a POST request to upload a source file.
+     *
+     * @param file The source file to upload.
+     * @return A ResponseEntity containing the generated file path if successful, or an error response if unsuccessful.
+     */
     @PostMapping("/post")
     public ResponseEntity<String> postSource(@RequestParam("file") MultipartFile file){
         try {
@@ -36,6 +49,12 @@ public class SourceController {
         }
     }
 
+    /**
+     * Handles a GET request to download a source file.
+     *
+     * @param itemId The ID of the source file to download.
+     * @return A ResponseEntity containing the requested source file if successful, or an error response if unsuccessful.
+     */
     @GetMapping("/{itemId}")
     public ResponseEntity<?> getFile(@PathVariable ("itemId") long itemId) {
         try {
