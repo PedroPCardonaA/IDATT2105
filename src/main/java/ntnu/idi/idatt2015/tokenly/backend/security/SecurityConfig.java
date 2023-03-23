@@ -49,7 +49,7 @@ public class SecurityConfig {
     private static final String[] AUTH_WHITELIST = {
             "/api/user/token",
             "/api/user/register",
-            "/api/categories",
+            "/api/categories/",
             "/api/categories/description/*",
             "/api/categories/name/*",
             "/api/categories/partialName/*"
