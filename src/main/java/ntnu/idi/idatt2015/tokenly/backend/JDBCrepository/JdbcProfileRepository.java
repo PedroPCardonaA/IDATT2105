@@ -23,7 +23,7 @@ public class JdbcProfileRepository implements ntnu.idi.idatt2015.tokenly.backend
 
     @Override
     public void save(Profile profile) {
-        String sql = "INSERT INTO PROFILES (USERNAME, FIRST_NAME, LAST_NAME, EMAIL, BIRTHDATE) VALUES(:username, :first_name, :email, :last_name, :birthdate)";
+        String sql = "INSERT INTO PROFILES (USERNAME, FIRST_NAME, LAST_NAME, EMAIL, BIRTHDATE) VALUES(:username, :first_name, :last_name, :email, :birthdate)";
         Map<String, Object> params = new HashMap<>();
         params.put("username", profile.getUsername());
         params.put("first_name", profile.getFirstname());
