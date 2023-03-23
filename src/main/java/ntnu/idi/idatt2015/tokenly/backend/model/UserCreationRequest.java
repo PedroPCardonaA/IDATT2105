@@ -10,5 +10,5 @@ import java.sql.Date;
  * UserCreationRequest is a record class representing a user creation request containing a username and password.
  */
 public record UserCreationRequest(String username, String password,
-                                  String firstName, String lastName, String email,
+                                  String firstname, String lastname, String email,
                                   Date birthdate) { }

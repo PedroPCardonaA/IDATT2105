@@ -54,6 +54,7 @@ public class UserCreationController {
     @PostMapping("/user")
     public ResponseEntity<?> createUser(@RequestBody UserCreationRequest user) {
         try {
+            System.out.println(user.firstname());
             String username = user.username();
             String encodedPassword = passwordEncoder.encode(user.password());
 
@@ -72,8 +73,8 @@ public class UserCreationController {
             Profile profile = new Profile();
             profile.setUsername(user.username());
             profile.setEmail(user.email());
-            profile.setFirstname(user.firstName());
-            profile.setLastname(user.lastName());
+            profile.setFirstname(user.firstname());
+            profile.setLastname(user.lastname());
             profile.setBirthdate(user.birthdate());
 
             Profile createdProfile = profileService.createProfile(profile);
@@ -84,6 +85,8 @@ public class UserCreationController {
                     .body(response);
 
         } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
