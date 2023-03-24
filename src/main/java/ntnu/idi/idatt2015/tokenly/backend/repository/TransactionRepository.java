@@ -19,7 +19,7 @@ public interface TransactionRepository {
      *
      * @param transaction the Transaction object to save
      */
-    void save (Transaction transaction);
+    Transaction save(Transaction transaction);
 
     /**
      * Retrieves all Transaction objects in the repository.
@@ -31,17 +31,10 @@ public interface TransactionRepository {
     /**
      * Retrieves all Transaction objects in the repository associated with a seller with the specified name.
      *
-     * @param sellerName the name of the seller to match against
+     * @param username the name of the seller to match against
      * @return an Optional containing a List of all Transaction objects associated with the specified seller name, or an empty Optional if no Transaction objects match the seller name
      */
-    Optional<List<Transaction>> getAllTransactionBySellerName(String sellerName);
+    Optional<List<Transaction>> getAllTransactionByUsername(String username);
 
-    /**
-     * Retrieves all Transaction objects in the repository associated with a buyer with the specified name.
-     *
-     * @param buyerName the name of the buyer to match against
-     * @return an Optional containing a List of all Transaction objects associated with the specified buyer name, or an empty Optional if no Transaction objects match the buyer name
-     */
-    Optional<List<Transaction>> getAllTransactionByBuyerName(String buyerName);
 }
 

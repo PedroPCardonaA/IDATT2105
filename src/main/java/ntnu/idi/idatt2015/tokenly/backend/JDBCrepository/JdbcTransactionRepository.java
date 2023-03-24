@@ -5,7 +5,10 @@ import ntnu.idi.idatt2015.tokenly.backend.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
@@ -41,7 +44,22 @@ public class JdbcTransactionRepository implements TransactionRepository {
      * @param transaction Transaction object
      */
     @Override
-    public void save(Transaction transaction) {
+    public Transaction save(Transaction transaction) {
+        String sql = "INSERT INTO TRANSACTIONS(listing_id, seller_name, buyer_name, transaction_price) VALUES (:listingId, :sellerName, :buyerName, :transactionPrice)";
+
+        Map<String,Object> params = new HashMap<>();
+        params.put("listingId",transaction.getListingId());
+        params.put("sellerName",transaction.getSellerName());
+        params.put("buyerName",transaction.getBuyerName());
+        params.put("transactionPrice",transaction.getTransactionPrice());
+
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+        try {
+            namedParameterJdbcTemplate.update(sql, new MapSqlParameterSource(params), keyHolder, new String[]{"transaction_id"});
+            return transaction;
+        }catch (Exception e){
+            return null;
+        }
     }
 
     /**
@@ -61,39 +79,21 @@ public class JdbcTransactionRepository implements TransactionRepository {
     }
 
     /**
-     * getAllTransactionBySellerName method to get all transactions by seller name
+     * getAllTransactionByUsername method to get all transactions by seller name
      *
-     * @param sellerName String object representing the seller name
+     * @param username String object representing the seller name
      * @return Optional object containing the list of transactions
      */
     @Override
-    public Optional<List<Transaction>> getAllTransactionBySellerName(String sellerName) {
-        String sql = "SELECT * FROM TRANSACTIONS WHERE SELLER_NAME = :sellerName";
+    public Optional<List<Transaction>> getAllTransactionByUsername(String username) {
+        String sql = "SELECT * FROM TRANSACTIONS WHERE SELLER_NAME = :username OR BUYER_NAME = :username";
         Map<String,Object> params = new HashMap<>();
-        params.put("sellerName",sellerName);
+        params.put("username", username);
         try {
-            List<Transaction> transactions = namedParameterJdbcTemplate.query(sql,params,new BeanPropertyRowMapper<>());
+            List<Transaction> transactions = namedParameterJdbcTemplate.query(sql,params,BeanPropertyRowMapper.newInstance(Transaction.class));
             return Optional.of(transactions);
         }catch (Exception e){
-            return Optional.empty();
-        }
-    }
-
-    /**
-     * getAllTransactionBySellerName method to get all transactions by buyer name
-     *
-     * @param buyerName String object representing the seller name
-     * @return Optional object containing the list of transactions
-     */
-    @Override
-    public Optional<List<Transaction>> getAllTransactionByBuyerName(String buyerName) {
-        String sql = "SELECT * FROM TRANSACTIONS WHERE BUYER_NAME = :buyerName";
-        Map<String,Object> params = new HashMap<>();
-        params.put("buyerName",buyerName);
-        try {
-            List<Transaction> transactions = namedParameterJdbcTemplate.query(sql,params,new BeanPropertyRowMapper<>());
-            return Optional.of(transactions);
-        }catch (Exception e){
+            System.out.println(e.getMessage());
             return Optional.empty();
         }
     }
