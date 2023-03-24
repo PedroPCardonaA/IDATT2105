@@ -121,7 +121,7 @@ public class ListingController {
         }
     }
 
-    @GetMapping("{username")
+    @GetMapping("{username}")
     public ResponseEntity<?> getListingsByUsername(@PathVariable("username") String username) {
         try {
             Optional<?> listings = listingRepository.getByUsername(username);
