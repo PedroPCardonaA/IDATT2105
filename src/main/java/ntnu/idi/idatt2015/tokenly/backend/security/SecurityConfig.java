@@ -56,7 +56,9 @@ public class SecurityConfig {
             "/api/source/post",
             "/api/source/*",
             "/api/itemsCategories/items/*",
-            "/api/itemsCategories/categories/*"
+            "/api/itemsCategories/categories/*",
+            "/api/itemsCategories/post",
+            "/api/itemsCategories/delete"
     };
 
     /**
