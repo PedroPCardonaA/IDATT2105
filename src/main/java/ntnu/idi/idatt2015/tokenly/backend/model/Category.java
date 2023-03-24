@@ -23,9 +23,5 @@ public class Category {
      */
     private String categoryName;
 
-    /**
-     * The description of the category.
-     */
-    private String description;
 }
 

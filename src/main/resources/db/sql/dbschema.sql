@@ -29,8 +29,7 @@ CREATE UNIQUE INDEX ix_profiles_username ON profiles (username, id);
 
 CREATE TABLE categories (
     category_id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    category_name VARCHAR(20) NOT NULL UNIQUE,
-    description VARCHAR(255) NOT NULL
+    category_name VARCHAR(20) NOT NULL UNIQUE
 );
 
 CREATE TABLE chats (

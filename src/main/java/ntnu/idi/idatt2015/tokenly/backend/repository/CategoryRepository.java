@@ -19,7 +19,7 @@ public interface CategoryRepository {
      *
      * @param category the Category object to save
      */
-    boolean save (Category category);
+    Category save (Category category);
 
     /**
      * Retrieves a Category object from the repository by ID.
@@ -45,13 +45,6 @@ public interface CategoryRepository {
      */
     Optional<List<Category>> getCategoriesByPartialName(String name);
 
-    /**
-     * Retrieves a List of Category objects from the repository that have a matching description.
-     *
-     * @param description the description to match against
-     * @return an Optional containing the List of matching Category objects, or an empty Optional if no Category objects have a matching description
-     */
-    Optional<List<Category>> getCategoriesByDescription(String description);
 
     /**
      * Retrieves a List of all Category objects in the repository.

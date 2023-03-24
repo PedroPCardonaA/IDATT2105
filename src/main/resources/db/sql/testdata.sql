@@ -21,13 +21,13 @@ VALUES
     ('bob','Bob','Garcia','BigGarcia@gmail.com','1958-12-23'),
     ('alice','Alice','Lee','johnSmit2h@gmail.com','2002-01-04'),
     ('tom','Tom','Johnson','johnSmith3@gmail.com','1993-11-21');
-INSERT INTO categories (category_name, description)
+INSERT INTO categories (category_name)
 VALUES 
-	('Electronics', 'Items related to electronics'),
-	('Clothing', 'Items related to clothing'),
-	('Furniture', 'Items related to furniture'),
-	('Books', 'Items related to books'),
-	('Sports', 'Items related to sports');
+	('Electronics'),
+	('Clothing'),
+	('Furniture'),
+	('Books'),
+	('Sports');
 
 INSERT INTO chats (seller_name, buyer_name)
 VALUES 

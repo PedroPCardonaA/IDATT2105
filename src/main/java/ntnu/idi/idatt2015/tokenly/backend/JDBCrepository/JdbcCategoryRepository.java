@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 /**
  * This class implements the CategoryRepository interface using JDBC to communicate with a database.
@@ -43,16 +43,17 @@ public class JdbcCategoryRepository implements CategoryRepository {
      * @param category the Category object to save
      */
     @Override
-    public boolean save(Category category) {
-        String sql = "INSERT INTO CATEGORIES (CATEGORY_NAME, DESCRIPTION) VALUES (:categoryName, :description)";
+    public Category save(Category category) {
+        String sql = "INSERT INTO CATEGORIES (CATEGORY_NAME) VALUES (:categoryName)";
         Map<String, Object> params = new HashMap<>();
         params.put("categoryName", category.getCategoryName());
-        params.put("description", category.getDescription());
+        KeyHolder keyHolder = new GeneratedKeyHolder();
         try {
-            this.namedParameterJdbcTemplate.update(sql,params);
-            return true;
+           this.namedParameterJdbcTemplate.update(sql,new MapSqlParameterSource(params),keyHolder,new String[]{"CATEGORY_ID"});
+           category.setCategoryId(Objects.requireNonNull(keyHolder.getKey()).intValue());
+           return category;
         }catch (Exception e){
-            return false;
+            return null;
         }
     }
 
@@ -90,26 +91,6 @@ public class JdbcCategoryRepository implements CategoryRepository {
             Category category = namedParameterJdbcTemplate.queryForObject(sql,params, BeanPropertyRowMapper.newInstance(Category.class));
             return  Optional.ofNullable(category);
         }catch (IncorrectResultSizeDataAccessException e){
-            return Optional.empty();
-        }
-    }
-
-    /**
-     * Retrieves all Category objects in the repository that have a description containing the specified string.
-     *
-     * @param description the string to match against the descriptions of Category objects
-     * @return an Optional containing a List of all Category objects with descriptions containing the specified string, or an empty Optional if no Category objects match the description
-     */
-    @Override
-    public Optional<List<Category>> getCategoriesByDescription(String description) {
-        String sql = "SELECT * FROM CATEGORIES WHERE DESCRIPTION LIKE :description";
-        Map<String, Object> params = new HashMap<>();
-        params.put("description", "%" + description + "%");
-        try {
-            List<Category> categories =
-                    namedParameterJdbcTemplate.query(sql, params, new BeanPropertyRowMapper<>(Category.class));
-            return Optional.ofNullable(categories);
-        } catch (Exception e) {
             return Optional.empty();
         }
     }
