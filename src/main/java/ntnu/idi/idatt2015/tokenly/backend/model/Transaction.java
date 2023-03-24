@@ -16,6 +16,8 @@ import java.sql.Time;
 @Getter @Setter
 public class Transaction {
 
+    private long listingId;
+
     /**
      * The name of the seller.
      */
