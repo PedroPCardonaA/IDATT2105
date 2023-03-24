@@ -2,6 +2,7 @@ package ntnu.idi.idatt2015.tokenly.backend.repository;
 
 import ntnu.idi.idatt2015.tokenly.backend.model.Category;
 import ntnu.idi.idatt2015.tokenly.backend.model.Item;
+import ntnu.idi.idatt2015.tokenly.backend.model.ItemsCategories;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,11 +18,8 @@ public interface ItemsCategoryRepository {
 
     /**
      * Saves a relationship between an Item object and a Category object in the repository.
-     *
-     * @param itemId the ID of the Item object
-     * @param categoryId the ID of the Category object
      */
-    void save (long itemId, int categoryId);
+    ItemsCategories save (ItemsCategories itemsCategories);
 
     /**
      * Retrieves a List of all Category objects associated with an Item object in the repository.
@@ -38,5 +36,8 @@ public interface ItemsCategoryRepository {
      * @return a List of all Item objects associated with the specified Category object, or an empty List if no Item objects are associated with the Category object
      */
     Optional<List<Item>> getAllTheItemsByCategoryName(String categoryName);
+
+    int deleteRow(ItemsCategories itemsCategories);
+
 }
 
