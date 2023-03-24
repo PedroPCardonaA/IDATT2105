@@ -2,6 +2,7 @@ package ntnu.idi.idatt2015.tokenly.backend.repository;
 
 import ntnu.idi.idatt2015.tokenly.backend.model.Item;
 import ntnu.idi.idatt2015.tokenly.backend.model.User;
+import ntnu.idi.idatt2015.tokenly.backend.model.Wishlist;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,10 +19,10 @@ public interface WishListRepository {
     /**
      * Saves a WishList object to the repository.
      *
-     * @param userName the Name of the user who wants the item
-     * @param itemId the ID of the item that the user wants
+     * @param wishlist the WishList object to save
+     * @return the saved WishList object
      */
-    void save(String userName, long itemId);
+    Wishlist save(Wishlist wishlist);
 
     /**
      * Retrieves all User objects in the repository who want the item with the specified ID.
@@ -29,7 +30,7 @@ public interface WishListRepository {
      * @param itemId the ID of the item to match against
      * @return an Optional containing a List of all User objects who want the specified item, or an empty Optional if no Users want the item
      */
-    Optional<List<User>> getAllUserThatWantTheItem(long itemId);
+    Optional<List<String>> getAllUserThatWantTheItem(long itemId);
 
     /**
      * Retrieves all Item objects in the repository that are wanted by the user with the specified username.
@@ -38,5 +39,7 @@ public interface WishListRepository {
      * @return an Optional containing a List of all Item objects wanted by the specified user, or an empty Optional if the user wants no items
      */
     Optional<List<Item>> getAllTheItemsWantedByUser(String username);
+
+    int deleteWishlistItem(Wishlist wishlist);
 }
 
