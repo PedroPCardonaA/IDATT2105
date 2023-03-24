@@ -8,16 +8,35 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
+/**
+ * The BidController class is responsible for handling HTTP requests related to the Bid entity.
+ * It uses a BidRepository instance to communicate with the database and perform CRUD operations.
+ *
+ * @author tokenly-team
+ * @version 1.0
+ * @since 22.03.2023
+ */
 @CrossOrigin
 @RestController
 @RequestMapping("/api/bids")
 public class BidController {
     private final BidRepository bidRepository;
 
+    /**
+     * Constructor for the BidController class that takes a BidRepository instance as a parameter.
+     *
+     * @param bidRepository the BidRepository instance to use for database communication.
+     */
     public BidController(BidRepository bidRepository) {
         this.bidRepository = bidRepository;
     }
 
+    /**
+     * Method that handles HTTP POST requests to create a new Bid entity.
+     *
+     * @param bid the Bid entity to create.
+     * @return a ResponseEntity with the created Bid entity in the body, or a bad request response if the Bid was not created.
+     */
     @PostMapping("/bid")
     public ResponseEntity<?> saveBid(@RequestBody Bid bid){
         try {
@@ -32,6 +51,12 @@ public class BidController {
         }
     }
 
+    /**
+     * Method that handles HTTP GET requests to retrieve a Bid entity by ID.
+     *
+     * @param id the ID of the Bid entity to retrieve.
+     * @return a ResponseEntity with the retrieved Bid entity in the body, or a NO_CONTENT response if the Bid was not found.
+     */
     @GetMapping("/bid/{id}")
     public ResponseEntity<Bid> getBidById(@PathVariable("id") Long id){
         try {
@@ -43,6 +68,12 @@ public class BidController {
         }
     }
 
+    /**
+     * Method that handles HTTP GET requests to retrieve all Bid entities by buyer name.
+     *
+     * @param buyerName the buyer name to search for.
+     * @return a ResponseEntity with the retrieved Bid entities in the body, or a NO_CONTENT response if no Bids were found.
+     */
     @GetMapping("/{buyerName}")
     public ResponseEntity<?> getBidsByBuyerName(@PathVariable("buyerName") String buyerName){
         try {
@@ -54,6 +85,12 @@ public class BidController {
         }
     }
 
+    /**
+     * Method that handles HTTP GET requests to retrieve all Bid entities by listing ID.
+     *
+     * @param listingId the listing ID to search for.
+     * @return a ResponseEntity with the retrieved Bid entities in the body, or a NO_CONTENT response if no Bids were found.
+     */
     @GetMapping("/listing/{listingId}")
     public ResponseEntity<?> getBidsByListingId(@PathVariable("listingId") Long listingId){
         try {
