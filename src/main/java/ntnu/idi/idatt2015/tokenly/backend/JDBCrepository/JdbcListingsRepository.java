@@ -170,9 +170,11 @@ public class JdbcListingsRepository implements ListingsRepository {
      */
     @Override
     public Optional<List<Listing>> getByMinPrice(double minPrice) {
-        String sql = "SELECT * FROM LISTINGS WHERE MIN_PRICE > :minPrice ";
+        String sql = "SELECT * FROM LISTINGS WHERE MIN_PRICE >= :minPrice ";
         try{
-            List<Listing> listings = namedParameterJdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Listing.class));
+            MapSqlParameterSource params = new MapSqlParameterSource();
+            params.addValue("minPrice", minPrice);
+            List<Listing> listings = namedParameterJdbcTemplate.query(sql, params,BeanPropertyRowMapper.newInstance(Listing.class));
             return  Optional.of(listings);
         }catch (Exception e){
             return Optional.empty();
@@ -190,7 +192,9 @@ public class JdbcListingsRepository implements ListingsRepository {
     public Optional<List<Listing>> getByMaxPrice(double maxPrice) {
         String sql = "SELECT * FROM LISTINGS WHERE MAX_PRICE <= :maxPrice ";
         try{
-            List<Listing> listings = namedParameterJdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Listing.class));
+            MapSqlParameterSource params = new MapSqlParameterSource();
+            params.addValue("maxPrice", maxPrice);
+            List<Listing> listings = namedParameterJdbcTemplate.query(sql, params, BeanPropertyRowMapper.newInstance(Listing.class));
             return  Optional.of(listings);
         }catch (Exception e){
             return Optional.empty();
@@ -210,39 +214,20 @@ public class JdbcListingsRepository implements ListingsRepository {
         Map<String, Object> params = new HashMap<>();
         params.put("categoryName",category);
         try{
-            List<Listing> listings = namedParameterJdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Listing.class));
+            List<Listing> listings = namedParameterJdbcTemplate.query(sql, params,  BeanPropertyRowMapper.newInstance(Listing.class));
             return  Optional.of(listings);
         }catch (Exception e){
             return Optional.empty();
         }
     }
 
-    /**
-     * Retrieves a list of {@link Listing} objects that have a partial match with the specified item name.
-     *
-     * @param name The partial item name to filter by.
-     * @return An {@link Optional} containing a list of {@link Listing} objects that have a partial match with the specified item name if the query was successful, or an empty {@link Optional} if an exception occurred.
-     */
-    @Override
-    public Optional<List<Listing>> getByPartialItemName(String name) {
-        String sql = "SELECT * FROM LISTINGS WHERE ITEM_ID IN(SELECT ITEM_ID FROM ITEMS WHERE ITEM_NAME = :name )";
-        Map<String, Object> params = new HashMap<>();
-        params.put("name", "%" + name + "%");
-        try {
-            List<Listing> listings =
-                    namedParameterJdbcTemplate.query(sql, params, new BeanPropertyRowMapper<>(Listing.class));
-            return Optional.of(listings);
-        } catch (Exception e) {
-            return Optional.empty();
-        }
-    }
-
     @Override
     public Optional<List<Listing>> getByUsername(String username) {
-        String sql = "SELECT * FROM LISTINGS WHERE ITEM_ID IN (SELECT ITEM_ID FROM ITEMS WHERE OWNER_NAME = :username))";
+        String sql = "SELECT * FROM LISTINGS WHERE ITEM_ID IN (SELECT ITEM_ID FROM ITEMS WHERE OWNER_NAME = :username)";
         Map<String, Object> params = new HashMap<>();
+        params.put("username", username);
         try {
-            List<Listing> listings = namedParameterJdbcTemplate.query(sql,new BeanPropertyRowMapper<>(Listing.class));
+            List<Listing> listings = namedParameterJdbcTemplate.query(sql, params, new BeanPropertyRowMapper<>(Listing.class));
             return Optional.of(listings);
         }catch (Exception e){
             return Optional.empty();

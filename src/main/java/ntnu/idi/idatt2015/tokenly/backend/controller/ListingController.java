@@ -78,7 +78,7 @@ public class ListingController {
     }
 
     @GetMapping("/min-price/{minPrice}")
-    public ResponseEntity<?> getListingByMinPrice(@PathVariable("minPrice") Long minPrice) {
+    public ResponseEntity<?> getListingByMinPrice(@PathVariable("minPrice") double minPrice) {
         try {
             Optional<?> listings = listingRepository.getByMinPrice(minPrice);
             return listings.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
@@ -89,7 +89,7 @@ public class ListingController {
     }
 
     @GetMapping("/max-price/{maxPrice}")
-    public ResponseEntity<?> getListingByMaxPrice(@PathVariable("maxPrice") Long maxPrice) {
+    public ResponseEntity<?> getListingByMaxPrice(@PathVariable("maxPrice") double maxPrice) {
         try {
             Optional<?> listings = listingRepository.getByMaxPrice(maxPrice);
             return listings.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
@@ -103,17 +103,6 @@ public class ListingController {
     public ResponseEntity<?> getListingByCategory(@PathVariable("category") String category) {
         try {
             Optional<?> listings = listingRepository.getByCategory(category);
-            return listings.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
-                    .orElseGet(() -> new ResponseEntity<>(HttpStatus.NO_CONTENT));
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
-    @GetMapping("/name/{name}")
-    public ResponseEntity<?> getListingByName(@PathVariable("name") String name) {
-        try {
-            Optional<?> listings = listingRepository.getByPartialItemName(name);
             return listings.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                     .orElseGet(() -> new ResponseEntity<>(HttpStatus.NO_CONTENT));
         } catch (Exception e) {

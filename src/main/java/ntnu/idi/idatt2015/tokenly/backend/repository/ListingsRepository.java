@@ -82,14 +82,6 @@ public interface ListingsRepository {
      */
     Optional<List<Listing>> getByCategory(String category);
 
-    /**
-     * Retrieves a List of all Listing objects in the repository that match a partial Item name.
-     *
-     * @param name the partial name to match against
-     * @return an Optional containing the List of matching Listing objects, or an empty Optional if no Listing objects match the specified partial name
-     */
-    Optional<List<Listing>> getByPartialItemName(String name);
-
     Optional<List<Listing>> getByUsername(String username);
 }
 
