@@ -53,7 +53,7 @@ public class UserCreationController {
     public ResponseEntity<?> createUser(@RequestBody UserCreationRequest user) {
 
         /* TODO: Handle the case where user creation succeeds but profile creation fails.
-        *        Transactions are recommended. */
+        *        Transactions are recommended. Control inputs. I dont wanna touch your spaghetti*/
 
         try {
             String username = user.username();

@@ -20,6 +20,9 @@ public class TransactionController {
     @PostMapping("/transaction")
     public ResponseEntity<?> createTransaction(@RequestBody Transaction transaction) {
         try {
+            if(transaction.getTransactionPrice() <= 0){
+                return new ResponseEntity<>("Price of a transaction cannot be negative or zero!",HttpStatus.BAD_REQUEST);
+            }
             Transaction createdTransaction = transactionRepository.save(transaction);
             if (createdTransaction != null) {
                 return ResponseEntity.ok(createdTransaction);

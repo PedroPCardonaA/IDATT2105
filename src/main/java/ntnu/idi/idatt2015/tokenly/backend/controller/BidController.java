@@ -40,6 +40,14 @@ public class BidController {
     @PostMapping("/bid")
     public ResponseEntity<?> saveBid(@RequestBody Bid bid){
         try {
+            if(bid.getPrice() != null){
+                if(bid.getPrice() <= 0){
+                  return new ResponseEntity<>("The bid cannot be zero or lower!", HttpStatus.BAD_REQUEST);
+                }
+                if(bid.getPrice() >= 1000){
+                    return new ResponseEntity<>("The bid cannot be higher than 1000", HttpStatus.BAD_REQUEST);
+                }
+            }
             Bid createdBid = bidRepository.save(bid);
             if (createdBid != null) {
                 return ResponseEntity.ok(createdBid);
