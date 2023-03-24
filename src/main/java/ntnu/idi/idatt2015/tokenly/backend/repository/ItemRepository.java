@@ -19,7 +19,7 @@ public interface ItemRepository {
      *
      * @param item the Item object to save
      */
-    void save(Item item);
+    Item save(Item item);
 
     /**
      * Retrieves an Item object from the repository by ID.

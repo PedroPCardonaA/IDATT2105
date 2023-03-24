@@ -7,13 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 /**
  * This is the implementation of the ItemRepository interface using JDBC.
@@ -43,7 +43,22 @@ public class JdbcItemRepository implements ItemRepository {
      * @param item Item object to be saved
      */
     @Override
-    public void save(Item item) {
+    public Item save(Item item) {
+        String sql = "INSERT INTO ITEMS (OWNER_NAME , ITEM_NAME ,DESCRIPTION , SOURCE_PATH) " +
+                "VALUES (:ownerName , :itemName , :description , :sourcePath)";
+        Map<String, Object> params = new HashMap<>();
+        params.put("ownerName", item.getOwnerName());
+        params.put("itemName", item.getItemName());
+        params.put("description", item.getDescription());
+        params.put("sourcePath", item.getSourcePath());
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+        try{
+            namedParameterJdbcTemplate.update(sql, new MapSqlParameterSource(params),keyHolder, new String[]{"ITEM_ID"});
+            item.setItemId(Objects.requireNonNull(keyHolder.getKey()).longValue());
+            return item;
+        }catch (Exception e){
+            return null;
+        }
 
     }
 
