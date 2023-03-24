@@ -20,7 +20,7 @@ public class ListingController {
     }
 
     @PostMapping("/listing")
-    public ResponseEntity<?> saveListing(Listing listing) {
+    public ResponseEntity<?> saveListing(@RequestBody Listing listing) {
         try {
             Listing createdListing = listingRepository.save(listing);
             if (createdListing != null) {
@@ -44,7 +44,7 @@ public class ListingController {
         }
     }
 
-    @GetMapping("{itemId}")
+    @GetMapping("/item/{itemId}")
     public ResponseEntity<?> getListingByItemId(@PathVariable("itemId") Long itemId) {
         try {
             Optional<?> listing = listingRepository.getByItemId(itemId);
@@ -77,7 +77,7 @@ public class ListingController {
         }
     }
 
-    @GetMapping("{minPrice}")
+    @GetMapping("/min-price/{minPrice}")
     public ResponseEntity<?> getListingByMinPrice(@PathVariable("minPrice") Long minPrice) {
         try {
             Optional<?> listings = listingRepository.getByMinPrice(minPrice);
@@ -88,7 +88,7 @@ public class ListingController {
         }
     }
 
-    @GetMapping("{maxPrice}")
+    @GetMapping("/max-price/{maxPrice}")
     public ResponseEntity<?> getListingByMaxPrice(@PathVariable("maxPrice") Long maxPrice) {
         try {
             Optional<?> listings = listingRepository.getByMaxPrice(maxPrice);
@@ -99,7 +99,7 @@ public class ListingController {
         }
     }
 
-    @GetMapping("{category}")
+    @GetMapping("/category/{category}")
     public ResponseEntity<?> getListingByCategory(@PathVariable("category") String category) {
         try {
             Optional<?> listings = listingRepository.getByCategory(category);
@@ -110,7 +110,7 @@ public class ListingController {
         }
     }
 
-    @GetMapping("{name}")
+    @GetMapping("/name/{name}")
     public ResponseEntity<?> getListingByName(@PathVariable("name") String name) {
         try {
             Optional<?> listings = listingRepository.getByPartialItemName(name);
@@ -121,7 +121,7 @@ public class ListingController {
         }
     }
 
-    @GetMapping("{username}")
+    @GetMapping("/user/{username}")
     public ResponseEntity<?> getListingsByUsername(@PathVariable("username") String username) {
         try {
             Optional<?> listings = listingRepository.getByUsername(username);
