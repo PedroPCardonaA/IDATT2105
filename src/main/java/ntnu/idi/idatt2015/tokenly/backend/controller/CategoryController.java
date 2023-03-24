@@ -20,29 +20,20 @@ public class CategoryController {
     @PostMapping("/")
     public ResponseEntity<?> saveCategory(@RequestBody Category category){
         try {
-            if(categoryRepository.save(category)){
-                return new ResponseEntity<>(HttpStatus.OK);
+            Category createdCategory = categoryRepository.save(category);
+            if(createdCategory != null){
+                return ResponseEntity.ok(createdCategory);
+            }else {
+                return ResponseEntity.badRequest().build();
             }
-            return new ResponseEntity<>(HttpStatus.CONFLICT);
         }catch (Exception e){
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
     @GetMapping("/")
     public ResponseEntity<List<Category>> getAllCategories(){
         try {
             Optional<List<Category>> categories = categoryRepository.getAll();
-            return categories.map(categoryList -> new ResponseEntity<>(categoryList, HttpStatus.OK))
-                    .orElseGet(() -> new ResponseEntity<>(HttpStatus.NO_CONTENT));
-        }catch (Exception e){
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
-    @GetMapping("/description/{description}")
-    public ResponseEntity<List<Category>> getCategoriesByDescription(@PathVariable ("description") String description){
-        try {
-            Optional<List<Category>> categories = categoryRepository.getCategoriesByDescription(description);
             return categories.map(categoryList -> new ResponseEntity<>(categoryList, HttpStatus.OK))
                     .orElseGet(() -> new ResponseEntity<>(HttpStatus.NO_CONTENT));
         }catch (Exception e){
