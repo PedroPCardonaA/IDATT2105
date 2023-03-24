@@ -221,19 +221,6 @@ public class JdbcListingsRepository implements ListingsRepository {
      * @param name The partial item name to filter by.
      * @return An {@link Optional} containing a list of {@link Listing} objects that have a partial match with the specified item name if the query was successful, or an empty {@link Optional} if an exception occurred.
      */
-    @Override
-    public Optional<List<Listing>> getByPartialItemName(String name) {
-        String sql = "SELECT * FROM LISTINGS WHERE ITEM_ID IN(SELECT ITEM_ID FROM ITEMS WHERE ITEM_NAME = :name )";
-        Map<String, Object> params = new HashMap<>();
-        params.put("name", "%" + name + "%");
-        try {
-            List<Listing> listings =
-                    namedParameterJdbcTemplate.query(sql, params, new BeanPropertyRowMapper<>(Listing.class));
-            return Optional.of(listings);
-        } catch (Exception e) {
-            return Optional.empty();
-        }
-    }
 
     @Override
     public Optional<List<Listing>> getByUsername(String username) {
