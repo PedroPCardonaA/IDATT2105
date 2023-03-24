@@ -42,7 +42,7 @@ public class ItemController {
      * @return A ResponseEntity containing the saved Item object if successful, else a bad request or internal server error.
      */
     @PostMapping("/post")
-    public ResponseEntity<Item> saveItem(Item item){
+    public ResponseEntity<Item> saveItem(@RequestBody Item item){
         try {
             item.setSourcePath(PathService.getLastPath());
             Item createdItem = itemRepository.save(item);

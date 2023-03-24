@@ -51,10 +51,5 @@ public class Listing {
      * The number of visits to the listing.
      */
     private int visits;
-
-    /**
-     * The item associated with the listing.
-     */
-    private int item;
 }
 
