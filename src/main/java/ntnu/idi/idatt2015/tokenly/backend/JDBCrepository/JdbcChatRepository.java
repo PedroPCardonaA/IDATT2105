@@ -11,10 +11,7 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 /**
  * This is the implementation of the ChatRepository interface using JDBC to communicate with a database.
@@ -60,6 +57,7 @@ public class JdbcChatRepository implements ChatRepository {
         KeyHolder keyHolder = new GeneratedKeyHolder();
         try {
             namedParameterJdbcTemplate.update(sql, new MapSqlParameterSource(params), keyHolder, new String[]{"chat_id"});
+            chat.setChatId(Objects.requireNonNull(keyHolder.getKey()).longValue());
             return chat;
         } catch (Exception e){
             return null;
