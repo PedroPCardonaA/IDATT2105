@@ -48,18 +48,19 @@ public class JdbcListingsRepository implements ListingsRepository {
         Map<String,Object> params = new HashMap<>();
         if(listing.getMaxPrice() == null && listing.getMinPrice() == null){
             sql = "INSERT INTO LISTINGS (ITEM_ID) VALUES (:itemId)";
-            params.put("itemId",listing.getListingId());
+            System.out.println(listing.getItemId());
+            params.put("itemId",listing.getItemId());
         } else if(listing.getMaxPrice() == null){
             sql = "INSERT INTO LISTINGS (ITEM_ID, MIN_PRICE) VALUES (:itemId , :minPrice)";
-            params.put("itemId",listing.getListingId());
+            params.put("itemId",listing.getItemId());
             params.put("minPrice",listing.getMinPrice());
         } else if (listing.getMinPrice() == null) {
             sql = "INSERT INTO LISTINGS (ITEM_ID, MAX_PRICE) VALUES (:itemId , :maxPrice)";
-            params.put("itemId",listing.getListingId());
+            params.put("itemId",listing.getItemId());
             params.put("maxPrice",listing.getMaxPrice());
         } else {
             sql = "INSERT INTO LISTINGS (ITEM_ID,MIN_PRICE, MAX_PRICE) VALUES (:itemId , :minPrice , :maxPrice)";
-            params.put("itemId",listing.getListingId());
+            params.put("itemId",listing.getItemId());
             params.put("maxPrice",listing.getMaxPrice());
             params.put("minPrice",listing.getMinPrice());
         }
@@ -69,6 +70,7 @@ public class JdbcListingsRepository implements ListingsRepository {
             listing.setListingId(Objects.requireNonNull(keyHolder.getKey()).longValue());
             return listing;
         }catch (Exception e){
+            System.out.println(e.getMessage());
             return null;
         }
     }
@@ -168,7 +170,7 @@ public class JdbcListingsRepository implements ListingsRepository {
      */
     @Override
     public Optional<List<Listing>> getByMinPrice(double minPrice) {
-        String sql = "SELECT * FROM LISTINGS WHERE MIN_PRICE >= :minPrice ";
+        String sql = "SELECT * FROM LISTINGS WHERE MIN_PRICE > :minPrice ";
         try{
             List<Listing> listings = namedParameterJdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Listing.class));
             return  Optional.of(listings);
