@@ -43,9 +43,5 @@ public class Item {
      */
     private String sourcePath;
 
-    /**
-     * The list of categories associated with the item.
-     */
-    private List<Category> categories;
 
 }

@@ -60,7 +60,7 @@ CREATE TABLE items_categories (
 
 CREATE TABLE listings (
     listing_id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    item_id BIGINT NOT NULL,
+    item_id BIGINT NOT NULL UNIQUE,
     min_price DOUBLE,
     max_price DOUBLE,
     publication_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
