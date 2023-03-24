@@ -39,5 +39,7 @@ public interface WishListRepository {
      * @return an Optional containing a List of all Item objects wanted by the specified user, or an empty Optional if the user wants no items
      */
     Optional<List<Item>> getAllTheItemsWantedByUser(String username);
+
+    int deleteWishlistItem(Wishlist wishlist);
 }
 

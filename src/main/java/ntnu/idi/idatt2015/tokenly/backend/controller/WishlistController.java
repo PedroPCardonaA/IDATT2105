@@ -54,4 +54,19 @@ public class WishlistController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @DeleteMapping("/wishlist/item")
+    public ResponseEntity<?> deleteWishlistItem(@RequestBody Wishlist wishlist) {
+        try {
+            int affectedRows = wishListRepository.deleteWishlistItem(wishlist);
+            if (affectedRows > 0) {
+                return ResponseEntity.ok().build();
+            } else {
+                return ResponseEntity.notFound().build();
+            }
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 }

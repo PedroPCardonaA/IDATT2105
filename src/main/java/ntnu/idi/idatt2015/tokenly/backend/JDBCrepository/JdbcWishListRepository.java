@@ -103,4 +103,14 @@ public class JdbcWishListRepository implements WishListRepository {
             return Optional.empty();
         }
     }
+
+    @Override
+    public int deleteWishlistItem(Wishlist wishlist) {
+        String sql = "DELETE FROM WISH_LIST WHERE USERNAME = :username AND ITEM_ID = :itemId";
+        HashMap<String,Object> params = new HashMap<>();
+        params.put("username", wishlist.username());
+        params.put("itemId", wishlist.itemId());
+
+        return namedParameterJdbcTemplate.update(sql,params);
+    }
 }
