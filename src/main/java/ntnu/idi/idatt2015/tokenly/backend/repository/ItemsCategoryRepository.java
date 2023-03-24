@@ -34,9 +34,9 @@ public interface ItemsCategoryRepository {
     /**
      * Retrieves a List of all Item objects associated with a Category object in the repository.
      *
-     * @param categoryId the ID of the Category object
+     * @param categoryName the ID of the Category object
      * @return a List of all Item objects associated with the specified Category object, or an empty List if no Item objects are associated with the Category object
      */
-    Optional<List<Item>> getAllTheItemsByCategoryId(long categoryId);
+    Optional<List<Item>> getAllTheItemsByCategoryName(String categoryName);
 }
 

@@ -54,7 +54,9 @@ public class SecurityConfig {
             "/api/categories/name/*",
             "/api/categories/partialName/*",
             "/api/source/post",
-            "/api/source/*"
+            "/api/source/*",
+            "/api/itemsCategories/items/*",
+            "/api/itemsCategories/categories/*"
     };
 
     /**
