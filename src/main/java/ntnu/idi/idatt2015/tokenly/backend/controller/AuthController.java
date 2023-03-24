@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
  * AuthController is a REST controller responsible for managing user authentication and token generation.
  * It exposes an endpoint for token generation based on user credentials.
  */
-@CrossOrigin
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/users")
 public class AuthController {
