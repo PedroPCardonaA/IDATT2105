@@ -16,6 +16,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Objects;
 
 /**
  * The SourceController class provides REST endpoints for managing source files.
@@ -42,6 +43,9 @@ public class SourceController {
     @PostMapping("/post")
     public ResponseEntity<String> postSource(@RequestParam("file") MultipartFile file){
         try {
+            if (!Objects.requireNonNull(file.getContentType()).startsWith("image/")) {
+                return new ResponseEntity<>("Only image files are allowed", HttpStatus.BAD_REQUEST);
+            }
             file.transferTo(Path.of(PathService.getFolderPath()+PathService.generatePath(file.getOriginalFilename())));
             return new ResponseEntity<>(PathService.getLastPath(),HttpStatus.OK);
         } catch (IOException e) {
@@ -79,7 +83,6 @@ public class SourceController {
             return ResponseEntity.ok()
                     .contentLength(content.length)
                     .contentType(MediaType.parseMediaType(contentType))
-                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + filename + "\"")
                     .body(resource);
         } catch (IOException e) {
             return new ResponseEntity<>( HttpStatus.INTERNAL_SERVER_ERROR);
