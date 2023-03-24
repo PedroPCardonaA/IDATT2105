@@ -22,6 +22,22 @@ public class ListingController {
     @PostMapping("/listing")
     public ResponseEntity<?> saveListing(@RequestBody Listing listing) {
         try {
+            if(listing.getMinPrice() != null){
+                if(listing.getMinPrice() <= 0){
+                    return new ResponseEntity<>("Minimum price of a listing cannot be zero or lower.", HttpStatus.BAD_REQUEST);
+                }
+                if(listing.getMinPrice() >= 1000){
+                    return new ResponseEntity<>("Minimum price of a listing cannot higher than 1000", HttpStatus.BAD_REQUEST);
+                }
+            }
+            if(listing.getMaxPrice() != null){
+                if(listing.getMaxPrice() <= 0){
+                    return new ResponseEntity<>("Maximum price of a listing cannot be zero or lower.", HttpStatus.BAD_REQUEST);
+                }
+                if(listing.getMaxPrice() >= 1000){
+                    return new ResponseEntity<>("Maximum price of a listing cannot higher than 1000", HttpStatus.BAD_REQUEST);
+                }
+            }
             Listing createdListing = listingRepository.save(listing);
             if (createdListing != null) {
                 return ResponseEntity.ok(createdListing);
