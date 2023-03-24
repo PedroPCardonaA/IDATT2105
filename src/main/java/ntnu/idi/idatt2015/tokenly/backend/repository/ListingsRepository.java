@@ -82,7 +82,6 @@ public interface ListingsRepository {
      */
     Optional<List<Listing>> getByCategory(String category);
 
-
     Optional<List<Listing>> getByUsername(String username);
 }
 
