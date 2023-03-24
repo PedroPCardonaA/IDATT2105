@@ -19,7 +19,7 @@ public interface ListingsRepository {
      *
      * @param listing the Listing object to save
      */
-    void save (Listing listing);
+    Listing save (Listing listing);
 
     /**
      * Retrieves a Listing object from the repository by ID.
@@ -89,5 +89,7 @@ public interface ListingsRepository {
      * @return an Optional containing the List of matching Listing objects, or an empty Optional if no Listing objects match the specified partial name
      */
     Optional<List<Listing>> getByPartialItemName(String name);
+
+    Optional<List<Listing>> getByUsername(String username);
 }
 

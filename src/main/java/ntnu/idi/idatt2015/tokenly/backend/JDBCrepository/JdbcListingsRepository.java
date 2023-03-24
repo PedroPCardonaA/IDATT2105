@@ -1,18 +1,19 @@
 package ntnu.idi.idatt2015.tokenly.backend.JDBCrepository;
 
 import ntnu.idi.idatt2015.tokenly.backend.model.Category;
+import ntnu.idi.idatt2015.tokenly.backend.model.Chat;
 import ntnu.idi.idatt2015.tokenly.backend.model.Listing;
 import ntnu.idi.idatt2015.tokenly.backend.repository.ListingsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 /**
  * JdbcListingsRepository is a repository class that implements ListingsRepository.
@@ -42,8 +43,34 @@ public class JdbcListingsRepository implements ListingsRepository {
      * @param listing the listing to be saved.
      */
     @Override
-    public void save(Listing listing) {
-
+    public Listing save(Listing listing) {
+        String sql;
+        Map<String,Object> params = new HashMap<>();
+        if(listing.getMaxPrice() == null && listing.getMinPrice() == null){
+            sql = "INSERT INTO LISTINGS (ITEM_ID) VALUES (:itemId)";
+            params.put("itemId",listing.getListingId());
+        } else if(listing.getMaxPrice() == null){
+            sql = "INSERT INTO LISTINGS (ITEM_ID, MIN_PRICE) VALUES (:itemId , :minPrice)";
+            params.put("itemId",listing.getListingId());
+            params.put("minPrice",listing.getMinPrice());
+        } else if (listing.getMinPrice() == null) {
+            sql = "INSERT INTO LISTINGS (ITEM_ID, MAX_PRICE) VALUES (:itemId , :maxPrice)";
+            params.put("itemId",listing.getListingId());
+            params.put("maxPrice",listing.getMaxPrice());
+        } else {
+            sql = "INSERT INTO LISTINGS (ITEM_ID,MIN_PRICE, MAX_PRICE) VALUES (:itemId , :minPrice , :maxPrice)";
+            params.put("itemId",listing.getListingId());
+            params.put("maxPrice",listing.getMaxPrice());
+            params.put("minPrice",listing.getMinPrice());
+        }
+        try {
+            KeyHolder keyHolder = new GeneratedKeyHolder();
+            namedParameterJdbcTemplate.update(sql, new MapSqlParameterSource(params), keyHolder, new String[]{"LISTING_ID"});
+            listing.setListingId(Objects.requireNonNull(keyHolder.getKey()).longValue());
+            return listing;
+        }catch (Exception e){
+            return null;
+        }
     }
 
     /**
@@ -204,6 +231,18 @@ public class JdbcListingsRepository implements ListingsRepository {
                     namedParameterJdbcTemplate.query(sql, params, new BeanPropertyRowMapper<>(Listing.class));
             return Optional.of(listings);
         } catch (Exception e) {
+            return Optional.empty();
+        }
+    }
+
+    @Override
+    public Optional<List<Listing>> getByUsername(String username) {
+        String sql = "SELECT * FROM LISTINGS WHERE ITEM_ID IN (SELECT ITEM_ID FROM ITEMS WHERE OWNER_NAME = :username))";
+        Map<String, Object> params = new HashMap<>();
+        try {
+            List<Listing> listings = namedParameterJdbcTemplate.query(sql,new BeanPropertyRowMapper<>(Listing.class));
+            return Optional.of(listings);
+        }catch (Exception e){
             return Optional.empty();
         }
     }
