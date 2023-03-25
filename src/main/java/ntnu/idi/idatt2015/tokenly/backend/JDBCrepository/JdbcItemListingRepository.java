@@ -123,4 +123,27 @@ public class JdbcItemListingRepository implements ItemListingRepository {
         return Optional.empty();
     }
 
+    @Override
+    public Optional<List<ItemListing>> getAllItemsListingByOwner(String username, int pageNumber, int pageSize, String sortBy, String order) {
+        if(ControlInputService.checkItemListingTableName(sortBy) && ControlInputService.checkOrder(order)){
+            String sql = "SELECT * FROM items LEFT JOIN listings ON items.item_id = listings.item_id WHERE items.owner_name = :username ORDER BY " + sortBy + " " + order + " LIMIT :limit OFFSET :offset";
+            Map<String, Object> params = new HashMap<>();
+            params.put("limit", pageSize);
+            params.put("offset", pageNumber * pageSize);
+            params.put("order",order);
+            params.put("sortBy",sortBy);
+            params.put("username",username);
+            try {
+                List<ItemListing> itemListings = namedParameterJdbcTemplate.query(sql,params,new BeanPropertyRowMapper<>(ItemListing.class));
+                System.out.println(itemListings);
+                return Optional.of(itemListings);
+
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+                return Optional.empty();
+            }
+        }
+        return Optional.empty();
+    }
+
 }

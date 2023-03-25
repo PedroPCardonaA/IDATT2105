@@ -160,4 +160,24 @@ public class ItemListingController {
         }
     }
 
+    @GetMapping("/owner")
+    public ResponseEntity<?> getAllItemsListingByOwner(@RequestParam (value="page", defaultValue ="0") int page,
+                                                      @RequestParam(value = "size", defaultValue = "12") int size,
+                                                      @RequestParam(value="sortBy", defaultValue = "visits") String sortBy,
+                                                      @RequestParam(value = "order", defaultValue = "DESC") String order,
+                                                      @RequestParam(value = "username") String username){
+        try {
+            Optional<Profile> profile = profileRepository.getByUsername(username);
+            if(profile.isPresent()){
+                Optional<?> list = itemListingRepository.getAllItemsListingByOwner(username,page,size,sortBy,order);
+                if(list.isPresent()){
+                    return ResponseEntity.ok(list.get());
+                }
+            }
+            return ResponseEntity.badRequest().build();
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
 }
