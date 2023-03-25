@@ -2,7 +2,7 @@
  * ItemListingController handles the HTTP requests related to item listings.
  * It exposes endpoints for retrieving all item listings and item listings by category.
  *
- * @author Your Name
+ * @author tokenly-team
  * @version 1.0
  * @since 2023-03-25
  */

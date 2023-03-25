@@ -26,7 +26,7 @@ import java.util.Objects;
  * @since 22.03.2023
  */
 @Slf4j
-@CrossOrigin("*")
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("/api/source")
 @RestController
 public class SourceController {
@@ -55,6 +55,8 @@ public class SourceController {
 
     /**
      * Handles a GET request to download a source file.
+     * File extension is used to determine the content type of the file.
+     * If the file extension is not recognized, a NOT_ACCEPTABLE response is returned.
      *
      * @param itemId The ID of the source file to download.
      * @return A ResponseEntity containing the requested source file if successful, or an error response if unsuccessful.
