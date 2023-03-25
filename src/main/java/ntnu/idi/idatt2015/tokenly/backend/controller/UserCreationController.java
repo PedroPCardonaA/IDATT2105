@@ -1,9 +1,16 @@
 /**
- * ntnu.idi.idatt2015.tokenly.backend.controller
- * Provides classes related to handling HTTP requests in the application.
+ * The UserCreationController class is responsible for handling HTTP requests related to user registration.
+ * It uses a ProfileService instance to communicate with the database and perform CRUD operations.
+ * It also uses a Spring Security PasswordEncoder to hash the user's password before saving it to the database,
+ * and a JdbcUserDetailsManager to create a new user in the database.
+ *
+ * @author tokenly-team
+ * @version 1.0
+ * @since 22.03.2023
  */
 package ntnu.idi.idatt2015.tokenly.backend.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import ntnu.idi.idatt2015.tokenly.backend.model.Profile;
 import ntnu.idi.idatt2015.tokenly.backend.model.UserCreationRequest;
 import ntnu.idi.idatt2015.tokenly.backend.model.UserCreationResponse;
@@ -21,7 +28,8 @@ import org.springframework.web.bind.annotation.*;
  * UserCreationController is a REST controller responsible for user registration.
  * It exposes an endpoint for user registration based on the provided user details.
  */
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:5173")
+@Slf4j
 @RestController
 @RequestMapping("/api/users")
 public class UserCreationController {
