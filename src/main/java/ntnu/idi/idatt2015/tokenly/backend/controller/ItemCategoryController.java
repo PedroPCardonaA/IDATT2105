@@ -40,10 +40,10 @@ public class ItemCategoryController {
             if(createdItemsCategories != null){
                 return ResponseEntity.ok(createdItemsCategories);
             } else {
-                return ResponseEntity.badRequest().build();
+                return ResponseEntity.badRequest().body("Could not get item category, invalid request.");
             }
         }catch (Exception e){
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error, could not create item category.");
         }
 
     }
@@ -62,7 +62,7 @@ public class ItemCategoryController {
             return items.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                     .orElseGet(() -> new ResponseEntity<>(HttpStatus.BAD_REQUEST));
         }catch (Exception e){
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Internal server error.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -80,7 +80,7 @@ public class ItemCategoryController {
             return categories.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                     .orElseGet(() -> new ResponseEntity<>(HttpStatus.BAD_REQUEST));
         }catch (Exception e){
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Internal server error.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -96,12 +96,12 @@ public class ItemCategoryController {
         try {
             int answer = itemsCategoryRepository.deleteRow(itemsCategories);
             if(answer == -1){
-                return ResponseEntity.badRequest().build();
+                return ResponseEntity.badRequest().body("Could not delete item category, invalid request.");
             }else {
                 return ResponseEntity.ok(answer);
             }
         }catch (Exception e){
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error, could not delete item category.");
         }
     }
 

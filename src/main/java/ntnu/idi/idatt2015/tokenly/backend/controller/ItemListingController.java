@@ -98,11 +98,11 @@ public class ItemListingController {
              if(list.isPresent()){
                  return ResponseEntity.ok(list.get());
              }else{
-                 return ResponseEntity.badRequest().build();
+                 return ResponseEntity.badRequest().body("Could not get item listings, invalid request.");
              }
 
          }catch (Exception e){
-             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error, could not get item listings.");
          }
      }
 
@@ -137,9 +137,9 @@ public class ItemListingController {
                     return ResponseEntity.ok(list.get());
                 }
             }
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.badRequest().body("Could not get item listings, invalid request.");
         }catch (Exception e){
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error, could not get item listings.");
         }
     }
 }

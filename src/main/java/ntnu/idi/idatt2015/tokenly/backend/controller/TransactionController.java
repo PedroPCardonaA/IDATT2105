@@ -50,10 +50,10 @@ public class TransactionController {
             if (createdTransaction != null) {
                 return ResponseEntity.ok(createdTransaction);
             } else {
-                return ResponseEntity.badRequest().build();
+                return ResponseEntity.badRequest().body("Could not get transaction, invalid request.");
             }
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error, could not create transaction.");
         }
     }
 
@@ -67,7 +67,7 @@ public class TransactionController {
         try {
             return ResponseEntity.ok(transactionRepository.getAllTransactions());
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error, could not retrieve transactions.");
         }
     }
 
@@ -82,7 +82,7 @@ public class TransactionController {
         try {
             return ResponseEntity.ok(transactionRepository.getAllTransactionByUsername(username));
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error, could not retrieve transactions.");
         }
     }
 

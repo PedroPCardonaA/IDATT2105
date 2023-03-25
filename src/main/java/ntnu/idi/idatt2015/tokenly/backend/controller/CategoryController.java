@@ -38,10 +38,10 @@ public class CategoryController {
             if(createdCategory != null){
                 return ResponseEntity.ok(createdCategory);
             }else {
-                return ResponseEntity.badRequest().build();
+                return ResponseEntity.badRequest().body("Category already exists");
             }
         }catch (Exception e){
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error saving category");
         }
     }
 
@@ -51,13 +51,13 @@ public class CategoryController {
      * @return A ResponseEntity containing a list of all categories if successful, or an error response if unsuccessful.
      */
     @GetMapping("/")
-    public ResponseEntity<List<Category>> getAllCategories(){
+    public ResponseEntity<?> getAllCategories(){
         try {
             Optional<List<Category>> categories = categoryRepository.getAll();
             return categories.map(categoryList -> new ResponseEntity<>(categoryList, HttpStatus.OK))
                     .orElseGet(() -> new ResponseEntity<>(HttpStatus.NO_CONTENT));
         }catch (Exception e){
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Internal server error.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -68,13 +68,13 @@ public class CategoryController {
      * @return A ResponseEntity containing the requested category if successful, or an error response if unsuccessful.
      */
     @GetMapping("/name/{name}")
-    public ResponseEntity<Category> getCategoryByName(@PathVariable("name") String name){
+    public ResponseEntity<?> getCategoryByName(@PathVariable("name") String name){
         try {
             Optional<Category> category = categoryRepository.getCategoryByName(name);
             return category.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                     .orElseGet(() -> new ResponseEntity<>(HttpStatus.NO_CONTENT));
         }catch (Exception e){
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Internal server error.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -85,13 +85,13 @@ public class CategoryController {
      * @return A ResponseEntity containing a list of categories with matching partial name if successful, or an error response if unsuccessful.
      */
     @GetMapping("/partialName/{name}")
-    public ResponseEntity<List<Category>> getCategoryByPartialName(@PathVariable("name") String name){
+    public ResponseEntity<?> getCategoryByPartialName(@PathVariable("name") String name){
         try {
             Optional<List<Category>> category = categoryRepository.getCategoriesByPartialName(name);
             return category.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                     .orElseGet(() -> new ResponseEntity<>(HttpStatus.NO_CONTENT));
         }catch (Exception e){
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Internal server error.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 

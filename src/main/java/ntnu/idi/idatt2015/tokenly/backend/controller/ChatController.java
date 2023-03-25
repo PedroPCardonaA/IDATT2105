@@ -50,10 +50,10 @@ public class ChatController {
             if (createdChat != null) {
                 return ResponseEntity.ok(createdChat);
             } else {
-                return ResponseEntity.badRequest().build();
+                return ResponseEntity.badRequest().body("Could not get chat, invalid request.");
             }
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error, could not create chat.");
         }
     }
 
@@ -72,7 +72,7 @@ public class ChatController {
             return chats.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                     .orElseGet(() -> new ResponseEntity<>(HttpStatus.NO_CONTENT));
         }catch (Exception e){
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Internal server error.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -84,13 +84,13 @@ public class ChatController {
      * @return ResponseEntity containing the chat, or a no content response
      */
     @GetMapping("/chat/{id}")
-    public ResponseEntity<Chat> getChatById(@PathVariable("id") Long id){
+    public ResponseEntity<?> getChatById(@PathVariable("id") Long id){
         try {
             Optional<Chat> chat = chatRepository.getChatById(id);
             return chat.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                     .orElseGet(() -> new ResponseEntity<>(HttpStatus.NO_CONTENT));
         }catch (Exception e){
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Internal server error.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }
