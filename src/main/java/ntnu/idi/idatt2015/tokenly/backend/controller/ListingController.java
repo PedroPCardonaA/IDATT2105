@@ -1,5 +1,14 @@
+/**
+ * ListingController handles the HTTP requests related to Listings.
+ * It exposes endpoints for creating, retrieving, and filtering listings by different attributes.
+ *
+ * @author tokenly-team
+ * @version 1.0
+ * @since 2023-03-25
+ */
 package ntnu.idi.idatt2015.tokenly.backend.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import ntnu.idi.idatt2015.tokenly.backend.model.Listing;
 import ntnu.idi.idatt2015.tokenly.backend.repository.ListingsRepository;
 import org.springframework.http.HttpStatus;
@@ -8,17 +17,31 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-@CrossOrigin("*")
+@CrossOrigin(origins = "http://localhost:5173")
+@Slf4j
 @RestController
 @RequestMapping("/api/listings")
 public class ListingController {
 
     private final ListingsRepository listingRepository;
 
+    /**
+     * Constructor for the ListingController class that takes a ListingRepository instance as a parameter.
+     * The listing repository is autowired by Spring BOOT.
+     *
+     * @param listingRepository the BidRepository instance to use for database communication.
+     */
     public ListingController(ListingsRepository listingRepository) {
         this.listingRepository = listingRepository;
     }
 
+    /**
+     * Saves a listing with the provided information. Validates min and max price constraints.
+     * Returns a ResponseEntity containing the created listing or a bad request response.
+     *
+     * @param listing the listing to be saved
+     * @return ResponseEntity containing the created listing or a bad request response
+     */
     @PostMapping("/listing")
     public ResponseEntity<?> saveListing(@RequestBody Listing listing) {
         try {
@@ -49,6 +72,13 @@ public class ListingController {
         }
     }
 
+    /**
+     * Retrieves a listing with the given ID.
+     * Returns a ResponseEntity containing the listing or a no content response.
+     *
+     * @param id the ID of the listing to retrieve
+     * @return ResponseEntity containing the listing or a no content response
+     */
     @GetMapping("/listing/{id}")
     public ResponseEntity<Listing> getListingById(@PathVariable("id") Long id) {
         try {
@@ -60,6 +90,13 @@ public class ListingController {
         }
     }
 
+    /**
+     * Retrieves a listing by the given item ID.
+     * Returns a ResponseEntity containing the listing or a no content response.
+     *
+     * @param itemId the ID of the item related to the listing
+     * @return ResponseEntity containing the listing or a no content response
+     */
     @GetMapping("/item/{itemId}")
     public ResponseEntity<?> getListingByItemId(@PathVariable("itemId") Long itemId) {
         try {
@@ -71,6 +108,12 @@ public class ListingController {
         }
     }
 
+    /**
+     * Retrieves all open listings.
+     * Returns a ResponseEntity containing a list of open listings or a no content response.
+     *
+     * @return ResponseEntity containing a list of open listings or a no content response
+     */
     @GetMapping("/open")
     public ResponseEntity<?> getOpenListings() {
         try {
@@ -82,6 +125,12 @@ public class ListingController {
         }
     }
 
+    /**
+     * Retrieves all closed listings.
+     * Returns a ResponseEntity containing a list of closed listings or a no content response.
+     *
+     * @return ResponseEntity containing a list of closed listings or a no content response
+     */
     @GetMapping("/closed")
     public ResponseEntity<?> getClosedListings() {
         try {
@@ -93,6 +142,13 @@ public class ListingController {
         }
     }
 
+    /**
+     * Retrieves listings with a minimum price equal to or greater than the specified value.
+     * Returns a ResponseEntity containing a list of matching listings or a no content response.
+     *
+     * @param minPrice the minimum price to filter listings by
+     * @return ResponseEntity containing a list of matching listings or a no content response
+     */
     @GetMapping("/min-price/{minPrice}")
     public ResponseEntity<?> getListingByMinPrice(@PathVariable("minPrice") double minPrice) {
         try {
@@ -104,6 +160,13 @@ public class ListingController {
         }
     }
 
+    /**
+     * Retrieves listings with a maximum price equal to or less than the specified value.
+     * Returns a ResponseEntity containing a list of matching listings or a no content response.
+     *
+     * @param maxPrice the maximum price to filter listings by
+     * @return ResponseEntity containing a list of matching listings or a no content response
+     */
     @GetMapping("/max-price/{maxPrice}")
     public ResponseEntity<?> getListingByMaxPrice(@PathVariable("maxPrice") double maxPrice) {
         try {
@@ -115,6 +178,13 @@ public class ListingController {
         }
     }
 
+    /**
+     * Retrieves listings by the given category name.
+     * Returns a ResponseEntity containing a list of matching listings or a no content response.
+     *
+     * @param category the category name to filter listings by
+     * @return ResponseEntity containing a list of matching listings or a no content response
+     */
     @GetMapping("/category/{category}")
     public ResponseEntity<?> getListingByCategory(@PathVariable("category") String category) {
         try {
@@ -126,6 +196,13 @@ public class ListingController {
         }
     }
 
+    /**
+     * Retrieves listings by the given username.
+     * Returns a ResponseEntity containing a list of matching listings or a no content response.
+     *
+     * @param username the username associated with the listings
+     * @return ResponseEntity containing a list of matching listings or a no content response
+     */
     @GetMapping("/user/{username}")
     public ResponseEntity<?> getListingsByUsername(@PathVariable("username") String username) {
         try {

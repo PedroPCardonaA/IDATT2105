@@ -24,7 +24,7 @@ import java.util.Optional;
  * @since 22.03.2023
  */
 @Slf4j
-@CrossOrigin("*")
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/api/items")
 public class ItemController {

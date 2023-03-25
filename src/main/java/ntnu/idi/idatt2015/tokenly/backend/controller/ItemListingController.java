@@ -1,5 +1,14 @@
+/**
+ * ItemListingController handles the HTTP requests related to item listings.
+ * It exposes endpoints for retrieving all item listings and item listings by category.
+ *
+ * @author tokenly-team
+ * @version 1.0
+ * @since 2023-03-25
+ */
 package ntnu.idi.idatt2015.tokenly.backend.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import ntnu.idi.idatt2015.tokenly.backend.model.Category;
 import ntnu.idi.idatt2015.tokenly.backend.repository.CategoryRepository;
 import ntnu.idi.idatt2015.tokenly.backend.repository.ItemListingRepository;
@@ -11,16 +20,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * The ItemListingController class is a REST controller that handles requests related to item listings.
- *
- * @author tokenly-team
- * @version 1.0
- * @since 22.03.2023
- */
 @RestController
 @RequestMapping("/api/itemListing")
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:5173")
+@Slf4j
 public class ItemListingController {
      @Autowired
     ItemListingRepository itemListingRepository;
@@ -29,14 +32,14 @@ public class ItemListingController {
     CategoryRepository categoryRepository;
 
     /**
-     * Retrieves all item listings from the database.
+     * Retrieves all item listings with pagination, sorting, and ordering options.
+     * Returns a response entity containing the list of item listings or a bad request response.
      *
-     * @param page the page number of the result set to retrieve
-     * @param size the maximum number of item listings to retrieve
-     * @param sortBy the attribute to sort the result set by
-     * @param order the order in which to sort the result set (ASC or DESC)
-     *
-     * @return a ResponseEntity containing a list of item listings, or a BAD_REQUEST response if none were found
+     * @param page the page number for pagination
+     * @param size the number of items per page
+     * @param sortBy the attribute to sort the items by
+     * @param order the order of the sort (ASC or DESC)
+     * @return ResponseEntity containing the list of item listings or a bad request response
      */
      @GetMapping("/")
     public ResponseEntity<?> getAllItemsListing(@RequestParam (value="page", defaultValue ="0") int page,
@@ -57,15 +60,15 @@ public class ItemListingController {
      }
 
     /**
-     * Retrieves all item listings with the specified category from the database.
+     * Retrieves all item listings with a given category, pagination, sorting, and ordering options.
+     * Returns a response entity containing the list of item listings or a bad request response.
      *
-     * @param page the page number of the result set to retrieve
-     * @param size the maximum number of item listings to retrieve
-     * @param sortBy the attribute to sort the result set by
-     * @param order the order in which to sort the result set (ASC or DESC)
-     * @param category the category to filter the result set by
-     *
-     * @return a ResponseEntity containing a list of item listings with the specified category, or a BAD_REQUEST response if none were found
+     * @param page the page number for pagination
+     * @param size the number of items per page
+     * @param sortBy the attribute to sort the items by
+     * @param order the order of the sort (ASC or DESC)
+     * @param category the category to filter items by
+     * @return ResponseEntity containing the list of item listings or a bad request response
      */
     @GetMapping("/category")
     public ResponseEntity<?> getAllItemsListingByCategory(@RequestParam (value="page", defaultValue ="0") int page,

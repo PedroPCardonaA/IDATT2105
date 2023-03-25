@@ -1,5 +1,6 @@
 package ntnu.idi.idatt2015.tokenly.backend.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import ntnu.idi.idatt2015.tokenly.backend.model.Bid;
 import ntnu.idi.idatt2015.tokenly.backend.repository.BidRepository;
 import org.springframework.http.HttpStatus;
@@ -16,7 +17,8 @@ import java.util.Optional;
  * @version 1.0
  * @since 22.03.2023
  */
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:5173")
+@Slf4j
 @RestController
 @RequestMapping("/api/bids")
 public class BidController {

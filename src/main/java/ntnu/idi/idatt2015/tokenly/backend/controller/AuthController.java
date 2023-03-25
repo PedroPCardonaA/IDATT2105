@@ -1,9 +1,14 @@
 /**
- * ntnu.idi.idatt2015.tokenly.backend.controller
- * Provides classes related to handling HTTP requests in the application.
+ * AuthController is a REST controller responsible for managing user authentication and token generation.
+ * It exposes an endpoint for token generation based on user credentials.
+ *
+ * @author tokenly-team
+ * @version 1.0
+ * @since 2023-03-25
  */
 package ntnu.idi.idatt2015.tokenly.backend.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import ntnu.idi.idatt2015.tokenly.backend.model.LoginRequest;
 import ntnu.idi.idatt2015.tokenly.backend.service.TokenService;
 import org.slf4j.Logger;
@@ -16,16 +21,11 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.*;
 
-/**
- * AuthController is a REST controller responsible for managing user authentication and token generation.
- * It exposes an endpoint for token generation based on user credentials.
- */
-@CrossOrigin("*")
+@CrossOrigin(origins = "http://localhost:5173")
+@Slf4j
 @RestController
 @RequestMapping("/api/users")
 public class AuthController {
-
-    private static final Logger LOG = LoggerFactory.getLogger(AuthController.class);
 
     private final TokenService tokenService;
     private final AuthenticationManager authenticationManager;
@@ -44,14 +44,19 @@ public class AuthController {
 
     /**
      * Generates a token for the given user login request if the authentication is successful.
+     * Input data is validated before the authentication is attempted.
      *
      * @param userLogin A LoginRequest object containing the user's username and password.
      * @return A ResponseEntity containing the generated token or an error message.
-     * @throws AuthenticationException If an authentication error occurs.
      */
     @PostMapping("/token")
-    public ResponseEntity<?> token(@RequestBody LoginRequest userLogin) throws AuthenticationException {
+    public ResponseEntity<?> token(@RequestBody LoginRequest userLogin) {
         try {
+            if(userLogin.username() == null || userLogin.username().trim().isEmpty() || userLogin.username().length() > 50 ||
+                    userLogin.password() == null || userLogin.password().trim().isEmpty()) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                        .body("Error: Invalid input.");
+            }
             Authentication authentication = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
                             userLogin.username(),

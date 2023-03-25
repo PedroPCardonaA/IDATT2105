@@ -1,5 +1,16 @@
+/**
+ * WishlistController is a RESTful controller for managing wishlists.
+ * It provides endpoints for saving wishlists, retrieving all users who want a specific item,
+ * retrieving all items that a specific user wants, and deleting items from a wishlist.
+ * This controller allows Cross-Origin requests from "http://localhost:5173".
+ *
+ * @author tokenly-team
+ * @version 1.0
+ * @since 2023-03-25
+ */
 package ntnu.idi.idatt2015.tokenly.backend.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import ntnu.idi.idatt2015.tokenly.backend.model.Wishlist;
 import ntnu.idi.idatt2015.tokenly.backend.repository.WishListRepository;
 import org.springframework.http.HttpStatus;
@@ -8,17 +19,30 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-@CrossOrigin("*")
+@CrossOrigin(origins = "http://localhost:5173")
+@Slf4j
 @RestController
 @RequestMapping("/api/wishlists")
 public class WishlistController {
 
     private final WishListRepository wishListRepository;
 
+    /**
+     * Constructs a new WishlistController with the provided WishListRepository.
+     * The WishListRepository is autowired by Spring BOOT.
+     *
+     * @param wishListRepository The repository for storing and retrieving wishlists.
+     */
     public WishlistController(WishListRepository wishListRepository) {
         this.wishListRepository = wishListRepository;
     }
 
+    /**
+     * Saves a wishlist.
+     *
+     * @param wishlist The wishlist to be saved.
+     * @return ResponseEntity with the saved wishlist if successful, or a ResponseEntity with an error status if unsuccessful.
+     */
     @PostMapping("/wishlist")
     public ResponseEntity<?> saveWishlist(@RequestBody Wishlist wishlist){
         try {
@@ -33,6 +57,12 @@ public class WishlistController {
         }
     }
 
+    /**
+     * Retrieves all users who want a specific item.
+     *
+     * @param itemId The ID of the item.
+     * @return ResponseEntity with a list of users who want the item if successful, or a ResponseEntity with an error status if unsuccessful.
+     */
     @GetMapping("/item/{itemId}")
     public ResponseEntity<?> getAllUserThatWantTheItem(@PathVariable("itemId") long itemId){
         try {
@@ -44,6 +74,12 @@ public class WishlistController {
         }
     }
 
+    /**
+     * Retrieves all items that a specific user wants.
+     *
+     * @param username The username of the user.
+     * @return ResponseEntity with a list of items that the user wants if successful, or a ResponseEntity with an error status if unsuccessful.
+     */
     @GetMapping("/user/{username}")
     public ResponseEntity<?> getAllItemsThatTheUserWant(@PathVariable("username") String username){
         try {
@@ -55,6 +91,12 @@ public class WishlistController {
         }
     }
 
+    /**
+     * Deletes an item from a wishlist.
+     *
+     * @param wishlist The wishlist containing the item to be deleted.
+     * @return ResponseEntity with an OK status if the item was deleted successfully, or a ResponseEntity with an error status if unsuccessful.
+     */
     @DeleteMapping("/wishlist/item")
     public ResponseEntity<?> deleteWishlistItem(@RequestBody Wishlist wishlist) {
         try {
