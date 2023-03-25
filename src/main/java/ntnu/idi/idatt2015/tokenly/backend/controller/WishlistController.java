@@ -50,10 +50,10 @@ public class WishlistController {
             if (createdWishlist != null) {
                 return ResponseEntity.ok(createdWishlist);
             } else {
-                return ResponseEntity.badRequest().build();
+                return ResponseEntity.badRequest().body("Could not get wishlist, invalid request.");
             }
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error, could not create wishlist.");
         }
     }
 
@@ -70,7 +70,7 @@ public class WishlistController {
             return wishlist.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                     .orElseGet(() -> new ResponseEntity<>(HttpStatus.NO_CONTENT));
         } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Internal server error.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -87,7 +87,7 @@ public class WishlistController {
             return wishlist.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                     .orElseGet(() -> new ResponseEntity<>(HttpStatus.NO_CONTENT));
         } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Internal server error.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -102,12 +102,12 @@ public class WishlistController {
         try {
             int affectedRows = wishListRepository.deleteWishlistItem(wishlist);
             if (affectedRows > 0) {
-                return ResponseEntity.ok().build();
+                return ResponseEntity.ok().body("Item deleted from wishlist.");
             } else {
                 return ResponseEntity.notFound().build();
             }
         } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Internal server error.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 

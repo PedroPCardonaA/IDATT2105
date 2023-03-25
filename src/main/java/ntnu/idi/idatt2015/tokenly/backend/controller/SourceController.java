@@ -41,7 +41,7 @@ public class SourceController {
      * @return A ResponseEntity containing the generated file path if successful, or an error response if unsuccessful.
      */
     @PostMapping("/post")
-    public ResponseEntity<String> postSource(@RequestParam("file") MultipartFile file){
+    public ResponseEntity<?> postSource(@RequestParam("file") MultipartFile file){
         try {
             if (!Objects.requireNonNull(file.getContentType()).startsWith("image/")) {
                 return new ResponseEntity<>("Only image files are allowed", HttpStatus.BAD_REQUEST);
@@ -49,7 +49,7 @@ public class SourceController {
             file.transferTo(Path.of(PathService.getFolderPath()+PathService.generatePath(file.getOriginalFilename())));
             return new ResponseEntity<>(PathService.getLastPath(),HttpStatus.OK);
         } catch (IOException e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Internal server error.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -77,7 +77,7 @@ public class SourceController {
                 case ".svg" -> contentType = "image/svg+xml";
                 case ".webp" -> contentType = "image/webp";
                 default -> {
-                    return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+                    return new ResponseEntity<>("Invalid filetype.", HttpStatus.NOT_ACCEPTABLE);
                 }
             }
             byte[] content = Files.readAllBytes(file.toPath());
@@ -87,7 +87,7 @@ public class SourceController {
                     .contentType(MediaType.parseMediaType(contentType))
                     .body(resource);
         } catch (IOException e) {
-            return new ResponseEntity<>( HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Internal server error.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
