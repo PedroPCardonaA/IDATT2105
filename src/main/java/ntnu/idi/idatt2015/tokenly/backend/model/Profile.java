@@ -19,7 +19,7 @@ public class Profile {
     /**
      * The ID of the profile.
      */
-    private long profileId;
+    private long id;
 
     /**
      * The username of the user.
@@ -29,12 +29,12 @@ public class Profile {
     /**
      * The first name of the user.
      */
-    private String firstname;
+    private String first_name;
 
     /**
      * The last name of the user.
      */
-    private String lastname;
+    private String last_name;
 
     /**
      * The email address of the user.
