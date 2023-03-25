@@ -45,6 +45,8 @@ public class UserCreationController {
 
     /**
      * Creates a new user account with the provided user details.
+     * User details are provided in the request body as a UserCreationRequest object.
+     * Input validation is performed on the provided user details.
      *
      * @param user A UserCreationRequest object containing the user's username and password.
      * @return A ResponseEntity containing appropriate response codes and response data (username on conflict response, response model on created response)
@@ -99,6 +101,12 @@ public class UserCreationController {
         }
     }
 
+    /**
+     * Converts a Profile object to a UserCreationResponse object.
+     *
+     * @param profile The Profile object to convert.
+     * @return A UserCreationResponse object containing the same data as the provided Profile object.
+     */
     private UserCreationResponse profileToUserCreationResponse(Profile profile) {
         return new UserCreationResponse(profile.getUsername(), profile.getEmail(),
                                         profile.getFirst_name(), profile.getLast_name());
