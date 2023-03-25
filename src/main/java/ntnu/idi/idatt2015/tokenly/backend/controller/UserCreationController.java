@@ -74,8 +74,8 @@ public class UserCreationController {
             Profile profile = new Profile();
             profile.setUsername(user.username());
             profile.setEmail(user.email());
-            profile.setFirstname(user.firstname());
-            profile.setLastname(user.lastname());
+            profile.setFirst_name(user.firstname());
+            profile.setLast_name(user.lastname());
             profile.setBirthdate(user.birthdate());
 
             Profile createdProfile = profileService.createProfile(profile);
@@ -93,6 +93,6 @@ public class UserCreationController {
 
     private UserCreationResponse profileToUserCreationResponse(Profile profile) {
         return new UserCreationResponse(profile.getUsername(), profile.getEmail(),
-                                        profile.getFirstname(), profile.getLastname());
+                                        profile.getFirst_name(), profile.getLast_name());
     }
 }
