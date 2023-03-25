@@ -15,15 +15,39 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+/**
+ * JdbcItemListingRepository is a JDBC-based implementation of the ItemListingRepository.
+ * It handles retrieval operations for ItemListing objects, which combine Item and Listing data.
+ * This repository class uses NamedParameterJdbcTemplate for querying the database.
+ *
+ * @author tokenly-team
+ * @version 1.0
+ * @since 2023-03-25
+ */
 @Repository
 public class JdbcItemListingRepository implements ItemListingRepository {
 
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
+    /**
+     * Constructs a new JdbcItemListingRepository with the provided JdbcTemplate.
+     *
+     * @param jdbcTemplate The JdbcTemplate to use for querying the database.
+     */
     @Autowired
     public JdbcItemListingRepository(JdbcTemplate jdbcTemplate){
         this.namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
     }
+
+    /**
+     * Retrieves a list of all ItemListing objects based on the provided parameters.
+     *
+     * @param pageNumber The page number for the results.
+     * @param pageSize The number of results per page.
+     * @param sortBy The column to sort the results by.
+     * @param order The order to sort the results (ASC or DESC).
+     * @return An Optional containing a list of ItemListing objects, or an empty Optional if an exception occurs or if input is invalid.
+     */
     @Override
     public Optional<List<ItemListing>> getAllItemListing(int pageNumber, int pageSize, String sortBy, String order) {
         if(ControlInputService.checkItemListingTableName(sortBy) && ControlInputService.checkOrder(order)){
@@ -45,6 +69,17 @@ public class JdbcItemListingRepository implements ItemListingRepository {
 
     }
 
+    /**
+     * Retrieves a list of all ItemListing objects associated with a specific category,
+     * based on the provided parameters.
+     *
+     * @param category The category name.
+     * @param pageNumber The page number for the results.
+     * @param pageSize The number of results per page.
+     * @param sortBy The column to sort the results by.
+     * @param order The order to sort the results (ASC or DESC).
+     * @return An Optional containing a list of ItemListing objects, or an empty Optional if an exception occurs or if input is invalid.
+     */
     @Override
     public Optional<List<ItemListing>> getAllItemListingByCategory(String category, int pageNumber, int pageSize, String sortBy, String order) {
         if(ControlInputService.checkItemListingTableName(sortBy) && ControlInputService.checkOrder(order)){
