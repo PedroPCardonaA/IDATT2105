@@ -2,7 +2,6 @@ package ntnu.idi.idatt2015.tokenly.backend.JDBCrepository;
 
 import ntnu.idi.idatt2015.tokenly.backend.model.ItemListing;
 import ntnu.idi.idatt2015.tokenly.backend.repository.ItemListingRepository;
-import ntnu.idi.idatt2015.tokenly.backend.repository.ItemsCategoryRepository;
 import ntnu.idi.idatt2015.tokenly.backend.service.ControlInputService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
