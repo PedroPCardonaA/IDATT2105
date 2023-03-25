@@ -44,6 +44,7 @@ public class AuthController {
 
     /**
      * Generates a token for the given user login request if the authentication is successful.
+     * Input data is validated before the authentication is attempted.
      *
      * @param userLogin A LoginRequest object containing the user's username and password.
      * @return A ResponseEntity containing the generated token or an error message.
