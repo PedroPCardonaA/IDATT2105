@@ -2,7 +2,7 @@
  * ItemCategoryController handles the HTTP requests related to item categories.
  * It exposes endpoints for creating, deleting, and retrieving item categories and their relationships.
  *
- * @author Your Name
+ * @author tokenly-team
  * @version 1.0
  * @since 2023-03-25
  */
