@@ -140,6 +140,17 @@ public class ItemListingController {
         }
     }
 
+    /**
+     * Retrieves all the item listings by user with pagination and sorting options.
+     *
+     * @param page The page number to retrieve (default: 0)
+     * @param size The number of items to retrieve per page (default: 12)
+     * @param sortBy The property to sort the items by (default: visits)
+     * @param order The order to sort the items in (default: DESC)
+     * @param username The username of the user whose item listings will be retrieved
+     * @return ResponseEntity with a list of item listings, or a bad request or internal server error status
+     */
+
     @GetMapping("/user")
     public ResponseEntity<?> getAllItemsListingByUser(@RequestParam (value="page", defaultValue ="0") int page,
                                                           @RequestParam(value = "size", defaultValue = "12") int size,
@@ -160,6 +171,16 @@ public class ItemListingController {
         }
     }
 
+    /**
+     * Retrieves all the item listings by owner with pagination and sorting options.
+     *
+     * @param page The page number to retrieve (default: 0)
+     * @param size The number of items to retrieve per page (default: 12)
+     * @param sortBy The property to sort the items by (default: visits)
+     * @param order The order to sort the items in (default: DESC)
+     * @param username The username of the owner whose item listings will be retrieved
+     * @return ResponseEntity with a list of item listings, or a bad request or internal server error status
+     */
     @GetMapping("/owner")
     public ResponseEntity<?> getAllItemsListingByOwner(@RequestParam (value="page", defaultValue ="0") int page,
                                                       @RequestParam(value = "size", defaultValue = "12") int size,
