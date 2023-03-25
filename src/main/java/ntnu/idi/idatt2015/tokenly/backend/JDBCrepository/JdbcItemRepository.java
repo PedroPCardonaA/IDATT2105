@@ -57,6 +57,7 @@ public class JdbcItemRepository implements ItemRepository {
             item.setItemId(Objects.requireNonNull(keyHolder.getKey()).longValue());
             return item;
         }catch (Exception e){
+            System.out.println(e.getMessage());
             return null;
         }
 
@@ -146,6 +147,7 @@ public class JdbcItemRepository implements ItemRepository {
             List<Item> items = namedParameterJdbcTemplate.query(sql,new BeanPropertyRowMapper<>(Item.class));
             return Optional.ofNullable(items);
         }catch (Exception e){
+            System.out.println(e.getMessage());
             return Optional.empty();
         }
     }

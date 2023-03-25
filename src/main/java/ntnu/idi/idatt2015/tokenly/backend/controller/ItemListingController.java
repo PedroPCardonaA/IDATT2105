@@ -10,8 +10,13 @@ package ntnu.idi.idatt2015.tokenly.backend.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import ntnu.idi.idatt2015.tokenly.backend.model.Category;
+import ntnu.idi.idatt2015.tokenly.backend.model.Item;
+import ntnu.idi.idatt2015.tokenly.backend.model.ItemListing;
+import ntnu.idi.idatt2015.tokenly.backend.model.Listing;
 import ntnu.idi.idatt2015.tokenly.backend.repository.CategoryRepository;
 import ntnu.idi.idatt2015.tokenly.backend.repository.ItemListingRepository;
+import ntnu.idi.idatt2015.tokenly.backend.repository.ItemRepository;
+import ntnu.idi.idatt2015.tokenly.backend.repository.ListingsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,6 +35,48 @@ public class ItemListingController {
 
      @Autowired
     CategoryRepository categoryRepository;
+
+     @Autowired
+     ItemRepository itemRepository;
+
+     @Autowired
+    ListingsRepository listingsRepository;
+
+     @PostMapping("/post")
+     public ResponseEntity<?> postItemListing(@RequestBody ItemListing itemListing){
+         try {
+             Item newItem = new Item();
+             newItem.setItemName(itemListing.getItemName());
+             newItem.setSourcePath(itemListing.getSourcePath());
+             newItem.setOwnerName(itemListing.getOwnerName());
+             newItem.setDescription(itemListing.getDescription());
+             Item item = itemRepository.save(newItem);
+             if(item == null){
+                 return new ResponseEntity<>("ERROR: INFORMATION OF THE ITEM IS ALREADY IN USE OR IS NOT CORRECT", HttpStatus.BAD_REQUEST);
+             }
+             itemListing.setItemId(item.getItemId());
+             if(itemListing.getIsListed()){
+                 Listing newListing = new Listing();
+                 newListing.setItemId(item.getItemId());
+                 if(itemListing.getMinPrice() != null){
+                     newListing.setMinPrice(itemListing.getMinPrice());
+                 }
+                 if(itemListing.getMaxPrice() != null){
+                     newListing.setMaxPrice(itemListing.getMaxPrice());
+                 }
+                 Listing createdListing = listingsRepository.save(newListing);
+                 if(createdListing == null){
+                     return new ResponseEntity<>("ERROR: INFORMATION OF THE LISTING IS ALREADY IN USE OR IS NOT CORRECT", HttpStatus.BAD_REQUEST);
+                 }
+                 itemListing.setListingId(createdListing.getListingId());
+                 itemListing.setPublicationTime(createdListing.getPublicationTime());
+             }
+             return ResponseEntity.ok(itemListing);
+         }catch (Exception e){
+             System.out.println(e.getMessage());
+             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+         }
+     }
 
     /**
      * Retrieves all item listings with pagination, sorting, and ordering options.
