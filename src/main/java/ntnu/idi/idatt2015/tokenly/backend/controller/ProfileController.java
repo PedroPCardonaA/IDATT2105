@@ -5,7 +5,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.security.InvalidParameterException;
 import java.sql.Date;
 import java.time.LocalDate;
 
@@ -28,7 +27,7 @@ public class ProfileController {
                 throw new IllegalArgumentException("Balance must be between 0 and 10.");
             }
 
-            int rowsAffected = profileRepository.updateBalance(profileId, balance);
+            profileRepository.updateBalance(profileId, balance);
             return ResponseEntity.ok("Balance updated successfully");
         } catch (IllegalArgumentException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());

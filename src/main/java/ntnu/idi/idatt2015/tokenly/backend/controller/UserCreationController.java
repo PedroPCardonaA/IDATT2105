@@ -56,12 +56,20 @@ public class UserCreationController {
         *        Transactions are recommended. Control inputs. I dont wanna touch your spaghetti*/
 
         try {
+            if(user.username() == null || user.username().trim().isEmpty() || user.username().length() > 50 ||
+                    user.password() == null || user.password().trim().isEmpty()) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                        .body("Error: Invalid input.");
+            }
+            if (user.email() == null || user.email().trim().isEmpty() || !user.email().matches("^[\\w-_.+]*[\\w-_.]@([\\w]+\\.)+[\\w]+[\\w]$")) {
+                return new ResponseEntity<>("Invalid email value", HttpStatus.BAD_REQUEST);
+            }
             String username = user.username();
             String encodedPassword = passwordEncoder.encode(user.password());
 
             if(jdbcUserDetailsManager.userExists(username)) {
                 return ResponseEntity.status(HttpStatus.CONFLICT)
-                        .body(username);
+                        .body("Error: Username already exists.");
             }
 
             UserDetails userDetails = User.builder()
@@ -87,7 +95,7 @@ public class UserCreationController {
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error: Internal server error.");
         }
     }
 
