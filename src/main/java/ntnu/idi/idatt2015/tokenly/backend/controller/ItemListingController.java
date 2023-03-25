@@ -9,14 +9,8 @@
 package ntnu.idi.idatt2015.tokenly.backend.controller;
 
 import lombok.extern.slf4j.Slf4j;
-import ntnu.idi.idatt2015.tokenly.backend.model.Category;
-import ntnu.idi.idatt2015.tokenly.backend.model.Item;
-import ntnu.idi.idatt2015.tokenly.backend.model.ItemListing;
-import ntnu.idi.idatt2015.tokenly.backend.model.Listing;
-import ntnu.idi.idatt2015.tokenly.backend.repository.CategoryRepository;
-import ntnu.idi.idatt2015.tokenly.backend.repository.ItemListingRepository;
-import ntnu.idi.idatt2015.tokenly.backend.repository.ItemRepository;
-import ntnu.idi.idatt2015.tokenly.backend.repository.ListingsRepository;
+import ntnu.idi.idatt2015.tokenly.backend.model.*;
+import ntnu.idi.idatt2015.tokenly.backend.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,6 +35,9 @@ public class ItemListingController {
 
      @Autowired
     ListingsRepository listingsRepository;
+
+     @Autowired
+    ProfileRepository profileRepository;
 
      @PostMapping("/post")
      public ResponseEntity<?> postItemListing(@RequestBody ItemListing itemListing){
@@ -142,4 +139,25 @@ public class ItemListingController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error, could not get item listings.");
         }
     }
+
+    @GetMapping("/user")
+    public ResponseEntity<?> getAllItemsListingByUser(@RequestParam (value="page", defaultValue ="0") int page,
+                                                          @RequestParam(value = "size", defaultValue = "12") int size,
+                                                          @RequestParam(value="sortBy", defaultValue = "visits") String sortBy,
+                                                          @RequestParam(value = "order", defaultValue = "DESC") String order,
+                                                          @RequestParam(value = "username") String username){
+        try {
+            Optional<Profile> profile = profileRepository.getByUsername(username);
+            if(profile.isPresent()){
+                Optional<?> list = itemListingRepository.getAllItemsListingByWishListOfUser(username,page,size,sortBy,order);
+                if(list.isPresent()){
+                    return ResponseEntity.ok(list.get());
+                }
+            }
+            return ResponseEntity.badRequest().build();
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
 }
