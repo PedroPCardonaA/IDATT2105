@@ -104,6 +104,12 @@ public class JdbcWishListRepository implements WishListRepository {
         }
     }
 
+    /**
+     * deleteWishlistItem method to delete an item from the wishlist
+     *
+     * @param wishlist Wishlist object to delete
+     * @return int value representing the number of rows affected
+     */
     @Override
     public int deleteWishlistItem(Wishlist wishlist) {
         String sql = "DELETE FROM WISH_LIST WHERE USERNAME = :username AND ITEM_ID = :itemId";
