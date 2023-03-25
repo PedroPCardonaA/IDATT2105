@@ -221,6 +221,13 @@ public class JdbcListingsRepository implements ListingsRepository {
         }
     }
 
+    /**
+     * Retrieves a list of Listing objects associated with the given username.
+     * The method queries the database to find listings for items where the owner_name matches the provided username.
+     *
+     * @param username The username of the owner of the items.
+     * @return An Optional containing a list of Listing objects, or an empty Optional if an exception occurs.
+     */
     @Override
     public Optional<List<Listing>> getByUsername(String username) {
         String sql = "SELECT * FROM LISTINGS WHERE ITEM_ID IN (SELECT ITEM_ID FROM ITEMS WHERE OWNER_NAME = :username)";
