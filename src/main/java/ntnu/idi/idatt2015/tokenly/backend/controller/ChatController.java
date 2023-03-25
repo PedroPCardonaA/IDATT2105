@@ -9,6 +9,7 @@
 
 package ntnu.idi.idatt2015.tokenly.backend.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import ntnu.idi.idatt2015.tokenly.backend.model.Chat;
 import ntnu.idi.idatt2015.tokenly.backend.repository.ChatRepository;
 import org.springframework.http.HttpStatus;
@@ -17,7 +18,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:5173")
+@Slf4j
 @RestController
 @RequestMapping("/api/chats")
 public class ChatController {

@@ -17,6 +17,7 @@ import java.util.Optional;
  * @version 1.0
  * @since 22.03.2023
  */
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/api/categories")
 public class CategoryController {

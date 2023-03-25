@@ -1,3 +1,11 @@
+/**
+ * ItemCategoryController handles the HTTP requests related to item categories.
+ * It exposes endpoints for creating, deleting, and retrieving item categories and their relationships.
+ *
+ * @author Your Name
+ * @version 1.0
+ * @since 2023-03-25
+ */
 package ntnu.idi.idatt2015.tokenly.backend.controller;
 
 import lombok.extern.slf4j.Slf4j;
@@ -11,13 +19,20 @@ import java.util.Optional;
 
 @RestController
 @Slf4j
-@CrossOrigin("*")
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("/api/itemsCategories")
 public class ItemCategoryController {
 
     @Autowired
     ItemsCategoryRepository itemsCategoryRepository;
 
+    /**
+     * Creates a new item category and returns a response entity
+     * containing the created item category or a bad request response.
+     *
+     * @param itemsCategories the item category to create
+     * @return ResponseEntity containing the created item category or a bad request response
+     */
     @PostMapping("/post")
     public ResponseEntity<?> postItemCategory(@RequestBody ItemsCategories itemsCategories){
         try {
@@ -33,6 +48,13 @@ public class ItemCategoryController {
 
     }
 
+    /**
+     * Retrieves all items with the given category name and returns a response entity
+     * containing the items or a bad request response.
+     *
+     * @param categoryName the name of the category to retrieve items for
+     * @return ResponseEntity containing the items or a bad request response
+     */
     @GetMapping("/items/{categoryName}")
     public ResponseEntity<?> getAllItemsByCategoryName(@PathVariable("categoryName") String categoryName){
         try {
@@ -44,6 +66,13 @@ public class ItemCategoryController {
         }
     }
 
+    /**
+     * Retrieves all categories related to the given item ID and returns a response entity
+     * containing the categories or a bad request response.
+     *
+     * @param itemId the ID of the item to retrieve categories for
+     * @return ResponseEntity containing the categories or a bad request response
+     */
     @GetMapping("/categories/{itemId}")
     public ResponseEntity<?> getAllItemsByItemId(@PathVariable("itemId") long itemId){
         try {
@@ -55,6 +84,13 @@ public class ItemCategoryController {
         }
     }
 
+    /**
+     * Deletes the specified item category relationship and returns a response entity
+     * containing the number of rows affected, or a bad request response.
+     *
+     * @param itemsCategories the item category relationship to delete
+     * @return ResponseEntity containing the number of rows affected or a bad request response
+     */
     @DeleteMapping("/delete")
     public ResponseEntity<?> deleteRow (@RequestBody ItemsCategories itemsCategories){
         try {
