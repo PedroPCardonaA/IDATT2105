@@ -4,6 +4,7 @@
  */
 package ntnu.idi.idatt2015.tokenly.backend.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import ntnu.idi.idatt2015.tokenly.backend.model.LoginRequest;
 import ntnu.idi.idatt2015.tokenly.backend.service.TokenService;
 import org.slf4j.Logger;
@@ -20,12 +21,11 @@ import org.springframework.web.bind.annotation.*;
  * AuthController is a REST controller responsible for managing user authentication and token generation.
  * It exposes an endpoint for token generation based on user credentials.
  */
-@CrossOrigin("*")
+@CrossOrigin("http://localhost:5173")
+@Slf4j
 @RestController
 @RequestMapping("/api/users")
 public class AuthController {
-
-    private static final Logger LOG = LoggerFactory.getLogger(AuthController.class);
 
     private final TokenService tokenService;
     private final AuthenticationManager authenticationManager;
@@ -47,11 +47,15 @@ public class AuthController {
      *
      * @param userLogin A LoginRequest object containing the user's username and password.
      * @return A ResponseEntity containing the generated token or an error message.
-     * @throws AuthenticationException If an authentication error occurs.
      */
     @PostMapping("/token")
-    public ResponseEntity<?> token(@RequestBody LoginRequest userLogin) throws AuthenticationException {
+    public ResponseEntity<?> token(@RequestBody LoginRequest userLogin) {
         try {
+            if(userLogin.username() == null || userLogin.username().trim().isEmpty() || userLogin.username().length() > 50 ||
+                    userLogin.password() == null || userLogin.password().trim().isEmpty()) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                        .body("Error: Invalid input.");
+            }
             Authentication authentication = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
                             userLogin.username(),
