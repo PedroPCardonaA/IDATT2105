@@ -67,7 +67,7 @@ VALUES
 
 INSERT INTO items (owner_name,item_name, description, source_path)
 VALUES
-    ('john', 'Canon EOS R','Professional camera for photographers', 'c2b3a8b3-8683-47d1-afaa-31f35bf000d9.jpg'),
+    ('john', 'Canon EOS R','Professional camera for photographers', '77ae0f3e-7412-43e0-86fc-10a1d31714131679588267719c82f8350e4549e0d66b5612e7690e6b4.webp'),
     ('jane', 'Pikachu Plushie','Cute and soft plushie', 'f4f81958-066a-464f-8395-c484596ee74f1679732986894cai-fang-EKLaAXax6d8-unsplash.jpg'),
     ('bob', 'Smartwatch', 'Latest smartwatch with heart rate monitor and GPS','69d302ba-d6ff-48eb-a765-2950941512de1679733039055greg-rosenke-ksRz3p93YS0-unsplash.jpg'),
     ('alice', 'Oil Painting','A beautiful and unique oil painting', '1fd27321-4c17-4bf9-84b3-cf1a305cfb591679733093246ivan-rohovchenko-r76sQCumIRI-unsplash.jpg'),
