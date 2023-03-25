@@ -1,6 +1,10 @@
 /**
- * ntnu.idi.idatt2015.tokenly.backend.controller
- * Provides classes related to handling HTTP requests in the application.
+ * AuthController is a REST controller responsible for managing user authentication and token generation.
+ * It exposes an endpoint for token generation based on user credentials.
+ *
+ * @author tokenly-team
+ * @version 1.0
+ * @since 2023-03-25
  */
 package ntnu.idi.idatt2015.tokenly.backend.controller;
 
@@ -17,11 +21,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.*;
 
-/**
- * AuthController is a REST controller responsible for managing user authentication and token generation.
- * It exposes an endpoint for token generation based on user credentials.
- */
-@CrossOrigin("http://localhost:5173")
+@CrossOrigin(origins = "http://localhost:5173")
 @Slf4j
 @RestController
 @RequestMapping("/api/users")
@@ -44,6 +44,7 @@ public class AuthController {
 
     /**
      * Generates a token for the given user login request if the authentication is successful.
+     * Input data is validated before the authentication is attempted.
      *
      * @param userLogin A LoginRequest object containing the user's username and password.
      * @return A ResponseEntity containing the generated token or an error message.

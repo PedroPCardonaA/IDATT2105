@@ -1,5 +1,14 @@
+/**
+ * ItemListingController handles the HTTP requests related to item listings.
+ * It exposes endpoints for retrieving all item listings and item listings by category.
+ *
+ * @author tokenly-team
+ * @version 1.0
+ * @since 2023-03-25
+ */
 package ntnu.idi.idatt2015.tokenly.backend.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import ntnu.idi.idatt2015.tokenly.backend.model.Category;
 import ntnu.idi.idatt2015.tokenly.backend.repository.CategoryRepository;
 import ntnu.idi.idatt2015.tokenly.backend.repository.ItemListingRepository;
@@ -13,7 +22,8 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/itemListing")
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:5173")
+@Slf4j
 public class ItemListingController {
      @Autowired
     ItemListingRepository itemListingRepository;
@@ -21,6 +31,16 @@ public class ItemListingController {
      @Autowired
     CategoryRepository categoryRepository;
 
+    /**
+     * Retrieves all item listings with pagination, sorting, and ordering options.
+     * Returns a response entity containing the list of item listings or a bad request response.
+     *
+     * @param page the page number for pagination
+     * @param size the number of items per page
+     * @param sortBy the attribute to sort the items by
+     * @param order the order of the sort (ASC or DESC)
+     * @return ResponseEntity containing the list of item listings or a bad request response
+     */
      @GetMapping("/")
     public ResponseEntity<?> getAllItemsListing(@RequestParam (value="page", defaultValue ="0") int page,
                                                 @RequestParam(value = "size", defaultValue = "12") int size,
@@ -39,6 +59,17 @@ public class ItemListingController {
          }
      }
 
+    /**
+     * Retrieves all item listings with a given category, pagination, sorting, and ordering options.
+     * Returns a response entity containing the list of item listings or a bad request response.
+     *
+     * @param page the page number for pagination
+     * @param size the number of items per page
+     * @param sortBy the attribute to sort the items by
+     * @param order the order of the sort (ASC or DESC)
+     * @param category the category to filter items by
+     * @return ResponseEntity containing the list of item listings or a bad request response
+     */
     @GetMapping("/category")
     public ResponseEntity<?> getAllItemsListingByCategory(@RequestParam (value="page", defaultValue ="0") int page,
                                                 @RequestParam(value = "size", defaultValue = "12") int size,

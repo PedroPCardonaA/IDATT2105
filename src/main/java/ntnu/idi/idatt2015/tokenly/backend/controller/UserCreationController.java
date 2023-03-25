@@ -1,9 +1,16 @@
 /**
- * ntnu.idi.idatt2015.tokenly.backend.controller
- * Provides classes related to handling HTTP requests in the application.
+ * The UserCreationController class is responsible for handling HTTP requests related to user registration.
+ * It uses a ProfileService instance to communicate with the database and perform CRUD operations.
+ * It also uses a Spring Security PasswordEncoder to hash the user's password before saving it to the database,
+ * and a JdbcUserDetailsManager to create a new user in the database.
+ *
+ * @author tokenly-team
+ * @version 1.0
+ * @since 22.03.2023
  */
 package ntnu.idi.idatt2015.tokenly.backend.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import ntnu.idi.idatt2015.tokenly.backend.model.Profile;
 import ntnu.idi.idatt2015.tokenly.backend.model.UserCreationRequest;
 import ntnu.idi.idatt2015.tokenly.backend.model.UserCreationResponse;
@@ -21,7 +28,8 @@ import org.springframework.web.bind.annotation.*;
  * UserCreationController is a REST controller responsible for user registration.
  * It exposes an endpoint for user registration based on the provided user details.
  */
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:5173")
+@Slf4j
 @RestController
 @RequestMapping("/api/users")
 public class UserCreationController {
@@ -45,6 +53,8 @@ public class UserCreationController {
 
     /**
      * Creates a new user account with the provided user details.
+     * User details are provided in the request body as a UserCreationRequest object.
+     * Input validation is performed on the provided user details.
      *
      * @param user A UserCreationRequest object containing the user's username and password.
      * @return A ResponseEntity containing appropriate response codes and response data (username on conflict response, response model on created response)
@@ -99,6 +109,12 @@ public class UserCreationController {
         }
     }
 
+    /**
+     * Converts a Profile object to a UserCreationResponse object.
+     *
+     * @param profile The Profile object to convert.
+     * @return A UserCreationResponse object containing the same data as the provided Profile object.
+     */
     private UserCreationResponse profileToUserCreationResponse(Profile profile) {
         return new UserCreationResponse(profile.getUsername(), profile.getEmail(),
                                         profile.getFirst_name(), profile.getLast_name());

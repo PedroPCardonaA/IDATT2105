@@ -1,3 +1,11 @@
+/**
+ * ProfileController handles the HTTP requests related to profile operations.
+ * It exposes endpoints for updating profile fields, and retrieving profiles by ID and username.
+ *
+ * @author tokenly-team
+ * @version 1.0
+ * @since 2023-03-25
+ */
 package ntnu.idi.idatt2015.tokenly.backend.controller;
 
 import ntnu.idi.idatt2015.tokenly.backend.repository.ProfileRepository;
@@ -15,10 +23,25 @@ public class ProfileController {
 
     private final ProfileRepository profileRepository;
 
+    /**
+     * Constructs a ProfileController with the given ProfileRepository.
+     * The ProfileRepository is autowired by Spring BOOT.
+     *
+     * @param profileRepository the repository for accessing profile data
+     */
     public ProfileController(ProfileRepository profileRepository) {
         this.profileRepository = profileRepository;
     }
 
+    /**
+     * Updates the balance of the profile with the given ID and returns a response entity
+     * indicating the result.
+     * The balance must be between 0 and 10.
+     *
+     * @param profileId the ID of the profile to update
+     * @param balance the new balance value
+     * @return ResponseEntity indicating the result of the update
+     */
     @PutMapping("/profile/{profileId}/balance")
     public ResponseEntity<?> updateBalance(@PathVariable("profileId") long profileId,
                                            @RequestParam("balance") double balance) {
@@ -36,6 +59,15 @@ public class ProfileController {
         }
     }
 
+    /**
+     * Updates the firstname of the profile with the given ID and returns a response entity
+     * indicating the result.
+     * Input validation is performed on the firstname.
+     *
+     * @param profileId the ID of the profile to update
+     * @param firstname the new firstname value
+     * @return ResponseEntity indicating the result of the update
+     */
     @PutMapping("/profile/{profileId}/firstname")
     public ResponseEntity<?> updateFirstname(@PathVariable("profileId") long profileId,
                                            @RequestParam("firstname") String firstname){
@@ -50,6 +82,15 @@ public class ProfileController {
         }
     }
 
+    /**
+     * Updates the lastname of the profile with the given ID and returns a response entity
+     * indicating the result.
+     * Input validation is performed on the lastname.
+     *
+     * @param profileId the ID of the profile to update
+     * @param lastname the new lastname value
+     * @return ResponseEntity indicating the result of the update
+     */
     @PutMapping("/profile/{profileId}/lastname")
     public ResponseEntity<?> updateLastname(@PathVariable("profileId") long profileId,
                                           @RequestParam("lastname") String lastname){
@@ -64,6 +105,15 @@ public class ProfileController {
         }
     }
 
+    /**
+     * Updates the email of the profile with the given ID and returns a response entity
+     * indicating the result.
+     * Input validation is performed on the email.
+     *
+     * @param profileId the ID of the profile to update
+     * @param email the new email value
+     * @return ResponseEntity indicating the result of the update
+     */
     @PutMapping("/profile/{profileId}/email")
     public ResponseEntity<?> updateEmail(@PathVariable("profileId") long profileId,
                                        @RequestParam("email") String email){
@@ -78,6 +128,15 @@ public class ProfileController {
         }
     }
 
+    /**
+     * Updates the birthdate of the profile with the given ID and returns a response entity
+     * indicating the result.
+     * Input validation is performed on the birthdate.
+     *
+     * @param profileId the ID of the profile to update
+     * @param birthdate the new birthdate value
+     * @return ResponseEntity indicating the result of the update
+     */
     @PutMapping("/profile/{profileId}/birthdate")
     public ResponseEntity<?> updateBirthdate(@PathVariable("profileId") long profileId,
                                              @RequestParam("birthdate") String birthdate) {
@@ -102,6 +161,13 @@ public class ProfileController {
         }
     }
 
+    /**
+     * Retrieves the profile with the given ID and returns a response entity
+     * containing the profile, or an error response if there's an issue.
+     *
+     * @param profileId the ID of the profile to retrieve
+     * @return ResponseEntity containing the profile, or an error response
+     */
     @GetMapping("/profile/{profileId}")
     public ResponseEntity<?> getProfile(@PathVariable("profileId") long profileId){
         try {
@@ -111,6 +177,13 @@ public class ProfileController {
         }
     }
 
+    /**
+     * Retrieves the profile with the given username and returns a response entity
+     * containing the profile, or an error response if there's an issue.
+     *
+     * @param username the username of the profile to retrieve
+     * @return ResponseEntity containing the profile, or an error response
+     */
     @GetMapping("/profile/username/{username}")
     public ResponseEntity<?> getProfileByUsername(@PathVariable("username") String username){
         try {
