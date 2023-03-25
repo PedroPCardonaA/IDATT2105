@@ -15,16 +15,37 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+/**
+ * JdbcItemCategoryRepository is a JDBC-based implementation of the ItemsCategoryRepository.
+ * It handles CRUD operations for ItemsCategories objects, which link Items and Categories.
+ * This repository class uses NamedParameterJdbcTemplate for querying the database.
+ *
+ * @author tokenly-team
+ * @version 1.0
+ * @since 2023-03-25
+ */
+
 @Repository
 public class JdbcItemCategoryRepository implements ItemsCategoryRepository {
 
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
+    /**
+     * Constructs a new JdbcItemCategoryRepository with the provided JdbcTemplate.
+     *
+     * @param jdbcTemplate The JdbcTemplate to use for querying the database.
+     */
     @Autowired
     public JdbcItemCategoryRepository(JdbcTemplate jdbcTemplate){
         this.namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(jdbcTemplate);
     }
 
+    /**
+     * Saves an ItemsCategories object to the database.
+     *
+     * @param itemsCategories The ItemsCategories object to be saved.
+     * @return The saved ItemsCategories object, or null if an exception occurs.
+     */
     @Override
     public ItemsCategories save(ItemsCategories itemsCategories) {
         String sql = "INSERT INTO ITEMS_CATEGORIES (ITEM_ID, CATEGORY_ID) VALUES ( :itemId , :categoryId )";
@@ -40,6 +61,12 @@ public class JdbcItemCategoryRepository implements ItemsCategoryRepository {
         }
     }
 
+    /**
+     * Retrieves all categories associated with a specific item.
+     *
+     * @param itemId The ID of the item.
+     * @return An Optional containing a list of categories associated with the item, or an empty Optional if an exception occurs.
+     */
     @Override
     public Optional<List<Category>> getAllTheCategoriesByItemId(long itemId) {
         String sql = "SELECT * FROM categories WHERE category_id IN (SELECT category_id FROM items_categories WHERE item_id = :itemId)";
@@ -54,6 +81,12 @@ public class JdbcItemCategoryRepository implements ItemsCategoryRepository {
         }
     }
 
+    /**
+     * Retrieves all items associated with a specific category name.
+     *
+     * @param categoryName The name of the category.
+     * @return An Optional containing a list of items associated with the category name, or an empty Optional if an exception occurs.
+     */
     @Override
     public Optional<List<Item>> getAllTheItemsByCategoryName(String categoryName) {
         String sql = "SELECT * FROM ITEMS WHERE ITEM_ID IN (SELECT ITEM_ID FROM items_categories WHERE CATEGORY_ID IN (SELECT CATEGORY_ID FROM CATEGORIES WHERE CATEGORY_NAME = :categoryName))";
@@ -67,6 +100,12 @@ public class JdbcItemCategoryRepository implements ItemsCategoryRepository {
         }
     }
 
+    /**
+     * Deletes a specific row from the ITEMS_CATEGORIES table.
+     *
+     * @param itemsCategories The ItemsCategories object that represents the row to be deleted.
+     * @return The number of rows affected by the delete operation, or -1 if an exception occurs.
+     */
     @Override
     public int deleteRow(ItemsCategories itemsCategories) {
         String sql = "DELETE FROM ITEMS_CATEGORIES WHERE item_id = :itemId AND category_id = :categoryId";
