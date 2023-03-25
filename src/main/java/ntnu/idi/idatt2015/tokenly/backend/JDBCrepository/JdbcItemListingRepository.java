@@ -26,6 +26,7 @@ import java.util.Optional;
 @Repository
 public class JdbcItemListingRepository implements ItemListingRepository {
 
+
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
     /**
@@ -100,6 +101,18 @@ public class JdbcItemListingRepository implements ItemListingRepository {
         return Optional.empty();
     }
 
+    /**
+     * Retrieves a list of all ItemListing objects associated with a username related to a wishlist,
+     * based on the provided parameters.
+     *
+     * @param username The category name.
+     * @param pageNumber The page number for the results.
+     * @param pageSize The number of results per page.
+     * @param sortBy The column to sort the results by.
+     * @param order The order to sort the results (ASC or DESC).
+     * @return An Optional containing a list of ItemListing objects, or an empty Optional if an exception occurs or if input is invalid.
+     */
+
     @Override
     public Optional<List<ItemListing>> getAllItemsListingByWishListOfUser(String username, int pageNumber, int pageSize, String sortBy, String order) {
         if(ControlInputService.checkItemListingTableName(sortBy) && ControlInputService.checkOrder(order)){
@@ -122,6 +135,18 @@ public class JdbcItemListingRepository implements ItemListingRepository {
         }
         return Optional.empty();
     }
+
+    /**
+     * Retrieves a list of all ItemListing objects associated with a specific owner,
+     * based on the provided parameters.
+     *
+     * @param username The owner name.
+     * @param pageNumber The page number for the results.
+     * @param pageSize The number of results per page.
+     * @param sortBy The column to sort the results by.
+     * @param order The order to sort the results (ASC or DESC).
+     * @return An Optional containing a list of ItemListing objects, or an empty Optional if an exception occurs or if input is invalid.
+     */
 
     @Override
     public Optional<List<ItemListing>> getAllItemsListingByOwner(String username, int pageNumber, int pageSize, String sortBy, String order) {
