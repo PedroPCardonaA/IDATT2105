@@ -13,6 +13,7 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Timestamp;
 import java.util.*;
 
 /**
@@ -48,7 +49,6 @@ public class JdbcListingsRepository implements ListingsRepository {
         Map<String,Object> params = new HashMap<>();
         if(listing.getMaxPrice() == null && listing.getMinPrice() == null){
             sql = "INSERT INTO LISTINGS (ITEM_ID) VALUES (:itemId)";
-            System.out.println(listing.getItemId());
             params.put("itemId",listing.getItemId());
         } else if(listing.getMaxPrice() == null){
             sql = "INSERT INTO LISTINGS (ITEM_ID, MIN_PRICE) VALUES (:itemId , :minPrice)";
@@ -66,8 +66,9 @@ public class JdbcListingsRepository implements ListingsRepository {
         }
         try {
             KeyHolder keyHolder = new GeneratedKeyHolder();
-            namedParameterJdbcTemplate.update(sql, new MapSqlParameterSource(params), keyHolder, new String[]{"LISTING_ID"});
-            listing.setListingId(Objects.requireNonNull(keyHolder.getKey()).longValue());
+            namedParameterJdbcTemplate.update(sql, new MapSqlParameterSource(params), keyHolder, new String[]{"LISTING_ID","PUBLICATION_TIME"});
+            listing.setListingId( (Long)Objects.requireNonNull(keyHolder.getKeys().get("LISTING_ID")));
+            listing.setPublicationTime((Timestamp) Objects.requireNonNull(keyHolder.getKeys().get("PUBLICATION_TIME")));
             return listing;
         }catch (Exception e){
             System.out.println(e.getMessage());

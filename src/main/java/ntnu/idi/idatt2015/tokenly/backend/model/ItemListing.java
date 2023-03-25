@@ -10,7 +10,7 @@ public class ItemListing {
     /**
      * The ID of the item.
      */
-    private long itemId;
+    private Long itemId;
 
     /**
      * The name of the item.
@@ -36,7 +36,7 @@ public class ItemListing {
     /**
      * The ID of the listing.
      */
-    private long listingId;
+    private Long listingId;
 
     /**
      * The minimum price of the item in the listing.
@@ -56,10 +56,12 @@ public class ItemListing {
     /**
      * Whether the listing is closed or not.
      */
-    private boolean isClosed;
+    private Boolean isClosed;
 
     /**
      * The number of visits to the listing.
      */
-    private int visits;
+    private Integer visits;
+
+    private Boolean isListed;
 }
