@@ -10,4 +10,7 @@ public interface ItemListingRepository {
 
     Optional<List<ItemListing>> getAllItemListing(int pageNumber, int pageSize, String sortBy, String order);
     Optional<List<ItemListing>> getAllItemListingByCategory(String category,int pageNumber, int pageSize, String sortBy, String order);
+    Optional<List<ItemListing>> getAllItemsListingByWishListOfUser(String username,int pageNumber, int pageSize, String sortBy, String order);
+
+
 }
