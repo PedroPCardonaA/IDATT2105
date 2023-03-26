@@ -202,4 +202,17 @@ public class ItemListingController {
         }
     }
 
+    @GetMapping("/item/{itemId}")
+    public ResponseEntity<?> getItemListingById(@PathVariable("itemId") long itemId){
+        try {
+            Optional<?> item = itemListingRepository.hetAllItemsListingByItemAndListingId(itemId);
+            if(item.isPresent()){
+                return ResponseEntity.ok(item.get());
+            }
+            return ResponseEntity.badRequest().body("ERROR");
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
 }
