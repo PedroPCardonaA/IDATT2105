@@ -175,4 +175,28 @@ public class JdbcProfileRepository implements ProfileRepository {
                 .addValue("birthdate", birthdate);
         return namedParameterJdbcTemplate.update(sql, params);
     }
+
+    @Override
+    public int changeBalance(long profile, double balance) {
+        String sql = "UPDATE profiles SET balance = balance + :balance WHERE id = :profileId";
+        Map<String,Object> params = new HashMap<>();
+        params.put("profileId", profile);
+        params.put("balance", balance);
+        try {
+            if ((double) balance < (double) 0.0 ){
+                System.out.println("balance to add: " + balance);
+                String getSql = "SELECT balance FROM profiles WHERE id = :profileId";
+                double currentBalance = namedParameterJdbcTemplate.queryForObject(getSql,params, Double.class);
+                System.out.println("new balance" + balance);
+                if( ((double) currentBalance + (double) balance) < (double) 0.0){
+                    return -1;
+                }
+            }
+            return namedParameterJdbcTemplate.update(sql,params);
+        }catch (Exception e){
+            return -1;
+        }
+    }
+
+
 }

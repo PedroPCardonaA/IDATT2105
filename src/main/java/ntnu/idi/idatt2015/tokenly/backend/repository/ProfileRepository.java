@@ -83,5 +83,7 @@ public interface ProfileRepository {
      * @return the number of rows affected by the update
      */
     int updateBirthdate(long profileId, Date birthdate);
+
+    int changeBalance(long profileID, double balance);
 }
 
