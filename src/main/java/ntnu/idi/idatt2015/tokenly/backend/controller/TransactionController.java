@@ -10,6 +10,7 @@
 package ntnu.idi.idatt2015.tokenly.backend.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import ntnu.idi.idatt2015.tokenly.backend.model.Listing;
 import ntnu.idi.idatt2015.tokenly.backend.model.Transaction;
 import ntnu.idi.idatt2015.tokenly.backend.repository.ListingsRepository;
 import ntnu.idi.idatt2015.tokenly.backend.repository.TransactionRepository;
@@ -17,6 +18,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:5173")
 @RestController
@@ -47,12 +50,14 @@ public class TransactionController {
     @PostMapping("/transaction")
     public ResponseEntity<?> createTransaction(@RequestBody Transaction transaction) {
         try {
-            if(listingsRepository.getByListingId(transaction.getListingId()).get().isClosed()){
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("THE LISTING IS ALREADY CLOSED!");
-            }
-            if(transaction.getTransactionPrice() <= 0){
-                return new ResponseEntity<>("Price of a transaction cannot be negative or zero!",HttpStatus.BAD_REQUEST);
-            }
+            Optional<Listing> listingOpt = listingsRepository.getByListingId(transaction.getListingId());
+
+            if(listingOpt.isEmpty()) return new ResponseEntity<>("Error: Listing not found.",HttpStatus.BAD_REQUEST);
+
+            if(listingOpt.get().isClosed()) return new ResponseEntity<>("Error: Listing is already closed.",HttpStatus.BAD_REQUEST);
+
+            if(transaction.getTransactionPrice() <= 0) return new ResponseEntity<>("Price of a transaction cannot be negative or zero.",HttpStatus.BAD_REQUEST);
+
             Transaction createdTransaction = transactionRepository.save(transaction);
             if (createdTransaction != null) {
                 return ResponseEntity.ok(createdTransaction);
