@@ -213,4 +213,46 @@ public class ListingController {
             return new ResponseEntity<>("Internal server error.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    /**
+     * Increases the visit count for the listing with the given ID by 1.
+     *
+     * @param listingId The ID of the listing to update.
+     *
+     * @return A ResponseEntity containing the new visit count if the update was successful, or a NO_CONTENT response if the update failed.
+     *
+     * @throws Exception If an error occurs while attempting to update the listing's visit count.
+     */
+    @PutMapping("/visits/{listingId}")
+    public ResponseEntity<?> addVisit(@PathVariable("listingId") Long listingId){
+        try {
+            Optional<?> newVisits = listingRepository.visitListing(listingId);
+            return newVisits.map(value -> new ResponseEntity<>(value,HttpStatus.OK))
+                    .orElseGet(()-> new ResponseEntity<>(HttpStatus.NO_CONTENT));
+        }catch (Exception e){
+            return new ResponseEntity<>("Internal server error.", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    /**
+     * Closes the listing with the given ID.
+     *
+     * @param listingId The ID of the listing to close.
+     *
+     * @return A ResponseEntity containing the new status if the update was successful, or a NO_CONTENT response if the update failed.
+     *
+     * @throws Exception If an error occurs while attempting to update the listing's status.
+     */
+    @PutMapping("/close/{listingId}")
+    public ResponseEntity<?> close(@PathVariable("listingId") Long listingId){
+        try {
+            Optional<?> newVisits = listingRepository.closeListing(listingId);
+            return newVisits.map(value -> new ResponseEntity<>(value,HttpStatus.OK))
+                    .orElseGet(()-> new ResponseEntity<>(HttpStatus.NO_CONTENT));
+        }catch (Exception e){
+            return new ResponseEntity<>("Internal server error.", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+
 }
