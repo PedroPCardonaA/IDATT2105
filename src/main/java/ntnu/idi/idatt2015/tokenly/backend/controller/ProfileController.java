@@ -210,7 +210,10 @@ public class ProfileController {
                 throw new IllegalArgumentException("Balance must be between -10 and 10.");
             }
 
-            profileRepository.changeBalance(profileId, balance);
+            int answer = profileRepository.changeBalance(profileId, balance);
+            if(answer == -1){
+                return ResponseEntity.badRequest().body("ERROR: BALANCE CANNOT BE DEFINED AS NEGATIVE");
+            }
             return ResponseEntity.ok("Balance updated successfully");
         } catch (IllegalArgumentException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
