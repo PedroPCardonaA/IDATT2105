@@ -192,4 +192,31 @@ public class ProfileController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error getting profile.");
         }
     }
+
+    /**
+     * Updates the balance of the profile with the given ID and returns a response entity
+     * indicating the result.
+     * The balance must be between 0 and 10.
+     *
+     * @param profileId the ID of the profile to update
+     * @param balance the new balance value
+     * @return ResponseEntity indicating the result of the update
+     */
+    @PutMapping("/profile/{profileId}/addBalance")
+    public ResponseEntity<?> addBalance(@PathVariable("profileId") long profileId,
+                                           @RequestParam("balance") double balance) {
+        try {
+            if (balance < 0 || balance > 10) {
+                throw new IllegalArgumentException("Balance must be between 0 and 10.");
+            }
+
+            profileRepository.changeBalance(profileId, balance);
+            return ResponseEntity.ok("Balance updated successfully");
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error updating balance.");
+        }
+    }
+
 }
