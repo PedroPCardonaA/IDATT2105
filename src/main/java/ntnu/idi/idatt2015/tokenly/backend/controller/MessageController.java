@@ -19,6 +19,19 @@ public class MessageController {
     @Autowired
     MessageRepository messageRepository;
 
+    @PostMapping("/post")
+    public ResponseEntity<?> save(@RequestBody Message message){
+        try {
+            Message createdMessage = messageRepository.save(message);
+            if(createdMessage == null){
+                return ResponseEntity.badRequest().body("ERROR: MESSAGES INFORMATION IS NOT CORRECT");
+            }
+            return ResponseEntity.ok(createdMessage);
+        }catch (Exception e){
+            return ResponseEntity.internalServerError().body("INTERNAL ERROR");
+        }
+    }
+
     @GetMapping("/chats/{chatId}")
     public ResponseEntity<?> getAllMessageByChat(@PathVariable("chatId") long chatId){
         try {
