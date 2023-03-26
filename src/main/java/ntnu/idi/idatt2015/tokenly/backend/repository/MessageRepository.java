@@ -19,7 +19,7 @@ public interface MessageRepository {
      *
      * @param message the Message object to save
      */
-    void save (Message message);
+    Message save (Message message);
 
     /**
      * Retrieves all Message objects associated with a Chat object with the specified ID.

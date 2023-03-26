@@ -5,13 +5,13 @@ import ntnu.idi.idatt2015.tokenly.backend.repository.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 @Repository
 public class JdbcMessageRepository implements MessageRepository {
@@ -29,8 +29,21 @@ public class JdbcMessageRepository implements MessageRepository {
     }
 
     @Override
-    public void save(Message message) {
-
+    public Message save(Message message) {
+        String sql = "INSERT INTO messages (chat_id,senderName, message)" +
+                "VALUES (:chatId , :senderName , :message )";
+        Map<String, Object> params = new HashMap<>();
+        params.put("chatId", message.getChatId());
+        params.put("senderName", message.getSenderName());
+        params.put("message", message.getMessage());
+        try {
+            KeyHolder keyHolder = new GeneratedKeyHolder();
+            namedParameterJdbcTemplate.update(sql,new MapSqlParameterSource(params),keyHolder,new String[]{"message_id"});
+            message.setMessageId(Objects.requireNonNull(keyHolder.getKey()).longValue());
+            return message;
+        }catch (Exception e){
+            return null;
+        }
     }
 
     @Override
