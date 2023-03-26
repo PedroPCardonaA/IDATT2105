@@ -51,6 +51,7 @@ public class ItemListingController {
              if(item == null){
                  return new ResponseEntity<>("ERROR: INFORMATION OF THE ITEM IS ALREADY IN USE OR IS NOT CORRECT", HttpStatus.BAD_REQUEST);
              }
+             System.out.println(item.getItemId());
              itemListing.setItemId(item.getItemId());
              if(itemListing.getIsListed()){
                  Listing newListing = new Listing();
