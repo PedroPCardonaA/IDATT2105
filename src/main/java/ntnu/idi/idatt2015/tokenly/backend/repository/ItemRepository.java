@@ -52,6 +52,21 @@ public interface ItemRepository {
      */
     Optional<List<Item>> getAll();
 
+    /**
+     * Returns an Optional containing the path of an item, given its item ID.
+     *
+     * @param itemId the ID of the item to get the path from
+     * @return an Optional containing the path of the item, or an empty Optional if the item does not exist
+     */
     Optional<String> getPathByItemId(long itemId);
+
+    /**
+     * Changes the owner of an item, given its item ID and a new owner name.
+     *
+     * @param itemId the ID of the item to change the owner
+     * @param newOwner the new owner name for the item
+     * @return an Optional containing the new owner name of the item, or an empty Optional if the update failed
+     */
+    Optional<String> changeOwner(long itemId, String newOwner);
 }
 

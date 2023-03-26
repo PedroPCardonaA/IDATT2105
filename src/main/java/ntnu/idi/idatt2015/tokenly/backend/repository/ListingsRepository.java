@@ -83,5 +83,9 @@ public interface ListingsRepository {
     Optional<List<Listing>> getByCategory(String category);
 
     Optional<List<Listing>> getByUsername(String username);
+
+    Optional<Long> visitListing(long listingId);
+
+    Optional<Boolean> closeListing(long listingId);
 }
 

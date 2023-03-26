@@ -113,4 +113,26 @@ public class ItemController {
             return new ResponseEntity<>("Internal server error.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    /**
+     * Changes the owner of an item with the given ID to the specified new owner.
+     *
+     * @param itemId The ID of the item to update.
+     * @param ownerName The name of the new owner to set for the item.
+     *
+     * @return A ResponseEntity containing the new owner if the update was successful, or a bad request response if the update failed.
+     *
+     * @throws Exception If an error occurs while attempting to update the item owner.
+     */
+    @PutMapping("/changeOwner")
+    public ResponseEntity<?> changeItemOwner(@RequestParam(value = "itemId") Long itemId,
+                                             @RequestParam(value = "newOwner") String ownerName){
+        try {
+            Optional<?> newOwner = itemRepository.changeOwner(itemId,ownerName);
+            return newOwner.map(value -> new ResponseEntity<>(value, HttpStatus.OK)).orElseGet(()-> ResponseEntity.badRequest().build());
+        }catch (Exception e){
+            log.warn(e.getMessage());
+            return new ResponseEntity<>("Internal server error.", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
