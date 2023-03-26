@@ -206,11 +206,14 @@ public class ProfileController {
     public ResponseEntity<?> addBalance(@PathVariable("profileId") long profileId,
                                            @RequestParam("balance") double balance) {
         try {
-            if (balance < 0 || balance > 10) {
-                throw new IllegalArgumentException("Balance must be between 0 and 10.");
+            if (balance < -10 || balance > 10) {
+                throw new IllegalArgumentException("Balance must be between -10 and 10.");
             }
 
-            profileRepository.changeBalance(profileId, balance);
+            int answer = profileRepository.changeBalance(profileId, balance);
+            if(answer == -1){
+                return ResponseEntity.badRequest().body("ERROR: BALANCE CANNOT BE DEFINED AS NEGATIVE");
+            }
             return ResponseEntity.ok("Balance updated successfully");
         } catch (IllegalArgumentException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
