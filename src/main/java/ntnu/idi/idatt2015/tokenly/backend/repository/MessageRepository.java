@@ -36,5 +36,7 @@ public interface MessageRepository {
      * @return a List of all open Message objects associated with the specified Chat object, or an empty List if no open Message objects are associated with the Chat object
      */
     Optional<List<Message>> getAllOpenedMessageByChatId(long chatId);
+
+    Optional<Long> closeMessage(long messageId);
 }
 
