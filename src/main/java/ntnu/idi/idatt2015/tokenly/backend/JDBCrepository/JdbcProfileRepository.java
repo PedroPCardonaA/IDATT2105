@@ -186,7 +186,7 @@ public class JdbcProfileRepository implements ProfileRepository {
             if (balance < 0 ){
                 String getSql = "SELECT balance FROM profiles WHERE id = :profileId";
                 long currentBalance = namedParameterJdbcTemplate.queryForObject(getSql,params, Long.class);
-                if(currentBalance - balance < 0){
+                if( (currentBalance - balance) < 0){
                     return -1;
                 }
             }
