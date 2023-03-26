@@ -161,9 +161,6 @@ public class JdbcItemListingRepository implements ItemListingRepository {
             params.put("username",username);
             try {
                 List<ItemListing> itemListings = namedParameterJdbcTemplate.query(sql,params,new BeanPropertyRowMapper<>(ItemListing.class));
-                for (ItemListing itemListing: itemListings) {
-                    System.out.println(itemListing.getItemId());
-                }
                 return Optional.of(itemListings);
 
             }catch (Exception e){
@@ -172,6 +169,20 @@ public class JdbcItemListingRepository implements ItemListingRepository {
             }
         }
         return Optional.empty();
+    }
+
+    @Override
+    public Optional<ItemListing> hetAllItemsListingByItemAndListingId(long itemId) {
+        String sql = "SELECT *, COALESCE(listings.item_id, items.item_id) AS itemId FROM items LEFT OUTER JOIN listings ON items.item_id = listings.item_id WHERE items.item_id = :itemId LIMIT 1";
+        Map<String,Object> params = new HashMap<>();
+        params.put("itemId",itemId);
+        try{
+            ItemListing itemListings = namedParameterJdbcTemplate.queryForObject(sql,params,new BeanPropertyRowMapper<>(ItemListing.class));
+            return Optional.ofNullable(itemListings);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return Optional.empty();
+        }
     }
 
 }

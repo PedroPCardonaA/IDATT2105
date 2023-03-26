@@ -41,4 +41,6 @@ public interface ItemListingRepository {
 
     Optional<List<ItemListing>> getAllItemsListingByOwner(String username,int pageNumber, int pageSize, String sortBy, String order);
 
+    Optional<ItemListing> hetAllItemsListingByItemAndListingId(long itemId);
+
 }
