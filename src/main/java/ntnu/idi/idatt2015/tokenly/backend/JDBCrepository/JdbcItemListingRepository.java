@@ -113,10 +113,11 @@ public class JdbcItemListingRepository implements ItemListingRepository {
      * @return An Optional containing a list of ItemListing objects, or an empty Optional if an exception occurs or if input is invalid.
      */
 
+
     @Override
     public Optional<List<ItemListing>> getAllItemsListingByWishListOfUser(String username, int pageNumber, int pageSize, String sortBy, String order) {
         if(ControlInputService.checkItemListingTableName(sortBy) && ControlInputService.checkOrder(order)){
-            String sql = "SELECT * FROM items LEFT JOIN listings ON items.item_id = listings.item_id WHERE listings.is_closed = FALSE AND items.item_id IN(SELECT item_id FROM wish_list WHERE username IN (SELECT username FROM users WHERE username = :username)) ORDER BY " + sortBy + " " + order + " LIMIT :limit OFFSET :offset";
+            String sql = "SELECT *, COALESCE(listings.item_id, items.item_id) AS itemId FROM items LEFT OUTER JOIN listings ON items.item_id = listings.item_id WHERE listings.is_closed = FALSE AND items.item_id IN(SELECT item_id FROM wish_list WHERE username IN (SELECT username FROM users WHERE username = :username)) ORDER BY " + sortBy + " " + order + " LIMIT :limit OFFSET :offset";
             Map<String, Object> params = new HashMap<>();
             params.put("limit", pageSize);
             params.put("offset", pageNumber * pageSize);
