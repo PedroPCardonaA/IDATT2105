@@ -133,6 +133,31 @@ public class JdbcItemRepository implements ItemRepository {
 
 
     /**
+     * Updates the owner of the item with the specified item ID to the new owner name.
+     *
+     * @param itemId the ID of the item to update.
+     * @param newOwner the new owner name to set for the item.
+     * @return an Optional containing the new owner name if the update was successful, or empty if it failed.
+     */
+    @Override
+    public Optional<String> changeOwner(long itemId, String newOwner) {
+        String sql = "UPDATE items SET owner_name = :newOwner WHERE item_id = :itemId";
+        Map<String,Object> params = new HashMap<>();
+        params.put("newOwner",newOwner);
+        params.put("itemId", itemId);
+        try {
+            namedParameterJdbcTemplate.update(sql,params);
+            String searchSql = "SELECT owner_name FROM items WHERE item_id = :itemId";
+            String newOwnerInItem = namedParameterJdbcTemplate.queryForObject(searchSql,params,String.class);
+            return Optional.ofNullable(newOwnerInItem);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return Optional.empty();
+        }
+    }
+
+
+    /**
      * Retrieves all items from the database for the given partial name.
      *
      * @param itemName Partial name of the item

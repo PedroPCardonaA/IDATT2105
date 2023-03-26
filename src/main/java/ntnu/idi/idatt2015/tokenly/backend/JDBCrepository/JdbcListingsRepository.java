@@ -241,4 +241,46 @@ public class JdbcListingsRepository implements ListingsRepository {
             return Optional.empty();
         }
     }
+
+    /**
+     * Updates the number of visits for a given listing in the database.
+     *
+     * @param listingId the ID of the listing to update the visits count for
+     * @return an Optional containing the new number of visits for the listing, or empty if the update failed
+     */
+    @Override
+    public Optional<Long> visitListing(long listingId) {
+        String sql = "UPDATE listings SET visits = visits + 1 WHERE listing_id = :listingId";
+        Map<String,Object> params = new HashMap<>();
+        params.put("listingId",listingId);
+        try {
+            namedParameterJdbcTemplate.update(sql,params);
+            String selectSql = "SELECT visits FROM listings WHERE listing_id = :listingId";
+            Long newVisits = namedParameterJdbcTemplate.queryForObject(selectSql, params, Long.class);
+            return Optional.ofNullable(newVisits);
+        }catch (Exception e){
+            return Optional.empty();
+        }
+    }
+
+    /**
+     * Closes a listing in the database by setting its is_closed field to TRUE.
+     *
+     * @param listingId the ID of the listing to close
+     * @return an Optional containing a Boolean indicating whether the listing was successfully closed, or empty if the update failed
+     */
+    @Override
+    public Optional<Boolean> closeListing(long listingId) {
+        String sql = "UPDATE listings SET is_closed = TRUE WHERE listing_id = :listingId";
+        Map<String,Object> params = new HashMap<>();
+        params.put("listingId",listingId);
+        try {
+            namedParameterJdbcTemplate.update(sql,params);
+            String selectSql = "SELECT is_closed FROM listings WHERE listing_id = :listingId";
+            Boolean isClosed = namedParameterJdbcTemplate.queryForObject(selectSql, params, Boolean.class);
+            return Optional.ofNullable(isClosed);
+        }catch (Exception e){
+            return Optional.empty();
+        }
+    }
 }
