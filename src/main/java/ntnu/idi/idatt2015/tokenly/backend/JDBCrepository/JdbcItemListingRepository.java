@@ -151,7 +151,7 @@ public class JdbcItemListingRepository implements ItemListingRepository {
     @Override
     public Optional<List<ItemListing>> getAllItemsListingByOwner(String username, int pageNumber, int pageSize, String sortBy, String order) {
         if(ControlInputService.checkItemListingTableName(sortBy) && ControlInputService.checkOrder(order)){
-            String sql = "SELECT * FROM items LEFT JOIN listings ON items.item_id = listings.item_id WHERE listings.is_closed = FALSE AND items.owner_name = :username ORDER BY " + sortBy + " " + order + " LIMIT :limit OFFSET :offset";
+            String sql = "SELECT * FROM items LEFT JOIN listings ON items.item_id = listings.item_id AND items.owner_name = :username ORDER BY " + sortBy + " " + order + " LIMIT :limit OFFSET :offset";
             Map<String, Object> params = new HashMap<>();
             params.put("limit", pageSize);
             params.put("offset", pageNumber * pageSize);
