@@ -77,10 +77,9 @@ public class SecurityConfig {
     }
 
     /**
-     * Configures a JwtDecoder for decoding JWT tokens.
+     * Configures a JwtEncoder for encoding JWT tokens.
      *
-     * @return A JwtDecoder instance.
-     * @throws JOSEException If an error occurs during decoding.
+     * @return A JwtEncoder instance.
      */
     @Bean
     public JwtEncoder jwtEncoder(JWKSource<SecurityContext> jwks) {
