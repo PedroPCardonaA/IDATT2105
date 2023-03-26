@@ -183,12 +183,12 @@ public class JdbcProfileRepository implements ProfileRepository {
         params.put("profileId", profile);
         params.put("balance", balance);
         try {
-            if (balance < 0 ){
+            if ((double) balance < (double) 0.0 ){
                 System.out.println("balance to add: " + balance);
                 String getSql = "SELECT balance FROM profiles WHERE id = :profileId";
-                long currentBalance = namedParameterJdbcTemplate.queryForObject(getSql,params, Long.class);
+                double currentBalance = namedParameterJdbcTemplate.queryForObject(getSql,params, Double.class);
                 System.out.println("new balance" + balance);
-                if( (currentBalance + balance) < 0){
+                if( ((double) currentBalance + (double) balance) < (double) 0.0){
                     return -1;
                 }
             }
