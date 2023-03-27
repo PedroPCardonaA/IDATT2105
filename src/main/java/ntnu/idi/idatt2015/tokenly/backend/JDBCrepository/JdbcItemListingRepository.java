@@ -49,9 +49,9 @@ public class JdbcItemListingRepository implements ItemListingRepository {
      * @return An Optional containing a list of ItemListing objects, or an empty Optional if an exception occurs or if input is invalid.
      */
     @Override
-    public Optional<List<ItemListing>> getAllItemListing(int pageNumber, int pageSize, String sortBy, String order, double minPrice, double maxPrice) {
+    public Optional<List<ItemListing>> getAllItemListing(int pageNumber, int pageSize, String sortBy, String order, double minPrice, double maxPrice, String title ) {
         if(ControlInputService.checkItemListingTableName(sortBy) && ControlInputService.checkOrder(order)){
-            String sql = "SELECT * FROM items LEFT JOIN listings ON items.item_id = listings.item_id WHERE listings.max_price >= :minPrice AND listings.max_price <= :maxPrice ORDER BY " + sortBy + " " + order +" LIMIT :limit OFFSET :offset";
+            String sql = "SELECT * FROM items LEFT JOIN listings ON items.item_id = listings.item_id WHERE items.item_name LIKE :title AND listings.max_price >= :minPrice AND listings.max_price <= :maxPrice ORDER BY " + sortBy + " " + order +" LIMIT :limit OFFSET :offset";
             Map<String, Object> params = new HashMap<>();
             params.put("limit", pageSize);
             params.put("offset", pageNumber * pageSize);
@@ -59,6 +59,7 @@ public class JdbcItemListingRepository implements ItemListingRepository {
             params.put("sortBy",sortBy);
             params.put("minPrice", minPrice);
             params.put("maxPrice",maxPrice);
+            params.put("title","%"+title+"%");
             try {
                 List<ItemListing> itemListings = namedParameterJdbcTemplate.query(sql,params,new BeanPropertyRowMapper<>(ItemListing.class));
                 return Optional.of(itemListings);
@@ -83,9 +84,9 @@ public class JdbcItemListingRepository implements ItemListingRepository {
      * @return An Optional containing a list of ItemListing objects, or an empty Optional if an exception occurs or if input is invalid.
      */
     @Override
-    public Optional<List<ItemListing>> getAllItemListingByCategory(String category, int pageNumber, int pageSize, String sortBy, String order, double minPrice, double maxPrice) {
+    public Optional<List<ItemListing>> getAllItemListingByCategory(String category, int pageNumber, int pageSize, String sortBy, String order, double minPrice, double maxPrice, String title) {
         if(ControlInputService.checkItemListingTableName(sortBy) && ControlInputService.checkOrder(order)){
-            String sql = "SELECT * FROM items LEFT JOIN listings ON items.item_id = listings.item_id WHERE listings.max_price >= :minPrice AND listings.max_price <= :maxPrice AND listings.is_closed = FALSE AND items.item_id IN( select item_id from items_categories WHERE category_id IN (select category_id from categories where category_name = :category )) ORDER BY " + sortBy + " " + order +" LIMIT :limit OFFSET :offset";
+            String sql = "SELECT * FROM items LEFT JOIN listings ON items.item_id = listings.item_id WHERE items.item_name LIKE :title AND listings.max_price >= :minPrice AND listings.max_price <= :maxPrice AND listings.is_closed = FALSE AND items.item_id IN( select item_id from items_categories WHERE category_id IN (select category_id from categories where category_name = :category )) ORDER BY " + sortBy + " " + order +" LIMIT :limit OFFSET :offset";
             Map<String, Object> params = new HashMap<>();
             params.put("limit", pageSize);
             params.put("offset", pageNumber * pageSize);
@@ -94,6 +95,7 @@ public class JdbcItemListingRepository implements ItemListingRepository {
             params.put("category",category);
             params.put("minPrice", minPrice);
             params.put("maxPrice",maxPrice);
+            params.put("title","%"+title+"%");
             try {
                 List<ItemListing> itemListings = namedParameterJdbcTemplate.query(sql,params,new BeanPropertyRowMapper<>(ItemListing.class));
                 return Optional.of(itemListings);

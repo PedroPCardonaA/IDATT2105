@@ -92,9 +92,10 @@ public class ItemListingController {
                                                 @RequestParam(value="sortBy", defaultValue = "visits") String sortBy,
                                                 @RequestParam(value = "order", defaultValue = "DESC") String order,
                                                 @RequestParam(value = "minPrice", defaultValue = "0.0") double minPrice,
-                                                @RequestParam(value = "maxPrice", defaultValue = "1000000000.0")double maxPrice){
+                                                @RequestParam(value = "maxPrice", defaultValue = "1000000000.0")double maxPrice,
+                                                @RequestParam(value = "title", defaultValue = "")String title){
          try {
-             Optional<?> list = itemListingRepository.getAllItemListing(page,size,sortBy,order,minPrice,maxPrice);
+             Optional<?> list = itemListingRepository.getAllItemListing(page,size,sortBy,order,minPrice,maxPrice,title);
              if(list.isPresent()){
                  return ResponseEntity.ok(list.get());
              }else{
@@ -124,7 +125,8 @@ public class ItemListingController {
                                                 @RequestParam(value = "order", defaultValue = "DESC") String order,
                                                 @RequestParam(value = "category", defaultValue="Photography") String category,
                                                           @RequestParam(value = "minPrice", defaultValue = "0.0") double minPrice,
-                                                          @RequestParam(value = "maxPrice", defaultValue = "1000000000.0")double maxPrice){
+                                                          @RequestParam(value = "maxPrice", defaultValue = "1000000000.0")double maxPrice,
+                                                          @RequestParam(value = "title", defaultValue = "")String title){
         try {
             List<Category> categories = categoryRepository.getAll().get();
             final boolean[] notInjection = {false};
@@ -134,7 +136,7 @@ public class ItemListingController {
                 }
             });
             if(notInjection[0]){
-                Optional<?> list = itemListingRepository.getAllItemListingByCategory(category,page,size,sortBy,order,minPrice,maxPrice);
+                Optional<?> list = itemListingRepository.getAllItemListingByCategory(category,page,size,sortBy,order,minPrice,maxPrice,title);
                 if(list.isPresent()){
                     return ResponseEntity.ok(list.get());
                 }
