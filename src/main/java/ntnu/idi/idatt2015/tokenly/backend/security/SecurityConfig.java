@@ -58,10 +58,12 @@ public class SecurityConfig {
             "/api/itemsCategories/items/",
             "/api/itemsCategories/categories/",
             "/api/itemsCategories/post",
+            "/api/**",
             "/api/itemsCategories/delete",
             "/api/itemListing/",
             "/swagger-ui.html",
             "/swagger-ui/",
+            "/api/source/**",
             "/v3/api-docs/**"
     };
 

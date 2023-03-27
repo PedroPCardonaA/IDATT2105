@@ -47,6 +47,7 @@ public class WishlistController {
     @PostMapping("/wishlist")
     public ResponseEntity<?> saveWishlist(@RequestBody Wishlist wishlist){
         try {
+            log.info("User try to the save the following wishlist = " + wishlist);
             Wishlist createdWishlist = wishListRepository.save(wishlist);
             if (createdWishlist != null) {
                 return ResponseEntity.ok(createdWishlist);
@@ -54,6 +55,7 @@ public class WishlistController {
                 return ResponseEntity.badRequest().body("Could not get wishlist, invalid request.");
             }
         } catch (Exception e) {
+            log.warn("INTERNAL SERVER ERROR: " + e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error, could not create wishlist.");
         }
     }
@@ -68,10 +70,12 @@ public class WishlistController {
     @GetMapping("/item/{itemId}")
     public ResponseEntity<?> getAllUserThatWantTheItem(@PathVariable("itemId") long itemId){
         try {
+            log.info("User try to get all the person that likes a item with id = " + itemId);
             Optional<?> wishlist = wishListRepository.getAllUserThatWantTheItem(itemId);
             return wishlist.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                     .orElseGet(() -> new ResponseEntity<>(HttpStatus.NO_CONTENT));
         } catch (Exception e) {
+            log.warn("INTERNAL SERVER ERROR: " + e.getMessage());
             return new ResponseEntity<>("Internal server error.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -86,10 +90,12 @@ public class WishlistController {
     @GetMapping("/user/{username}")
     public ResponseEntity<?> getAllItemsThatTheUserWant(@PathVariable("username") String username){
         try {
+            log.info("User try to get all the items that a user like. Username  = " + username);
             Optional<?> wishlist = wishListRepository.getAllTheItemsWantedByUser(username);
             return wishlist.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                     .orElseGet(() -> new ResponseEntity<>(HttpStatus.NO_CONTENT));
         } catch (Exception e) {
+            log.warn("INTERNAL SERVER ERROR: " + e.getMessage());
             return new ResponseEntity<>("Internal server error.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -104,6 +110,7 @@ public class WishlistController {
     @DeleteMapping("/wishlist/item")
     public ResponseEntity<?> deleteWishlistItem(@RequestBody Wishlist wishlist) {
         try {
+            log.info("User try to delete a wishlist with the information = " + wishlist);
             int affectedRows = wishListRepository.deleteWishlistItem(wishlist);
             if (affectedRows > 0) {
                 return ResponseEntity.ok().body("Item deleted from wishlist.");
@@ -111,6 +118,7 @@ public class WishlistController {
                 return ResponseEntity.notFound().build();
             }
         } catch (Exception e) {
+            log.warn("INTERNAL SERVER ERROR: " + e.getMessage());
             return new ResponseEntity<>("Internal server error.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

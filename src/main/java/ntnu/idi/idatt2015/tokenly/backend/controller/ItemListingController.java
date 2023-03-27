@@ -44,6 +44,7 @@ public class ItemListingController {
      @PostMapping("/post")
      public ResponseEntity<?> postItemListing(@RequestBody ItemListing itemListing){
          try {
+             log.warn("A user try to post a item listing with the following information = " + itemListing);
              Item newItem = new Item();
              newItem.setItemName(itemListing.getItemName());
              newItem.setSourcePath(itemListing.getSourcePath());
@@ -51,6 +52,7 @@ public class ItemListingController {
              newItem.setDescription(itemListing.getDescription());
              Item item = itemRepository.save(newItem);
              if(item == null){
+                 log.warn("Giver information is not correct");
                  return new ResponseEntity<>("ERROR: INFORMATION OF THE ITEM IS ALREADY IN USE OR IS NOT CORRECT", HttpStatus.BAD_REQUEST);
              }
              System.out.println(item.getItemId());
@@ -66,6 +68,7 @@ public class ItemListingController {
                  }
                  Listing createdListing = listingsRepository.save(newListing);
                  if(createdListing == null){
+                     log.warn("Giver information is not correct");
                      return new ResponseEntity<>("ERROR: INFORMATION OF THE LISTING IS ALREADY IN USE OR IS NOT CORRECT", HttpStatus.BAD_REQUEST);
                  }
                  itemListing.setListingId(createdListing.getListingId());
@@ -73,7 +76,7 @@ public class ItemListingController {
              }
              return ResponseEntity.ok(itemListing);
          }catch (Exception e){
-             System.out.println(e.getMessage());
+             log.warn("INTERNAL SERVER ERROR: " + e.getMessage());
              return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
          }
      }
@@ -98,6 +101,7 @@ public class ItemListingController {
                                                 @RequestParam(value = "maxPrice", defaultValue = "1000000000.0")double maxPrice,
                                                 @RequestParam(value = "title", defaultValue = "")String title){
          try {
+             log.info("User try to get all the item with listings with the following search information: Page =" + page, " size = " + size + " sort by = " + sortBy + " order = " + order + " min price = " + minPrice + " max price = " + maxPrice + " title = " + title);
              Optional<?> list = itemListingRepository.getAllItemListing(page,size,sortBy,order,minPrice,maxPrice,title);
              if(list.isPresent()){
                  return ResponseEntity.ok(list.get());
@@ -106,6 +110,7 @@ public class ItemListingController {
              }
 
          }catch (Exception e){
+             log.warn("INTERNAL SERVER ERROR: " + e.getMessage());
              return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error, could not get item listings.");
          }
      }
@@ -132,6 +137,7 @@ public class ItemListingController {
                                                           @RequestParam(value = "maxPrice", defaultValue = "1000000000.0")double maxPrice,
                                                           @RequestParam(value = "title", defaultValue = "")String title){
         try {
+            log.info("User try to get all the item with listings with the following search information: Page =" + page, " size = " + size + " sort by = " + sortBy + " order = " + order + " min price = " + minPrice + " max price = " + maxPrice + " title = " + title);
             List<Category> categories = categoryRepository.getAll().get();
             final boolean[] notInjection = {false};
             categories.forEach(values -> {
@@ -147,6 +153,7 @@ public class ItemListingController {
             }
             return ResponseEntity.badRequest().body("Could not get item listings, invalid request.");
         }catch (Exception e){
+            log.warn("INTERNAL SERVER ERROR: " + e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error, could not get item listings.");
         }
     }
@@ -170,6 +177,7 @@ public class ItemListingController {
                                                           @RequestParam(value = "order", defaultValue = "DESC") String order,
                                                           @RequestParam(value = "username") String username){
         try {
+            log.info("User try to get all the item with listings with the following search information: Page =" + page, " size = " + size + " sort by = " + sortBy + " order = " + order);
             Optional<Profile> profile = profileRepository.getByUsername(username);
             if(profile.isPresent()){
                 Optional<?> list = itemListingRepository.getAllItemsListingByWishListOfUser(username,page,size,sortBy,order);
@@ -179,6 +187,7 @@ public class ItemListingController {
             }
             return ResponseEntity.badRequest().build();
         }catch (Exception e){
+            log.warn("INTERNAL SERVER ERROR: " + e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
@@ -201,6 +210,7 @@ public class ItemListingController {
                                                       @RequestParam(value = "order", defaultValue = "DESC") String order,
                                                       @RequestParam(value = "username") String username){
         try {
+            log.info("User try to get all the item with listings with the following search information: Page =" + page, " size = " + size + " sort by = " + sortBy + " order = " + order );
             Optional<Profile> profile = profileRepository.getByUsername(username);
             if(profile.isPresent()){
                 Optional<?> list = itemListingRepository.getAllItemsListingByOwner(username,page,size,sortBy,order);
@@ -210,6 +220,7 @@ public class ItemListingController {
             }
             return ResponseEntity.badRequest().build();
         }catch (Exception e){
+            log.warn("INTERNAL SERVER ERROR: " + e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
@@ -217,13 +228,15 @@ public class ItemListingController {
     @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/item/{itemId}")
     public ResponseEntity<?> getItemListingById(@PathVariable("itemId") long itemId){
-        try {
+        try {log.info("User try to get the item and listing with item id = " + itemId);
             Optional<?> item = itemListingRepository.hetAllItemsListingByItemAndListingId(itemId);
             if(item.isPresent()){
+                log.info("The item is send correctly");
                 return ResponseEntity.ok(item.get());
             }
             return ResponseEntity.badRequest().body("ERROR");
         }catch (Exception e){
+            log.warn("INTERNAL SERVER ERROR: " + e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }

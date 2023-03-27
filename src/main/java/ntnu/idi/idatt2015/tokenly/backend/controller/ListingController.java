@@ -181,6 +181,7 @@ public class ListingController {
             return listings.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                     .orElseGet(() -> new ResponseEntity<>(HttpStatus.NO_CONTENT));
         } catch (Exception e) {
+            log.warn("INTERNAL SERVER ERROR: " + e.getMessage());
             return new ResponseEntity<>("Internal server error.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -201,6 +202,7 @@ public class ListingController {
             return listings.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                     .orElseGet(() -> new ResponseEntity<>(HttpStatus.NO_CONTENT));
         } catch (Exception e) {
+            log.warn("INTERNAL SERVER ERROR: " + e.getMessage());
             return new ResponseEntity<>("Internal server error.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -220,6 +222,7 @@ public class ListingController {
             return listings.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                     .orElseGet(() -> new ResponseEntity<>(HttpStatus.NO_CONTENT));
         } catch (Exception e) {
+            log.warn("INTERNAL SERVER ERROR: " + e.getMessage());
             return new ResponseEntity<>("Internal server error.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -242,6 +245,7 @@ public class ListingController {
             return newVisits.map(value -> new ResponseEntity<>(value,HttpStatus.OK))
                     .orElseGet(()-> new ResponseEntity<>(HttpStatus.NO_CONTENT));
         }catch (Exception e){
+            log.warn("INTERNAL SERVER ERROR: " + e.getMessage());
             return new ResponseEntity<>("Internal server error.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -264,6 +268,7 @@ public class ListingController {
             return newVisits.map(value -> new ResponseEntity<>(value,HttpStatus.OK))
                     .orElseGet(()-> new ResponseEntity<>(HttpStatus.NO_CONTENT));
         }catch (Exception e){
+            log.warn("INTERNAL SERVER ERROR: " + e.getMessage());
             return new ResponseEntity<>("Internal server error.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

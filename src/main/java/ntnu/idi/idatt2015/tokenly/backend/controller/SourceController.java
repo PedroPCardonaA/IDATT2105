@@ -44,12 +44,15 @@ public class SourceController {
     @PostMapping("/post")
     public ResponseEntity<?> postSource(@RequestParam("file") MultipartFile file){
         try {
+            log.info("A user try to post a source");
             if (!Objects.requireNonNull(file.getContentType()).startsWith("image/")) {
+                log.info("The given information is not correct");
                 return new ResponseEntity<>("Only image files are allowed", HttpStatus.BAD_REQUEST);
             }
             file.transferTo(Path.of(PathService.getFolderPath()+PathService.generatePath(file.getOriginalFilename())));
             return new ResponseEntity<>(PathService.getLastPath(),HttpStatus.OK);
         } catch (IOException e) {
+            log.warn("INTERNAL SERVER ERROR: " + e.getMessage());
             return new ResponseEntity<>("Internal server error.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -66,6 +69,7 @@ public class SourceController {
     @GetMapping("/{itemId}")
     public ResponseEntity<?> getFile(@PathVariable ("itemId") long itemId) {
         try {
+            log.info("A user try to get the source of a item");
             String filename = itemRepository.getPathByItemId(itemId).get();
             File file = new File(PathService.getFolderPath() + filename);
             String contentType;
@@ -89,6 +93,7 @@ public class SourceController {
                     .contentType(MediaType.parseMediaType(contentType))
                     .body(resource);
         } catch (IOException e) {
+            log.warn("INTERNAL SERVER ERROR: " + e.getMessage());
             return new ResponseEntity<>("Internal server error.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
