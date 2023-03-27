@@ -24,7 +24,7 @@ public interface ItemListingRepository {
      * @param order The order to sort by
      * @return
      */
-    Optional<List<ItemListing>> getAllItemListing(int pageNumber, int pageSize, String sortBy, String order);
+    Optional<List<ItemListing>> getAllItemListing(int pageNumber, int pageSize, String sortBy, String order, double minPrice, double maxPrice);
 
     /**
      * Gets all item listings from the repository by category.
