@@ -57,8 +57,9 @@ public class TransactionController {
         try {
             profileRepository.changeBalance(profileRepository.getByUsername(transaction.getBuyerName()).get().getId(),- transaction.getTransactionPrice());
             profileRepository.changeBalance(profileRepository.getByUsername(transaction.getSellerName()).get().getId(),transaction.getTransactionPrice());
+            System.out.println(transaction.getListingId());
             listingsRepository.closeListing(transaction.getListingId());
-            if(listingsRepository.getByListingId(transaction.getListingId()).get().isClosed()){
+            if(listingsRepository.getByListingId(transaction.getListingId()).get().getIsClosed()){
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("THE LISTING IS ALREADY CLOSED!");
             }
             if(transaction.getTransactionPrice() <= 0){
@@ -69,10 +70,9 @@ public class TransactionController {
 
             if(listingOpt.isEmpty()) return new ResponseEntity<>("Error: Listing not found.",HttpStatus.BAD_REQUEST);
 
-            if(listingOpt.get().isClosed()) return new ResponseEntity<>("Error: Listing is already closed.",HttpStatus.BAD_REQUEST);
+            if(listingOpt.get().getIsClosed()) return new ResponseEntity<>("Error: Listing is already closed.",HttpStatus.BAD_REQUEST);
 
             if(transaction.getTransactionPrice() <= 0) return new ResponseEntity<>("Price of a transaction cannot be negative or zero.",HttpStatus.BAD_REQUEST);
-
             Transaction createdTransaction = transactionRepository.save(transaction);
             itemRepository.changeOwner(listingsRepository.getItemIdByListingId(createdTransaction.getListingId()).get(),createdTransaction.getBuyerName());
             if (createdTransaction != null) {
