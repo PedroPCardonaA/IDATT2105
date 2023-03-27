@@ -142,4 +142,72 @@ public class ChatControllerTest {
 
         verify(chatRepository, times(1)).getChatById(2L);
     }
+
+    @Test
+    void testSaveChat_Failed() throws Exception {
+        when(chatRepository.save(any(Chat.class))).thenReturn(null);
+
+        mockMvc.perform(post("/api/chats/chat")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(chat)))
+                .andExpect(status().isBadRequest())
+                .andExpect(content().string("Could not get chat, invalid request."));
+
+        verify(chatRepository, times(1)).save(any(Chat.class));
+    }
+
+    @Test
+    void testGetChatsByUsername_NotFound() throws Exception {
+        when(chatRepository.getAllChatsByUsername("nonexistent")).thenReturn(Optional.empty());
+
+        mockMvc.perform(get("/api/chats/nonexistent"))
+                .andExpect(status().isNoContent());
+
+        verify(chatRepository, times(1)).getAllChatsByUsername("nonexistent");
+    }
+
+    @Test
+    void testGetChatsByUsername_Exception() throws Exception {
+        when(chatRepository.getAllChatsByUsername("buyer")).thenThrow(new RuntimeException());
+
+        mockMvc.perform(get("/api/chats/buyer"))
+                .andExpect(status().isInternalServerError())
+                .andExpect(content().string("Internal server error."));
+
+        verify(chatRepository, times(1)).getAllChatsByUsername("buyer");
+    }
+
+    @Test
+    void testGetChatById_Exception() throws Exception {
+        when(chatRepository.getChatById(1L)).thenThrow(new RuntimeException());
+
+        mockMvc.perform(get("/api/chats/chat/1"))
+                .andExpect(status().isInternalServerError())
+                .andExpect(content().string("INTERNAL SERVER ERROR"));
+
+        verify(chatRepository, times(1)).getChatById(1L);
+    }
+
+    @Test
+    void testSeenChat_Success() throws Exception {
+        doReturn(Optional.of(1)).when(chatRepository).makeAllSeen(1L);
+
+        mockMvc.perform(put("/api/chats/seen/1"))
+                .andExpect(status().isOk())
+                .andExpect(content().string("1"));
+
+        verify(chatRepository, times(1)).makeAllSeen(1L);
+    }
+
+    @Test
+    void testSeenChat_ChatNotExist() throws Exception {
+        doReturn(Optional.of(-1)).when(chatRepository).makeAllSeen(2L);
+
+        mockMvc.perform(put("/api/chats/seen/2"))
+                .andExpect(status().isBadRequest())
+                .andExpect(content().string("ERROR: CHAT DOES NOT EXIST"));
+
+        verify(chatRepository, times(1)).makeAllSeen(2L);
+    }
+
 }
