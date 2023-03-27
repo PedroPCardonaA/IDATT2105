@@ -122,7 +122,9 @@ public class ItemListingController {
                                                 @RequestParam(value = "size", defaultValue = "12") int size,
                                                 @RequestParam(value="sortBy", defaultValue = "visits") String sortBy,
                                                 @RequestParam(value = "order", defaultValue = "DESC") String order,
-                                                @RequestParam(value = "category", defaultValue="Photography") String category){
+                                                @RequestParam(value = "category", defaultValue="Photography") String category,
+                                                          @RequestParam(value = "minPrice", defaultValue = "0.0") double minPrice,
+                                                          @RequestParam(value = "maxPrice", defaultValue = "1000000000.0")double maxPrice){
         try {
             List<Category> categories = categoryRepository.getAll().get();
             final boolean[] notInjection = {false};
@@ -132,7 +134,7 @@ public class ItemListingController {
                 }
             });
             if(notInjection[0]){
-                Optional<?> list = itemListingRepository.getAllItemListingByCategory(category,page,size,sortBy,order);
+                Optional<?> list = itemListingRepository.getAllItemListingByCategory(category,page,size,sortBy,order,minPrice,maxPrice);
                 if(list.isPresent()){
                     return ResponseEntity.ok(list.get());
                 }

@@ -36,7 +36,7 @@ public interface ItemListingRepository {
      * @param order The order to sort by
      * @return
      */
-    Optional<List<ItemListing>> getAllItemListingByCategory(String category,int pageNumber, int pageSize, String sortBy, String order);
+    Optional<List<ItemListing>> getAllItemListingByCategory(String category,int pageNumber, int pageSize, String sortBy, String order,double minPrice, double maxPrice);
     Optional<List<ItemListing>> getAllItemsListingByWishListOfUser(String username,int pageNumber, int pageSize, String sortBy, String order);
 
     Optional<List<ItemListing>> getAllItemsListingByOwner(String username,int pageNumber, int pageSize, String sortBy, String order);
