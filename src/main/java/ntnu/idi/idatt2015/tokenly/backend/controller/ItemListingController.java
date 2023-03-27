@@ -90,9 +90,11 @@ public class ItemListingController {
     public ResponseEntity<?> getAllItemsListing(@RequestParam (value="page", defaultValue ="0") int page,
                                                 @RequestParam(value = "size", defaultValue = "12") int size,
                                                 @RequestParam(value="sortBy", defaultValue = "visits") String sortBy,
-                                                @RequestParam(value = "order", defaultValue = "DESC") String order){
+                                                @RequestParam(value = "order", defaultValue = "DESC") String order,
+                                                @RequestParam(value = "minPrice", defaultValue = "0.0") double minPrice,
+                                                @RequestParam(value = "maxPrice", defaultValue = "1000000000.0")double maxPrice){
          try {
-             Optional<?> list = itemListingRepository.getAllItemListing(page,size,sortBy,order);
+             Optional<?> list = itemListingRepository.getAllItemListing(page,size,sortBy,order,minPrice,maxPrice);
              if(list.isPresent()){
                  return ResponseEntity.ok(list.get());
              }else{
