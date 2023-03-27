@@ -167,3 +167,155 @@
 2023-03-27 21:36:12,888 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.AuthController: User = LoginRequest[username=jane, password=null] is try to get a toke:
 2023-03-27 21:36:12,889 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.AuthController: Information from the user is not correct.
 2023-03-27 21:36:26,207 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.AuthController: User = LoginRequest[username=jane, password=password456] is try to get a toke:
+2023-03-27 23:14:11,261 INFO [main] org.springframework.boot.StartupInfoLogger: Starting TokenlyBackendApplication using Java 19.0.1 with PID 18788 (C:\Users\Anders\IdeaProjects\Fullstack\tokenly\IDATT2105\target\classes started by Anders in C:\Users\Anders\IdeaProjects\Fullstack\tokenly\IDATT2105)
+2023-03-27 23:14:11,267 INFO [main] org.springframework.boot.SpringApplication: No active profile set, falling back to 1 default profile: "default"
+2023-03-27 23:14:14,272 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat initialized with port(s): 8080 (http)
+2023-03-27 23:14:14,289 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing ProtocolHandler ["http-nio-8080"]
+2023-03-27 23:14:14,297 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting service [Tomcat]
+2023-03-27 23:14:14,297 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-03-27 23:14:14,509 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing Spring embedded WebApplicationContext
+2023-03-27 23:14:14,510 INFO [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 3137 ms
+2023-03-27 23:14:14,545 INFO [main] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Starting embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2023-03-27 23:14:15,297 INFO [main] org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:tokenly-db'
+2023-03-27 23:14:17,181 INFO [main] org.springframework.security.provisioning.JdbcUserDetailsManager: No authentication manager set. Reauthentication of users when changing passwords will not be performed.
+2023-03-27 23:14:19,174 INFO [main] org.springframework.security.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7db791df, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1bfa5a13, org.springframework.security.web.context.SecurityContextHolderFilter@34f23816, org.springframework.security.web.header.HeaderWriterFilter@d28c214, org.springframework.security.web.authentication.logout.LogoutFilter@4656fcc5, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@36f6d25c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@12f9f896, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5df92089, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1b1e1f02, org.springframework.security.web.session.SessionManagementFilter@1b791dca, org.springframework.security.web.access.ExceptionTranslationFilter@1bb96449, org.springframework.security.web.access.intercept.AuthorizationFilter@40f9f60d]
+2023-03-27 23:14:19,649 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting ProtocolHandler ["http-nio-8080"]
+2023-03-27 23:14:19,702 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat started on port(s): 8080 (http) with context path ''
+2023-03-27 23:14:19,724 INFO [main] org.springframework.boot.StartupInfoLogger: Started TokenlyBackendApplication in 9.278 seconds (process running for 11.887)
+2023-03-27 23:16:43,341 INFO [http-nio-8080-exec-2] org.apache.juli.logging.DirectJDKLog: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-03-27 23:16:43,349 INFO [http-nio-8080-exec-2] org.springframework.web.servlet.FrameworkServlet: Initializing Servlet 'dispatcherServlet'
+2023-03-27 23:16:43,356 INFO [http-nio-8080-exec-2] org.springframework.web.servlet.FrameworkServlet: Completed initialization in 5 ms
+2023-03-27 23:17:07,127 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.AuthController: User = LoginRequest[username=jane, password=password456] is try to get a toke:
+2023-03-27 23:17:55,266 INFO [SpringApplicationShutdownHook] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Shutting down embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2023-03-27 23:20:06,155 INFO [main] org.springframework.boot.StartupInfoLogger: Starting TokenlyBackendApplication using Java 19.0.1 with PID 24724 (C:\Users\Anders\IdeaProjects\Fullstack\tokenly\IDATT2105\target\classes started by Anders in C:\Users\Anders\IdeaProjects\Fullstack\tokenly\IDATT2105)
+2023-03-27 23:20:06,163 INFO [main] org.springframework.boot.SpringApplication: No active profile set, falling back to 1 default profile: "default"
+2023-03-27 23:20:08,726 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat initialized with port(s): 8080 (http)
+2023-03-27 23:20:08,750 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing ProtocolHandler ["http-nio-8080"]
+2023-03-27 23:20:08,751 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting service [Tomcat]
+2023-03-27 23:20:08,752 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-03-27 23:20:08,928 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing Spring embedded WebApplicationContext
+2023-03-27 23:20:08,929 INFO [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 2619 ms
+2023-03-27 23:20:08,981 INFO [main] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Starting embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2023-03-27 23:20:09,619 INFO [main] org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:tokenly-db'
+2023-03-27 23:20:11,296 INFO [main] org.springframework.security.provisioning.JdbcUserDetailsManager: No authentication manager set. Reauthentication of users when changing passwords will not be performed.
+2023-03-27 23:20:13,327 INFO [main] org.springframework.security.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2a2b7a35, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@58186f9f, org.springframework.security.web.context.SecurityContextHolderFilter@2d24cdd9, org.springframework.security.web.header.HeaderWriterFilter@699e0bf0, org.springframework.web.filter.CorsFilter@62faf77, org.springframework.security.web.csrf.CsrfFilter@50ff7063, org.springframework.security.web.authentication.logout.LogoutFilter@153cfd86, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@5bb7a59, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4656fcc5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@e162a35, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1f39269d, org.springframework.security.web.session.SessionManagementFilter@25470477, org.springframework.security.web.access.ExceptionTranslationFilter@12e007be, org.springframework.security.web.access.intercept.AuthorizationFilter@316d30ad]
+2023-03-27 23:20:13,898 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting ProtocolHandler ["http-nio-8080"]
+2023-03-27 23:20:13,956 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat started on port(s): 8080 (http) with context path ''
+2023-03-27 23:20:13,976 INFO [main] org.springframework.boot.StartupInfoLogger: Started TokenlyBackendApplication in 8.849 seconds (process running for 10.418)
+2023-03-27 23:20:27,561 INFO [SpringApplicationShutdownHook] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Shutting down embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2023-03-27 23:21:42,486 INFO [main] org.springframework.boot.StartupInfoLogger: Starting TokenlyBackendApplication using Java 19.0.1 with PID 7860 (C:\Users\Anders\IdeaProjects\Fullstack\tokenly\IDATT2105\target\classes started by Anders in C:\Users\Anders\IdeaProjects\Fullstack\tokenly\IDATT2105)
+2023-03-27 23:21:42,491 INFO [main] org.springframework.boot.SpringApplication: No active profile set, falling back to 1 default profile: "default"
+2023-03-27 23:21:44,244 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat initialized with port(s): 8080 (http)
+2023-03-27 23:21:44,259 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing ProtocolHandler ["http-nio-8080"]
+2023-03-27 23:21:44,261 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting service [Tomcat]
+2023-03-27 23:21:44,262 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-03-27 23:21:44,406 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing Spring embedded WebApplicationContext
+2023-03-27 23:21:44,407 INFO [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 1847 ms
+2023-03-27 23:21:44,435 INFO [main] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Starting embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2023-03-27 23:21:44,996 INFO [main] org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:tokenly-db'
+2023-03-27 23:21:45,651 INFO [main] org.springframework.security.provisioning.JdbcUserDetailsManager: No authentication manager set. Reauthentication of users when changing passwords will not be performed.
+2023-03-27 23:21:46,952 INFO [main] org.springframework.security.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@58b97c15, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@26994c6a, org.springframework.security.web.context.SecurityContextHolderFilter@1124910c, org.springframework.security.web.header.HeaderWriterFilter@6a51ae7c, org.springframework.web.filter.CorsFilter@3cd46491, org.springframework.security.web.csrf.CsrfFilter@273dec10, org.springframework.security.web.authentication.logout.LogoutFilter@3321291a, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@754de353, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4a9869a8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@628ba266, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@27d98bef, org.springframework.security.web.session.SessionManagementFilter@27d73d22, org.springframework.security.web.access.ExceptionTranslationFilter@58e03769, org.springframework.security.web.access.intercept.AuthorizationFilter@7910f355]
+2023-03-27 23:21:47,338 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting ProtocolHandler ["http-nio-8080"]
+2023-03-27 23:21:47,373 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat started on port(s): 8080 (http) with context path ''
+2023-03-27 23:21:47,388 INFO [main] org.springframework.boot.StartupInfoLogger: Started TokenlyBackendApplication in 5.487 seconds (process running for 6.847)
+2023-03-27 23:21:59,783 INFO [http-nio-8080-exec-2] org.apache.juli.logging.DirectJDKLog: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-03-27 23:21:59,788 INFO [http-nio-8080-exec-2] org.springframework.web.servlet.FrameworkServlet: Initializing Servlet 'dispatcherServlet'
+2023-03-27 23:21:59,791 INFO [http-nio-8080-exec-2] org.springframework.web.servlet.FrameworkServlet: Completed initialization in 3 ms
+2023-03-27 23:21:59,899 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:21:59,899 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:22:00,263 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:22:00,264 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:22:00,263 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:22:00,264 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:22:00,274 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:22:00,280 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:22:00,344 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:22:00,408 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:22:00,554 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:22:00,651 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:22:00,683 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:22:00,691 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:22:00,732 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:24:15,296 INFO [SpringApplicationShutdownHook] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Shutting down embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2023-03-27 23:24:24,689 INFO [main] org.springframework.boot.StartupInfoLogger: Starting TokenlyBackendApplication using Java 19.0.1 with PID 12140 (C:\Users\Anders\IdeaProjects\Fullstack\tokenly\IDATT2105\target\classes started by Anders in C:\Users\Anders\IdeaProjects\Fullstack\tokenly\IDATT2105)
+2023-03-27 23:24:24,695 INFO [main] org.springframework.boot.SpringApplication: No active profile set, falling back to 1 default profile: "default"
+2023-03-27 23:24:26,581 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat initialized with port(s): 8080 (http)
+2023-03-27 23:24:26,601 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing ProtocolHandler ["http-nio-8080"]
+2023-03-27 23:24:26,604 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting service [Tomcat]
+2023-03-27 23:24:26,604 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-03-27 23:24:26,783 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing Spring embedded WebApplicationContext
+2023-03-27 23:24:26,784 INFO [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 2017 ms
+2023-03-27 23:24:26,816 INFO [main] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Starting embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2023-03-27 23:24:27,458 INFO [main] org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:tokenly-db'
+2023-03-27 23:24:28,572 INFO [main] org.springframework.security.provisioning.JdbcUserDetailsManager: No authentication manager set. Reauthentication of users when changing passwords will not be performed.
+2023-03-27 23:24:29,901 INFO [main] org.springframework.security.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3ea75b05, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@30d5e37c, org.springframework.security.web.context.SecurityContextHolderFilter@699e0bf0, org.springframework.security.web.header.HeaderWriterFilter@34f23816, org.springframework.web.filter.CorsFilter@1da745a2, org.springframework.security.web.authentication.logout.LogoutFilter@734a149a, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@18e6b72b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@36d697ab, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5a899811, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4597e6e3, org.springframework.security.web.session.SessionManagementFilter@6b24ddd7, org.springframework.security.web.access.ExceptionTranslationFilter@15ac02d5, org.springframework.security.web.access.intercept.AuthorizationFilter@5c5f0edc]
+2023-03-27 23:24:30,296 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting ProtocolHandler ["http-nio-8080"]
+2023-03-27 23:24:30,330 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat started on port(s): 8080 (http) with context path ''
+2023-03-27 23:24:30,345 INFO [main] org.springframework.boot.StartupInfoLogger: Started TokenlyBackendApplication in 6.236 seconds (process running for 7.665)
+2023-03-27 23:24:43,016 INFO [http-nio-8080-exec-1] org.apache.juli.logging.DirectJDKLog: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-03-27 23:24:43,020 INFO [http-nio-8080-exec-1] org.springframework.web.servlet.FrameworkServlet: Initializing Servlet 'dispatcherServlet'
+2023-03-27 23:24:43,022 INFO [http-nio-8080-exec-1] org.springframework.web.servlet.FrameworkServlet: Completed initialization in 1 ms
+2023-03-27 23:24:43,163 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:24:43,163 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:24:43,448 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:24:43,449 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:24:43,448 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:24:43,449 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:24:43,450 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:24:43,450 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:24:43,594 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:24:43,595 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:24:43,662 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:24:43,701 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:24:43,756 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:24:43,742 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:24:55,466 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.AuthController: User = LoginRequest[username=jane, password=password456] is try to get a toke:
+2023-03-27 23:24:55,959 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:24:55,975 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:24:56,036 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = jane
+2023-03-27 23:24:56,049 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:24:56,123 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:24:56,289 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 1
+2023-03-27 23:24:56,344 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:24:56,363 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 12
+2023-03-27 23:25:21,979 INFO [SpringApplicationShutdownHook] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Shutting down embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2023-03-27 23:25:31,498 INFO [main] org.springframework.boot.StartupInfoLogger: Starting TokenlyBackendApplication using Java 19.0.1 with PID 20116 (C:\Users\Anders\IdeaProjects\Fullstack\tokenly\IDATT2105\target\classes started by Anders in C:\Users\Anders\IdeaProjects\Fullstack\tokenly\IDATT2105)
+2023-03-27 23:25:31,502 INFO [main] org.springframework.boot.SpringApplication: No active profile set, falling back to 1 default profile: "default"
+2023-03-27 23:25:33,495 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat initialized with port(s): 8080 (http)
+2023-03-27 23:25:33,518 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing ProtocolHandler ["http-nio-8080"]
+2023-03-27 23:25:33,521 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting service [Tomcat]
+2023-03-27 23:25:33,522 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-03-27 23:25:33,717 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing Spring embedded WebApplicationContext
+2023-03-27 23:25:33,718 INFO [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 2142 ms
+2023-03-27 23:25:33,742 INFO [main] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Starting embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2023-03-27 23:25:34,274 INFO [main] org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:tokenly-db'
+2023-03-27 23:25:35,572 INFO [main] org.springframework.security.provisioning.JdbcUserDetailsManager: No authentication manager set. Reauthentication of users when changing passwords will not be performed.
+2023-03-27 23:25:37,121 INFO [main] org.springframework.security.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@ee2ae9a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@58b97c15, org.springframework.security.web.context.SecurityContextHolderFilter@e162a35, org.springframework.security.web.header.HeaderWriterFilter@5a899811, org.springframework.web.filter.CorsFilter@26994c6a, org.springframework.security.web.authentication.logout.LogoutFilter@5f935d49, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@6e321d9d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@f849027, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6bd7439d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3cd46491, org.springframework.security.web.session.SessionManagementFilter@2c16677c, org.springframework.security.web.access.ExceptionTranslationFilter@315b4202, org.springframework.security.web.access.intercept.AuthorizationFilter@5e3d2765]
+2023-03-27 23:25:37,525 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting ProtocolHandler ["http-nio-8080"]
+2023-03-27 23:25:37,563 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat started on port(s): 8080 (http) with context path ''
+2023-03-27 23:25:37,574 INFO [main] org.springframework.boot.StartupInfoLogger: Started TokenlyBackendApplication in 6.742 seconds (process running for 8.085)
+2023-03-27 23:25:53,601 INFO [http-nio-8080-exec-1] org.apache.juli.logging.DirectJDKLog: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-03-27 23:25:53,602 INFO [http-nio-8080-exec-1] org.springframework.web.servlet.FrameworkServlet: Initializing Servlet 'dispatcherServlet'
+2023-03-27 23:25:53,605 INFO [http-nio-8080-exec-1] org.springframework.web.servlet.FrameworkServlet: Completed initialization in 2 ms
+2023-03-27 23:25:53,809 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:25:53,810 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:25:54,219 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:25:54,221 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:25:54,227 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:25:54,229 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:25:54,229 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:25:54,236 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:25:54,310 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:25:54,324 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:25:54,484 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:25:54,485 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:25:54,485 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:25:54,531 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:25:54,549 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:26:04,234 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.AuthController: User = LoginRequest[username=jane, password=password456] is try to get a toke:
+2023-03-27 23:26:04,614 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:26:04,618 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:26:04,659 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = jane
+2023-03-27 23:26:04,746 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 1
+2023-03-27 23:26:04,774 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:26:04,801 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 12

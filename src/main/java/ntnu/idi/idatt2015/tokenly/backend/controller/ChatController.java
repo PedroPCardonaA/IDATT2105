@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-@CrossOrigin(origins = "http://localhost:5173")
 @Slf4j
 @RestController
 @RequestMapping("/api/chats")
@@ -44,7 +43,6 @@ public class ChatController {
      * @return ResponseEntity containing the created Chat object, or an error response
      */
 
-    @CrossOrigin(origins = "http://localhost:5173")
     @PostMapping("/chat")
     public ResponseEntity<?> saveChat(@RequestBody Chat chat){
         try {
@@ -72,7 +70,6 @@ public class ChatController {
      * @return ResponseEntity containing the chats, or a no content response
      */
 
-    @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/{username}")
     public ResponseEntity<?> getChatsByUsername(@PathVariable("username") String username){
         try {
@@ -94,7 +91,6 @@ public class ChatController {
      * @return ResponseEntity containing the chat, or a no content response
      */
 
-    @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/chat/{id}")
     public ResponseEntity<?> getChatById(@PathVariable("id") long id){
         try {
@@ -108,7 +104,6 @@ public class ChatController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:5173")
     @PutMapping("/seen/{chatId}")
     public ResponseEntity<?> seenChat(@PathVariable("chatId") long id){
         try {
