@@ -1,6 +1,7 @@
 package ntnu.idi.idatt2015.tokenly.backend.controller;
 
 import ntnu.idi.idatt2015.tokenly.backend.SecurityTestConfig;
+import ntnu.idi.idatt2015.tokenly.backend.model.Category;
 import ntnu.idi.idatt2015.tokenly.backend.repository.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,10 +15,18 @@ import org.springframework.http.MediaType;
 import ntnu.idi.idatt2015.tokenly.backend.model.ItemListing;
 import ntnu.idi.idatt2015.tokenly.backend.model.Item;
 import ntnu.idi.idatt2015.tokenly.backend.model.Listing;
+import org.springframework.test.web.servlet.ResultMatcher;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import static net.bytebuddy.matcher.ElementMatchers.is;
+import static org.hamcrest.Matchers.hasSize;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
