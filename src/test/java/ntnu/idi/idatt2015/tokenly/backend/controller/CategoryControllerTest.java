@@ -5,6 +5,7 @@ import ntnu.idi.idatt2015.tokenly.backend.SecurityTestConfig;
 import ntnu.idi.idatt2015.tokenly.backend.controller.CategoryController;
 import ntnu.idi.idatt2015.tokenly.backend.model.Category;
 import ntnu.idi.idatt2015.tokenly.backend.repository.CategoryRepository;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -34,6 +35,14 @@ public class CategoryControllerTest {
 
     @MockBean
     private CategoryRepository categoryRepository;
+
+    private Category category1 = new Category();
+    private Category category2 = new Category();
+
+    @BeforeEach
+    public void setUp() {
+
+    }
 
     @Test
     public void testSaveCategory_Success() throws Exception {
