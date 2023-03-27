@@ -19,8 +19,9 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.when;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -72,8 +73,95 @@ public class ItemCategoryControllerTest {
                 .andExpect(jsonPath("$[2]").value(itemList.get(2)));
     }
 
+    @Test
+    void testGetAllItemsByItemId_Success() throws Exception {
+        long itemId = 1L;
+        List<Integer> categoryList = List.of(1, 2, 3);
+        doReturn(Optional.of(categoryList)).when(itemsCategoryRepository).getAllTheCategoriesByItemId(itemId);
 
+        mockMvc.perform(get("/api/itemsCategories/categories/{itemId}", itemId))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0]").value(categoryList.get(0)))
+                .andExpect(jsonPath("$[1]").value(categoryList.get(1)))
+                .andExpect(jsonPath("$[2]").value(categoryList.get(2)));
+    }
 
-    // Add more test cases for the other methods
+    @Test
+    void testDeleteRow_Success() throws Exception {
+        int affectedRows = 1;
+        when(itemsCategoryRepository.deleteRow(any(ItemsCategories.class))).thenReturn(affectedRows);
+
+        mockMvc.perform(delete("/api/itemsCategories/delete")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(itemsCategories)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$").value(affectedRows));
+    }
+
+    @Test
+    void testPostItemCategory_InternalServerError() throws Exception {
+        when(itemsCategoryRepository.save(any(ItemsCategories.class))).thenThrow(new RuntimeException());
+
+        mockMvc.perform(post("/api/itemsCategories/post")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(itemsCategories)))
+                .andExpect(status().isInternalServerError());
+    }
+
+    @Test
+    void testGetAllItemsByCategoryName_BadRequest() throws Exception {
+        String categoryName = "category";
+        doReturn(Optional.empty()).when(itemsCategoryRepository).getAllTheItemsByCategoryName(categoryName);
+
+        mockMvc.perform(get("/api/itemsCategories/items/{categoryName}", categoryName))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void testGetAllItemsByCategoryName_InternalServerError() throws Exception {
+        String categoryName = "category";
+        doThrow(new RuntimeException()).when(itemsCategoryRepository).getAllTheItemsByCategoryName(categoryName);
+
+        mockMvc.perform(get("/api/itemsCategories/items/{categoryName}", categoryName))
+                .andExpect(status().isInternalServerError());
+    }
+
+    @Test
+    void testGetAllItemsByItemId_BadRequest() throws Exception {
+        long itemId = 1L;
+        doReturn(Optional.empty()).when(itemsCategoryRepository).getAllTheCategoriesByItemId(itemId);
+
+        mockMvc.perform(get("/api/itemsCategories/categories/{itemId}", itemId))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void testGetAllItemsByItemId_InternalServerError() throws Exception {
+        long itemId = 1L;
+        doThrow(new RuntimeException()).when(itemsCategoryRepository).getAllTheCategoriesByItemId(itemId);
+
+        mockMvc.perform(get("/api/itemsCategories/categories/{itemId}", itemId))
+                .andExpect(status().isInternalServerError());
+    }
+
+    @Test
+    void testDeleteRow_BadRequest() throws Exception {
+        when(itemsCategoryRepository.deleteRow(any(ItemsCategories.class))).thenReturn(-1);
+
+        mockMvc.perform(delete("/api/itemsCategories/delete")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(itemsCategories)))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void testDeleteRow_InternalServerError() throws Exception {
+        when(itemsCategoryRepository.deleteRow(any(ItemsCategories.class))).thenThrow(new RuntimeException());
+
+        mockMvc.perform(delete("/api/itemsCategories/delete")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(itemsCategories)))
+                .andExpect(status().isInternalServerError());
+    }
 
 }

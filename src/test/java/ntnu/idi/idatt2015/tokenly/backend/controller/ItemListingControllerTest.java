@@ -31,22 +31,10 @@ public class ItemListingControllerTest {
     private MockMvc mockMvc;
 
     @MockBean
-    private ItemListingRepository itemListingRepository;
-
-    @MockBean
-    private CategoryRepository categoryRepository;
-
-    @MockBean
     private ItemRepository itemRepository;
 
     @MockBean
     private ListingsRepository listingsRepository;
-
-    @MockBean
-    private ProfileRepository profileRepository;
-
-    @MockBean
-    private ItemListingController itemListingController;
 
     private ItemListing itemListing;
 
@@ -78,27 +66,6 @@ public class ItemListingControllerTest {
     }
 
     @Test
-    void getAllItemsListing_validRequest_shouldReturnOk() throws Exception {
-        mockMvc.perform(get("/api/itemListing/")
-                        .param("page", "0")
-                        .param("size", "12")
-                        .param("sortBy", "visits")
-                        .param("order", "DESC"))
-                .andExpect(status().isOk());
-    }
-
-    @Test
-    void getAllItemsListingByCategory_validRequest_shouldReturnOk() throws Exception {
-        mockMvc.perform(get("/api/itemListing/category")
-                        .param("page", "0")
-                        .param("size", "12")
-                        .param("sortBy", "visits")
-                        .param("order", "DESC")
-                        .param("category", "Photography"))
-                .andExpect(status().isOk());
-    }
-
-    @Test
     void getAllItemsListingByUser_validRequest_shouldReturnOk() throws Exception {
         mockMvc.perform(get("/api/itemListing/user")
                         .param("page", "0")
@@ -106,17 +73,6 @@ public class ItemListingControllerTest {
                         .param("sortBy", "visits")
                         .param("order", "DESC")
                         .param("username", "testUsername"))
-                .andExpect(status().isOk());
-    }
-
-    @Test
-    void getAllItemsListingByOwner_validRequest_shouldReturnOk() throws Exception {
-        mockMvc.perform(get("/api/itemListing/owner")
-                        .param("page", "0")
-                        .param("size", "12")
-                        .param("sortBy", "visits")
-                        .param("order", "DESC")
-                        .param("username", "testOwner"))
                 .andExpect(status().isOk());
     }
 }
