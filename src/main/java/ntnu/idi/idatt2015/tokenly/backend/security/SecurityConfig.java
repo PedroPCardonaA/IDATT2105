@@ -50,18 +50,18 @@ public class SecurityConfig {
             "/api/users/token",
             "/api/users/user",
             "/api/categories/",
-            "/api/categories/description/*",
-            "/api/categories/name/*",
-            "/api/categories/partialName/*",
+            "/api/categories/description/",
+            "/api/categories/name/",
+            "/api/categories/partialName/",
             "/api/source/post",
-            "/api/source/*",
-            "/api/itemsCategories/items/*",
-            "/api/itemsCategories/categories/*",
+            "/api/source/",
+            "/api/itemsCategories/items/",
+            "/api/itemsCategories/categories/",
             "/api/itemsCategories/post",
             "/api/itemsCategories/delete",
-            "/api/**",
+            "/api/itemListing/",
             "/swagger-ui.html",
-            "/swagger-ui/**",
+            "/swagger-ui/",
             "/v3/api-docs/**"
     };
 
@@ -109,6 +109,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
+                .cors().and()
                 .csrf(AbstractHttpConfigurer::disable)
                 .headers(headers -> headers.frameOptions().sameOrigin())
                 .authorizeHttpRequests(auth -> auth
