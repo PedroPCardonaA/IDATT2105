@@ -2,6 +2,7 @@ package ntnu.idi.idatt2015.tokenly.backend.JDBCrepository;
 
 import ntnu.idi.idatt2015.tokenly.backend.model.Profile;
 
+import ntnu.idi.idatt2015.tokenly.backend.model.User;
 import ntnu.idi.idatt2015.tokenly.backend.repository.ProfileRepository;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -228,5 +230,15 @@ public class JdbcProfileRepository implements ProfileRepository {
         }
     }
 
+    @Override
+    public Optional<List<User>> getAllUser(){
+        String sql = "SELECT * FROM users";
+        try {
+            List<User> users = namedParameterJdbcTemplate.query(sql,new BeanPropertyRowMapper<>(User.class));
+            return Optional.of(users);
+        }catch (Exception e){
+            return Optional.empty();
+        }
+    }
 
 }

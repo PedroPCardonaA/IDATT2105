@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.Optional;
 
 @CrossOrigin("http://localhost:5173")
 @RestController
@@ -245,6 +246,16 @@ public class ProfileController {
         try{
             Boolean answer = profileRepository.isAdmin(username);
             return ResponseEntity.ok(answer);
+        }catch (Exception e){
+            return ResponseEntity.internalServerError().body("INTERNAL SERVER ERROR");
+        }
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<?> getAll(){
+        try {
+            Optional<?> users = profileRepository.getAllUser();
+            return ResponseEntity.ok(users.get());
         }catch (Exception e){
             return ResponseEntity.internalServerError().body("INTERNAL SERVER ERROR");
         }

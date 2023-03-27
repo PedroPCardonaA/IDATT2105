@@ -1,8 +1,10 @@
 package ntnu.idi.idatt2015.tokenly.backend.repository;
 
 import ntnu.idi.idatt2015.tokenly.backend.model.Profile;
+import ntnu.idi.idatt2015.tokenly.backend.model.User;
 
 import java.sql.Date;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -89,5 +91,6 @@ public interface ProfileRepository {
     int updatePassword(String username, String password, String oldPassword);
 
     Boolean isAdmin(String username);
+    Optional<List<User>> getAllUser();
 }
 
