@@ -33,17 +33,22 @@ public class CategoryController {
      * @param category The category to save.
      * @return A ResponseEntity containing the saved category if successful, or an error response if unsuccessful.
      */
+
+    @CrossOrigin(origins = "http://localhost:5173")
     @PostMapping("/")
     public ResponseEntity<?> saveCategory(@RequestBody Category category){
         try {
+            log.info("User try to save a new category = " + category);
             Category createdCategory = categoryRepository.save(category);
             if(createdCategory != null){
+                log.info("User sae the new category.");
                 return ResponseEntity.ok(createdCategory);
             }else {
+                log.info("The category information is not correct.");
                 return ResponseEntity.badRequest().body("Category already exists");
             }
         }catch (Exception e){
-            log.warn("INTERNAL SERVER ERROR");
+            log.warn("INTERNAL SERVER ERROR = " + e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error saving category");
         }
     }
@@ -53,9 +58,12 @@ public class CategoryController {
      *
      * @return A ResponseEntity containing a list of all categories if successful, or an error response if unsuccessful.
      */
+
+    @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/")
     public ResponseEntity<?> getAllCategories(){
         try {
+            log.info("A user try to get all the items");
             Optional<List<Category>> categories = categoryRepository.getAll();
             return categories.map(categoryList -> new ResponseEntity<>(categoryList, HttpStatus.OK))
                     .orElseGet(() -> new ResponseEntity<>(HttpStatus.NO_CONTENT));
@@ -71,14 +79,17 @@ public class CategoryController {
      * @param name The name of the category to get.
      * @return A ResponseEntity containing the requested category if successful, or an error response if unsuccessful.
      */
+
+    @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/name/{name}")
     public ResponseEntity<?> getCategoryByName(@PathVariable("name") String name){
         try {
+            log.info("A user try to a category by name = " +name);
             Optional<Category> category = categoryRepository.getCategoryByName(name);
             return category.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                     .orElseGet(() -> new ResponseEntity<>(HttpStatus.NO_CONTENT));
         }catch (Exception e){
-            log.warn("INTERNAL SERVER ERROR");
+            log.warn("INTERNAL SERVER ERROR: " + e.getMessage());
             return new ResponseEntity<>("Internal server error.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -89,14 +100,17 @@ public class CategoryController {
      * @param name The partial name of the categories to get.
      * @return A ResponseEntity containing a list of categories with matching partial name if successful, or an error response if unsuccessful.
      */
+
+    @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/partialName/{name}")
     public ResponseEntity<?> getCategoryByPartialName(@PathVariable("name") String name){
         try {
+            log.info("A user try to get all the categories by partial name = " + name);
             Optional<List<Category>> category = categoryRepository.getCategoriesByPartialName(name);
             return category.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                     .orElseGet(() -> new ResponseEntity<>(HttpStatus.NO_CONTENT));
         }catch (Exception e){
-            log.warn("INTERNAL SERVER ERROR");
+            log.warn("INTERNAL SERVER ERROR: " + e.getMessage());
             return new ResponseEntity<>("Internal server error.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

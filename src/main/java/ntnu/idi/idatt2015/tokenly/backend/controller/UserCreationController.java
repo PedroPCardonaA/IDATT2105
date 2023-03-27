@@ -59,6 +59,7 @@ public class UserCreationController {
      * @param user A UserCreationRequest object containing the user's username and password.
      * @return A ResponseEntity containing appropriate response codes and response data (username on conflict response, response model on created response)
      */
+    @CrossOrigin(origins = "http://localhost:5173")
     @PostMapping("/user")
     public ResponseEntity<?> createUser(@RequestBody UserCreationRequest user) {
 
@@ -114,6 +115,7 @@ public class UserCreationController {
      * @param profile The Profile object to convert.
      * @return A UserCreationResponse object containing the same data as the provided Profile object.
      */
+    @CrossOrigin(origins = "http://localhost:5173")
     private UserCreationResponse profileToUserCreationResponse(Profile profile) {
         return new UserCreationResponse(profile.getUsername(), profile.getEmail(),
                                         profile.getFirst_name(), profile.getLast_name());
