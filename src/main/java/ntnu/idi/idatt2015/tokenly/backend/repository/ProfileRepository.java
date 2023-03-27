@@ -85,5 +85,7 @@ public interface ProfileRepository {
     int updateBirthdate(long profileId, Date birthdate);
 
     int changeBalance(long profileID, double balance);
+
+    int updatePassword(String username, String password, String oldPassword);
 }
 
