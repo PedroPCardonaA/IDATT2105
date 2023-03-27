@@ -51,12 +51,15 @@ public class JdbcItemCategoryRepository implements ItemsCategoryRepository {
         String sql = "INSERT INTO ITEMS_CATEGORIES (ITEM_ID, CATEGORY_ID) VALUES ( :itemId , :categoryId )";
         Map<String,Object> params = new HashMap<>();
         params.put("itemId", itemsCategories.getItemId());
-        params.put("categoryId", itemsCategories.getCategoryId());
+        params.put("categoryName", itemsCategories.getCategoryName());
+
+        String search = "SELECT category_id FROM categories WHERE category_name =:categoryName";
+        long id = namedParameterJdbcTemplate.queryForObject(search,params, Long.class);
+        params.put("categoryId", id);
         try {
             namedParameterJdbcTemplate.update(sql,params);
             return itemsCategories;
         } catch (Exception e){
-            System.out.println(e.getMessage());
             return null;
         }
     }
