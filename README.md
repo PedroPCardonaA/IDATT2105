@@ -8,7 +8,8 @@ Tokenly is a Spring Boot 3 Maven project that serves as the backend for an NFT m
 2. [Getting Started](#getting-started)
 3. [Running the Server](#running-the-server)
 4. [Database Configuration](#database-configuration)
-5. [Authentication and Authorization](#authentication-and-authorization)
+5. [Database Description](#database-description)
+6. [Authentication and Authorization](#authentication-and-authorization)
 
 ## Requirements
 
