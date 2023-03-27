@@ -53,7 +53,7 @@ public class JdbcMessageRepository implements MessageRepository {
 
     @Override
     public Optional<List<Message>> getAllOpenedMessageByChatId(long chatId) {
-        String sql = "SELECT * FROM messages WHERE chat_id = :chatId";
+        String sql = "SELECT * FROM messages WHERE chat_id = :chatId AND is_deleted=FALSE";
         Map<String,Object> params = new HashMap<>();
         params.put("chatId", chatId);
         try {
@@ -67,6 +67,15 @@ public class JdbcMessageRepository implements MessageRepository {
 
     @Override
     public Optional<Long> closeMessage(long messageId) {
-        return Optional.empty();
+        String sql = "UPDATE messages SET is_deleted = TRUE WHERE message_id = :messageId";
+        Map<String,Object> params = new HashMap<>();
+        params.put("messageId",messageId);
+        try {
+            long answer = namedParameterJdbcTemplate.update(sql,params);
+            return Optional.ofNullable(answer);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return Optional.of((long) -1);
+        }
     }
 }

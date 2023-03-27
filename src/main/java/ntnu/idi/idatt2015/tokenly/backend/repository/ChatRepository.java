@@ -46,5 +46,7 @@ public interface ChatRepository {
      */
     Optional<Chat> getChatById (long chatId);
 
+    Optional<Long> makeAllSeen (long chatId);
+
 }
 
