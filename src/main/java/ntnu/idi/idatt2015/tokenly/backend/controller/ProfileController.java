@@ -8,6 +8,7 @@
  */
 package ntnu.idi.idatt2015.tokenly.backend.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import ntnu.idi.idatt2015.tokenly.backend.repository.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,6 +20,7 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.util.Optional;
 
+@Slf4j
 @CrossOrigin("http://localhost:5173")
 @RestController
 @RequestMapping("/api/profiles")
@@ -260,5 +262,18 @@ public class ProfileController {
             return ResponseEntity.internalServerError().body("INTERNAL SERVER ERROR");
         }
     }
+
+    @PutMapping("/ban/{username}")
+    public ResponseEntity<?> changeEnableTable(@PathVariable("username") String username){
+        try {
+            long answer = profileRepository.changeUnable(username);
+            if(answer==-1){
+                return ResponseEntity.badRequest().body("ERROR: USERNAME OR PASSWORD IS NOT CORRECT.");
+            }
+            return ResponseEntity.ok(answer);
+        }catch (Exception e){
+            return ResponseEntity.internalServerError().body("INTERNAL SERVER ERROR");
+        }
+    };
 
 }
