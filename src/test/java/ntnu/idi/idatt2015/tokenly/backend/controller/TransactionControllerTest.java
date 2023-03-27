@@ -3,8 +3,11 @@ package ntnu.idi.idatt2015.tokenly.backend.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import ntnu.idi.idatt2015.tokenly.backend.SecurityTestConfig;
 import ntnu.idi.idatt2015.tokenly.backend.model.Listing;
+import ntnu.idi.idatt2015.tokenly.backend.model.Profile;
 import ntnu.idi.idatt2015.tokenly.backend.model.Transaction;
+import ntnu.idi.idatt2015.tokenly.backend.repository.ItemRepository;
 import ntnu.idi.idatt2015.tokenly.backend.repository.ListingsRepository;
+import ntnu.idi.idatt2015.tokenly.backend.repository.ProfileRepository;
 import ntnu.idi.idatt2015.tokenly.backend.repository.TransactionRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -34,6 +37,7 @@ import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.mockito.Mockito.*;
 
 @WebMvcTest(TransactionController.class)
 @Import(SecurityTestConfig.class)
@@ -51,6 +55,12 @@ class TransactionControllerTest {
     @MockBean
     private ListingsRepository listingsRepository;
 
+    @MockBean
+    private ProfileRepository profileRepository;
+
+    @MockBean
+    private ItemRepository itemRepository;
+
     private Transaction transaction;
 
     @BeforeEach
@@ -67,23 +77,9 @@ class TransactionControllerTest {
     }
 
     @Test
-    void createTransaction_validTransaction_shouldReturnCreatedTransaction() throws Exception {
-        when(listingsRepository.getByListingId(transaction.getListingId())).thenReturn(Optional.of(new Listing()));
-        when(transactionRepository.save(any(Transaction.class))).thenReturn(transaction);
-
-        mockMvc.perform(post("/api/transactions/transaction")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(new ObjectMapper().writeValueAsString(transaction)))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.sellerName").value(transaction.getSellerName()))
-                .andExpect(jsonPath("$.buyerName").value(transaction.getBuyerName()))
-                .andExpect(jsonPath("$.transactionPrice").value(transaction.getTransactionPrice()));
-    }
-
-    @Test
     void createTransaction_closedListing_shouldReturnBadRequest() throws Exception {
         Listing closedListing = new Listing();
-        closedListing.setClosed(true);
+        closedListing.setIsClosed(true);
         when(listingsRepository.getByListingId(transaction.getListingId())).thenReturn(Optional.of(closedListing));
 
         mockMvc.perform(post("/api/transactions/transaction")
@@ -126,5 +122,50 @@ class TransactionControllerTest {
                 .andExpect(jsonPath("$[0].buyerName").value(transaction.getBuyerName()));
     }
 
+    @Test
+    void createTransaction_listingNotFound_shouldReturnBadRequest() throws Exception {
+        when(listingsRepository.getByListingId(transaction.getListingId())).thenReturn(Optional.empty());
+
+        mockMvc.perform(post("/api/transactions/transaction")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(new ObjectMapper().writeValueAsString(transaction)))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void createTransaction_successfulCreation_shouldReturnCreatedTransaction() throws Exception {
+        Listing openListing = new Listing();
+        openListing.setIsClosed(false);
+        when(listingsRepository.getByListingId(transaction.getListingId())).thenReturn(Optional.of(openListing));
+        when(profileRepository.getByUsername(transaction.getBuyerName())).thenReturn(Optional.of(new Profile()));
+        when(profileRepository.getByUsername(transaction.getSellerName())).thenReturn(Optional.of(new Profile()));
+        when(transactionRepository.save(any(Transaction.class))).thenReturn(transaction);
+        when(listingsRepository.getItemIdByListingId(transaction.getListingId())).thenReturn(Optional.of(1L));
+
+        mockMvc.perform(post("/api/transactions/transaction")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(new ObjectMapper().writeValueAsString(transaction)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.sellerName", is(transaction.getSellerName())))
+                .andExpect(jsonPath("$.buyerName", is(transaction.getBuyerName())))
+                .andExpect(jsonPath("$.transactionPrice", is(transaction.getTransactionPrice())));
+    }
+
+    @Test
+    void getAllTransactions_exceptionThrown_shouldReturnInternalServerError() throws Exception {
+        when(transactionRepository.getAllTransactions()).thenThrow(new RuntimeException());
+
+        mockMvc.perform(get("/api/transactions/all"))
+                .andExpect(status().isInternalServerError());
+    }
+
+    @Test
+    void getTransactionByUsername_exceptionThrown_shouldReturnInternalServerError() throws Exception {
+        String username = "buyer";
+        when(transactionRepository.getAllTransactionByUsername(username)).thenThrow(new RuntimeException());
+
+        mockMvc.perform(get("/api/transactions/" + username))
+                .andExpect(status().isInternalServerError());
+    }
 }
 

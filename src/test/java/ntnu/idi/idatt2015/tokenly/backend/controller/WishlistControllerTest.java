@@ -81,4 +81,79 @@ class WishlistControllerTest {
                         .content(objectMapper.writeValueAsString(wishlist)))
                 .andExpect(status().isOk());
     }
+
+    @Test
+    void saveWishlistFailureTest() throws Exception {
+        Wishlist wishlist = new Wishlist("username", 1L);
+        when(wishListRepository.save(any(Wishlist.class))).thenReturn(null);
+
+        mockMvc.perform(post("/api/wishlists/wishlist")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(wishlist)))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void getAllUserThatWantTheItemEmptyTest() throws Exception {
+        when(wishListRepository.getAllUserThatWantTheItem(1L)).thenReturn(Optional.empty());
+
+        mockMvc.perform(get("/api/wishlists/item/1"))
+                .andExpect(status().isNoContent());
+    }
+
+    @Test
+    void getAllItemsThatTheUserWantEmptyTest() throws Exception {
+        doReturn(Optional.empty()).when(wishListRepository).getAllTheItemsWantedByUser("username");
+        mockMvc.perform(get("/api/wishlists/user/username"))
+                .andExpect(status().isNoContent());
+    }
+
+    @Test
+    void deleteWishlistItemFailureTest() throws Exception {
+        Wishlist wishlist = new Wishlist("username", 1L);
+        when(wishListRepository.deleteWishlistItem(wishlist)).thenReturn(0);
+
+        mockMvc.perform(delete("/api/wishlists/wishlist/item")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(wishlist)))
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    void saveWishlistExceptionTest() throws Exception {
+        Wishlist wishlist = new Wishlist("username", 1L);
+        when(wishListRepository.save(any(Wishlist.class))).thenThrow(new RuntimeException());
+
+        mockMvc.perform(post("/api/wishlists/wishlist")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(wishlist)))
+                .andExpect(status().isInternalServerError());
+    }
+
+    @Test
+    void getAllUserThatWantTheItemExceptionTest() throws Exception {
+        when(wishListRepository.getAllUserThatWantTheItem(1L)).thenThrow(new RuntimeException());
+
+        mockMvc.perform(get("/api/wishlists/item/1"))
+                .andExpect(status().isInternalServerError());
+    }
+
+    @Test
+    void getAllItemsThatTheUserWantExceptionTest() throws Exception {
+        when(wishListRepository.getAllTheItemsWantedByUser("username")).thenThrow(new RuntimeException());
+
+        mockMvc.perform(get("/api/wishlists/user/username"))
+                .andExpect(status().isInternalServerError());
+    }
+
+    @Test
+    void deleteWishlistItemExceptionTest() throws Exception {
+        Wishlist wishlist = new Wishlist("username", 1L);
+        when(wishListRepository.deleteWishlistItem(wishlist)).thenThrow(new RuntimeException());
+
+        mockMvc.perform(delete("/api/wishlists/wishlist/item")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(wishlist)))
+                .andExpect(status().isInternalServerError());
+    }
 }
