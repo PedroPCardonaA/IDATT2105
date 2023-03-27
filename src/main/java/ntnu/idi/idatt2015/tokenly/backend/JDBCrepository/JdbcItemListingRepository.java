@@ -49,14 +49,16 @@ public class JdbcItemListingRepository implements ItemListingRepository {
      * @return An Optional containing a list of ItemListing objects, or an empty Optional if an exception occurs or if input is invalid.
      */
     @Override
-    public Optional<List<ItemListing>> getAllItemListing(int pageNumber, int pageSize, String sortBy, String order) {
+    public Optional<List<ItemListing>> getAllItemListing(int pageNumber, int pageSize, String sortBy, String order, double minPrice, double maxPrice) {
         if(ControlInputService.checkItemListingTableName(sortBy) && ControlInputService.checkOrder(order)){
-            String sql = "SELECT * FROM items LEFT JOIN listings ON items.item_id = listings.item_id ORDER BY " + sortBy + " " + order +" LIMIT :limit OFFSET :offset";
+            String sql = "SELECT * FROM items LEFT JOIN listings ON items.item_id = listings.item_id WHERE listings.min_price > :minPrice AND listings.max_price < :maxPrice ORDER BY " + sortBy + " " + order +" LIMIT :limit OFFSET :offset";
             Map<String, Object> params = new HashMap<>();
             params.put("limit", pageSize);
             params.put("offset", pageNumber * pageSize);
             params.put("order",order);
             params.put("sortBy",sortBy);
+            params.put("minPrice", minPrice);
+            params.put("maxPrice",maxPrice);
             try {
                 List<ItemListing> itemListings = namedParameterJdbcTemplate.query(sql,params,new BeanPropertyRowMapper<>(ItemListing.class));
                 return Optional.of(itemListings);
