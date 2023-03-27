@@ -194,6 +194,7 @@ public class JdbcProfileRepository implements ProfileRepository {
             }
             return namedParameterJdbcTemplate.update(sql,params);
         }catch (Exception e){
+            System.out.println(e.getMessage());
             return -1;
         }
     }

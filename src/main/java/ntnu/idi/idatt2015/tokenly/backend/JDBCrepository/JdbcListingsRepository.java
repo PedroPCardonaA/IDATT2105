@@ -293,6 +293,7 @@ public class JdbcListingsRepository implements ListingsRepository {
             long itemId = namedParameterJdbcTemplate.queryForObject(sql,params,Long.class);
             return Optional.of(listingId);
         }catch (Exception e){
+            System.out.println(e.getMessage());
             return Optional.of((long)-1);
         }
     }
