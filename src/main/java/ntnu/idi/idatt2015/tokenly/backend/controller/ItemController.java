@@ -71,6 +71,7 @@ public class ItemController {
     @GetMapping("/")
     public ResponseEntity<?> getAllItems(){
         try{
+            log.info("A user try to get all the items");
             List<Item> items = itemRepository.getAll().get();
             if(items.isEmpty()){
                 return new ResponseEntity<>("No items found." ,HttpStatus.NO_CONTENT);
@@ -96,7 +97,7 @@ public class ItemController {
             Optional<Item> item = itemRepository.getItemById(id);
             return item.map(value -> new ResponseEntity<>(value, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NO_CONTENT));
         }catch (Exception e){
-            log.warn(e.getMessage());
+            log.warn("INTERNAL SERVER ERROR: " + e.getMessage());
             return new ResponseEntity<>("Internal server error.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -119,7 +120,7 @@ public class ItemController {
             }
             return new ResponseEntity<>(items,HttpStatus.OK);
         }catch (Exception e){
-            log.warn(e.getMessage());
+            log.warn("INTERNAL SERVER ERROR: " + e.getMessage());
             return new ResponseEntity<>("Internal server error.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -143,7 +144,7 @@ public class ItemController {
             Optional<?> newOwner = itemRepository.changeOwner(itemId,ownerName);
             return newOwner.map(value -> new ResponseEntity<>(value, HttpStatus.OK)).orElseGet(()-> ResponseEntity.badRequest().build());
         }catch (Exception e){
-            log.warn(e.getMessage());
+            log.warn("INTERNAL SERVER ERROR: " + e.getMessage());
             return new ResponseEntity<>("Internal server error.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

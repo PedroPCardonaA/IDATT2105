@@ -67,6 +67,7 @@ public class UserCreationController {
         *        Transactions are recommended. Control inputs. I dont wanna touch your */
 
         try {
+            log.info("User try to ");
             if(user.username() == null || user.username().trim().isEmpty() || user.username().length() > 50 ||
                     user.password() == null || user.password().trim().isEmpty()) {
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST)
@@ -105,6 +106,7 @@ public class UserCreationController {
                     .body(response);
 
         } catch (Exception e) {
+            log.warn("INTERNAL SERVER ERROR: " + e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error: Internal server error.");
         }
     }

@@ -55,15 +55,19 @@ public class ProfileController {
     public ResponseEntity<?> updateBalance(@PathVariable("profileId") long profileId,
                                            @RequestParam("balance") double balance) {
         try {
+            log.info("User try to change the balance of a profile = " + profileId);
             if (balance < 0 || balance > 10) {
                 throw new IllegalArgumentException("Balance must be between 0 and 10.");
             }
 
             profileRepository.updateBalance(profileId, balance);
+            log.info("Balance was updated correctly");
             return ResponseEntity.ok("Balance updated successfully");
         } catch (IllegalArgumentException e) {
+            log.info("Given information is not correct");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         } catch (Exception e) {
+            log.warn("INTERNAL SERVER ERROR: " + e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error updating balance.");
         }
     }
@@ -81,13 +85,17 @@ public class ProfileController {
     @PutMapping("/profile/{profileId}/firstname")
     public ResponseEntity<?> updateFirstname(@PathVariable("profileId") long profileId,
                                            @RequestParam("firstname") String firstname){
+        log.info("User try to change the first name of a profile = " + profileId);
+
         if (firstname == null || firstname.trim().isEmpty() || firstname.length() < 2 || firstname.length() > 50) {
+            log.info("Given information is not correct");
             return new ResponseEntity<>("Invalid firstname value", HttpStatus.BAD_REQUEST);
         }
         try {
             profileRepository.updateFirstname(profileId, firstname);
             return ResponseEntity.ok("First name updated successfully");
         } catch (Exception e) {
+            log.warn("INTERNAL SERVER ERROR: " + e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error updating first name.");
         }
     }
@@ -105,13 +113,16 @@ public class ProfileController {
     @PutMapping("/profile/{profileId}/lastname")
     public ResponseEntity<?> updateLastname(@PathVariable("profileId") long profileId,
                                           @RequestParam("lastname") String lastname){
+        log.info("User try to change the last name of a profile = " + profileId);
         if (lastname == null || lastname.trim().isEmpty() || lastname.length() < 2 || lastname.length() > 50) {
+            log.info("Given information is not correct");
             return new ResponseEntity<>("Invalid firstname value", HttpStatus.BAD_REQUEST);
         }
         try {
             profileRepository.updateLastname(profileId, lastname);
             return ResponseEntity.ok("Last name updated successfully");
         } catch (Exception e) {
+            log.warn("INTERNAL SERVER ERROR: " + e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error updating last name.");
         }
     }
@@ -129,13 +140,16 @@ public class ProfileController {
     @PutMapping("/profile/{profileId}/email")
     public ResponseEntity<?> updateEmail(@PathVariable("profileId") long profileId,
                                        @RequestParam("email") String email){
+        log.info("User try to change the email of a profile = " + profileId);
         if (email == null || email.trim().isEmpty() || !email.matches("^[\\w-_.+]*[\\w-_.]@([\\w]+\\.)+[\\w]+[\\w]$")) {
+            log.info("Given information is not correct");
             return new ResponseEntity<>("Invalid email value", HttpStatus.BAD_REQUEST);
         }
         try {
             profileRepository.updateEmail(profileId, email);
             return ResponseEntity.ok("Email updated successfully");
         } catch (Exception e) {
+            log.warn("INTERNAL SERVER ERROR: " + e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error updating email.");
         }
     }
@@ -154,6 +168,7 @@ public class ProfileController {
     public ResponseEntity<?> updateBirthdate(@PathVariable("profileId") long profileId,
                                              @RequestParam("birthdate") String birthdate) {
         try {
+            log.info("User try to change the birthdate of a profile = " + profileId);
             Date birthdateValue;
             try {
                 birthdateValue = Date.valueOf(birthdate);
@@ -170,6 +185,7 @@ public class ProfileController {
             profileRepository.updateBirthdate(profileId, birthdateValue);
             return ResponseEntity.ok("Birthdate updated successfully");
         } catch (Exception e) {
+            log.warn("INTERNAL SERVER ERROR: " + e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error updating birthdate.");
         }
     }
@@ -185,8 +201,10 @@ public class ProfileController {
     @GetMapping("/profile/{profileId}")
     public ResponseEntity<?> getProfile(@PathVariable("profileId") long profileId){
         try {
+            log.info("User is trying to get a profile info by id = " +profileId);
             return ResponseEntity.ok(profileRepository.getByProfileId(profileId));
         } catch (Exception e) {
+            log.warn("INTERNAL SERVER ERROR: " + e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error getting profile.");
         }
     }
@@ -202,8 +220,10 @@ public class ProfileController {
     @GetMapping("/profile/username/{username}")
     public ResponseEntity<?> getProfileByUsername(@PathVariable("username") String username){
         try {
+            log.info("User try to get profiles information by username = " + username);
             return ResponseEntity.ok(profileRepository.getByUsername(username));
         } catch (Exception e) {
+            log.warn("INTERNAL SERVER ERROR: " + e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error getting profile.");
         }
     }
@@ -222,18 +242,22 @@ public class ProfileController {
     public ResponseEntity<?> addBalance(@PathVariable("profileId") long profileId,
                                            @RequestParam("balance") double balance) {
         try {
+            log.info("User try to change the current balance");
             if (balance < -100 || balance > 100) {
+                log.info("Given information is not correct");
                 throw new IllegalArgumentException("Balance must be between -10 and 10.");
             }
 
             int answer = profileRepository.changeBalance(profileId, balance);
             if(answer == -1){
+                log.info("Given information is not correct");
                 return ResponseEntity.badRequest().body("ERROR: BALANCE CANNOT BE DEFINED AS NEGATIVE");
             }
             return ResponseEntity.ok("Balance updated successfully");
         } catch (IllegalArgumentException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         } catch (Exception e) {
+            log.warn("INTERNAL SERVER ERROR: " + e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error updating balance.");
         }
     }
@@ -242,12 +266,14 @@ public class ProfileController {
     @PutMapping("/profile/{username}/password")
     public ResponseEntity<?> changePassword(@PathVariable("username") String username,@RequestParam("newPassword") String password,@RequestParam("oldPassword") String oldPassword){
         try{
+            log.info("User try to change the password of a profile");
             String olsPassword = passwordEncoder.encode(oldPassword);
             String hash = passwordEncoder.encode(password);
             int answer = profileRepository.updatePassword(username,hash,olsPassword);
             if(answer == -1) return ResponseEntity.badRequest().body("ERROR: USERNAME OR PASSWORD IS NOT CORRECT.");
             return ResponseEntity.ok(answer);
         }catch (Exception e){
+            log.warn("INTERNAL SERVER ERROR: " + e.getMessage());
             return ResponseEntity.internalServerError().body("INTERNAL SERVER ERROR");
         }
     }
@@ -256,9 +282,11 @@ public class ProfileController {
     @GetMapping("/profile/isAdmin/{username}")
     public ResponseEntity<?> isAdmin(@PathVariable("username") String username){
         try{
+            log.info("A user try to know if the following user is an admin = " + username);
             Boolean answer = profileRepository.isAdmin(username);
             return ResponseEntity.ok(answer);
         }catch (Exception e){
+            log.warn("INTERNAL SERVER ERROR: " + e.getMessage());
             return ResponseEntity.internalServerError().body("INTERNAL SERVER ERROR");
         }
     }
@@ -267,9 +295,11 @@ public class ProfileController {
     @GetMapping("/all")
     public ResponseEntity<?> getAll(){
         try {
+            log.info("A user try to get all the profiles");
             Optional<?> users = profileRepository.getAllUser();
             return ResponseEntity.ok(users.get());
         }catch (Exception e){
+            log.warn("INTERNAL SERVER ERROR: " + e.getMessage());
             return ResponseEntity.internalServerError().body("INTERNAL SERVER ERROR");
         }
     }
@@ -278,12 +308,14 @@ public class ProfileController {
     @PutMapping("/ban/{username}")
     public ResponseEntity<?> changeEnableTable(@PathVariable("username") String username){
         try {
+            log.info("Admin try to ban a user.");
             long answer = profileRepository.changeUnable(username);
             if(answer==-1){
                 return ResponseEntity.badRequest().body("ERROR: USERNAME OR PASSWORD IS NOT CORRECT.");
             }
             return ResponseEntity.ok(answer);
         }catch (Exception e){
+            log.warn("INTERNAL SERVER ERROR: " + e.getMessage());
             return ResponseEntity.internalServerError().body("INTERNAL SERVER ERROR");
         }
     };
