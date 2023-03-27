@@ -21,7 +21,7 @@ To get started, clone the repository to your local machine:
 
 ```bash
 git clone https://github.com/PedroPCardonaA/IDATT2105.git
-cd tokenly
+cd IDATT2105
 ```
 
 ## Running the Server
