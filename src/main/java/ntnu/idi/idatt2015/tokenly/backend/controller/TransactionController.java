@@ -12,7 +12,9 @@ package ntnu.idi.idatt2015.tokenly.backend.controller;
 import lombok.extern.slf4j.Slf4j;
 import ntnu.idi.idatt2015.tokenly.backend.model.Listing;
 import ntnu.idi.idatt2015.tokenly.backend.model.Transaction;
+import ntnu.idi.idatt2015.tokenly.backend.repository.ItemRepository;
 import ntnu.idi.idatt2015.tokenly.backend.repository.ListingsRepository;
+import ntnu.idi.idatt2015.tokenly.backend.repository.ProfileRepository;
 import ntnu.idi.idatt2015.tokenly.backend.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,16 +31,19 @@ public class TransactionController {
 
     private final ListingsRepository listingsRepository;
     private final TransactionRepository transactionRepository;
-
+    private final ProfileRepository profileRepository;
+    private final ItemRepository itemRepository;
     /**
      * Constructs a new TransactionController with the provided TransactionRepository.
      * The TransactionRepository is autowired by Spring BOOT.
      *
      * @param transactionRepository The repository for storing and retrieving transactions.
      */
-    public TransactionController(TransactionRepository transactionRepository, ListingsRepository listingsRepository) {
+    public TransactionController(TransactionRepository transactionRepository, ListingsRepository listingsRepository, ProfileRepository profileRepository, ItemRepository itemRepository) {
         this.listingsRepository = listingsRepository;
         this.transactionRepository = transactionRepository;
+        this.profileRepository = profileRepository;
+        this.itemRepository = itemRepository;
     }
 
     /**
@@ -50,15 +55,23 @@ public class TransactionController {
     @PostMapping("/transaction")
     public ResponseEntity<?> createTransaction(@RequestBody Transaction transaction) {
         try {
+
             Optional<Listing> listingOpt = listingsRepository.getByListingId(transaction.getListingId());
 
             if(listingOpt.isEmpty()) return new ResponseEntity<>("Error: Listing not found.",HttpStatus.BAD_REQUEST);
 
-            if(listingOpt.get().isClosed()) return new ResponseEntity<>("Error: Listing is already closed.",HttpStatus.BAD_REQUEST);
-
             if(transaction.getTransactionPrice() <= 0) return new ResponseEntity<>("Price of a transaction cannot be negative or zero.",HttpStatus.BAD_REQUEST);
+            if(listingOpt.get().getIsClosed()) return new ResponseEntity<>("Error: Listing is already closed.",HttpStatus.BAD_REQUEST);
+            profileRepository.changeBalance(profileRepository.getByUsername(transaction.getBuyerName()).get().getId(),- transaction.getTransactionPrice());
+            profileRepository.changeBalance(profileRepository.getByUsername(transaction.getSellerName()).get().getId(),transaction.getTransactionPrice());
+            System.out.println(transaction.getListingId());
+            listingsRepository.closeListing(transaction.getListingId());
+            if(transaction.getTransactionPrice() <= 0){
+                return new ResponseEntity<>("Price of a transaction cannot be negative or zero!",HttpStatus.BAD_REQUEST);
+            }
 
             Transaction createdTransaction = transactionRepository.save(transaction);
+            itemRepository.changeOwner(listingsRepository.getItemIdByListingId(createdTransaction.getListingId()).get(),createdTransaction.getBuyerName());
             if (createdTransaction != null) {
                 return ResponseEntity.ok(createdTransaction);
             } else {

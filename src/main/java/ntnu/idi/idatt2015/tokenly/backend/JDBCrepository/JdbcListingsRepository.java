@@ -121,11 +121,11 @@ public class JdbcListingsRepository implements ListingsRepository {
      */
     @Override
     public Optional<List<Listing>> getAll() {
-        String sql = "SELECT * FROM LISTINGS";
-        try{
+        String sql = "SELECT * FROM listings";
+        try {
             List<Listing> listings = namedParameterJdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Listing.class));
-            return  Optional.of(listings);
-        }catch (Exception e){
+            return Optional.of(listings);
+        } catch (Exception e) {
             return Optional.empty();
         }
     }
@@ -278,9 +278,27 @@ public class JdbcListingsRepository implements ListingsRepository {
             namedParameterJdbcTemplate.update(sql,params);
             String selectSql = "SELECT is_closed FROM listings WHERE listing_id = :listingId";
             Boolean isClosed = namedParameterJdbcTemplate.queryForObject(selectSql, params, Boolean.class);
+            System.out.println(isClosed);
             return Optional.ofNullable(isClosed);
         }catch (Exception e){
+            System.out.println(e.getMessage());
             return Optional.empty();
         }
     }
+
+    @Override
+    public Optional<Long> getItemIdByListingId(long listingId) {
+        String sql = "SELECT item_id FROM listings where listing_id = :listingId";
+        Map<String,Object> params = new HashMap<>();
+        params.put("listingId", listingId);
+        try {
+            long itemId = namedParameterJdbcTemplate.queryForObject(sql,params,Long.class);
+            return Optional.of(listingId);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return Optional.of((long)-1);
+        }
+    }
+
+
 }

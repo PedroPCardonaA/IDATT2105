@@ -1,5 +1,6 @@
 package ntnu.idi.idatt2015.tokenly.backend.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import ntnu.idi.idatt2015.tokenly.backend.model.Category;
 import ntnu.idi.idatt2015.tokenly.backend.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import java.util.Optional;
  * @version 1.0
  * @since 22.03.2023
  */
+@Slf4j
 @CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/api/categories")
@@ -41,6 +43,7 @@ public class CategoryController {
                 return ResponseEntity.badRequest().body("Category already exists");
             }
         }catch (Exception e){
+            log.warn("INTERNAL SERVER ERROR");
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error saving category");
         }
     }
@@ -57,6 +60,7 @@ public class CategoryController {
             return categories.map(categoryList -> new ResponseEntity<>(categoryList, HttpStatus.OK))
                     .orElseGet(() -> new ResponseEntity<>(HttpStatus.NO_CONTENT));
         }catch (Exception e){
+            log.warn("INTERNAL SERVER ERROR");
             return new ResponseEntity<>("Internal server error.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -74,6 +78,7 @@ public class CategoryController {
             return category.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                     .orElseGet(() -> new ResponseEntity<>(HttpStatus.NO_CONTENT));
         }catch (Exception e){
+            log.warn("INTERNAL SERVER ERROR");
             return new ResponseEntity<>("Internal server error.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -91,6 +96,7 @@ public class CategoryController {
             return category.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                     .orElseGet(() -> new ResponseEntity<>(HttpStatus.NO_CONTENT));
         }catch (Exception e){
+            log.warn("INTERNAL SERVER ERROR");
             return new ResponseEntity<>("Internal server error.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

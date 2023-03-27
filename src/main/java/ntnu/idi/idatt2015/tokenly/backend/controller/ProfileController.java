@@ -206,7 +206,7 @@ public class ProfileController {
     public ResponseEntity<?> addBalance(@PathVariable("profileId") long profileId,
                                            @RequestParam("balance") double balance) {
         try {
-            if (balance < -10 || balance > 10) {
+            if (balance < -100 || balance > 100) {
                 throw new IllegalArgumentException("Balance must be between -10 and 10.");
             }
 

@@ -76,7 +76,7 @@ public class BidController {
     @GetMapping("/bid/{id}")
     public ResponseEntity<Bid> getBidById(@PathVariable("id") Long id){
         try {
-            log.info("A user try to search a bid by id");
+            log.info("A user try to search a bid by id = " +id);
             Optional<Bid> bid = bidRepository.getBidById(id);
             return bid.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                     .orElseGet(() -> new ResponseEntity<>(HttpStatus.NO_CONTENT));
@@ -94,11 +94,13 @@ public class BidController {
      */
     @GetMapping("/{buyerName}")
     public ResponseEntity<?> getBidsByBuyerName(@PathVariable("buyerName") String buyerName){
+        log.info("A user try to get all bids from a user by username = " + buyerName );
         try {
             Optional<?> bids = bidRepository.getAllBidByBuyerName(buyerName);
             return bids.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                     .orElseGet(() -> new ResponseEntity<>(HttpStatus.NO_CONTENT));
         }catch (Exception e){
+            log.warn("INTERNAL SERVER ERROR");
             return new ResponseEntity<>("Internal server error", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -111,11 +113,13 @@ public class BidController {
      */
     @GetMapping("/listing/{listingId}")
     public ResponseEntity<?> getBidsByListingId(@PathVariable("listingId") Long listingId){
+        log.info("A user try to get all bids from a user by username = " + listingId );
         try {
             Optional<?> bids = bidRepository.getAllBidByListingId(listingId);
             return bids.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                     .orElseGet(() -> new ResponseEntity<>(HttpStatus.NO_CONTENT));
         }catch (Exception e){
+            log.warn("INTERNAL SERVER ERROR");
             return new ResponseEntity<>("Internal server error." ,HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
