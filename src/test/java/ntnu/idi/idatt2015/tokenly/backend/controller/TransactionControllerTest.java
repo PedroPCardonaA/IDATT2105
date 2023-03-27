@@ -83,7 +83,7 @@ class TransactionControllerTest {
     @Test
     void createTransaction_closedListing_shouldReturnBadRequest() throws Exception {
         Listing closedListing = new Listing();
-        closedListing.setClosed(true);
+        closedListing.setIsClosed(true);
         when(listingsRepository.getByListingId(transaction.getListingId())).thenReturn(Optional.of(closedListing));
 
         mockMvc.perform(post("/api/transactions/transaction")

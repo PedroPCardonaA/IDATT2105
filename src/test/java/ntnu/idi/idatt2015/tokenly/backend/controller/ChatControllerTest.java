@@ -210,4 +210,16 @@ public class ChatControllerTest {
         verify(chatRepository, times(1)).makeAllSeen(2L);
     }
 
+    @Test
+    void testSeenChat_Exception() throws Exception {
+        long chatId = 1L;
+        when(chatRepository.makeAllSeen(chatId)).thenThrow(new RuntimeException("Database error"));
+
+        mockMvc.perform(put("/api/chats/seen/" + chatId))
+                .andExpect(status().isInternalServerError())
+                .andExpect(content().string("INTERNAL SERVER ERROR"));
+
+        verify(chatRepository, times(1)).makeAllSeen(chatId);
+    }
+
 }
