@@ -109,11 +109,9 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
-                .cors().and()
                 .csrf(AbstractHttpConfigurer::disable)
-                .headers(headers -> headers.frameOptions().sameOrigin())
+                //.headers(headers -> headers.frameOptions().sameOrigin())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(PathRequest.toH2Console()).permitAll()
                         .requestMatchers(AUTH_WHITELIST).permitAll()
                         .anyRequest().authenticated()
                 )
