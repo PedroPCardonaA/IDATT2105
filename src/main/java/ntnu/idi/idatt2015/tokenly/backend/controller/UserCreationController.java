@@ -63,7 +63,7 @@ public class UserCreationController {
     public ResponseEntity<?> createUser(@RequestBody UserCreationRequest user) {
 
         /* TODO: Handle the case where user creation succeeds but profile creation fails.
-        *        Transactions are recommended. Control inputs. I dont wanna touch your spaghetti*/
+        *        Transactions are recommended. Control inputs. I dont wanna touch your */
 
         try {
             if(user.username() == null || user.username().trim().isEmpty() || user.username().length() > 50 ||
@@ -104,7 +104,6 @@ public class UserCreationController {
                     .body(response);
 
         } catch (Exception e) {
-            System.out.println(e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error: Internal server error.");
         }
     }
