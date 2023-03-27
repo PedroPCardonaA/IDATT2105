@@ -50,6 +50,7 @@ public class ProfileController {
      * @param balance the new balance value
      * @return ResponseEntity indicating the result of the update
      */
+    @CrossOrigin(origins = "http://localhost:5173")
     @PutMapping("/profile/{profileId}/balance")
     public ResponseEntity<?> updateBalance(@PathVariable("profileId") long profileId,
                                            @RequestParam("balance") double balance) {
@@ -76,6 +77,7 @@ public class ProfileController {
      * @param firstname the new firstname value
      * @return ResponseEntity indicating the result of the update
      */
+    @CrossOrigin(origins = "http://localhost:5173")
     @PutMapping("/profile/{profileId}/firstname")
     public ResponseEntity<?> updateFirstname(@PathVariable("profileId") long profileId,
                                            @RequestParam("firstname") String firstname){
@@ -99,6 +101,7 @@ public class ProfileController {
      * @param lastname the new lastname value
      * @return ResponseEntity indicating the result of the update
      */
+    @CrossOrigin(origins = "http://localhost:5173")
     @PutMapping("/profile/{profileId}/lastname")
     public ResponseEntity<?> updateLastname(@PathVariable("profileId") long profileId,
                                           @RequestParam("lastname") String lastname){
@@ -122,6 +125,7 @@ public class ProfileController {
      * @param email the new email value
      * @return ResponseEntity indicating the result of the update
      */
+    @CrossOrigin(origins = "http://localhost:5173")
     @PutMapping("/profile/{profileId}/email")
     public ResponseEntity<?> updateEmail(@PathVariable("profileId") long profileId,
                                        @RequestParam("email") String email){
@@ -145,6 +149,7 @@ public class ProfileController {
      * @param birthdate the new birthdate value
      * @return ResponseEntity indicating the result of the update
      */
+    @CrossOrigin(origins = "http://localhost:5173")
     @PutMapping("/profile/{profileId}/birthdate")
     public ResponseEntity<?> updateBirthdate(@PathVariable("profileId") long profileId,
                                              @RequestParam("birthdate") String birthdate) {
@@ -176,6 +181,7 @@ public class ProfileController {
      * @param profileId the ID of the profile to retrieve
      * @return ResponseEntity containing the profile, or an error response
      */
+    @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/profile/{profileId}")
     public ResponseEntity<?> getProfile(@PathVariable("profileId") long profileId){
         try {
@@ -192,6 +198,7 @@ public class ProfileController {
      * @param username the username of the profile to retrieve
      * @return ResponseEntity containing the profile, or an error response
      */
+    @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/profile/username/{username}")
     public ResponseEntity<?> getProfileByUsername(@PathVariable("username") String username){
         try {
@@ -210,6 +217,7 @@ public class ProfileController {
      * @param balance the new balance value
      * @return ResponseEntity indicating the result of the update
      */
+    @CrossOrigin(origins = "http://localhost:5173")
     @PutMapping("/profile/{profileId}/addBalance")
     public ResponseEntity<?> addBalance(@PathVariable("profileId") long profileId,
                                            @RequestParam("balance") double balance) {
@@ -230,6 +238,7 @@ public class ProfileController {
         }
     }
 
+    @CrossOrigin(origins = "http://localhost:5173")
     @PutMapping("/profile/{username}/password")
     public ResponseEntity<?> changePassword(@PathVariable("username") String username,@RequestParam("newPassword") String password,@RequestParam("oldPassword") String oldPassword){
         try{
@@ -243,6 +252,7 @@ public class ProfileController {
         }
     }
 
+    @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/profile/isAdmin/{username}")
     public ResponseEntity<?> isAdmin(@PathVariable("username") String username){
         try{
@@ -253,6 +263,7 @@ public class ProfileController {
         }
     }
 
+    @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/all")
     public ResponseEntity<?> getAll(){
         try {
@@ -263,6 +274,7 @@ public class ProfileController {
         }
     }
 
+    @CrossOrigin(origins = "http://localhost:5173")
     @PutMapping("/ban/{username}")
     public ResponseEntity<?> changeEnableTable(@PathVariable("username") String username){
         try {

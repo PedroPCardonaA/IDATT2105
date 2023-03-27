@@ -39,6 +39,8 @@ public class BidController {
      * @param bid the Bid entity to create.
      * @return a ResponseEntity with the created Bid entity in the body, or a bad request response if the Bid was not created.
      */
+
+    @CrossOrigin(origins = "http://localhost:5173")
     @PostMapping("/bid")
     public ResponseEntity<?> saveBid(@RequestBody Bid bid){
         try {
@@ -73,6 +75,7 @@ public class BidController {
      * @param id the ID of the Bid entity to retrieve.
      * @return a ResponseEntity with the retrieved Bid entity in the body, or a NO_CONTENT response if the Bid was not found.
      */
+    @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/bid/{id}")
     public ResponseEntity<Bid> getBidById(@PathVariable("id") Long id){
         try {
@@ -92,6 +95,7 @@ public class BidController {
      * @param buyerName the buyer name to search for.
      * @return a ResponseEntity with the retrieved Bid entities in the body, or a NO_CONTENT response if no Bids were found.
      */
+    @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/{buyerName}")
     public ResponseEntity<?> getBidsByBuyerName(@PathVariable("buyerName") String buyerName){
         log.info("A user try to get all bids from a user by username = " + buyerName );
@@ -111,6 +115,7 @@ public class BidController {
      * @param listingId the listing ID to search for.
      * @return a ResponseEntity with the retrieved Bid entities in the body, or a NO_CONTENT response if no Bids were found.
      */
+    @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/listing/{listingId}")
     public ResponseEntity<?> getBidsByListingId(@PathVariable("listingId") Long listingId){
         log.info("A user try to get all bids from a user by username = " + listingId );
@@ -119,7 +124,7 @@ public class BidController {
             return bids.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                     .orElseGet(() -> new ResponseEntity<>(HttpStatus.NO_CONTENT));
         }catch (Exception e){
-            log.warn("INTERNAL SERVER ERROR");
+            log.warn("INTERNAL SERVER ERROR = " + e.getMessage());
             return new ResponseEntity<>("Internal server error." ,HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

@@ -41,9 +41,12 @@ public class ItemController {
      * @param item The Item object to be saved.
      * @return A ResponseEntity containing the saved Item object if successful, else a bad request or internal server error.
      */
+
+    @CrossOrigin(origins = "http://localhost:5173")
     @PostMapping("/post")
     public ResponseEntity<?> saveItem(@RequestBody Item item){
         try {
+            log.info("A user is trying to save the following item = " + item);
             item.setSourcePath(PathService.getLastPath());
             Item createdItem = itemRepository.save(item);
             PathService.deleteLastPath();
@@ -53,6 +56,7 @@ public class ItemController {
                 return ResponseEntity.badRequest().body("Could not get item, invalid request.");
             }
         }catch (Exception e){
+            log.warn("INTERNAL SERVER ERROR = " + e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error, could not create item.");
         }
     }
@@ -62,6 +66,8 @@ public class ItemController {
      *
      * @return A ResponseEntity containing a list of all items if successful, else a no content or internal server error.
      */
+
+    @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/")
     public ResponseEntity<?> getAllItems(){
         try{
@@ -71,6 +77,7 @@ public class ItemController {
             }
             return new ResponseEntity<>(items,HttpStatus.OK);
          }catch (Exception e){
+            log.warn("INTERNAL SERVER ERROR = " + e.getMessage());
             return new ResponseEntity<>("Internal server error.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -81,6 +88,7 @@ public class ItemController {
      * @param id The ID of the item to retrieve.
      * @return A ResponseEntity containing the retrieved item if successful, else a no content or internal server error.
      */
+    @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/id/{id}")
     public ResponseEntity<?> getAllItemsById(@PathVariable ("id") long id){
         log.debug("A client request all the items owned by the id " + id+ ".");
@@ -99,6 +107,8 @@ public class ItemController {
      * @param name The name of the owner of the items to retrieve.
      * @return A ResponseEntity containing a list of all items owned by the specified owner if successful, else a no content or internal server error.
      */
+
+    @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/name/{name}")
     public ResponseEntity<?> getAllItemsByName(@PathVariable ("name") String name){
         log.debug("A client request all the items owned by the user " + name+ ".");
@@ -124,6 +134,8 @@ public class ItemController {
      *
      * @throws Exception If an error occurs while attempting to update the item owner.
      */
+
+    @CrossOrigin(origins = "http://localhost:5173")
     @PutMapping("/changeOwner")
     public ResponseEntity<?> changeItemOwner(@RequestParam(value = "itemId") Long itemId,
                                              @RequestParam(value = "newOwner") String ownerName){

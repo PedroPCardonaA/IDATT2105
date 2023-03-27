@@ -19,6 +19,7 @@ public class MessageController {
     @Autowired
     MessageRepository messageRepository;
 
+    @CrossOrigin(origins = "http://localhost:5173")
     @PostMapping("/post")
     public ResponseEntity<?> save(@RequestBody Message message){
         try {
@@ -31,7 +32,7 @@ public class MessageController {
             return ResponseEntity.internalServerError().body("INTERNAL ERROR");
         }
     }
-
+    @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/chats/{chatId}")
     public ResponseEntity<?> getAllMessageByChat(@PathVariable("chatId") long chatId){
         try {
@@ -41,7 +42,7 @@ public class MessageController {
             return new ResponseEntity<>("INTERNAL ERROR", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
+    @CrossOrigin(origins = "http://localhost:5173")
     @PutMapping("/close/{messageId}")
     public ResponseEntity<?> closeAMessage(@PathVariable("messageId") long messageId){
         try {
