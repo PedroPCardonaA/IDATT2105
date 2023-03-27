@@ -27,7 +27,7 @@ public class User {
     /**
      * Whether the user is enabled.
      */
-    private boolean enable;
+    private boolean enabled;
 
     /**
      * The profile associated with the user.

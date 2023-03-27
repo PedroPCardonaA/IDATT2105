@@ -92,5 +92,6 @@ public interface ProfileRepository {
 
     Boolean isAdmin(String username);
     Optional<List<User>> getAllUser();
+    long changeUnable(String username);
 }
 

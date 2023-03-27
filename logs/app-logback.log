@@ -1,64 +1,130 @@
-2023-03-21 10:54:49,421 INFO [main] org.springframework.boot.StartupInfoLogger: Starting TokenlyBackendApplication using Java 19.0.2 with PID 13094 (/home/pedroca/Skole/FullStack/IDATT2105/target/classes started by pedroca in /home/pedroca/Skole/FullStack/IDATT2105)
-2023-03-21 10:54:49,425 INFO [main] org.springframework.boot.SpringApplication: No active profile set, falling back to 1 default profile: "default"
-2023-03-21 10:54:50,310 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat initialized with port(s): 8080 (http)
-2023-03-21 10:54:50,317 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing ProtocolHandler ["http-nio-8080"]
-2023-03-21 10:54:50,318 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting service [Tomcat]
-2023-03-21 10:54:50,318 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting Servlet engine: [Apache Tomcat/10.1.5]
-2023-03-21 10:54:50,371 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing Spring embedded WebApplicationContext
-2023-03-21 10:54:50,372 INFO [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 906 ms
-2023-03-21 10:54:50,380 ERROR [main] org.springframework.boot.web.embedded.tomcat.TomcatStarter: Error starting Tomcat context. Exception: org.springframework.beans.factory.BeanCreationException. Message: Error creating bean with name 'h2Console' defined in class path resource [org/springframework/boot/autoconfigure/h2/H2ConsoleAutoConfiguration.class]: Failed to instantiate [org.springframework.boot.web.servlet.ServletRegistrationBean]: Factory method 'h2Console' threw exception with message: Error creating bean with name 'securityConfig' defined in file [/home/pedroca/Skole/FullStack/IDATT2105/target/classes/ntnu/idi/idatt2015/tokenly/backend/config/SecurityConfig.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'rsa-ntnu.idi.idatt2015.tokenly.backend.security.RsaKeyProperties': Could not bind properties to 'RsaKeyProperties' : prefix=rsa, ignoreInvalidFields=false, ignoreUnknownFields=true
-2023-03-21 10:54:50,400 INFO [main] org.apache.juli.logging.DirectJDKLog: Stopping service [Tomcat]
-2023-03-21 10:54:50,408 WARN [main] org.springframework.context.support.AbstractApplicationContext: Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server
-2023-03-21 10:54:50,416 INFO [main] org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger: 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2023-03-21 10:54:50,431 ERROR [main] org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter: 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Failed to bind properties under 'rsa.public-key' to java.security.interfaces.RSAPublicKey:
-
-    Property: rsa.public-key
-    Value: "classpath:certs/public.pem"
-    Origin: class path resource [application.properties] - 3:16
-    Reason: failed to convert java.lang.String to java.security.interfaces.RSAPublicKey (caused by java.io.FileNotFoundException: class path resource [certs/public.pem] cannot be opened because it does not exist)
-
-Action:
-
-Update your application's configuration
-
-2023-03-21 12:24:53,881 INFO [main] org.springframework.boot.StartupInfoLogger: Starting TokenlyBackendApplication using Java 19.0.2 with PID 15026 (/home/pedroca/Skole/FullStack/IDATT2105/target/classes started by pedroca in /home/pedroca/Skole/FullStack/IDATT2105)
-2023-03-21 12:24:53,883 INFO [main] org.springframework.boot.SpringApplication: No active profile set, falling back to 1 default profile: "default"
-2023-03-21 12:24:54,596 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat initialized with port(s): 8080 (http)
-2023-03-21 12:24:54,602 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing ProtocolHandler ["http-nio-8080"]
-2023-03-21 12:24:54,603 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting service [Tomcat]
-2023-03-21 12:24:54,603 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting Servlet engine: [Apache Tomcat/10.1.5]
-2023-03-21 12:24:54,650 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing Spring embedded WebApplicationContext
-2023-03-21 12:24:54,650 INFO [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 726 ms
-2023-03-21 12:24:54,662 INFO [main] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Starting embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
-2023-03-21 12:24:54,862 INFO [main] org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:tokenly-db'
-2023-03-21 12:24:55,463 INFO [main] org.springframework.security.provisioning.JdbcUserDetailsManager: No authentication manager set. Reauthentication of users when changing passwords will not be performed.
-2023-03-21 12:24:55,685 INFO [main] org.springframework.security.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4fb64a52, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@70b48eb3, org.springframework.security.web.context.SecurityContextHolderFilter@3a0b6a, org.springframework.security.web.header.HeaderWriterFilter@2055833f, org.springframework.security.web.authentication.logout.LogoutFilter@2cccf134, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@3cb6e0ee, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6f1fa1d0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@71d55b7e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7b8ea1db, org.springframework.security.web.session.SessionManagementFilter@6486fe7b, org.springframework.security.web.access.ExceptionTranslationFilter@5939e24, org.springframework.security.web.access.intercept.AuthorizationFilter@68e2d03e]
-2023-03-21 12:24:55,813 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting ProtocolHandler ["http-nio-8080"]
-2023-03-21 12:24:55,823 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat started on port(s): 8080 (http) with context path ''
-2023-03-21 12:24:55,831 INFO [main] org.springframework.boot.StartupInfoLogger: Started TokenlyBackendApplication in 2.207 seconds (process running for 2.767)
-2023-03-21 12:34:21,358 INFO [main] org.springframework.boot.StartupInfoLogger: Starting TokenlyBackendApplication using Java 19.0.2 with PID 15578 (/home/pedroca/Skole/FullStack/IDATT2105/target/classes started by pedroca in /home/pedroca/Skole/FullStack/IDATT2105)
-2023-03-21 12:34:21,360 INFO [main] org.springframework.boot.SpringApplication: No active profile set, falling back to 1 default profile: "default"
-2023-03-21 12:34:22,087 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat initialized with port(s): 8080 (http)
-2023-03-21 12:34:22,093 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing ProtocolHandler ["http-nio-8080"]
-2023-03-21 12:34:22,094 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting service [Tomcat]
-2023-03-21 12:34:22,094 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting Servlet engine: [Apache Tomcat/10.1.5]
-2023-03-21 12:34:22,144 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing Spring embedded WebApplicationContext
-2023-03-21 12:34:22,144 INFO [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 748 ms
-2023-03-21 12:34:22,155 INFO [main] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Starting embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
-2023-03-21 12:34:22,325 INFO [main] org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:tokenly-db'
-2023-03-21 12:34:23,822 INFO [main] org.springframework.security.provisioning.JdbcUserDetailsManager: No authentication manager set. Reauthentication of users when changing passwords will not be performed.
-2023-03-21 12:34:24,026 INFO [main] org.springframework.security.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@451e2fa9, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@497ed877, org.springframework.security.web.context.SecurityContextHolderFilter@5012c571, org.springframework.security.web.header.HeaderWriterFilter@7a606260, org.springframework.security.web.authentication.logout.LogoutFilter@6c4ce583, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@175c5c3a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@511da44f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6f1fa1d0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3cb6e0ee, org.springframework.security.web.session.SessionManagementFilter@52ecc989, org.springframework.security.web.access.ExceptionTranslationFilter@6b867ee7, org.springframework.security.web.access.intercept.AuthorizationFilter@2c48cede]
-2023-03-21 12:34:24,146 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting ProtocolHandler ["http-nio-8080"]
-2023-03-21 12:34:24,154 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat started on port(s): 8080 (http) with context path ''
-2023-03-21 12:34:24,161 INFO [main] org.springframework.boot.StartupInfoLogger: Started TokenlyBackendApplication in 3.053 seconds (process running for 3.63)
-2023-03-21 12:35:56,611 INFO [SpringApplicationShutdownHook] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Shutting down embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2023-03-27 19:52:15,074 INFO [main] org.springframework.boot.StartupInfoLogger: Starting TokenlyBackendApplication using Java 19.0.2 with PID 186579 (/home/pedroca/Skole/FullStack/IDATT2105/target/classes started by pedroca in /home/pedroca/Skole/FullStack/IDATT2105)
+2023-03-27 19:52:15,086 INFO [main] org.springframework.boot.SpringApplication: No active profile set, falling back to 1 default profile: "default"
+2023-03-27 19:52:15,896 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat initialized with port(s): 8080 (http)
+2023-03-27 19:52:15,902 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing ProtocolHandler ["http-nio-8080"]
+2023-03-27 19:52:15,903 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting service [Tomcat]
+2023-03-27 19:52:15,903 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-03-27 19:52:15,959 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing Spring embedded WebApplicationContext
+2023-03-27 19:52:15,960 INFO [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 839 ms
+2023-03-27 19:52:15,970 INFO [main] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Starting embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2023-03-27 19:52:16,150 INFO [main] org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:tokenly-db'
+2023-03-27 19:52:17,094 INFO [main] org.springframework.security.provisioning.JdbcUserDetailsManager: No authentication manager set. Reauthentication of users when changing passwords will not be performed.
+2023-03-27 19:52:17,573 INFO [main] org.springframework.security.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@d504137, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@8432469, org.springframework.security.web.context.SecurityContextHolderFilter@46ab4efc, org.springframework.security.web.header.HeaderWriterFilter@29b5533, org.springframework.security.web.authentication.logout.LogoutFilter@d16209e, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@1322b575, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@b5312df, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@472c9f88, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@e4ca109, org.springframework.security.web.session.SessionManagementFilter@46b5f061, org.springframework.security.web.access.ExceptionTranslationFilter@77ce88c4, org.springframework.security.web.access.intercept.AuthorizationFilter@203765b2]
+2023-03-27 19:52:17,755 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting ProtocolHandler ["http-nio-8080"]
+2023-03-27 19:52:17,776 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat started on port(s): 8080 (http) with context path ''
+2023-03-27 19:52:17,786 INFO [main] org.springframework.boot.StartupInfoLogger: Started TokenlyBackendApplication in 2.959 seconds (process running for 3.585)
+2023-03-27 19:52:30,547 INFO [http-nio-8080-exec-1] org.apache.juli.logging.DirectJDKLog: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-03-27 19:52:30,548 INFO [http-nio-8080-exec-1] org.springframework.web.servlet.FrameworkServlet: Initializing Servlet 'dispatcherServlet'
+2023-03-27 19:52:30,549 INFO [http-nio-8080-exec-1] org.springframework.web.servlet.FrameworkServlet: Completed initialization in 1 ms
+2023-03-27 20:12:47,090 INFO [SpringApplicationShutdownHook] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Shutting down embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2023-03-27 20:12:51,305 INFO [main] org.springframework.boot.StartupInfoLogger: Starting TokenlyBackendApplication using Java 19.0.2 with PID 188155 (/home/pedroca/Skole/FullStack/IDATT2105/target/classes started by pedroca in /home/pedroca/Skole/FullStack/IDATT2105)
+2023-03-27 20:12:51,307 INFO [main] org.springframework.boot.SpringApplication: No active profile set, falling back to 1 default profile: "default"
+2023-03-27 20:12:52,146 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat initialized with port(s): 8080 (http)
+2023-03-27 20:12:52,154 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing ProtocolHandler ["http-nio-8080"]
+2023-03-27 20:12:52,154 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting service [Tomcat]
+2023-03-27 20:12:52,155 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-03-27 20:12:52,211 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing Spring embedded WebApplicationContext
+2023-03-27 20:12:52,211 INFO [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 867 ms
+2023-03-27 20:12:52,224 INFO [main] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Starting embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2023-03-27 20:12:52,428 INFO [main] org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:tokenly-db'
+2023-03-27 20:12:52,913 INFO [main] org.springframework.security.provisioning.JdbcUserDetailsManager: No authentication manager set. Reauthentication of users when changing passwords will not be performed.
+2023-03-27 20:12:53,426 INFO [main] org.springframework.security.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1b47b7f5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@506aa618, org.springframework.security.web.context.SecurityContextHolderFilter@7608a838, org.springframework.security.web.header.HeaderWriterFilter@9d99851, org.springframework.security.web.authentication.logout.LogoutFilter@3356ff58, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@203765b2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@21a6a494, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@37fef327, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4b6b5352, org.springframework.security.web.session.SessionManagementFilter@77ce88c4, org.springframework.security.web.access.ExceptionTranslationFilter@113eed88, org.springframework.security.web.access.intercept.AuthorizationFilter@9f9146d]
+2023-03-27 20:12:53,625 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting ProtocolHandler ["http-nio-8080"]
+2023-03-27 20:12:53,645 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat started on port(s): 8080 (http) with context path ''
+2023-03-27 20:12:53,655 INFO [main] org.springframework.boot.StartupInfoLogger: Started TokenlyBackendApplication in 2.635 seconds (process running for 3.152)
+2023-03-27 20:13:39,408 INFO [SpringApplicationShutdownHook] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Shutting down embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2023-03-27 20:13:42,822 INFO [main] org.springframework.boot.StartupInfoLogger: Starting TokenlyBackendApplication using Java 19.0.2 with PID 188400 (/home/pedroca/Skole/FullStack/IDATT2105/target/classes started by pedroca in /home/pedroca/Skole/FullStack/IDATT2105)
+2023-03-27 20:13:42,824 INFO [main] org.springframework.boot.SpringApplication: No active profile set, falling back to 1 default profile: "default"
+2023-03-27 20:13:43,760 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat initialized with port(s): 8080 (http)
+2023-03-27 20:13:43,769 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing ProtocolHandler ["http-nio-8080"]
+2023-03-27 20:13:43,770 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting service [Tomcat]
+2023-03-27 20:13:43,771 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-03-27 20:13:43,825 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing Spring embedded WebApplicationContext
+2023-03-27 20:13:43,826 INFO [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 964 ms
+2023-03-27 20:13:43,836 INFO [main] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Starting embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2023-03-27 20:13:44,019 INFO [main] org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:tokenly-db'
+2023-03-27 20:13:46,750 INFO [main] org.springframework.security.provisioning.JdbcUserDetailsManager: No authentication manager set. Reauthentication of users when changing passwords will not be performed.
+2023-03-27 20:13:47,379 INFO [main] org.springframework.security.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@76a1146d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6ef1c3f7, org.springframework.security.web.context.SecurityContextHolderFilter@3513d214, org.springframework.security.web.header.HeaderWriterFilter@106cd9c8, org.springframework.security.web.authentication.logout.LogoutFilter@9f9146d, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@adafe19, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@46b5f061, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2ff498b0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3386c206, org.springframework.security.web.session.SessionManagementFilter@37fef327, org.springframework.security.web.access.ExceptionTranslationFilter@376b5cb2, org.springframework.security.web.access.intercept.AuthorizationFilter@51af8049]
+2023-03-27 20:13:47,558 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting ProtocolHandler ["http-nio-8080"]
+2023-03-27 20:13:47,576 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat started on port(s): 8080 (http) with context path ''
+2023-03-27 20:13:47,585 INFO [main] org.springframework.boot.StartupInfoLogger: Started TokenlyBackendApplication in 5.021 seconds (process running for 5.579)
+2023-03-27 20:13:50,767 INFO [http-nio-8080-exec-1] org.apache.juli.logging.DirectJDKLog: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-03-27 20:13:50,767 INFO [http-nio-8080-exec-1] org.springframework.web.servlet.FrameworkServlet: Initializing Servlet 'dispatcherServlet'
+2023-03-27 20:13:50,769 INFO [http-nio-8080-exec-1] org.springframework.web.servlet.FrameworkServlet: Completed initialization in 2 ms
+2023-03-27 20:13:50,803 WARN [http-nio-8080-exec-1] org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver: Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+2023-03-27 20:16:23,117 INFO [SpringApplicationShutdownHook] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Shutting down embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2023-03-27 20:16:25,568 INFO [main] org.springframework.boot.StartupInfoLogger: Starting TokenlyBackendApplication using Java 19.0.2 with PID 188696 (/home/pedroca/Skole/FullStack/IDATT2105/target/classes started by pedroca in /home/pedroca/Skole/FullStack/IDATT2105)
+2023-03-27 20:16:25,570 INFO [main] org.springframework.boot.SpringApplication: No active profile set, falling back to 1 default profile: "default"
+2023-03-27 20:16:26,391 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat initialized with port(s): 8080 (http)
+2023-03-27 20:16:26,398 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing ProtocolHandler ["http-nio-8080"]
+2023-03-27 20:16:26,399 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting service [Tomcat]
+2023-03-27 20:16:26,399 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-03-27 20:16:26,452 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing Spring embedded WebApplicationContext
+2023-03-27 20:16:26,453 INFO [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 848 ms
+2023-03-27 20:16:26,464 INFO [main] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Starting embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2023-03-27 20:16:26,667 INFO [main] org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:tokenly-db'
+2023-03-27 20:16:27,356 INFO [main] org.springframework.security.provisioning.JdbcUserDetailsManager: No authentication manager set. Reauthentication of users when changing passwords will not be performed.
+2023-03-27 20:16:27,858 INFO [main] org.springframework.security.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6dded900, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@d504137, org.springframework.security.web.context.SecurityContextHolderFilter@108b121f, org.springframework.security.web.header.HeaderWriterFilter@11abd6c, org.springframework.security.web.authentication.logout.LogoutFilter@21c75084, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@3386c206, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2ff498b0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@547aaa32, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@8432469, org.springframework.security.web.session.SessionManagementFilter@7534785a, org.springframework.security.web.access.ExceptionTranslationFilter@78318ac2, org.springframework.security.web.access.intercept.AuthorizationFilter@40016ce1]
+2023-03-27 20:16:28,032 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting ProtocolHandler ["http-nio-8080"]
+2023-03-27 20:16:28,049 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat started on port(s): 8080 (http) with context path ''
+2023-03-27 20:16:28,058 INFO [main] org.springframework.boot.StartupInfoLogger: Started TokenlyBackendApplication in 2.783 seconds (process running for 3.384)
+2023-03-27 20:16:39,814 INFO [http-nio-8080-exec-1] org.apache.juli.logging.DirectJDKLog: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-03-27 20:16:39,814 INFO [http-nio-8080-exec-1] org.springframework.web.servlet.FrameworkServlet: Initializing Servlet 'dispatcherServlet'
+2023-03-27 20:16:39,815 INFO [http-nio-8080-exec-1] org.springframework.web.servlet.FrameworkServlet: Completed initialization in 1 ms
+2023-03-27 20:17:03,342 INFO [SpringApplicationShutdownHook] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Shutting down embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2023-03-27 20:17:06,519 INFO [main] org.springframework.boot.StartupInfoLogger: Starting TokenlyBackendApplication using Java 19.0.2 with PID 188960 (/home/pedroca/Skole/FullStack/IDATT2105/target/classes started by pedroca in /home/pedroca/Skole/FullStack/IDATT2105)
+2023-03-27 20:17:06,521 INFO [main] org.springframework.boot.SpringApplication: No active profile set, falling back to 1 default profile: "default"
+2023-03-27 20:17:07,345 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat initialized with port(s): 8080 (http)
+2023-03-27 20:17:07,351 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing ProtocolHandler ["http-nio-8080"]
+2023-03-27 20:17:07,352 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting service [Tomcat]
+2023-03-27 20:17:07,352 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-03-27 20:17:07,403 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing Spring embedded WebApplicationContext
+2023-03-27 20:17:07,403 INFO [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 849 ms
+2023-03-27 20:17:07,414 INFO [main] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Starting embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2023-03-27 20:17:07,606 INFO [main] org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:tokenly-db'
+2023-03-27 20:17:09,345 INFO [main] org.springframework.security.provisioning.JdbcUserDetailsManager: No authentication manager set. Reauthentication of users when changing passwords will not be performed.
+2023-03-27 20:17:09,848 INFO [main] org.springframework.security.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3386c206, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1322b575, org.springframework.security.web.context.SecurityContextHolderFilter@46b5f061, org.springframework.security.web.header.HeaderWriterFilter@78318ac2, org.springframework.security.web.authentication.logout.LogoutFilter@45e7bb79, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@76a1146d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@108b121f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4300e240, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6dded900, org.springframework.security.web.session.SessionManagementFilter@55951fcd, org.springframework.security.web.access.ExceptionTranslationFilter@106cd9c8, org.springframework.security.web.access.intercept.AuthorizationFilter@a9a8ec3]
+2023-03-27 20:17:10,037 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting ProtocolHandler ["http-nio-8080"]
+2023-03-27 20:17:10,059 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat started on port(s): 8080 (http) with context path ''
+2023-03-27 20:17:10,069 INFO [main] org.springframework.boot.StartupInfoLogger: Started TokenlyBackendApplication in 3.82 seconds (process running for 4.378)
+2023-03-27 20:17:15,145 INFO [http-nio-8080-exec-1] org.apache.juli.logging.DirectJDKLog: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-03-27 20:17:15,145 INFO [http-nio-8080-exec-1] org.springframework.web.servlet.FrameworkServlet: Initializing Servlet 'dispatcherServlet'
+2023-03-27 20:17:15,147 INFO [http-nio-8080-exec-1] org.springframework.web.servlet.FrameworkServlet: Completed initialization in 1 ms
+2023-03-27 20:17:35,576 INFO [SpringApplicationShutdownHook] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Shutting down embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2023-03-27 20:17:38,676 INFO [main] org.springframework.boot.StartupInfoLogger: Starting TokenlyBackendApplication using Java 19.0.2 with PID 189210 (/home/pedroca/Skole/FullStack/IDATT2105/target/classes started by pedroca in /home/pedroca/Skole/FullStack/IDATT2105)
+2023-03-27 20:17:38,679 INFO [main] org.springframework.boot.SpringApplication: No active profile set, falling back to 1 default profile: "default"
+2023-03-27 20:17:39,493 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat initialized with port(s): 8080 (http)
+2023-03-27 20:17:39,499 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing ProtocolHandler ["http-nio-8080"]
+2023-03-27 20:17:39,500 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting service [Tomcat]
+2023-03-27 20:17:39,500 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-03-27 20:17:39,551 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing Spring embedded WebApplicationContext
+2023-03-27 20:17:39,551 INFO [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 829 ms
+2023-03-27 20:17:39,562 INFO [main] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Starting embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2023-03-27 20:17:39,759 INFO [main] org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:tokenly-db'
+2023-03-27 20:17:41,424 INFO [main] org.springframework.security.provisioning.JdbcUserDetailsManager: No authentication manager set. Reauthentication of users when changing passwords will not be performed.
+2023-03-27 20:17:41,931 INFO [main] org.springframework.security.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1b47b7f5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@506aa618, org.springframework.security.web.context.SecurityContextHolderFilter@7608a838, org.springframework.security.web.header.HeaderWriterFilter@9d99851, org.springframework.security.web.authentication.logout.LogoutFilter@3356ff58, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@203765b2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@21a6a494, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@37fef327, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4b6b5352, org.springframework.security.web.session.SessionManagementFilter@77ce88c4, org.springframework.security.web.access.ExceptionTranslationFilter@113eed88, org.springframework.security.web.access.intercept.AuthorizationFilter@9f9146d]
+2023-03-27 20:17:42,109 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting ProtocolHandler ["http-nio-8080"]
+2023-03-27 20:17:42,128 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat started on port(s): 8080 (http) with context path ''
+2023-03-27 20:17:42,141 INFO [main] org.springframework.boot.StartupInfoLogger: Started TokenlyBackendApplication in 3.718 seconds (process running for 4.291)
+2023-03-27 20:17:47,140 INFO [http-nio-8080-exec-1] org.apache.juli.logging.DirectJDKLog: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-03-27 20:17:47,141 INFO [http-nio-8080-exec-1] org.springframework.web.servlet.FrameworkServlet: Initializing Servlet 'dispatcherServlet'
+2023-03-27 20:17:47,142 INFO [http-nio-8080-exec-1] org.springframework.web.servlet.FrameworkServlet: Completed initialization in 1 ms
+2023-03-27 20:30:25,557 INFO [SpringApplicationShutdownHook] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Shutting down embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2023-03-27 20:30:28,679 INFO [main] org.springframework.boot.StartupInfoLogger: Starting TokenlyBackendApplication using Java 19.0.2 with PID 189703 (/home/pedroca/Skole/FullStack/IDATT2105/target/classes started by pedroca in /home/pedroca/Skole/FullStack/IDATT2105)
+2023-03-27 20:30:28,681 INFO [main] org.springframework.boot.SpringApplication: No active profile set, falling back to 1 default profile: "default"
+2023-03-27 20:30:29,483 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat initialized with port(s): 8080 (http)
+2023-03-27 20:30:29,490 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing ProtocolHandler ["http-nio-8080"]
+2023-03-27 20:30:29,491 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting service [Tomcat]
+2023-03-27 20:30:29,491 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-03-27 20:30:29,544 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing Spring embedded WebApplicationContext
+2023-03-27 20:30:29,545 INFO [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 829 ms
+2023-03-27 20:30:29,556 INFO [main] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Starting embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2023-03-27 20:30:29,740 INFO [main] org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:tokenly-db'
+2023-03-27 20:30:30,287 INFO [main] org.springframework.security.provisioning.JdbcUserDetailsManager: No authentication manager set. Reauthentication of users when changing passwords will not be performed.
+2023-03-27 20:30:30,775 INFO [main] org.springframework.security.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4b6b5352, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1d6713dd, org.springframework.security.web.context.SecurityContextHolderFilter@21a6a494, org.springframework.security.web.header.HeaderWriterFilter@2ae3235e, org.springframework.security.web.authentication.logout.LogoutFilter@2aa6bbad, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@1b47b7f5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4ab66127, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@55951fcd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3b39e79b, org.springframework.security.web.session.SessionManagementFilter@29b5533, org.springframework.security.web.access.ExceptionTranslationFilter@9d99851, org.springframework.security.web.access.intercept.AuthorizationFilter@45e7bb79]
+2023-03-27 20:30:30,953 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting ProtocolHandler ["http-nio-8080"]
+2023-03-27 20:30:30,972 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat started on port(s): 8080 (http) with context path ''
+2023-03-27 20:30:30,981 INFO [main] org.springframework.boot.StartupInfoLogger: Started TokenlyBackendApplication in 2.564 seconds (process running for 3.167)
+2023-03-27 20:30:36,946 INFO [http-nio-8080-exec-2] org.apache.juli.logging.DirectJDKLog: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-03-27 20:30:36,946 INFO [http-nio-8080-exec-2] org.springframework.web.servlet.FrameworkServlet: Initializing Servlet 'dispatcherServlet'
+2023-03-27 20:30:36,947 INFO [http-nio-8080-exec-2] org.springframework.web.servlet.FrameworkServlet: Completed initialization in 0 ms
