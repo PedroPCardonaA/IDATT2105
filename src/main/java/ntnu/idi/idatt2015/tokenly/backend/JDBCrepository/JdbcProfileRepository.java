@@ -214,5 +214,19 @@ public class JdbcProfileRepository implements ProfileRepository {
         }
     }
 
+    @Override
+    public Boolean isAdmin(String username){
+        String sql = "SELECT authority FROM authorities WHERE username = :username";
+        Map<String, Object> params = new HashMap<>();
+        params.put("username",username);
+        try{
+            String answer = namedParameterJdbcTemplate.queryForObject(sql,params, String.class);
+            if(answer.equals("ADMIN")) return true;
+            else return false;
+        }catch (Exception e){
+            return false;
+        }
+    }
+
 
 }

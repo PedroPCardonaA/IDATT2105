@@ -87,5 +87,7 @@ public interface ProfileRepository {
     int changeBalance(long profileID, double balance);
 
     int updatePassword(String username, String password, String oldPassword);
+
+    Boolean isAdmin(String username);
 }
 
