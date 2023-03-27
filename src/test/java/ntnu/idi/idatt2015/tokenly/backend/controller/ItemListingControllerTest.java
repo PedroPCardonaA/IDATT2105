@@ -31,11 +31,21 @@ public class ItemListingControllerTest {
     private MockMvc mockMvc;
 
     @MockBean
+    private ItemListingRepository itemListingRepository;
+
+    @MockBean
+    private CategoryRepository categoryRepository;
+
+    @MockBean
     private ItemRepository itemRepository;
 
     @MockBean
     private ListingsRepository listingsRepository;
 
+    @MockBean
+    private ProfileRepository profileRepository;
+
+    @MockBean
     private ItemListing itemListing;
 
     @BeforeEach
@@ -51,5 +61,17 @@ public class ItemListingControllerTest {
 
         when(itemRepository.save(any(Item.class))).thenAnswer(invocation -> invocation.getArgument(0));
         when(listingsRepository.save(any(Listing.class))).thenAnswer(invocation -> invocation.getArgument(0));
+    }
+
+    @Test
+    void postItemListing_validItemListing_shouldReturnOk() throws Exception {
+
+        when(itemRepository.save(any(Item.class))).thenAnswer(invocation -> invocation.getArgument(0));
+        when(listingsRepository.save(any(Listing.class))).thenAnswer(invocation -> invocation.getArgument(0));
+
+        mockMvc.perform(post("/api/itemListing/post")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(new ObjectMapper().writeValueAsString(itemListing)))
+                .andExpect(status().isOk());
     }
 }

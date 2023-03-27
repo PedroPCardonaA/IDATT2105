@@ -14,6 +14,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -131,4 +132,113 @@ class ItemControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().string(newOwner));
     }
+
+    @Test
+    void testSaveItemFailure() throws Exception {
+        Item itemToSave = items.get(0);
+
+        when(itemRepository.save(any(Item.class))).thenReturn(null);
+
+        mockMvc.perform(post("/api/items/post")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(itemToSave)))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void testGetAllItemsNoItems() throws Exception {
+        when(itemRepository.getAll()).thenReturn(Optional.of(Collections.emptyList()));
+
+        mockMvc.perform(get("/api/items/"))
+                .andExpect(status().isNoContent());
+    }
+
+    @Test
+    void testGetAllItemsByIdNotFound() throws Exception {
+        long itemId = 100L;
+
+        when(itemRepository.getItemById(itemId)).thenReturn(Optional.empty());
+
+        mockMvc.perform(get("/api/items/id/{id}", itemId))
+                .andExpect(status().isNoContent());
+    }
+
+    @Test
+    void testGetAllItemsByNameNotFound() throws Exception {
+        String ownerName = "NonExistentOwner";
+
+        when(itemRepository.getAllItemsByOwnerName(ownerName)).thenReturn(Optional.of(Collections.emptyList()));
+
+        mockMvc.perform(get("/api/items/name/{name}", ownerName))
+                .andExpect(status().isNoContent());
+    }
+
+    @Test
+    void testChangeItemOwnerFailure() throws Exception {
+        Long itemId = items.get(0).getItemId();
+        String newOwner = "Jane Doe";
+
+        when(itemRepository.changeOwner(itemId, newOwner)).thenReturn(Optional.empty());
+
+        mockMvc.perform(put("/api/items/changeOwner")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .param("itemId", String.valueOf(itemId))
+                        .param("newOwner", newOwner))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void testSaveItemException() throws Exception {
+        Item itemToSave = items.get(0);
+
+        when(itemRepository.save(any(Item.class))).thenThrow(new RuntimeException("Exception occurred"));
+
+        mockMvc.perform(post("/api/items/post")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(itemToSave)))
+                .andExpect(status().isInternalServerError());
+    }
+
+    @Test
+    void testGetAllItemsException() throws Exception {
+        when(itemRepository.getAll()).thenThrow(new RuntimeException("Exception occurred"));
+
+        mockMvc.perform(get("/api/items/"))
+                .andExpect(status().isInternalServerError());
+    }
+
+    @Test
+    void testGetAllItemsByIdException() throws Exception {
+        long itemId = items.get(0).getItemId();
+
+        when(itemRepository.getItemById(itemId)).thenThrow(new RuntimeException("Exception occurred"));
+
+        mockMvc.perform(get("/api/items/id/{id}", itemId))
+                .andExpect(status().isInternalServerError());
+    }
+
+    @Test
+    void testGetAllItemsByNameException() throws Exception {
+        String ownerName = "Owner 1";
+
+        when(itemRepository.getAllItemsByOwnerName(ownerName)).thenThrow(new RuntimeException("Exception occurred"));
+
+        mockMvc.perform(get("/api/items/name/{name}", ownerName))
+                .andExpect(status().isInternalServerError());
+    }
+
+    @Test
+    void testChangeItemOwnerException() throws Exception {
+        Long itemId = items.get(0).getItemId();
+        String newOwner = "Jane Doe";
+
+        when(itemRepository.changeOwner(itemId, newOwner)).thenThrow(new RuntimeException("Exception occurred"));
+
+        mockMvc.perform(put("/api/items/changeOwner")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .param("itemId", String.valueOf(itemId))
+                        .param("newOwner", newOwner))
+                .andExpect(status().isInternalServerError());
+    }
+
 }
