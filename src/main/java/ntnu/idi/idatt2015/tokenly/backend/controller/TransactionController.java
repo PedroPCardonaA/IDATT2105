@@ -52,6 +52,7 @@ public class TransactionController {
      * @param transaction The transaction to be created.
      * @return ResponseEntity with the created transaction if successful, or a ResponseEntity with an error status if unsuccessful.
      */
+    @CrossOrigin(origins = "http://localhost:5173")
     @PostMapping("/transaction")
     public ResponseEntity<?> createTransaction(@RequestBody Transaction transaction) {
         try {
@@ -87,6 +88,7 @@ public class TransactionController {
      *
      * @return ResponseEntity with a list of all transactions if successful, or a ResponseEntity with an error status if unsuccessful.
      */
+    @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/all")
     public ResponseEntity<?> getAllTransactions() {
         try {
@@ -102,6 +104,7 @@ public class TransactionController {
      * @param username The username for which transactions should be retrieved.
      * @return ResponseEntity with a list of transactions for the specified username if successful, or a ResponseEntity with an error status if unsuccessful.
      */
+    @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/{username}")
     public ResponseEntity<?> getTransactionByUsername(@PathVariable String username) {
         try {

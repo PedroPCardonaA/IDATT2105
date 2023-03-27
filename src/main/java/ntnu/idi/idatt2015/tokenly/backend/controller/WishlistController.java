@@ -43,6 +43,7 @@ public class WishlistController {
      * @param wishlist The wishlist to be saved.
      * @return ResponseEntity with the saved wishlist if successful, or a ResponseEntity with an error status if unsuccessful.
      */
+    @CrossOrigin(origins = "http://localhost:5173")
     @PostMapping("/wishlist")
     public ResponseEntity<?> saveWishlist(@RequestBody Wishlist wishlist){
         try {
@@ -63,6 +64,7 @@ public class WishlistController {
      * @param itemId The ID of the item.
      * @return ResponseEntity with a list of users who want the item if successful, or a ResponseEntity with an error status if unsuccessful.
      */
+    @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/item/{itemId}")
     public ResponseEntity<?> getAllUserThatWantTheItem(@PathVariable("itemId") long itemId){
         try {
@@ -80,6 +82,7 @@ public class WishlistController {
      * @param username The username of the user.
      * @return ResponseEntity with a list of items that the user wants if successful, or a ResponseEntity with an error status if unsuccessful.
      */
+    @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/user/{username}")
     public ResponseEntity<?> getAllItemsThatTheUserWant(@PathVariable("username") String username){
         try {
@@ -97,6 +100,7 @@ public class WishlistController {
      * @param wishlist The wishlist containing the item to be deleted.
      * @return ResponseEntity with an OK status if the item was deleted successfully, or a ResponseEntity with an error status if unsuccessful.
      */
+    @CrossOrigin(origins = "http://localhost:5173")
     @DeleteMapping("/wishlist/item")
     public ResponseEntity<?> deleteWishlistItem(@RequestBody Wishlist wishlist) {
         try {

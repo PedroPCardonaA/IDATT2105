@@ -39,6 +39,8 @@ public class ItemListingController {
      @Autowired
     ProfileRepository profileRepository;
 
+
+    @CrossOrigin(origins = "http://localhost:5173")
      @PostMapping("/post")
      public ResponseEntity<?> postItemListing(@RequestBody ItemListing itemListing){
          try {
@@ -86,6 +88,7 @@ public class ItemListingController {
      * @param order the order of the sort (ASC or DESC)
      * @return ResponseEntity containing the list of item listings or a bad request response
      */
+    @CrossOrigin(origins = "http://localhost:5173")
      @GetMapping("/")
     public ResponseEntity<?> getAllItemsListing(@RequestParam (value="page", defaultValue ="0") int page,
                                                 @RequestParam(value = "size", defaultValue = "12") int size,
@@ -118,6 +121,7 @@ public class ItemListingController {
      * @param category the category to filter items by
      * @return ResponseEntity containing the list of item listings or a bad request response
      */
+    @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/category")
     public ResponseEntity<?> getAllItemsListingByCategory(@RequestParam (value="page", defaultValue ="0") int page,
                                                 @RequestParam(value = "size", defaultValue = "12") int size,
@@ -158,6 +162,7 @@ public class ItemListingController {
      * @return ResponseEntity with a list of item listings, or a bad request or internal server error status
      */
 
+    @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/user")
     public ResponseEntity<?> getAllItemsListingByUser(@RequestParam (value="page", defaultValue ="0") int page,
                                                           @RequestParam(value = "size", defaultValue = "12") int size,
@@ -188,6 +193,7 @@ public class ItemListingController {
      * @param username The username of the owner whose item listings will be retrieved
      * @return ResponseEntity with a list of item listings, or a bad request or internal server error status
      */
+    @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/owner")
     public ResponseEntity<?> getAllItemsListingByOwner(@RequestParam (value="page", defaultValue ="0") int page,
                                                       @RequestParam(value = "size", defaultValue = "12") int size,
@@ -208,6 +214,7 @@ public class ItemListingController {
         }
     }
 
+    @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/item/{itemId}")
     public ResponseEntity<?> getItemListingById(@PathVariable("itemId") long itemId){
         try {

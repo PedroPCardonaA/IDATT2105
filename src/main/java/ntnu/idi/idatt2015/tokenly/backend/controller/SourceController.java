@@ -40,6 +40,7 @@ public class SourceController {
      * @param file The source file to upload.
      * @return A ResponseEntity containing the generated file path if successful, or an error response if unsuccessful.
      */
+    @CrossOrigin(origins = "http://localhost:5173")
     @PostMapping("/post")
     public ResponseEntity<?> postSource(@RequestParam("file") MultipartFile file){
         try {
@@ -61,6 +62,7 @@ public class SourceController {
      * @param itemId The ID of the source file to download.
      * @return A ResponseEntity containing the requested source file if successful, or an error response if unsuccessful.
      */
+    @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/{itemId}")
     public ResponseEntity<?> getFile(@PathVariable ("itemId") long itemId) {
         try {

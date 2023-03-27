@@ -37,6 +37,7 @@ public class AuthController {
      * @param tokenService The TokenService instance responsible for generating tokens.
      * @param authenticationManager The AuthenticationManager instance responsible for authenticating user credentials.
      */
+
     public AuthController(TokenService tokenService, AuthenticationManager authenticationManager) {
         this.tokenService = tokenService;
         this.authenticationManager = authenticationManager;
@@ -49,11 +50,14 @@ public class AuthController {
      * @param userLogin A LoginRequest object containing the user's username and password.
      * @return A ResponseEntity containing the generated token or an error message.
      */
+    @CrossOrigin(origins = "http://localhost:5173")
     @PostMapping("/token")
     public ResponseEntity<?> token(@RequestBody LoginRequest userLogin) {
         try {
+            log.info("User = " + userLogin +" is try to get a toke:");
             if(userLogin.username() == null || userLogin.username().trim().isEmpty() || userLogin.username().length() > 50 ||
                     userLogin.password() == null || userLogin.password().trim().isEmpty()) {
+                log.info("Information from the user is not correct.");
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                         .body("Error: Invalid input.");
             }
@@ -67,9 +71,11 @@ public class AuthController {
             String token = tokenService.generateToken(authentication);
             return ResponseEntity.ok(token);
         } catch (AuthenticationException e) {
+            log.info("Information from the user is not correct.");
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                     .body("Error: Invalid username or password.");
         } catch (Exception e) {
+            log.warn("INTERNAL ERROR = " +  e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("Error: Unable to generate token. Please try again later.");
         }
