@@ -52,6 +52,9 @@ public class TransactionController {
     @PostMapping("/transaction")
     public ResponseEntity<?> createTransaction(@RequestBody Transaction transaction) {
         try {
+            profileRepository.changeBalance(profileRepository.getByUsername(transaction.getBuyerName()).get().getId(),- transaction.getTransactionPrice());
+            profileRepository.changeBalance(profileRepository.getByUsername(transaction.getSellerName()).get().getId(),transaction.getTransactionPrice());
+            listingsRepository.closeListing(transaction.getListingId());
             if(listingsRepository.getByListingId(transaction.getListingId()).get().isClosed()){
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("THE LISTING IS ALREADY CLOSED!");
             }
@@ -59,10 +62,7 @@ public class TransactionController {
                 return new ResponseEntity<>("Price of a transaction cannot be negative or zero!",HttpStatus.BAD_REQUEST);
             }
             Transaction createdTransaction = transactionRepository.save(transaction);
-            profileRepository.changeBalance(profileRepository.getByUsername(transaction.getBuyerName()).get().getId(), - transaction.getTransactionPrice());
-            profileRepository.changeBalance(profileRepository.getByUsername(transaction.getSellerName()).get().getId(), + transaction.getTransactionPrice());
-            listingsRepository.closeListing(transaction.getListingId());
-            itemRepository.changeOwner(listingsRepository.getItemIdByListingId(transaction.getListingId()).get(),transaction.getBuyerName());
+            itemRepository.changeOwner(listingsRepository.getItemIdByListingId(createdTransaction.getListingId()).get(),createdTransaction.getBuyerName());
             if (createdTransaction != null) {
                 return ResponseEntity.ok(createdTransaction);
             } else {

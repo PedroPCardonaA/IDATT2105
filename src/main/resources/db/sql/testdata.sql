@@ -24,18 +24,18 @@ VALUES
     ('mike', 'USER'),
     ('olivia', 'ADMIN');
 
-INSERT INTO profiles (username, first_name, last_name,email, birthdate)
+INSERT INTO profiles (username, first_name, last_name,email, birthdate, balance)
 VALUES
-    ('john','John','Smith','johnSmith@gmail.com','1998-05-07'),
-    ('jane','jane','Lee','HappyJane@gmail.com','1973-02-14'),
-    ('bob','Bob','Garcia','BigGarcia@gmail.com','1958-12-23'),
-    ('alice','Alice','Lee','johnSmit2h@gmail.com','2002-01-04'),
-    ('tom','Tom','Johnson','johnSmith3@gmail.com','1993-11-21'),
-    ('sarah', 'Sarah', 'Taylor', 'sarahTaylor@gmail.com', '1987-09-18'),
-    ('david', 'David', 'Miller', 'davidMiller@gmail.com', '1979-07-25'),
-    ('emily', 'Emily', 'Chen', 'emilyChen@gmail.com', '1990-03-12'),
-    ('mike', 'Mike', 'Johnson', 'mikeJohnson@gmail.com', '1985-06-30'),
-    ('olivia', 'Olivia', 'Davis', 'oliviaDavis@gmail.com', '2000-10-15');
+    ('john','John','Smith','johnSmith@gmail.com','1998-05-07', 100),
+    ('jane','jane','Lee','HappyJane@gmail.com','1973-02-14', 100),
+    ('bob','Bob','Garcia','BigGarcia@gmail.com','1958-12-23', 100),
+    ('alice','Alice','Lee','johnSmit2h@gmail.com','2002-01-04', 100),
+    ('tom','Tom','Johnson','johnSmith3@gmail.com','1993-11-21', 100),
+    ('sarah', 'Sarah', 'Taylor', 'sarahTaylor@gmail.com', '1987-09-18', 100),
+    ('david', 'David', 'Miller', 'davidMiller@gmail.com', '1979-07-25', 100),
+    ('emily', 'Emily', 'Chen', 'emilyChen@gmail.com', '1990-03-12', 100),
+    ('mike', 'Mike', 'Johnson', 'mikeJohnson@gmail.com', '1985-06-30', 100),
+    ('olivia', 'Olivia', 'Davis', 'oliviaDavis@gmail.com', '2000-10-15', 100);
 INSERT INTO categories (category_name)
 VALUES 
 	('Photography'),
@@ -173,11 +173,11 @@ VALUES
 
 INSERT INTO transactions (listing_id, seller_name, buyer_name, transaction_price)
 VALUES
-    (1, 'john', 'jane', 900),
-    (3, 'bob', 'alice', 1000),
-    (5, 'tom', 'bob', 30),
-    (2, 'alice', 'john', 150),
-    (4, 'john', 'jane', 200);
+    (1, 'john', 'jane', 9),
+    (3, 'bob', 'alice', 1),
+    (5, 'tom', 'bob', 3),
+    (2, 'alice', 'john', 1),
+    (4, 'john', 'jane', 2);
 
 INSERT INTO wish_list (item_id, username)
 VALUES
