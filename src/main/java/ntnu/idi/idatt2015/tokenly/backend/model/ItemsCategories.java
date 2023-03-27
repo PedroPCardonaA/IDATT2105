@@ -20,4 +20,6 @@ public class ItemsCategories {
      * The ID of the category.
      */
     private int categoryId;
+
+    private String categoryName;
 }

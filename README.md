@@ -8,7 +8,8 @@ Tokenly is a Spring Boot 3 Maven project that serves as the backend for an NFT m
 2. [Getting Started](#getting-started)
 3. [Running the Server](#running-the-server)
 4. [Database Configuration](#database-configuration)
-5. [Authentication and Authorization](#authentication-and-authorization)
+5. [Database Description](#database-description)
+6. [Authentication and Authorization](#authentication-and-authorization)
 
 ## Requirements
 
@@ -43,6 +44,14 @@ The server will start on the default port '8080'.
 ## Database Configuration
 
 Tokenly uses an H2 in-memory database, which is configured and constructed at runtime using SQL scripts included in resources/db/sql. No manual database configuration is required, as everything happens automatically when the system runs.
+
+## Database Description
+
+Our database is a database schema with multiple tables designed for an e-commerce platform. The users table stores information about users such as their username, password, and whether they are enabled. The authorities table is used for authorization and contains the usernames and their corresponding authorities. The profiles table contains user profile information, such as their name, email, birthdate, avatar, and balance.
+
+The categories table stores information about the product categories, while the items table contains details about each product, including its name, owner, description, and source path. The listings table is used to create a listing for an item, which contains information such as the minimum and maximum price, publication time, number of visits, and whether it is closed.
+
+The chats table tracks conversations between buyers and sellers, and the messages table stores the messages exchanged between them. The transactions table keeps a record of all transactions, including the listing, seller and buyer names, transaction price, and time. Lastly, the wish_list and bid tables store the user's wish list and bid information, respectively. These tables are linked to other tables using foreign keys to maintain data integrity.
 
 ## Authentication and Authorization
 

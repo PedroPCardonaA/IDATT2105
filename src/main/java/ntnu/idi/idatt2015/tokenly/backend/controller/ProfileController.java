@@ -9,8 +9,10 @@
 package ntnu.idi.idatt2015.tokenly.backend.controller;
 
 import ntnu.idi.idatt2015.tokenly.backend.repository.ProfileRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
@@ -20,6 +22,9 @@ import java.time.LocalDate;
 @RestController
 @RequestMapping("/api/profiles")
 public class ProfileController {
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     private final ProfileRepository profileRepository;
 
@@ -219,6 +224,19 @@ public class ProfileController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error updating balance.");
+        }
+    }
+
+    @PutMapping("/profile/{username}/password")
+    public ResponseEntity<?> changePassword(@PathVariable("username") String username,@RequestParam("newPassword") String password,@RequestParam("oldPassword") String oldPassword){
+        try{
+            String olsPassword = passwordEncoder.encode(oldPassword);
+            String hash = passwordEncoder.encode(password);
+            int answer = profileRepository.updatePassword(username,hash,oldPassword);
+            if(answer == -1) return ResponseEntity.badRequest().body("ERROR: USERNAME OR PASSWORD IS NOT CORRECT.");
+            return ResponseEntity.ok(answer);
+        }catch (Exception e){
+            return ResponseEntity.internalServerError().body("INTERNAL SERVER ERROR");
         }
     }
 
