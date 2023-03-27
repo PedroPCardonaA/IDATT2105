@@ -84,13 +84,26 @@ public class ChatController {
      * @return ResponseEntity containing the chat, or a no content response
      */
     @GetMapping("/chat/{id}")
-    public ResponseEntity<?> getChatById(@PathVariable("id") Long id){
+    public ResponseEntity<?> getChatById(@PathVariable("id") long id){
         try {
             Optional<Chat> chat = chatRepository.getChatById(id);
             return chat.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                     .orElseGet(() -> new ResponseEntity<>(HttpStatus.NO_CONTENT));
         }catch (Exception e){
-            return new ResponseEntity<>("Internal server error.", HttpStatus.INTERNAL_SERVER_ERROR);
+            return ResponseEntity.internalServerError().body("INTERNAL SERVER ERROR");
         }
     }
+
+    @PutMapping("/seen/{chatId}")
+    public ResponseEntity<?> seenChat(@PathVariable("chatId") long id){
+        try {
+            Optional<?> answer = chatRepository.makeAllSeen(id);
+            if(answer.get().equals(-1)){return ResponseEntity.badRequest().body("ERROR: CHAT DOES NOT EXIST");}
+            return ResponseEntity.ok(answer.get());
+
+        }catch (Exception e){
+            return ResponseEntity.internalServerError().body("INTERNAL SERVER ERROR");
+        }
+    }
+
 }

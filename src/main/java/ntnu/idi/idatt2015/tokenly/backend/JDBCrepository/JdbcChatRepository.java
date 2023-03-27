@@ -120,4 +120,17 @@ public class JdbcChatRepository implements ChatRepository {
             return Optional.empty();
         }
     }
+
+    @Override
+    public Optional<Long> makeAllSeen(long chatId) {
+        String sql = "UPDATE messages SET seen = TRUE WHERE chat_id= :chatId";
+        Map<String,Object> params = new HashMap<>();
+        params.put("chatId",chatId);
+        try {
+            long answer = namedParameterJdbcTemplate.update(sql,params);
+            return Optional.ofNullable(answer);
+        }catch (Exception e){
+            return Optional.of((long) -1);
+        }
+    }
 }

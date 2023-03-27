@@ -41,4 +41,18 @@ public class MessageController {
             return new ResponseEntity<>("INTERNAL ERROR", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @PutMapping("/close/{messageId}")
+    public ResponseEntity<?> closeAMessage(@PathVariable("messageId") long messageId){
+        try {
+            Optional<?> messages = messageRepository.closeMessage(messageId);
+            if(messages.get().equals(-1)) return ResponseEntity.badRequest().body("ERROR: MESSAGE DOES NOT EXIST");
+            return ResponseEntity.ok(messages.get());
+        }catch (Exception e){
+            return new ResponseEntity<>("INTERNAL ERROR", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+
+
 }
