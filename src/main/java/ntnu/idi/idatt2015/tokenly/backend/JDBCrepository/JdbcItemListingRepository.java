@@ -51,7 +51,7 @@ public class JdbcItemListingRepository implements ItemListingRepository {
     @Override
     public Optional<List<ItemListing>> getAllItemListing(int pageNumber, int pageSize, String sortBy, String order, double minPrice, double maxPrice) {
         if(ControlInputService.checkItemListingTableName(sortBy) && ControlInputService.checkOrder(order)){
-            String sql = "SELECT * FROM items LEFT JOIN listings ON items.item_id = listings.item_id WHERE listings.min_price > :minPrice AND listings.max_price < :maxPrice ORDER BY " + sortBy + " " + order +" LIMIT :limit OFFSET :offset";
+            String sql = "SELECT * FROM items LEFT JOIN listings ON items.item_id = listings.item_id WHERE listings.max_price > :minPrice AND listings.max_price < :maxPrice ORDER BY " + sortBy + " " + order +" LIMIT :limit OFFSET :offset";
             Map<String, Object> params = new HashMap<>();
             params.put("limit", pageSize);
             params.put("offset", pageNumber * pageSize);
