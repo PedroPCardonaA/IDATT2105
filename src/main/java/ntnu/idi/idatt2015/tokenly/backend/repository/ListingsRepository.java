@@ -87,5 +87,7 @@ public interface ListingsRepository {
     Optional<Long> visitListing(long listingId);
 
     Optional<Boolean> closeListing(long listingId);
+
+    Optional<Long> getItemIdByListingId(long listingId);
 }
 
