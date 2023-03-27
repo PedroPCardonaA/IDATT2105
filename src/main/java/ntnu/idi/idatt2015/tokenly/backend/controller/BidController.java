@@ -17,7 +17,6 @@ import java.util.Optional;
  * @version 1.0
  * @since 22.03.2023
  */
-@CrossOrigin(origins = "http://localhost:5173")
 @Slf4j
 @RestController
 @RequestMapping("/api/bids")
@@ -40,7 +39,6 @@ public class BidController {
      * @return a ResponseEntity with the created Bid entity in the body, or a bad request response if the Bid was not created.
      */
 
-    @CrossOrigin(origins = "http://localhost:5173")
     @PostMapping("/bid")
     public ResponseEntity<?> saveBid(@RequestBody Bid bid){
         try {
@@ -75,7 +73,6 @@ public class BidController {
      * @param id the ID of the Bid entity to retrieve.
      * @return a ResponseEntity with the retrieved Bid entity in the body, or a NO_CONTENT response if the Bid was not found.
      */
-    @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/bid/{id}")
     public ResponseEntity<Bid> getBidById(@PathVariable("id") Long id){
         try {
@@ -95,7 +92,6 @@ public class BidController {
      * @param buyerName the buyer name to search for.
      * @return a ResponseEntity with the retrieved Bid entities in the body, or a NO_CONTENT response if no Bids were found.
      */
-    @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/{buyerName}")
     public ResponseEntity<?> getBidsByBuyerName(@PathVariable("buyerName") String buyerName){
         log.info("A user try to get all bids from a user by username = " + buyerName );
@@ -115,7 +111,6 @@ public class BidController {
      * @param listingId the listing ID to search for.
      * @return a ResponseEntity with the retrieved Bid entities in the body, or a NO_CONTENT response if no Bids were found.
      */
-    @CrossOrigin(origins = "http://localhost:5173")
     @GetMapping("/listing/{listingId}")
     public ResponseEntity<?> getBidsByListingId(@PathVariable("listingId") Long listingId){
         log.info("A user try to get all bids from a user by username = " + listingId );
