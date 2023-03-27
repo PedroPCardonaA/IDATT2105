@@ -319,3 +319,897 @@
 2023-03-27 23:26:04,746 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 1
 2023-03-27 23:26:04,774 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
 2023-03-27 23:26:04,801 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 12
+2023-03-27 23:29:11,238 INFO [main] org.springframework.boot.StartupInfoLogger: Starting TokenlyBackendApplication using Java 17.0.5 with PID 8196 (C:\Users\jfben\OneDrive - NTNU\Documents\GitHub\BackendTokenly\target\classes started by jfben in C:\Users\jfben\OneDrive - NTNU\Documents\GitHub\BackendTokenly)
+2023-03-27 23:29:11,240 INFO [main] org.springframework.boot.SpringApplication: No active profile set, falling back to 1 default profile: "default"
+2023-03-27 23:29:12,762 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat initialized with port(s): 8080 (http)
+2023-03-27 23:29:12,773 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing ProtocolHandler ["http-nio-8080"]
+2023-03-27 23:29:12,774 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting service [Tomcat]
+2023-03-27 23:29:12,774 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-03-27 23:29:12,865 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing Spring embedded WebApplicationContext
+2023-03-27 23:29:12,867 INFO [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 1568 ms
+2023-03-27 23:29:12,884 INFO [main] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Starting embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2023-03-27 23:29:13,180 INFO [main] org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:tokenly-db'
+2023-03-27 23:29:13,500 INFO [main] org.springframework.security.provisioning.JdbcUserDetailsManager: No authentication manager set. Reauthentication of users when changing passwords will not be performed.
+2023-03-27 23:29:15,082 INFO [main] org.springframework.security.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@23f60b7d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2ba9f986, org.springframework.security.web.context.SecurityContextHolderFilter@61808ecd, org.springframework.security.web.header.HeaderWriterFilter@6c6928c, org.springframework.web.filter.CorsFilter@4aa3fc9a, org.springframework.security.web.authentication.logout.LogoutFilter@1de7f898, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@5e37fb82, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@77ea806f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@33751d49, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@70f4f89e, org.springframework.security.web.session.SessionManagementFilter@5e98032e, org.springframework.security.web.access.ExceptionTranslationFilter@1b3a9ef4, org.springframework.security.web.access.intercept.AuthorizationFilter@1d283d1]
+2023-03-27 23:29:15,317 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting ProtocolHandler ["http-nio-8080"]
+2023-03-27 23:29:15,340 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat started on port(s): 8080 (http) with context path ''
+2023-03-27 23:29:15,350 INFO [main] org.springframework.boot.StartupInfoLogger: Started TokenlyBackendApplication in 4.518 seconds (process running for 5.256)
+2023-03-27 23:29:22,494 INFO [http-nio-8080-exec-2] org.apache.juli.logging.DirectJDKLog: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-03-27 23:29:22,496 INFO [http-nio-8080-exec-2] org.springframework.web.servlet.FrameworkServlet: Initializing Servlet 'dispatcherServlet'
+2023-03-27 23:29:22,507 INFO [http-nio-8080-exec-2] org.springframework.web.servlet.FrameworkServlet: Completed initialization in 7 ms
+2023-03-27 23:29:22,728 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:29:24,882 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:29:26,015 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:29:26,015 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:29:26,075 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:29:26,084 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:29:26,078 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:29:26,077 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:29:26,077 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:29:26,111 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:29:26,114 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:29:26,131 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:29:26,295 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:29:26,338 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:29:26,335 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:29:26,312 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:29:26,368 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:29:28,227 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:29:28,230 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:29:28,299 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:29:28,299 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:29:28,300 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:29:28,304 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:29:28,304 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:29:28,299 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:29:28,309 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:29:28,331 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:29:28,429 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:29:28,557 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:29:28,592 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:29:28,616 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:29:28,625 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:29:31,387 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.AuthController: User = LoginRequest[username=jane, password=password456] is try to get a toke:
+2023-03-27 23:29:31,565 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:29:31,571 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:29:31,582 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = jane
+2023-03-27 23:29:31,622 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:29:31,678 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 1
+2023-03-27 23:29:31,731 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:29:31,753 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 12
+2023-03-27 23:29:34,433 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:29:34,435 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = jane
+2023-03-27 23:29:34,547 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 1
+2023-03-27 23:29:34,615 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:29:34,650 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 12
+2023-03-27 23:29:52,072 INFO [SpringApplicationShutdownHook] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Shutting down embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2023-03-27 23:30:00,357 INFO [main] org.springframework.boot.StartupInfoLogger: Starting TokenlyBackendApplication using Java 17.0.5 with PID 16520 (C:\Users\jfben\OneDrive - NTNU\Documents\GitHub\BackendTokenly\target\classes started by jfben in C:\Users\jfben\OneDrive - NTNU\Documents\GitHub\BackendTokenly)
+2023-03-27 23:30:00,360 INFO [main] org.springframework.boot.SpringApplication: No active profile set, falling back to 1 default profile: "default"
+2023-03-27 23:30:01,870 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat initialized with port(s): 8080 (http)
+2023-03-27 23:30:01,884 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing ProtocolHandler ["http-nio-8080"]
+2023-03-27 23:30:01,886 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting service [Tomcat]
+2023-03-27 23:30:01,886 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-03-27 23:30:02,002 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing Spring embedded WebApplicationContext
+2023-03-27 23:30:02,003 INFO [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 1580 ms
+2023-03-27 23:30:02,019 INFO [main] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Starting embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2023-03-27 23:30:02,273 INFO [main] org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:tokenly-db'
+2023-03-27 23:30:02,592 INFO [main] org.springframework.security.provisioning.JdbcUserDetailsManager: No authentication manager set. Reauthentication of users when changing passwords will not be performed.
+2023-03-27 23:30:03,676 INFO [main] org.springframework.security.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7e747037, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4d0e1a9a, org.springframework.security.web.context.SecurityContextHolderFilter@6def0632, org.springframework.security.web.header.HeaderWriterFilter@b75b890, org.springframework.web.filter.CorsFilter@25218a4d, org.springframework.security.web.authentication.logout.LogoutFilter@7ad889be, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@7cb29ea8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@36211bbc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@d70e9a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@bf2aa32, org.springframework.security.web.session.SessionManagementFilter@73aaec54, org.springframework.security.web.access.ExceptionTranslationFilter@3120495d, org.springframework.security.web.access.intercept.AuthorizationFilter@6b6def36]
+2023-03-27 23:30:03,901 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting ProtocolHandler ["http-nio-8080"]
+2023-03-27 23:30:03,928 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat started on port(s): 8080 (http) with context path ''
+2023-03-27 23:30:03,941 INFO [main] org.springframework.boot.StartupInfoLogger: Started TokenlyBackendApplication in 3.995 seconds (process running for 4.822)
+2023-03-27 23:30:05,116 INFO [http-nio-8080-exec-1] org.apache.juli.logging.DirectJDKLog: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-03-27 23:30:05,117 INFO [http-nio-8080-exec-1] org.springframework.web.servlet.FrameworkServlet: Initializing Servlet 'dispatcherServlet'
+2023-03-27 23:30:05,118 INFO [http-nio-8080-exec-1] org.springframework.web.servlet.FrameworkServlet: Completed initialization in 1 ms
+2023-03-27 23:30:05,229 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:30:09,932 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:30:27,688 INFO [SpringApplicationShutdownHook] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Shutting down embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2023-03-27 23:30:32,568 INFO [main] org.springframework.boot.StartupInfoLogger: Starting TokenlyBackendApplication using Java 17.0.5 with PID 29504 (C:\Users\jfben\OneDrive - NTNU\Documents\GitHub\BackendTokenly\target\classes started by jfben in C:\Users\jfben\OneDrive - NTNU\Documents\GitHub\BackendTokenly)
+2023-03-27 23:30:32,571 INFO [main] org.springframework.boot.SpringApplication: No active profile set, falling back to 1 default profile: "default"
+2023-03-27 23:30:34,176 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat initialized with port(s): 8080 (http)
+2023-03-27 23:30:34,187 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing ProtocolHandler ["http-nio-8080"]
+2023-03-27 23:30:34,188 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting service [Tomcat]
+2023-03-27 23:30:34,189 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-03-27 23:30:34,296 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing Spring embedded WebApplicationContext
+2023-03-27 23:30:34,298 INFO [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 1663 ms
+2023-03-27 23:30:34,316 INFO [main] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Starting embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2023-03-27 23:30:34,598 INFO [main] org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:tokenly-db'
+2023-03-27 23:30:35,060 INFO [main] org.springframework.security.provisioning.JdbcUserDetailsManager: No authentication manager set. Reauthentication of users when changing passwords will not be performed.
+2023-03-27 23:30:36,736 INFO [main] org.springframework.security.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@59ec7020, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@23f60b7d, org.springframework.security.web.context.SecurityContextHolderFilter@591be8aa, org.springframework.security.web.header.HeaderWriterFilter@7a1371, org.springframework.web.filter.CorsFilter@2ba9f986, org.springframework.security.web.authentication.logout.LogoutFilter@7b1a30e5, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@5c5a91b4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7f1f60a0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@10bf1ec9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4aa3fc9a, org.springframework.security.web.session.SessionManagementFilter@d70e9a, org.springframework.security.web.access.ExceptionTranslationFilter@3c60c681, org.springframework.security.web.access.intercept.AuthorizationFilter@5ce3409b]
+2023-03-27 23:30:37,068 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting ProtocolHandler ["http-nio-8080"]
+2023-03-27 23:30:37,103 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat started on port(s): 8080 (http) with context path ''
+2023-03-27 23:30:37,120 INFO [main] org.springframework.boot.StartupInfoLogger: Started TokenlyBackendApplication in 4.916 seconds (process running for 5.645)
+2023-03-27 23:30:39,761 INFO [http-nio-8080-exec-1] org.apache.juli.logging.DirectJDKLog: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-03-27 23:30:39,762 INFO [http-nio-8080-exec-1] org.springframework.web.servlet.FrameworkServlet: Initializing Servlet 'dispatcherServlet'
+2023-03-27 23:30:39,765 INFO [http-nio-8080-exec-1] org.springframework.web.servlet.FrameworkServlet: Completed initialization in 2 ms
+2023-03-27 23:30:39,866 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:30:40,014 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 5
+2023-03-27 23:30:40,032 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 14
+2023-03-27 23:30:40,051 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 1
+2023-03-27 23:30:40,067 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 10
+2023-03-27 23:30:40,081 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 16
+2023-03-27 23:30:40,099 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 6
+2023-03-27 23:30:40,118 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:30:40,125 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:30:40,131 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:30:40,132 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:30:40,138 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:30:40,143 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:30:42,288 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:30:42,313 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 11
+2023-03-27 23:30:42,326 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 16
+2023-03-27 23:30:42,358 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 13
+2023-03-27 23:30:42,374 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 14
+2023-03-27 23:30:42,395 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 15
+2023-03-27 23:30:42,416 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 18
+2023-03-27 23:30:42,442 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:30:42,451 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:30:42,503 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:30:42,520 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:31:07,189 INFO [SpringApplicationShutdownHook] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Shutting down embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2023-03-27 23:31:12,691 INFO [main] org.springframework.boot.StartupInfoLogger: Starting TokenlyBackendApplication using Java 17.0.5 with PID 5672 (C:\Users\jfben\OneDrive - NTNU\Documents\GitHub\BackendTokenly\target\classes started by jfben in C:\Users\jfben\OneDrive - NTNU\Documents\GitHub\BackendTokenly)
+2023-03-27 23:31:12,694 INFO [main] org.springframework.boot.SpringApplication: No active profile set, falling back to 1 default profile: "default"
+2023-03-27 23:31:14,105 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat initialized with port(s): 8080 (http)
+2023-03-27 23:31:14,116 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing ProtocolHandler ["http-nio-8080"]
+2023-03-27 23:31:14,117 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting service [Tomcat]
+2023-03-27 23:31:14,117 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-03-27 23:31:14,202 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing Spring embedded WebApplicationContext
+2023-03-27 23:31:14,203 INFO [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 1455 ms
+2023-03-27 23:31:14,215 INFO [main] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Starting embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2023-03-27 23:31:14,445 INFO [main] org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:tokenly-db'
+2023-03-27 23:31:14,897 INFO [main] org.springframework.security.provisioning.JdbcUserDetailsManager: No authentication manager set. Reauthentication of users when changing passwords will not be performed.
+2023-03-27 23:31:16,385 INFO [main] org.springframework.security.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@b5c902, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7e747037, org.springframework.security.web.context.SecurityContextHolderFilter@117b2cc6, org.springframework.security.web.header.HeaderWriterFilter@781c2497, org.springframework.web.filter.CorsFilter@4d0e1a9a, org.springframework.security.web.authentication.logout.LogoutFilter@35e2b89f, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@69eb544f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@49038f97, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3e151e1f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@25218a4d, org.springframework.security.web.session.SessionManagementFilter@3c28181b, org.springframework.security.web.access.ExceptionTranslationFilter@5dfc2a4, org.springframework.security.web.access.intercept.AuthorizationFilter@496cedbb]
+2023-03-27 23:31:16,704 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting ProtocolHandler ["http-nio-8080"]
+2023-03-27 23:31:16,739 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat started on port(s): 8080 (http) with context path ''
+2023-03-27 23:31:16,767 INFO [main] org.springframework.boot.StartupInfoLogger: Started TokenlyBackendApplication in 4.453 seconds (process running for 5.152)
+2023-03-27 23:31:17,749 INFO [http-nio-8080-exec-1] org.apache.juli.logging.DirectJDKLog: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-03-27 23:31:17,750 INFO [http-nio-8080-exec-1] org.springframework.web.servlet.FrameworkServlet: Initializing Servlet 'dispatcherServlet'
+2023-03-27 23:31:17,752 INFO [http-nio-8080-exec-1] org.springframework.web.servlet.FrameworkServlet: Completed initialization in 1 ms
+2023-03-27 23:31:17,887 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:31:18,096 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 5
+2023-03-27 23:31:18,118 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 14
+2023-03-27 23:31:18,136 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 10
+2023-03-27 23:31:18,151 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 16
+2023-03-27 23:31:18,172 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 1
+2023-03-27 23:31:18,187 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 6
+2023-03-27 23:31:18,211 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:31:18,230 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:31:18,236 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:31:18,239 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:31:18,258 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:31:18,268 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:31:20,150 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:31:20,205 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 8
+2023-03-27 23:31:20,218 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 2
+2023-03-27 23:31:20,231 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 3
+2023-03-27 23:31:20,244 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 12
+2023-03-27 23:31:20,288 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 9
+2023-03-27 23:31:20,307 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:31:20,313 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:31:20,320 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:31:20,331 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:31:20,352 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:31:23,359 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:31:23,407 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 8
+2023-03-27 23:31:23,421 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 2
+2023-03-27 23:31:23,461 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 3
+2023-03-27 23:31:23,480 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 12
+2023-03-27 23:31:23,491 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 9
+2023-03-27 23:31:23,505 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:31:23,513 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:31:23,513 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:31:23,529 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:31:23,554 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:31:32,556 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:31:32,569 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 10
+2023-03-27 23:31:32,578 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 1
+2023-03-27 23:31:32,587 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 19
+2023-03-27 23:31:32,597 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 7
+2023-03-27 23:31:32,606 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 4
+2023-03-27 23:31:32,631 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 6
+2023-03-27 23:31:32,642 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:31:32,646 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:31:32,650 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:31:32,677 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:31:32,697 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:31:32,709 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:31:38,063 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:31:38,067 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:31:38,140 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:31:38,140 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:31:38,142 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:31:38,146 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:31:38,167 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:31:38,173 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:31:38,297 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:31:38,313 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:31:40,477 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get the item and listing with item id = 5
+2023-03-27 23:31:40,482 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: The item is send correctly
+2023-03-27 23:31:40,570 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:31:40,570 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:32:07,562 INFO [SpringApplicationShutdownHook] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Shutting down embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2023-03-27 23:32:12,335 INFO [main] org.springframework.boot.StartupInfoLogger: Starting TokenlyBackendApplication using Java 17.0.5 with PID 25864 (C:\Users\jfben\OneDrive - NTNU\Documents\GitHub\BackendTokenly\target\classes started by jfben in C:\Users\jfben\OneDrive - NTNU\Documents\GitHub\BackendTokenly)
+2023-03-27 23:32:12,339 INFO [main] org.springframework.boot.SpringApplication: No active profile set, falling back to 1 default profile: "default"
+2023-03-27 23:32:13,676 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat initialized with port(s): 8080 (http)
+2023-03-27 23:32:13,683 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing ProtocolHandler ["http-nio-8080"]
+2023-03-27 23:32:13,684 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting service [Tomcat]
+2023-03-27 23:32:13,684 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-03-27 23:32:13,780 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing Spring embedded WebApplicationContext
+2023-03-27 23:32:13,782 INFO [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 1381 ms
+2023-03-27 23:32:13,796 INFO [main] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Starting embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2023-03-27 23:32:14,015 INFO [main] org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:tokenly-db'
+2023-03-27 23:32:14,424 INFO [main] org.springframework.security.provisioning.JdbcUserDetailsManager: No authentication manager set. Reauthentication of users when changing passwords will not be performed.
+2023-03-27 23:32:15,588 INFO [main] org.springframework.security.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@634aa81e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@74b1838, org.springframework.security.web.context.SecurityContextHolderFilter@14a1769d, org.springframework.security.web.header.HeaderWriterFilter@117b2cc6, org.springframework.web.filter.CorsFilter@52d96367, org.springframework.security.web.authentication.logout.LogoutFilter@6b6def36, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@4aa3fc9a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@33751d49, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3d4ecc67, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5be51aa, org.springframework.security.web.session.SessionManagementFilter@7f1f60a0, org.springframework.security.web.access.ExceptionTranslationFilter@73aaec54, org.springframework.security.web.access.intercept.AuthorizationFilter@7cb29ea8]
+2023-03-27 23:32:15,856 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting ProtocolHandler ["http-nio-8080"]
+2023-03-27 23:32:15,884 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat started on port(s): 8080 (http) with context path ''
+2023-03-27 23:32:15,897 INFO [main] org.springframework.boot.StartupInfoLogger: Started TokenlyBackendApplication in 3.931 seconds (process running for 4.582)
+2023-03-27 23:32:17,025 INFO [http-nio-8080-exec-1] org.apache.juli.logging.DirectJDKLog: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-03-27 23:32:17,026 INFO [http-nio-8080-exec-1] org.springframework.web.servlet.FrameworkServlet: Initializing Servlet 'dispatcherServlet'
+2023-03-27 23:32:17,029 INFO [http-nio-8080-exec-1] org.springframework.web.servlet.FrameworkServlet: Completed initialization in 2 ms
+2023-03-27 23:32:17,117 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:32:17,117 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:32:17,310 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:32:17,310 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:32:17,323 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:32:17,327 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:32:17,346 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:32:17,359 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:32:17,361 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:32:17,409 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:32:17,448 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:32:17,569 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:32:17,644 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:32:17,657 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:32:17,668 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:32:19,785 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get the item and listing with item id = 5
+2023-03-27 23:32:19,790 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: The item is send correctly
+2023-03-27 23:32:28,282 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get the item and listing with item id = 5
+2023-03-27 23:32:28,285 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: The item is send correctly
+2023-03-27 23:32:31,254 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get the item and listing with item id = 5
+2023-03-27 23:32:31,256 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: The item is send correctly
+2023-03-27 23:32:32,392 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get the item and listing with item id = 5
+2023-03-27 23:32:32,394 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: The item is send correctly
+2023-03-27 23:32:33,151 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:32:33,156 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:32:33,207 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:32:37,541 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.AuthController: User = LoginRequest[username=jane, password=password456] is try to get a toke:
+2023-03-27 23:32:37,741 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:32:37,744 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:32:37,773 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = jane
+2023-03-27 23:32:37,837 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 1
+2023-03-27 23:32:37,867 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:32:37,883 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 12
+2023-03-27 23:32:40,869 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:32:40,887 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = jane
+2023-03-27 23:32:40,903 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 1
+2023-03-27 23:32:40,917 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:32:40,932 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 12
+2023-03-27 23:32:42,600 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.WishlistController: User try to delete a wishlist with the information = Wishlist[username=jane, itemId=17]
+2023-03-27 23:32:42,611 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:32:46,052 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:32:46,055 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:32:46,058 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = jane
+2023-03-27 23:32:46,115 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 1
+2023-03-27 23:32:46,130 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:32:46,149 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 12
+2023-03-27 23:32:47,065 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:32:47,070 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = jane
+2023-03-27 23:32:47,091 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get the item and listing with item id = 5
+2023-03-27 23:32:47,092 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: The item is send correctly
+2023-03-27 23:32:47,092 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 1
+2023-03-27 23:32:47,104 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:32:47,112 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 12
+2023-03-27 23:32:48,646 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:32:48,660 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.WishlistController: User try to the save the following wishlist = Wishlist[username=jane, itemId=5]
+2023-03-27 23:32:52,442 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:32:52,444 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = jane
+2023-03-27 23:32:52,468 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 1
+2023-03-27 23:32:52,481 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:32:52,493 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 12
+2023-03-27 23:32:53,246 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = jane
+2023-03-27 23:32:53,286 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 1
+2023-03-27 23:32:53,323 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:32:53,338 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 12
+2023-03-27 23:33:31,496 INFO [SpringApplicationShutdownHook] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Shutting down embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2023-03-27 23:33:39,210 INFO [main] org.springframework.boot.StartupInfoLogger: Starting TokenlyBackendApplication using Java 17.0.5 with PID 21528 (C:\Users\jfben\OneDrive - NTNU\Documents\GitHub\BackendTokenly\target\classes started by jfben in C:\Users\jfben\OneDrive - NTNU\Documents\GitHub\BackendTokenly)
+2023-03-27 23:33:39,213 INFO [main] org.springframework.boot.SpringApplication: No active profile set, falling back to 1 default profile: "default"
+2023-03-27 23:33:40,500 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat initialized with port(s): 8080 (http)
+2023-03-27 23:33:40,507 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing ProtocolHandler ["http-nio-8080"]
+2023-03-27 23:33:40,508 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting service [Tomcat]
+2023-03-27 23:33:40,508 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-03-27 23:33:40,598 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing Spring embedded WebApplicationContext
+2023-03-27 23:33:40,600 INFO [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 1329 ms
+2023-03-27 23:33:40,615 INFO [main] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Starting embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2023-03-27 23:33:40,811 INFO [main] org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:tokenly-db'
+2023-03-27 23:33:41,548 INFO [main] org.springframework.security.provisioning.JdbcUserDetailsManager: No authentication manager set. Reauthentication of users when changing passwords will not be performed.
+2023-03-27 23:33:43,111 INFO [main] org.springframework.security.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@74b1838, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@52d96367, org.springframework.security.web.context.SecurityContextHolderFilter@10bf1ec9, org.springframework.security.web.header.HeaderWriterFilter@6def0632, org.springframework.web.filter.CorsFilter@5be51aa, org.springframework.security.web.authentication.logout.LogoutFilter@3957d88b, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@70f4f89e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@516195cf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@60dcf9ec, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3302035b, org.springframework.security.web.session.SessionManagementFilter@77ea806f, org.springframework.security.web.access.ExceptionTranslationFilter@239b98cb, org.springframework.security.web.access.intercept.AuthorizationFilter@b5c902]
+2023-03-27 23:33:43,414 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting ProtocolHandler ["http-nio-8080"]
+2023-03-27 23:33:43,450 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat started on port(s): 8080 (http) with context path ''
+2023-03-27 23:33:43,465 INFO [main] org.springframework.boot.StartupInfoLogger: Started TokenlyBackendApplication in 4.604 seconds (process running for 5.147)
+2023-03-27 23:33:43,609 INFO [http-nio-8080-exec-2] org.apache.juli.logging.DirectJDKLog: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-03-27 23:33:43,610 INFO [http-nio-8080-exec-2] org.springframework.web.servlet.FrameworkServlet: Initializing Servlet 'dispatcherServlet'
+2023-03-27 23:33:43,611 INFO [http-nio-8080-exec-2] org.springframework.web.servlet.FrameworkServlet: Completed initialization in 1 ms
+2023-03-27 23:33:43,701 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = jane
+2023-03-27 23:33:43,701 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = jane
+2023-03-27 23:33:43,842 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:33:52,979 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.AuthController: User = LoginRequest[username=jane, password=password456] is try to get a toke:
+2023-03-27 23:33:53,121 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:33:53,125 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:33:53,148 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = jane
+2023-03-27 23:33:53,185 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:33:53,185 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:33:53,194 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:33:53,193 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:33:53,205 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:33:53,206 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:33:53,226 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:33:53,304 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:33:53,430 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:33:53,450 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:33:53,458 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:33:53,466 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:33:53,544 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 1
+2023-03-27 23:33:53,669 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:33:53,694 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 12
+2023-03-27 23:33:54,600 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = jane
+2023-03-27 23:33:54,603 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = jane
+2023-03-27 23:33:54,608 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = jane
+2023-03-27 23:33:54,639 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:33:54,647 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 1
+2023-03-27 23:33:54,670 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:33:54,676 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: A user try to know if the following user is an admin = jane
+2023-03-27 23:33:54,686 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 12
+2023-03-27 23:33:54,688 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:33:54,694 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:33:54,694 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:33:54,775 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:34:27,102 INFO [http-nio-8080-exec-4] org.apache.juli.logging.DirectJDKLog: Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in the request target [/api/profiles/profile/jane/password?oldPassword={noop}password456&newPassword=12345678 ]. The valid characters are defined in RFC 7230 and RFC 3986
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:494)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:272)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:859)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1734)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-03-27 23:36:01,575 INFO [SpringApplicationShutdownHook] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Shutting down embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2023-03-27 23:36:06,604 INFO [main] org.springframework.boot.StartupInfoLogger: Starting TokenlyBackendApplication using Java 17.0.5 with PID 14664 (C:\Users\jfben\OneDrive - NTNU\Documents\GitHub\BackendTokenly\target\classes started by jfben in C:\Users\jfben\OneDrive - NTNU\Documents\GitHub\BackendTokenly)
+2023-03-27 23:36:06,607 INFO [main] org.springframework.boot.SpringApplication: No active profile set, falling back to 1 default profile: "default"
+2023-03-27 23:36:07,919 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat initialized with port(s): 8080 (http)
+2023-03-27 23:36:07,926 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing ProtocolHandler ["http-nio-8080"]
+2023-03-27 23:36:07,927 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting service [Tomcat]
+2023-03-27 23:36:07,927 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-03-27 23:36:08,041 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing Spring embedded WebApplicationContext
+2023-03-27 23:36:08,042 INFO [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 1379 ms
+2023-03-27 23:36:08,057 INFO [main] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Starting embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2023-03-27 23:36:08,269 INFO [main] org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:tokenly-db'
+2023-03-27 23:36:08,832 INFO [main] org.springframework.security.provisioning.JdbcUserDetailsManager: No authentication manager set. Reauthentication of users when changing passwords will not be performed.
+2023-03-27 23:36:09,939 INFO [main] org.springframework.security.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@74b1838, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@52d96367, org.springframework.security.web.context.SecurityContextHolderFilter@10bf1ec9, org.springframework.security.web.header.HeaderWriterFilter@6def0632, org.springframework.web.filter.CorsFilter@5be51aa, org.springframework.security.web.authentication.logout.LogoutFilter@3957d88b, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@70f4f89e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@516195cf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@60dcf9ec, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3302035b, org.springframework.security.web.session.SessionManagementFilter@77ea806f, org.springframework.security.web.access.ExceptionTranslationFilter@239b98cb, org.springframework.security.web.access.intercept.AuthorizationFilter@b5c902]
+2023-03-27 23:36:10,144 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting ProtocolHandler ["http-nio-8080"]
+2023-03-27 23:36:10,167 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat started on port(s): 8080 (http) with context path ''
+2023-03-27 23:36:10,181 INFO [main] org.springframework.boot.StartupInfoLogger: Started TokenlyBackendApplication in 3.939 seconds (process running for 4.503)
+2023-03-27 23:36:15,493 INFO [http-nio-8080-exec-4] org.apache.juli.logging.DirectJDKLog: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-03-27 23:36:15,494 INFO [http-nio-8080-exec-4] org.springframework.web.servlet.FrameworkServlet: Initializing Servlet 'dispatcherServlet'
+2023-03-27 23:36:15,495 INFO [http-nio-8080-exec-4] org.springframework.web.servlet.FrameworkServlet: Completed initialization in 1 ms
+2023-03-27 23:36:15,588 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = jane
+2023-03-27 23:36:15,588 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = jane
+2023-03-27 23:36:15,718 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:36:18,479 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:36:18,479 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:36:18,534 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:36:18,543 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:36:18,545 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:36:18,538 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:36:18,545 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:36:18,536 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:36:18,594 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:36:18,664 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:36:18,798 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:36:18,800 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:36:18,832 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:36:18,853 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:36:22,109 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get the item and listing with item id = 5
+2023-03-27 23:36:22,112 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: The item is send correctly
+2023-03-27 23:36:24,344 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = null
+2023-03-27 23:36:31,366 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:36:31,370 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:36:31,423 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:36:31,425 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:36:31,426 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:36:31,429 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:36:31,429 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:36:31,463 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:36:31,475 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:36:33,342 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get the item and listing with item id = 5
+2023-03-27 23:36:33,345 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: The item is send correctly
+2023-03-27 23:36:37,234 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:36:37,237 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:36:37,286 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:36:37,286 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:36:38,771 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get the item and listing with item id = 5
+2023-03-27 23:36:38,773 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: The item is send correctly
+2023-03-27 23:37:21,624 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.AuthController: User = LoginRequest[username=jane, password=password456] is try to get a toke:
+2023-03-27 23:37:21,771 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:37:21,771 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:37:21,778 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = jane
+2023-03-27 23:37:21,824 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 1
+2023-03-27 23:37:21,846 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:37:21,886 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 12
+2023-03-27 23:37:22,970 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:37:22,972 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = jane
+2023-03-27 23:37:22,994 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get the item and listing with item id = 5
+2023-03-27 23:37:22,995 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 1
+2023-03-27 23:37:22,996 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: The item is send correctly
+2023-03-27 23:37:23,006 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:37:23,018 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 12
+2023-03-27 23:37:27,083 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = jane
+2023-03-27 23:37:27,852 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = jane
+2023-03-27 23:37:27,890 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = jane
+2023-03-27 23:37:27,903 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to post the following message = ntnu.idi.idatt2015.tokenly.backend.model.Message@3557cb4a
+2023-03-27 23:37:27,940 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:37:27,944 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:37:27,947 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = jane
+2023-03-27 23:37:28,010 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:37:28,010 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:37:28,010 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:37:28,011 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:37:28,012 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:37:28,011 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:37:28,057 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 1
+2023-03-27 23:37:28,214 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:37:28,248 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 12
+2023-03-27 23:37:31,286 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = jane
+2023-03-27 23:37:31,286 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = jane
+2023-03-27 23:37:31,291 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = jane
+2023-03-27 23:37:31,315 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:37:31,317 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 1
+2023-03-27 23:37:31,328 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:37:31,332 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: A user try to know if the following user is an admin = jane
+2023-03-27 23:37:31,341 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 12
+2023-03-27 23:37:31,343 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:37:31,347 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:37:31,357 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:37:43,676 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to post the following message = ntnu.idi.idatt2015.tokenly.backend.model.Message@2dbb1843
+2023-03-27 23:38:11,487 INFO [SpringApplicationShutdownHook] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Shutting down embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2023-03-27 23:38:17,734 INFO [main] org.springframework.boot.StartupInfoLogger: Starting TokenlyBackendApplication using Java 17.0.5 with PID 26776 (C:\Users\jfben\OneDrive - NTNU\Documents\GitHub\BackendTokenly\target\classes started by jfben in C:\Users\jfben\OneDrive - NTNU\Documents\GitHub\BackendTokenly)
+2023-03-27 23:38:17,737 INFO [main] org.springframework.boot.SpringApplication: No active profile set, falling back to 1 default profile: "default"
+2023-03-27 23:38:19,103 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat initialized with port(s): 8080 (http)
+2023-03-27 23:38:19,112 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing ProtocolHandler ["http-nio-8080"]
+2023-03-27 23:38:19,113 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting service [Tomcat]
+2023-03-27 23:38:19,113 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-03-27 23:38:19,205 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing Spring embedded WebApplicationContext
+2023-03-27 23:38:19,207 INFO [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 1408 ms
+2023-03-27 23:38:19,222 INFO [main] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Starting embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2023-03-27 23:38:19,497 INFO [main] org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:tokenly-db'
+2023-03-27 23:38:20,355 INFO [main] org.springframework.security.provisioning.JdbcUserDetailsManager: No authentication manager set. Reauthentication of users when changing passwords will not be performed.
+2023-03-27 23:38:21,637 INFO [main] org.springframework.security.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@634aa81e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@74b1838, org.springframework.security.web.context.SecurityContextHolderFilter@14a1769d, org.springframework.security.web.header.HeaderWriterFilter@117b2cc6, org.springframework.web.filter.CorsFilter@52d96367, org.springframework.security.web.authentication.logout.LogoutFilter@6b6def36, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@4aa3fc9a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@33751d49, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3d4ecc67, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5be51aa, org.springframework.security.web.session.SessionManagementFilter@7f1f60a0, org.springframework.security.web.access.ExceptionTranslationFilter@73aaec54, org.springframework.security.web.access.intercept.AuthorizationFilter@7cb29ea8]
+2023-03-27 23:38:21,969 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting ProtocolHandler ["http-nio-8080"]
+2023-03-27 23:38:22,007 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat started on port(s): 8080 (http) with context path ''
+2023-03-27 23:38:22,027 INFO [main] org.springframework.boot.StartupInfoLogger: Started TokenlyBackendApplication in 4.647 seconds (process running for 5.24)
+2023-03-27 23:38:22,456 INFO [http-nio-8080-exec-6] org.apache.juli.logging.DirectJDKLog: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-03-27 23:38:22,457 INFO [http-nio-8080-exec-6] org.springframework.web.servlet.FrameworkServlet: Initializing Servlet 'dispatcherServlet'
+2023-03-27 23:38:22,458 INFO [http-nio-8080-exec-6] org.springframework.web.servlet.FrameworkServlet: Completed initialization in 1 ms
+2023-03-27 23:38:22,568 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = jane
+2023-03-27 23:38:22,568 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = jane
+2023-03-27 23:38:22,721 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:38:25,909 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.AuthController: User = LoginRequest[username=jane, password=password456] is try to get a toke:
+2023-03-27 23:38:26,057 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:38:26,059 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = jane
+2023-03-27 23:38:26,057 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:38:26,109 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 1
+2023-03-27 23:38:26,137 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:38:26,139 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:38:26,158 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:38:26,161 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:38:26,167 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:38:26,172 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:38:26,190 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:38:26,191 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:38:26,321 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:38:26,323 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:38:26,328 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:38:26,342 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:38:26,443 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:38:26,587 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 12
+2023-03-27 23:38:28,490 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user mark all the message of a chat a seen.
+2023-03-27 23:38:33,246 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to post the following message = ntnu.idi.idatt2015.tokenly.backend.model.Message@12918c73
+2023-03-27 23:38:36,606 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:38:36,655 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:38:36,671 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = jane
+2023-03-27 23:38:36,716 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 1
+2023-03-27 23:38:36,747 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:38:36,771 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 12
+2023-03-27 23:38:40,001 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = jane
+2023-03-27 23:38:40,006 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = jane
+2023-03-27 23:38:40,026 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = jane
+2023-03-27 23:38:40,033 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:38:40,038 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 1
+2023-03-27 23:38:40,050 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: A user try to know if the following user is an admin = jane
+2023-03-27 23:38:40,054 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:38:40,060 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:38:40,068 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:38:40,122 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 12
+2023-03-27 23:38:42,987 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:38:42,990 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:38:43,061 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:38:43,061 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:38:43,062 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:38:43,072 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:38:43,073 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:38:43,076 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:38:43,086 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:38:43,103 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:38:43,163 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:38:43,337 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:38:43,374 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:38:43,397 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:39:06,087 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.UserCreationController: User try to 
+2023-03-27 23:39:06,173 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.AuthController: User = LoginRequest[username=JFBendvold, password=12345678] is try to get a toke:
+2023-03-27 23:39:06,289 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:39:06,294 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:39:06,314 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = JFBendvold
+2023-03-27 23:39:06,357 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:39:10,701 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = JFBendvold
+2023-03-27 23:39:10,701 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = JFBendvold
+2023-03-27 23:39:10,725 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = JFBendvold
+2023-03-27 23:39:10,737 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:39:10,749 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: A user try to know if the following user is an admin = JFBendvold
+2023-03-27 23:39:13,825 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to change the current balance
+2023-03-27 23:39:13,836 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = JFBendvold
+2023-03-27 23:39:20,973 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:39:21,025 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = JFBendvold
+2023-03-27 23:39:21,080 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 5
+2023-03-27 23:39:21,185 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 14
+2023-03-27 23:39:21,218 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 1
+2023-03-27 23:39:21,236 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 10
+2023-03-27 23:39:21,246 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 16
+2023-03-27 23:39:21,258 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 20
+2023-03-27 23:39:23,269 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = JFBendvold
+2023-03-27 23:39:23,277 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:39:23,306 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get the item and listing with item id = 14
+2023-03-27 23:39:23,308 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: The item is send correctly
+2023-03-27 23:39:25,365 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:39:25,371 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = JFBendvold
+2023-03-27 23:39:25,401 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 5
+2023-03-27 23:39:25,410 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 14
+2023-03-27 23:39:25,425 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 10
+2023-03-27 23:39:25,432 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 16
+2023-03-27 23:39:25,449 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 1
+2023-03-27 23:39:25,459 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 6
+2023-03-27 23:39:27,608 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:39:27,630 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = JFBendvold
+2023-03-27 23:39:27,631 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get the item and listing with item id = 5
+2023-03-27 23:39:27,633 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: The item is send correctly
+2023-03-27 23:39:28,964 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = JFBendvold
+2023-03-27 23:39:29,962 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = JFBendvold
+2023-03-27 23:39:29,978 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.BidController: A user is trying to post the next bid: ntnu.idi.idatt2015.tokenly.backend.model.Bid@453de2d8
+2023-03-27 23:39:29,979 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.BidController: The request has been correctly handled and answer!
+2023-03-27 23:39:29,987 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = JFBendvold
+2023-03-27 23:39:30,001 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user try to save a new chat = ntnu.idi.idatt2015.tokenly.backend.model.Chat@46e2bc86
+2023-03-27 23:39:30,002 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: The chat is save.
+2023-03-27 23:39:30,014 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to post the following message = ntnu.idi.idatt2015.tokenly.backend.model.Message@48f0665d
+2023-03-27 23:39:30,040 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:39:30,041 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:39:30,046 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = JFBendvold
+2023-03-27 23:39:30,094 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:39:30,100 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 16
+2023-03-27 23:39:31,429 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = JFBendvold
+2023-03-27 23:39:31,432 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = JFBendvold
+2023-03-27 23:39:31,437 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = JFBendvold
+2023-03-27 23:39:31,459 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:39:31,461 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 16
+2023-03-27 23:39:31,472 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: A user try to know if the following user is an admin = JFBendvold
+2023-03-27 23:39:33,528 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user mark all the message of a chat a seen.
+2023-03-27 23:39:43,685 INFO [SpringApplicationShutdownHook] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Shutting down embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2023-03-27 23:39:55,501 INFO [main] org.springframework.boot.StartupInfoLogger: Starting TokenlyBackendApplication using Java 17.0.5 with PID 25696 (C:\Users\jfben\OneDrive - NTNU\Documents\GitHub\BackendTokenly\target\classes started by jfben in C:\Users\jfben\OneDrive - NTNU\Documents\GitHub\BackendTokenly)
+2023-03-27 23:39:55,504 INFO [main] org.springframework.boot.SpringApplication: No active profile set, falling back to 1 default profile: "default"
+2023-03-27 23:39:56,911 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat initialized with port(s): 8080 (http)
+2023-03-27 23:39:56,920 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing ProtocolHandler ["http-nio-8080"]
+2023-03-27 23:39:56,921 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting service [Tomcat]
+2023-03-27 23:39:56,921 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-03-27 23:39:57,033 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing Spring embedded WebApplicationContext
+2023-03-27 23:39:57,037 INFO [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 1470 ms
+2023-03-27 23:39:57,074 INFO [main] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Starting embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2023-03-27 23:39:57,337 INFO [main] org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:tokenly-db'
+2023-03-27 23:39:57,857 INFO [main] org.springframework.security.provisioning.JdbcUserDetailsManager: No authentication manager set. Reauthentication of users when changing passwords will not be performed.
+2023-03-27 23:39:59,105 INFO [main] org.springframework.security.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@74b1838, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@52d96367, org.springframework.security.web.context.SecurityContextHolderFilter@10bf1ec9, org.springframework.security.web.header.HeaderWriterFilter@6def0632, org.springframework.web.filter.CorsFilter@5be51aa, org.springframework.security.web.authentication.logout.LogoutFilter@3957d88b, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@70f4f89e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@516195cf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@60dcf9ec, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3302035b, org.springframework.security.web.session.SessionManagementFilter@77ea806f, org.springframework.security.web.access.ExceptionTranslationFilter@239b98cb, org.springframework.security.web.access.intercept.AuthorizationFilter@b5c902]
+2023-03-27 23:39:59,337 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting ProtocolHandler ["http-nio-8080"]
+2023-03-27 23:39:59,362 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat started on port(s): 8080 (http) with context path ''
+2023-03-27 23:39:59,374 INFO [main] org.springframework.boot.StartupInfoLogger: Started TokenlyBackendApplication in 4.226 seconds (process running for 4.916)
+2023-03-27 23:40:00,352 INFO [http-nio-8080-exec-2] org.apache.juli.logging.DirectJDKLog: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-03-27 23:40:00,353 INFO [http-nio-8080-exec-2] org.springframework.web.servlet.FrameworkServlet: Initializing Servlet 'dispatcherServlet'
+2023-03-27 23:40:00,355 INFO [http-nio-8080-exec-2] org.springframework.web.servlet.FrameworkServlet: Completed initialization in 2 ms
+2023-03-27 23:40:00,449 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = JFBendvold
+2023-03-27 23:40:00,449 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = JFBendvold
+2023-03-27 23:40:00,656 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:40:00,656 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:40:00,850 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:40:00,850 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:40:00,850 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:40:00,850 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:40:00,853 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:40:00,857 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:40:00,877 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:40:00,977 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:40:01,006 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:40:01,134 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:40:01,144 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:40:01,154 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:40:03,922 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.AuthController: User = LoginRequest[username=jane, password=password456] is try to get a toke:
+2023-03-27 23:40:04,071 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:40:04,075 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:40:04,094 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = jane
+2023-03-27 23:40:04,125 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:40:04,132 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:40:04,212 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 1
+2023-03-27 23:40:04,241 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:40:04,272 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 12
+2023-03-27 23:40:07,158 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:40:07,160 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = jane
+2023-03-27 23:40:07,229 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 1
+2023-03-27 23:40:07,234 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 5
+2023-03-27 23:40:07,251 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:40:07,252 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 14
+2023-03-27 23:40:07,305 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 16
+2023-03-27 23:40:07,306 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 12
+2023-03-27 23:40:07,334 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 10
+2023-03-27 23:40:07,347 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 1
+2023-03-27 23:40:07,358 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 20
+2023-03-27 23:40:08,351 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:40:08,354 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:40:08,359 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = jane
+2023-03-27 23:40:08,417 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 1
+2023-03-27 23:40:08,435 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:40:08,450 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 12
+2023-03-27 23:40:09,446 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:40:09,447 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = jane
+2023-03-27 23:40:09,477 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get the item and listing with item id = 5
+2023-03-27 23:40:09,478 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: The item is send correctly
+2023-03-27 23:40:09,483 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 1
+2023-03-27 23:40:09,505 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:40:09,523 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 12
+2023-03-27 23:40:13,232 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = jane
+2023-03-27 23:40:14,571 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = jane
+2023-03-27 23:40:14,591 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.BidController: A user is trying to post the next bid: ntnu.idi.idatt2015.tokenly.backend.model.Bid@1badeb34
+2023-03-27 23:40:14,594 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.BidController: The request has been correctly handled and answer!
+2023-03-27 23:40:14,604 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = jane
+2023-03-27 23:40:14,618 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to post the following message = ntnu.idi.idatt2015.tokenly.backend.model.Message@5ada8701
+2023-03-27 23:40:14,664 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:40:14,669 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:40:14,672 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = jane
+2023-03-27 23:40:14,712 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:40:14,765 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 1
+2023-03-27 23:40:14,785 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:40:14,807 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 12
+2023-03-27 23:40:19,285 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user mark all the message of a chat a seen.
+2023-03-27 23:40:19,310 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = jane
+2023-03-27 23:40:21,489 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = jane
+2023-03-27 23:40:21,489 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = jane
+2023-03-27 23:40:21,518 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = jane
+2023-03-27 23:40:21,528 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:40:21,537 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 1
+2023-03-27 23:40:21,551 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: A user try to know if the following user is an admin = jane
+2023-03-27 23:40:21,559 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:40:21,565 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:40:21,574 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:40:21,637 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 12
+2023-03-27 23:40:25,099 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:40:25,100 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:40:25,181 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:40:25,182 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:40:25,182 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:40:25,184 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:40:25,182 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:40:25,205 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:40:25,204 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:40:25,211 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:40:25,290 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:40:25,530 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:40:25,543 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:40:25,585 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:40:28,350 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.AuthController: User = LoginRequest[username=tom, password=password222] is try to get a toke:
+2023-03-27 23:40:28,383 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:40:28,387 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:40:28,397 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = tom
+2023-03-27 23:40:28,442 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:40:28,466 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:40:28,484 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:40:28,526 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 5
+2023-03-27 23:40:28,545 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 11
+2023-03-27 23:40:28,569 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 15
+2023-03-27 23:40:31,761 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user mark all the message of a chat a seen.
+2023-03-27 23:40:31,785 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = jane
+2023-03-27 23:40:32,846 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.BidController: A user try to search a bid by id = 55
+2023-03-27 23:40:32,873 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = jane
+2023-03-27 23:40:32,901 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to post the following message = ntnu.idi.idatt2015.tokenly.backend.model.Message@1f29879
+2023-03-27 23:40:32,988 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = tom
+2023-03-27 23:40:32,995 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:40:33,001 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:40:33,040 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get the item and listing with item id = 5
+2023-03-27 23:40:33,042 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: The item is send correctly
+2023-03-27 23:40:33,045 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 5
+2023-03-27 23:40:33,058 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 11
+2023-03-27 23:40:33,085 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 15
+2023-03-27 23:40:49,874 INFO [SpringApplicationShutdownHook] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Shutting down embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
+2023-03-27 23:40:56,813 INFO [main] org.springframework.boot.StartupInfoLogger: Starting TokenlyBackendApplication using Java 17.0.5 with PID 30424 (C:\Users\jfben\OneDrive - NTNU\Documents\GitHub\BackendTokenly\target\classes started by jfben in C:\Users\jfben\OneDrive - NTNU\Documents\GitHub\BackendTokenly)
+2023-03-27 23:40:56,816 INFO [main] org.springframework.boot.SpringApplication: No active profile set, falling back to 1 default profile: "default"
+2023-03-27 23:40:58,299 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat initialized with port(s): 8080 (http)
+2023-03-27 23:40:58,313 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing ProtocolHandler ["http-nio-8080"]
+2023-03-27 23:40:58,314 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting service [Tomcat]
+2023-03-27 23:40:58,315 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-03-27 23:40:58,396 INFO [main] org.apache.juli.logging.DirectJDKLog: Initializing Spring embedded WebApplicationContext
+2023-03-27 23:40:58,397 INFO [main] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 1526 ms
+2023-03-27 23:40:58,409 INFO [main] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Starting embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2023-03-27 23:40:58,625 INFO [main] org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:tokenly-db'
+2023-03-27 23:40:59,163 INFO [main] org.springframework.security.provisioning.JdbcUserDetailsManager: No authentication manager set. Reauthentication of users when changing passwords will not be performed.
+2023-03-27 23:41:00,448 INFO [main] org.springframework.security.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7e747037, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4d0e1a9a, org.springframework.security.web.context.SecurityContextHolderFilter@6def0632, org.springframework.security.web.header.HeaderWriterFilter@b75b890, org.springframework.web.filter.CorsFilter@25218a4d, org.springframework.security.web.authentication.logout.LogoutFilter@7ad889be, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@7cb29ea8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@36211bbc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@d70e9a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@bf2aa32, org.springframework.security.web.session.SessionManagementFilter@73aaec54, org.springframework.security.web.access.ExceptionTranslationFilter@3120495d, org.springframework.security.web.access.intercept.AuthorizationFilter@6b6def36]
+2023-03-27 23:41:00,673 INFO [main] org.apache.juli.logging.DirectJDKLog: Starting ProtocolHandler ["http-nio-8080"]
+2023-03-27 23:41:00,699 INFO [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer: Tomcat started on port(s): 8080 (http) with context path ''
+2023-03-27 23:41:00,716 INFO [main] org.springframework.boot.StartupInfoLogger: Started TokenlyBackendApplication in 4.285 seconds (process running for 4.853)
+2023-03-27 23:41:01,478 INFO [http-nio-8080-exec-1] org.apache.juli.logging.DirectJDKLog: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-03-27 23:41:01,479 INFO [http-nio-8080-exec-1] org.springframework.web.servlet.FrameworkServlet: Initializing Servlet 'dispatcherServlet'
+2023-03-27 23:41:01,480 INFO [http-nio-8080-exec-1] org.springframework.web.servlet.FrameworkServlet: Completed initialization in 1 ms
+2023-03-27 23:41:03,900 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get the item and listing with item id = 5
+2023-03-27 23:41:03,926 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: The item is send correctly
+2023-03-27 23:41:04,030 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:41:07,814 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.AuthController: User = LoginRequest[username=jane, password=password456] is try to get a toke:
+2023-03-27 23:41:07,944 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:41:07,944 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:41:07,983 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = jane
+2023-03-27 23:41:08,032 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:41:08,028 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:41:08,042 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:41:08,039 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:41:08,061 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:41:08,087 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:41:08,081 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:41:08,127 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:41:08,251 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:41:08,252 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:41:08,338 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 1
+2023-03-27 23:41:08,404 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:41:08,430 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 12
+2023-03-27 23:41:09,057 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = jane
+2023-03-27 23:41:09,067 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:41:09,094 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 1
+2023-03-27 23:41:09,095 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get the item and listing with item id = 5
+2023-03-27 23:41:09,103 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: The item is send correctly
+2023-03-27 23:41:09,112 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:41:09,126 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 12
+2023-03-27 23:41:09,955 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = jane
+2023-03-27 23:41:10,483 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = jane
+2023-03-27 23:41:10,501 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.BidController: A user is trying to post the next bid: ntnu.idi.idatt2015.tokenly.backend.model.Bid@301e9cd3
+2023-03-27 23:41:10,505 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.BidController: The request has been correctly handled and answer!
+2023-03-27 23:41:10,514 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = jane
+2023-03-27 23:41:10,526 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to post the following message = ntnu.idi.idatt2015.tokenly.backend.model.Message@6015e438
+2023-03-27 23:41:10,558 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:41:10,563 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:41:10,566 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = jane
+2023-03-27 23:41:10,649 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:41:10,659 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 1
+2023-03-27 23:41:10,692 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:41:10,703 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 12
+2023-03-27 23:41:12,308 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = jane
+2023-03-27 23:41:12,315 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = jane
+2023-03-27 23:41:12,339 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = jane
+2023-03-27 23:41:12,348 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:41:12,352 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 1
+2023-03-27 23:41:12,364 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: A user try to know if the following user is an admin = jane
+2023-03-27 23:41:12,366 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:41:12,375 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:41:12,377 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:41:12,382 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:41:12,462 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 12
+2023-03-27 23:41:15,898 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:41:15,902 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:41:15,978 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:41:15,996 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:41:15,997 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:41:15,998 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:41:16,015 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:41:16,000 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:41:16,000 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:41:16,039 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:41:16,115 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:41:16,220 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:41:16,233 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:41:16,245 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:41:16,296 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:41:19,545 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.AuthController: User = LoginRequest[username=tom, password=password222] is try to get a toke:
+2023-03-27 23:41:19,583 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:41:19,586 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:41:19,626 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = tom
+2023-03-27 23:41:19,640 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:41:19,641 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:41:19,683 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:41:19,698 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 5
+2023-03-27 23:41:19,734 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 11
+2023-03-27 23:41:19,750 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 15
+2023-03-27 23:41:21,771 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user mark all the message of a chat a seen.
+2023-03-27 23:41:21,797 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = jane
+2023-03-27 23:41:22,686 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.BidController: A user try to search a bid by id = 55
+2023-03-27 23:41:22,710 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = jane
+2023-03-27 23:41:22,718 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to close a message.
+2023-03-27 23:41:22,742 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to post the following message = ntnu.idi.idatt2015.tokenly.backend.model.Message@32a0204
+2023-03-27 23:41:22,814 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = tom
+2023-03-27 23:41:22,819 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:41:22,842 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get the item and listing with item id = 5
+2023-03-27 23:41:22,843 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:41:22,844 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: The item is send correctly
+2023-03-27 23:41:22,880 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 5
+2023-03-27 23:41:22,902 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 11
+2023-03-27 23:41:22,917 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 15
+2023-03-27 23:41:25,976 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = jane
+2023-03-27 23:41:25,997 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = tom
+2023-03-27 23:41:26,007 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:41:26,017 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:41:26,025 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: A user try to know if the following user is an admin = tom
+2023-03-27 23:41:26,036 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 5
+2023-03-27 23:41:26,038 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:41:26,043 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:41:26,131 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 11
+2023-03-27 23:41:26,160 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 15
+2023-03-27 23:41:29,006 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = tom
+2023-03-27 23:41:29,030 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:41:29,042 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 5
+2023-03-27 23:41:29,052 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 11
+2023-03-27 23:41:29,081 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 15
+2023-03-27 23:41:49,082 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to post a source
+2023-03-27 23:41:49,100 WARN [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: A user try to post a item listing with the following information = ntnu.idi.idatt2015.tokenly.backend.model.ItemListing@5705868b
+2023-03-27 23:41:49,114 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.CategoryController: A user try to get all the items
+2023-03-27 23:41:49,127 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A user is try to post the item category = ntnu.idi.idatt2015.tokenly.backend.model.ItemsCategories@34c7d4a6
+2023-03-27 23:41:49,128 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: The item category was added correctly
+2023-03-27 23:41:49,137 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.CategoryController: A user try to get all the items
+2023-03-27 23:41:49,149 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.CategoryController: User try to save a new category = ntnu.idi.idatt2015.tokenly.backend.model.Category@579367b9
+2023-03-27 23:41:49,150 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.CategoryController: User sae the new category.
+2023-03-27 23:41:49,157 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A user is try to post the item category = ntnu.idi.idatt2015.tokenly.backend.model.ItemsCategories@67e59beb
+2023-03-27 23:41:49,159 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: The item category was added correctly
+2023-03-27 23:41:49,193 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:41:49,197 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:41:49,206 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = tom
+2023-03-27 23:41:49,300 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.SourceController: A user try to get the source of a item
+2023-03-27 23:41:49,308 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:41:49,325 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 5
+2023-03-27 23:41:49,342 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 11
+2023-03-27 23:41:49,376 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 15
+2023-03-27 23:41:51,521 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = tom
+2023-03-27 23:41:51,524 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: User try to get profiles information by username = tom
+2023-03-27 23:41:51,530 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = tom
+2023-03-27 23:41:51,541 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:41:51,543 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:41:51,552 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 5
+2023-03-27 23:41:51,557 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.ProfileController: A user try to know if the following user is an admin = tom
+2023-03-27 23:41:51,563 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 11
+2023-03-27 23:41:51,570 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 15
+2023-03-27 23:41:56,262 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:41:56,264 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = tom
+2023-03-27 23:41:56,276 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get the item and listing with item id = 21
+2023-03-27 23:41:56,278 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: The item is send correctly
+2023-03-27 23:41:56,281 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:41:56,295 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 5
+2023-03-27 23:41:56,309 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 11
+2023-03-27 23:41:56,322 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 15
+2023-03-27 23:41:58,719 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:41:58,732 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.ChatController: A user is try to get all the chat of the user = tom
+2023-03-27 23:41:58,793 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 5
+2023-03-27 23:41:58,805 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 3
+2023-03-27 23:41:58,837 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 14
+2023-03-27 23:41:58,838 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 5
+2023-03-27 23:41:58,854 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 1
+2023-03-27 23:41:58,858 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 11
+2023-03-27 23:41:58,917 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 16
+2023-03-27 23:41:58,920 INFO [http-nio-8080-exec-10] ntnu.idi.idatt2015.tokenly.backend.controller.MessageController: User try to get all the message of a chat by chats id = 15
+2023-03-27 23:41:58,949 INFO [http-nio-8080-exec-5] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 10
+2023-03-27 23:41:58,989 INFO [http-nio-8080-exec-9] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 20
+2023-03-27 23:42:00,234 INFO [http-nio-8080-exec-6] ntnu.idi.idatt2015.tokenly.backend.controller.ItemListingController: User try to get all the item with listings with the following search information: Page =0
+2023-03-27 23:42:00,243 INFO [http-nio-8080-exec-2] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 21
+2023-03-27 23:42:00,252 INFO [http-nio-8080-exec-1] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 12
+2023-03-27 23:42:00,259 INFO [http-nio-8080-exec-3] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 13
+2023-03-27 23:42:00,266 INFO [http-nio-8080-exec-4] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 14
+2023-03-27 23:42:00,273 INFO [http-nio-8080-exec-7] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 15
+2023-03-27 23:42:00,281 INFO [http-nio-8080-exec-8] ntnu.idi.idatt2015.tokenly.backend.controller.ItemCategoryController: A item try to get all the categories by itemId = 17
+2023-03-27 23:42:08,825 INFO [SpringApplicationShutdownHook] org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory: Shutting down embedded database: url='jdbc:h2:mem:tokenly-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false'
