@@ -283,4 +283,19 @@ public class JdbcListingsRepository implements ListingsRepository {
             return Optional.empty();
         }
     }
+
+    @Override
+    public Optional<Long> getItemIdByListingId(long listingId) {
+        String sql = "SELECT item_id FROM listings where listing_id = :listingId";
+        Map<String,Object> params = new HashMap<>();
+        params.put("listingId", listingId);
+        try {
+            long itemId = namedParameterJdbcTemplate.queryForObject(sql,params,Long.class);
+            return Optional.of(listingId);
+        }catch (Exception e){
+            return Optional.of((long)-1);
+        }
+    }
+
+
 }
