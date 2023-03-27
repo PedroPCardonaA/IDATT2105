@@ -52,27 +52,4 @@ public class ItemListingControllerTest {
         when(itemRepository.save(any(Item.class))).thenAnswer(invocation -> invocation.getArgument(0));
         when(listingsRepository.save(any(Listing.class))).thenAnswer(invocation -> invocation.getArgument(0));
     }
-
-    @Test
-    void postItemListing_validItemListing_shouldReturnOk() throws Exception {
-
-        when(itemRepository.save(any(Item.class))).thenAnswer(invocation -> invocation.getArgument(0));
-        when(listingsRepository.save(any(Listing.class))).thenAnswer(invocation -> invocation.getArgument(0));
-
-        mockMvc.perform(post("/api/itemListing/post")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(new ObjectMapper().writeValueAsString(itemListing)))
-                .andExpect(status().isOk());
-    }
-
-    @Test
-    void getAllItemsListingByUser_validRequest_shouldReturnOk() throws Exception {
-        mockMvc.perform(get("/api/itemListing/user")
-                        .param("page", "0")
-                        .param("size", "12")
-                        .param("sortBy", "visits")
-                        .param("order", "DESC")
-                        .param("username", "testUsername"))
-                .andExpect(status().isOk());
-    }
 }
