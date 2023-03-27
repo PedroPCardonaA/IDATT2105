@@ -1,6 +1,5 @@
 package ntnu.idi.idatt2015.tokenly.backend.JDBCrepository;
 
-// ... (other imports)
 
 import ntnu.idi.idatt2015.tokenly.backend.model.Category;
 import ntnu.idi.idatt2015.tokenly.backend.model.Item;
