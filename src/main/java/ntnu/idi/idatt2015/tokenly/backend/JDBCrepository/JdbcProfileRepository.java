@@ -199,6 +199,8 @@ public class JdbcProfileRepository implements ProfileRepository {
 
     @Override
     public int updatePassword(String username, String newPassword, String oldPassword) {
+        System.out.println(newPassword);
+        System.out.println(oldPassword);
         String sql = "UPDATE users SET password = :password WHERE username = :username AND password = :oldPassword";
         Map<String,Object> params = new HashMap<>();
         params.put("username", username);
@@ -207,6 +209,7 @@ public class JdbcProfileRepository implements ProfileRepository {
         try {
             return namedParameterJdbcTemplate.update(sql,params);
         }catch (Exception e){
+            System.out.println(e.getMessage());
             return -1;
         }
     }

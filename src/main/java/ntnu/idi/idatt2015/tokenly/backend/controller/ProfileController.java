@@ -230,6 +230,7 @@ public class ProfileController {
     @PutMapping("/profile/{username}/password")
     public ResponseEntity<?> changePassword(@PathVariable("username") String username,@RequestParam("newPassword") String password,@RequestParam("oldPassword") String oldPassword){
         try{
+            String olsPassword = passwordEncoder.encode(oldPassword);
             String hash = passwordEncoder.encode(password);
             int answer = profileRepository.updatePassword(username,hash,oldPassword);
             if(answer == -1) return ResponseEntity.badRequest().body("ERROR: USERNAME OR PASSWORD IS NOT CORRECT.");
