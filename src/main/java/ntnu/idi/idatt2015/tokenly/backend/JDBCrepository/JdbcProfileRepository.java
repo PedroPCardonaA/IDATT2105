@@ -241,4 +241,17 @@ public class JdbcProfileRepository implements ProfileRepository {
         }
     }
 
+    @Override
+    public long changeUnable(String username) {
+        String sql = "UPDATE users SET enabled = NOT enabled WHERE username = :username";
+        Map<String,Object> param = new HashMap<>();
+        param.put("username", username);
+        try{
+            int answer = namedParameterJdbcTemplate.update(sql,param);
+            return answer;
+        }catch (Exception e){
+            return -1;
+        }
+    }
+
 }
