@@ -1,55 +1,35 @@
-image: maven:latest
-
-stages:        
-  - build
-  - verify
-  - test
-  - pages
-
-build:
-  stage: build
-  only:
-    - master
-    - merge_requests
-  script:
-    - echo "Building project"
-    - mvn clean compile
-
-lint:
-  stage: verify
-  only:
-    - master
-    - merge_requests
-  script:
-    - echo "Formatting"
-    - mvn clean formatter:format
-    - echo "Checking formatting"
-    - mvn clean formatter:validate
-
-test:
-  stage: test
-  only:
-    - master
-    - merge_requests
-  script:
-    - echo "Running tests"
-    - mvn clean test
-  artifacts:
-    when: always
-    paths:
-      - target/site/jacoco # We need to save the HTML-reports that Jacoco produces, so we can serve it on Gitlab Pages in the next stage
-    reports:
-      junit:
-        - target/surefire-reports/TEST-*.xml
-        - target/failsafe-reports/TEST-*.xml
-
-pages:
-  stage: pages
-  script:
-    - echo "Building Javadoc"
-    - mvn javadoc:javadoc
-  artifacts:
-    paths:
-      - public/javadoc
-  only:
-    - master
+#Workflow name
+name: CI/CD Pipeline
+on:
+  #Manually trigger workflow runs
+  workflow_dispatch:
+  #Trigger the workflow on push from the main branch
+  push:
+    branches:
+      - main
+jobs:
+  #Test's job
+  tests:
+    name: Unit tests
+    #Run on Ubuntu using the latest version
+    runs-on: ubuntu-latest
+    #Job's steps
+    steps:
+      #Check-out your repository under $GITHUB_WORKSPACE, so your workflow can access it
+      - uses: actions/checkout@v1
+      #Set up JDK 11
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: '11'
+      #Set up Maven cache
+      - name: Cache Maven packages
+        #This action allows caching dependencies and build outputs to improve workflow execution time.
+        uses: actions/cache@v1
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+      #Run Tests
+      - name: Run Tests
+        run: mvn -B test
