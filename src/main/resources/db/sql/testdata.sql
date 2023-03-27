@@ -155,7 +155,7 @@ VALUES
     (2, 'bob', 'Can you send me some photos of it?', false),
     (2, 'alice', 'Absolutely, I will send them over shortly.', false),
     (2, 'bob', 'Thanks. Also, what is the condition of the table?', false),
-    (3, 'bob', 'Hi Tom, can you lower the price for the basketball?', false),
+    (3, 'tom', 'Hi Tom, can you lower the price for the basketball?', false),
     (3, 'tom', 'Sorry, the price is already quite low. I cannot go any lower.', false),
     (4, 'john', 'Hi Jane, I loved The Great Gatsby, thank you for selling it!', false),
     (5, 'alice', 'Hi Bob, I am interested in the basketball, can you tell me more about it?', false),

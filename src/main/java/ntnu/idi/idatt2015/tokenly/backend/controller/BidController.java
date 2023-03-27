@@ -42,21 +42,27 @@ public class BidController {
     @PostMapping("/bid")
     public ResponseEntity<?> saveBid(@RequestBody Bid bid){
         try {
+            log.info("A user is trying to post the next bid: " + bid);
             if(bid.getPrice() != null){
                 if(bid.getPrice() <= 0){
+                    log.info("The bid information of the bid is not correct!");
                   return new ResponseEntity<>("The bid cannot be zero or lower!", HttpStatus.BAD_REQUEST);
                 }
                 if(bid.getPrice() >= 1000){
+                    log.info("The bid information of the bid is not correct!");
                     return new ResponseEntity<>("The bid cannot be higher than 1000", HttpStatus.BAD_REQUEST);
                 }
             }
             Bid createdBid = bidRepository.save(bid);
             if (createdBid != null) {
+                log.info("The request has been correctly handled and answer!");
                 return ResponseEntity.ok(createdBid);
             } else {
+                log.info("The bid information of the bid is not correct!");
                 return ResponseEntity.badRequest().build();
             }
         } catch (Exception e) {
+            log.warn("INTERNAL SERVER ERROR");
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
@@ -70,10 +76,12 @@ public class BidController {
     @GetMapping("/bid/{id}")
     public ResponseEntity<Bid> getBidById(@PathVariable("id") Long id){
         try {
+            log.info("A user try to search a bid by id");
             Optional<Bid> bid = bidRepository.getBidById(id);
             return bid.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                     .orElseGet(() -> new ResponseEntity<>(HttpStatus.NO_CONTENT));
         }catch (Exception e){
+            log.warn("INTERNAL SERVER ERROR");
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
