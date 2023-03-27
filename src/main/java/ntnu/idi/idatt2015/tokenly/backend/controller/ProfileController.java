@@ -232,8 +232,18 @@ public class ProfileController {
         try{
             String olsPassword = passwordEncoder.encode(oldPassword);
             String hash = passwordEncoder.encode(password);
-            int answer = profileRepository.updatePassword(username,hash,oldPassword);
+            int answer = profileRepository.updatePassword(username,hash,olsPassword);
             if(answer == -1) return ResponseEntity.badRequest().body("ERROR: USERNAME OR PASSWORD IS NOT CORRECT.");
+            return ResponseEntity.ok(answer);
+        }catch (Exception e){
+            return ResponseEntity.internalServerError().body("INTERNAL SERVER ERROR");
+        }
+    }
+
+    @GetMapping("/profile/isAdmin/{username}")
+    public ResponseEntity<?> isAdmin(@PathVariable("username") String username){
+        try{
+            Boolean answer = profileRepository.isAdmin(username);
             return ResponseEntity.ok(answer);
         }catch (Exception e){
             return ResponseEntity.internalServerError().body("INTERNAL SERVER ERROR");
