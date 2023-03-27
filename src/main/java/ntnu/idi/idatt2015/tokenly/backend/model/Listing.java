@@ -45,7 +45,7 @@ public class Listing {
     /**
      * Whether the listing is closed or not.
      */
-    private boolean isClosed;
+    private Boolean isClosed;
 
     /**
      * The number of visits to the listing.
